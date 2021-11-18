@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "runecraft:ashe"
+    }
+  },
+  "result": {
+    "item": "runecraft:ashe_block"
+  }
+}

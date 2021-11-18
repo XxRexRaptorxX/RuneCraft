@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "XOX",
+    "IXI",
+    " X " 
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_stone"
+    },
+    "O": {
+      "item": "minecraft:enchanted_book"
+    },
+    "I": {
+      "item": "runecraft:rune_dust"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:altar"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "extragems:amethyst_block",
+    "extragems:charged_amethyst_block",
+    "extragems:ruby_block",
+    "extragems:charged_ruby_block",
+    "extragems:sapphire_block",
+    "extragems:charged_sapphire_block",
+    "extragems:topaz_block",
+    "extragems:charged_topaz_block",
+    "extragems:crystal_block",
+    "extragems:charged_crystal_block",
+    "extragems:charged_emerald_block",
+    "extragems:charged_diamond_block"
+  ]
+}

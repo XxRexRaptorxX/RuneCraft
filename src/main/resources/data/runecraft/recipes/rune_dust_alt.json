@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+  
+    {
+      "item": "runecraft:rune_dust_block"
+    }
+ 
+  ],
+  "result": {
+    "item": "runecraft:rune_dust",
+    "count": 9
+  }
+}

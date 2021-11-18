@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+  "group": "rune_stone",
+  "pattern": [
+  
+    "XOX",
+    "O#O",
+    "XOX"
+  ],
+  
+  "key": {
+    "X": {
+      "item": "minecraft:obsidian"
+    },
+    "O": {
+      "type": "forge:ore_dict",
+      "ore": "dustAshe",
+      "data": 0
+    },
+    "#": {
+      "item": "runecraft:spirit_crystal"
+    }
+  },   
+  
+  "result": {
+    "item": "runecraft:rune_stone"
+  }
+}

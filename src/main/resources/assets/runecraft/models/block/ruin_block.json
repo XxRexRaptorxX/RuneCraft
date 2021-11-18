@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "runecraft:blocks/ruin_block",
+        "up": "runecraft:blocks/ruin_block",
+        "down": "runecraft:blocks/ruin_block",
+        "north": "runecraft:blocks/ruin_block_side",
+        "east": "runecraft:blocks/ruin_block_side",
+        "west": "runecraft:blocks/ruin_block_side",
+        "south": "runecraft:blocks/ruin_block_side"
+    }
+}

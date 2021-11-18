@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "XXX",
+    "IOI",
+    "XXX" 
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_stone"
+    },
+    "O": {
+      "item": "minecraft:enchanting_table"
+    },
+    "I": {
+      "item": "runecraft:rune_dust"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:rune_scriber"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+  
+    {
+      "item": "runecraft:magical_book",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "runecraft:rune_dust"
+    },
+    {
+      "item": "runecraft:rune_dust"
+    }
+ 
+  ],
+  "result": {
+    "item": "runecraft:spirit_crystal"
+  }
+}

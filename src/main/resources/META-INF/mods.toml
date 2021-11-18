@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="All rights reserved"
+issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft/issues"
+
+[[mods]]
+modId="runecraft"
+version="3.0.0"
+displayName="RuneCraft"
+updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/RuneCraft.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft"
+logoFile="logo.png"
+#credits=""
+authors="XxRexRaptorxX (RexRaptor)"
+description='''
+This magical mod adds everything related to runes to the game!
+'''
+
+[[dependencies.runecraft]]
+    modId="forge"
+    mandatory=true
+    versionRange="[37,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.runecraft]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.17.1,1.18)"
+    ordering="NONE"
+    side="BOTH"

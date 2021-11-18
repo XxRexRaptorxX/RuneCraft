@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "portable_runes",
+  "pattern": [
+  
+    "XIX",
+    "XOX",
+    "X#X" 
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_dust"
+    },
+    "O": {
+      "item": "runecraft:portable_rune_stone"
+    },
+    "I": {
+      "item": "runecraft:rune_f"
+    },
+    "#": {
+      "item": "runecraft:spirit_crystal"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:portable_rune_stone_f"
+  }
+}

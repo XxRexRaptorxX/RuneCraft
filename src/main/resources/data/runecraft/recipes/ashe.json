@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "#"
+  ],
+  
+  "key": {
+    "#": {
+      "item": "runecraft:ashe_block"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:ashe",
+    "count": 4
+  }
+}

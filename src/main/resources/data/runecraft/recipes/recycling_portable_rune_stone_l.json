@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "spirit_star",
+  "ingredients": [
+  
+    {
+      "item": "runecraft:magical_book",
+      "data": 32767
+    },
+    {
+      "item": "runecraft:portable_rune_stone_l"
+    }
+ 
+  ],
+  "result": {
+    "item": "runecraft:spirit_star"
+  }
+}

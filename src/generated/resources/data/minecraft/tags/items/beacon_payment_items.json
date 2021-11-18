@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "extragems:amethyst",
+    "extragems:ruby",
+    "extragems:sapphire",
+    "extragems:topaz",
+    "extragems:crystal",
+    "extragems:amethyst_charged",
+    "extragems:ruby_charged",
+    "extragems:sapphire_charged",
+    "extragems:topaz_charged",
+    "extragems:crystal_charged",
+    "extragems:diamond_charged",
+    "extragems:emerald_charged"
+  ]
+}
