@@ -35,7 +35,7 @@ public class ItemWand extends Item {
                 .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.EPIC)
                 .durability(200)
-                .stacksTo(1)
+                //.stacksTo(1) TODO
         );
 
     }

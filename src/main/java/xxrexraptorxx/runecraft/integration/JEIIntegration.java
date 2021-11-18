@@ -26,12 +26,12 @@ public class JEIIntegration implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
         ArrayList<ItemStack> gems = new ArrayList<ItemStack>();
-        gems.add(new ItemStack(ModItems.CHARGED_AMETHYST.get()));
+        //gems.add(new ItemStack(ModItems..get()));
 
         IIngredientManager ingredientManager = registry.getIngredientManager();
 
-        registry.addIngredientInfo(gems, VanillaTypes.ITEM, new TranslatableComponent("message.extragems.charged_gem_jei_desc"));
-
+        registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.magical_book_jei_desc"));
+        //TODO
     }
 }
 

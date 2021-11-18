@@ -1,5 +1,5 @@
 {
-  "type": "forge:ore_shaped",
+  "type": "minecraft:crafting_shaped",
   "group": "portable_runestone",
   "pattern": [
   
@@ -10,9 +10,7 @@
   
   "key": {
     "O": {
-      "type": "forge:ore_dict",
-      "ore": "dustAshe",
-      "data": 0
+      "tag": "forge:dusts/ashe"
     },
     "X": {
       "item": "minecraft:obsidian"

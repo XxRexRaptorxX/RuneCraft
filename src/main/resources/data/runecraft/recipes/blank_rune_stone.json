@@ -1,5 +1,5 @@
 {
-  "type": "forge:ore_shaped",
+  "type": "minecraft:crafting_shaped",
   "group": "rune_stone",
   "pattern": [
   
@@ -13,9 +13,7 @@
       "item": "minecraft:obsidian"
     },
     "O": {
-      "type": "forge:ore_dict",
-      "ore": "dustAshe",
-      "data": 0
+      "tag": "forge:dusts/ashe"
     },
     "#": {
       "item": "runecraft:spirit_crystal"

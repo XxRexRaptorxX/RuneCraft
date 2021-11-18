@@ -73,6 +73,7 @@ public class ModItems {
     public static final RegistryObject<ItemRune> RUNE_GHS = ITEMS.register("rune_ghs", ItemRune::new);
     public static final RegistryObject<ItemRune> RUNE_HRD = ITEMS.register("rune_hrd", ItemRune::new);
     public static final RegistryObject<ItemRune> RUNE_PTL = ITEMS.register("rune_ptl", ItemRune::new);
+    public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE = ITEMS.register("portable_rune_stone", ItemPortableRuneStone::new);
     public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE_A = ITEMS.register("portable_rune_stone_a", ItemPortableRuneStone::new);
     public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE_B = ITEMS.register("portable_rune_stone_b", ItemPortableRuneStone::new);
     public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE_C = ITEMS.register("portable_rune_stone_c", ItemPortableRuneStone::new);

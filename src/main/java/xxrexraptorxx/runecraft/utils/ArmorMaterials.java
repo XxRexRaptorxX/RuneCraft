@@ -9,13 +9,14 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.Lazy;
+import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 
 import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
 
-    CLOTH(References.MODID + ":cloth", 20, new int[] {1, 2, 2, 1}, 30, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, ()-> { return Ingredient.of(Items.CLOTH);}),
+    CLOTH(References.MODID + ":cloth", 20, new int[] {1, 2, 2, 1}, 30, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, ()-> { return Ingredient.of(ModItems.CLOTH.get());});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;

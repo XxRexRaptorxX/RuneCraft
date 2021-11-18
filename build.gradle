@@ -108,7 +108,7 @@ minecraft {
             args '--mod', 'runecraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                runecraft {
                     source sourceSets.main
                 }
             }

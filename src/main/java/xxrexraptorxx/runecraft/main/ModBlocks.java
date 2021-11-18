@@ -29,7 +29,7 @@ public class ModBlocks {
     public static final RegistryObject<Item> ALTAR_BLOCKITEM = ITEMS.register("altar", () -> new BlockItem(ALTAR_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<BlockRuneScriber> RUNE_SCRIBER_BLOCK = BLOCKS.register("rune_scriber", BlockRuneScriber::new);
-    public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("altar", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("rune_scriber", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<BlockAshe> ASHE_BLOCK = BLOCKS.register("ashe_block", BlockAshe::new);
     public static final RegistryObject<Item> ASHE_BLOCKITEM = ITEMS.register("ashe_block", () -> new BlockItem(ASHE_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));

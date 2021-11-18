@@ -95,8 +95,8 @@ public class Config {
 
 
     public static void initCommon() {
-        //ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        //COMMON_CONFIG = builder.build();
+        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        COMMON_CONFIG = builder.build();
     }
 
 
