@@ -1,10 +1,10 @@
 {
-    "parent": "block/orientable",
+    "parent": "minecraft:block/orientable",
     "__comment": "Designed by XxRexRaptorxX (RexRaptor) with Cubik Studio - https://cubik.studio",
     "textures": {
-        "particle": "runecraft:blocks/translation_stone_back",
-        "stone_front": "runecraft:blocks/translation_stone",
-        "stone_back": "runecraft:blocks/translation_stone_back"
+        "particle": "runecraft:block/translation_stone_back",
+        "stone_front": "runecraft:block/translation_stone",
+        "stone_back": "runecraft:block/translation_stone_back"
     },
     "elements": [
         {

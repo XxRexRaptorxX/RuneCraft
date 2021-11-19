@@ -1,11 +1,11 @@
 {
-    "parent": "block/block",
+    "parent": "minecraft:block/block",
 	"__comment": "Designed by RexRaptor with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "runecraft:blocks/altar_top",
-		"top": "runecraft:blocks/altar_top",
-		"side": "runecraft:blocks/altar_side",
-		"front": "runecraft:blocks/altar_front"
+		"particle": "runecraft:block/altar_top",
+		"top": "runecraft:block/altar_top",
+		"side": "runecraft:block/altar_side",
+		"front": "runecraft:block/altar_front"
 	},
 	"elements": [ 	 
 		{

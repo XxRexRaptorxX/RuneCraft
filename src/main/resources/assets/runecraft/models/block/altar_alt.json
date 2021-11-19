@@ -1,11 +1,11 @@
 {
-    "parent": "block/block",
+    "parent": "minecraft:block/block",
 	"__comment": "Designed by RexRaptor (XxRexRaptorxX) with BDcraft Cubik PRO 0.96 Beta - http://bdcraft.net",
 	"textures": {
-		"particle": "runecraft:blocks/rune_stone_top",
-		"texture": "runecraft:blocks/rune_stone_top",
-		"texture2": "runecraft:blocks/rune_stone_side",
-		"texture1": "runecraft:blocks/ashe_block"
+		"particle": "runecraft:block/rune_stone_top",
+		"texture": "runecraft:block/rune_stone_top",
+		"texture2": "runecraft:block/rune_stone_side",
+		"texture1": "runecraft:block/ashe_block"
 	},
 	"elements": [
 		{

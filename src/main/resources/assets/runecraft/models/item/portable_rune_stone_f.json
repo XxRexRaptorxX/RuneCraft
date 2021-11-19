@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "runecraft:items/portable_rune_stone_f"
+    }
+}

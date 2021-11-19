@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "runecraft:blocks/ashe_block"
+    "all": "runecraft:block/ashe_block"
   }
 }

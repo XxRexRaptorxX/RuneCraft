@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "runecraft:blocks/rune_dust_block"
+    "all": "runecraft:block/rune_dust_block"
   }
 }

@@ -48,7 +48,7 @@ public class ItemPortableRuneStone extends Item {
         list.add(new TextComponent(ChatFormatting.BLUE + RuneHelper.getRuneName(RuneHelper.getRegistryNameFromTag(stack))));
 
         if (Config.ACTIVATE_RUNESTONE_DESCRIPTION.get()) {
-            list.add(new TextComponent((ChatFormatting.GRAY + RuneHelper.getEffect(RuneHelper.getRegistryNameFromTag(stack)).toString())));
+            list.add(new TextComponent((ChatFormatting.GRAY + "Contains: " + RuneHelper.getEffect(RuneHelper.getRegistryNameFromTag(stack)).getRegistryName().toString().substring(10))));
         }
     }
 

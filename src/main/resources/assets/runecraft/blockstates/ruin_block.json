@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "runecraft:block/ruin_block" }
+    }
+}

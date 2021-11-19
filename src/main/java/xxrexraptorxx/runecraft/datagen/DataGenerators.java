@@ -19,7 +19,6 @@ public class DataGenerators {
             generator.addProvider(new TagsItem(generator, new TagsBlock(generator, helper), helper));
         }
         if (event.includeClient()) {
-            generator.addProvider(new BlockStates(generator, helper));
             generator.addProvider(new Items(generator, helper));
         }
     }

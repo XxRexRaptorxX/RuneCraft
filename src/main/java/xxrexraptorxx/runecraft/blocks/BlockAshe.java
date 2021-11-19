@@ -17,7 +17,7 @@ public class BlockAshe extends FallingBlock {
 	public BlockAshe() {
 		super(Properties.of(Material.SAND)
 				.strength(0.2F, 0.0F)
-				.sound(SoundType.SOUL_SAND)
+				.sound(SoundType.SAND)
 				.color(MaterialColor.COLOR_BLACK)
 		);
 	}

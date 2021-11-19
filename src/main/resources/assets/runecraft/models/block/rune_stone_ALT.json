@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
+    "parent": "minecraft:block/cube",
     "textures": {
-        "particle": "runecraft:blocks/rune_stone_top",
-        "up": "runecraft:blocks/rune_stone_top",
-        "down": "runecraft:blocks/rune_stone_top",
-        "north": "runecraft:blocks/rune_stone_side",
-        "east": "runecraft:blocks/rune_stone_side",
-        "west": "runecraft:blocks/rune_stone_side",
-        "south": "runecraft:blocks/rune_stone_side"
+        "particle": "runecraft:block/rune_stone_top",
+        "up": "runecraft:block/rune_stone_top",
+        "down": "runecraft:block/rune_stone_top",
+        "north": "runecraft:block/rune_stone_side",
+        "east": "runecraft:block/rune_stone_side",
+        "west": "runecraft:block/rune_stone_side",
+        "south": "runecraft:block/rune_stone_side"
     }
 }

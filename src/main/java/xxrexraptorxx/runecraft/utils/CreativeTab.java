@@ -7,7 +7,7 @@ import xxrexraptorxx.runecraft.main.References;
 
 public class CreativeTab {
 
-    public static CreativeModeTab MOD_TAB = new CreativeModeTab(References.MODID + "Tab") {
+    public static CreativeModeTab MOD_TAB = new CreativeModeTab(References.MODID + "_tab") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.RUNE_V.get());

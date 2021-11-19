@@ -1,10 +1,10 @@
 {
-    "parent": "block/block",
+    "parent": "minecraft:block/block",
     "__comment": "Designed by RexRaptor (XxRexRaptorxX) with Cubik Studio - https://cubik.studio",
     "textures": {
-        "particle": "runecraft:blocks/rune_stone_top",
-        "top_texture": "runecraft:blocks/rune_stone_top",
-        "side_texture": "runecraft:blocks/rune_stone_a"
+        "particle": "runecraft:block/rune_stone_top",
+        "top_texture": "runecraft:block/rune_stone_top",
+        "side_texture": "runecraft:block/rune_stone_a"
     },
     "elements": [
         {

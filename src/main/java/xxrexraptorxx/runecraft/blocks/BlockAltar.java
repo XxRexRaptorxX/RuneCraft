@@ -26,7 +26,7 @@ public class BlockAltar extends Block {
 		);
 	}
 
-	//TODO: Test
+
 	@Override
 	public void animateTick(BlockState pState, Level world, BlockPos pos, Random pRandom) {
 		Random rand = new Random();
