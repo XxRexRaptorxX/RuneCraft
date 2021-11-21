@@ -18,6 +18,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -33,6 +34,7 @@ public class ItemPortableRuneStone extends Item {
                 .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
+                .defaultDurability(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
         );
 
     }
@@ -45,10 +47,11 @@ public class ItemPortableRuneStone extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
-        list.add(new TextComponent(ChatFormatting.BLUE + RuneHelper.getRuneName(RuneHelper.getRegistryNameFromTag(stack))));
-
-        if (Config.ACTIVATE_RUNESTONE_DESCRIPTION.get()) {
-            list.add(new TextComponent((ChatFormatting.GRAY + "Contains: " + RuneHelper.getEffect(RuneHelper.getRegistryNameFromTag(stack)).getRegistryName().toString().substring(10))));
+        if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
+            list.add(new TextComponent(ChatFormatting.BLUE + RuneHelper.getRuneName(this.asItem().getRegistryName().toString().substring(30))));
+        }
+        if (Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
+            list.add(new TextComponent((ChatFormatting.GRAY + "Contains: " + RuneHelper.getEffect(this.getRegistryName().toString().substring(30)).getRegistryName().toString().substring(10).replace("_", " "))));
         }
     }
 
@@ -61,7 +64,7 @@ public class ItemPortableRuneStone extends Item {
 
         level.playSound(player.getPlayer(), player.getPlayer().position().x, player.getPlayer().position().y, player.getPlayer().position().z, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
         player.getPlayer().getCooldowns().addCooldown(this, Config.PORTABLE_SPELL_COOLDOWN.get());
-        stack.setDamageValue(stack.getDamageValue() + 1); //TODO TEST + oder -
+        stack.setDamageValue(stack.getDamageValue() + 1);
 
         if (!level.isClientSide) {
             AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
@@ -72,11 +75,12 @@ public class ItemPortableRuneStone extends Item {
             cloud.setParticle(ParticleTypes.ENCHANT);
 
             if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
-                cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(RuneHelper.getRegistryNameFromTag(stack)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
-                level.addFreshEntity(cloud);
+                cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
             } else {
-                player.getPlayer().addEffect(new MobEffectInstance(RuneHelper.getEffect(RuneHelper.getRegistryNameFromTag(stack)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                player.getPlayer().addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
             }
+
+            level.addFreshEntity(cloud);
         }
         return InteractionResult.SUCCESS;
     }

@@ -7,16 +7,21 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,6 +32,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraftforge.api.distmarker.Dist;
 import xxrexraptorxx.runecraft.main.ModBlocks;
+import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -35,6 +41,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class BlockRuneStone extends Block {
@@ -68,7 +75,7 @@ public class BlockRuneStone extends Block {
 		return true;
 	}
 
-	//TODO test
+
 	@Override
 	public void animateTick(BlockState pState, Level world, BlockPos pos, Random pRandom) {
 		Random rand = new Random();
@@ -81,18 +88,47 @@ public class BlockRuneStone extends Block {
 		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 
-/**		TODO
-	@Override
-	public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
-		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-		drops.add(new ItemStack(ModBlocks.runeStone));
 
-		if(this != ModBlocks.runeStone) {
-			drops.add(new ItemStack(Item.++(References.MODID + ":rune_" + this.getName().toString().charAt(16))));
+	@Override
+	public void stepOn(Level level, BlockPos pos, BlockState pState, Entity entityIn) {
+		//base blocks
+		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && this.getRegistryName().toString().length() == 22) {
+			if(entityIn instanceof Player) {
+				Player player = (Player) entityIn;
+				player.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(this.getRegistryName().toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+			}
+
+			if(entityIn instanceof LivingEntity) {
+				LivingEntity entity = (LivingEntity) entityIn;
+				entity.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(this.getRegistryName().toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+			}
 		}
 
-		return drops;
-	}**/
+		//special blocks
+		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && this.getRegistryName().toString().length() == 24) {
+			if (this == ModBlocks.RUNE_STONE_DMG.get()) {
+				entityIn.hurt(DamageSource.MAGIC, 4.0F);
+
+			} else if (this == ModBlocks.RUNE_STONE_FRE.get()) {
+				entityIn.setSecondsOnFire(20);
+
+			} else if (this == ModBlocks.RUNE_STONE_HRD.get()) {
+				entityIn.hurt(DamageSource.MAGIC, 2.0F);
+
+			} else if (this == ModBlocks.RUNE_STONE_PTL.get()) {
+				if (entityIn.isPassenger()) {
+					entityIn.stopRiding();
+				}
+				level.playSound((Player)null, pos, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.BLOCKS, 1.0F, level.random.nextFloat() * 0.15F + 0.F);
+				if(entityIn.isCrouching()) {
+					entityIn.teleportTo(pos.getX(), pos.getY() - 10, pos.getZ());
+				} else {
+					entityIn.teleportTo(pos.getX(), pos.getY() + 10, pos.getZ());
+				}
+			}
+		}
+	}
+
 
 	/**
 	@Override
@@ -147,72 +183,56 @@ public class BlockRuneStone extends Block {
 	}
 	**/
 
-	//TODO Test!!!!
-	@Override
-	public boolean collisionExtendsVertically(BlockState state, BlockGetter world, BlockPos pos, Entity entityIn) {
-		//base blocks
-		if(!entityIn.level.isClientSide && this != ModBlocks.RUNE_STONE.get() && this.getName().toString().length() == 17) { //!(runestone.getType() == "0" && runestone.getType().length() == 1)
-			if(entityIn instanceof Player) {
-				Player player = (Player) entityIn;
-				player.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(this.getName().getString().charAt(16))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-			}
-
-			if(entityIn instanceof LivingEntity) {
-				LivingEntity entity = (LivingEntity) entityIn;
-				entity.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(this.getName().toString().charAt(16))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-			}
-		}
-
-		//special blocks
-		if(!entityIn.level.isClientSide && this != ModBlocks.RUNE_STONE.get() && this.getName().toString().length() == 19) {
-			if (this == ModBlocks.RUNE_STONE_DMG.get()) {
-				entityIn.hurt(DamageSource.MAGIC, 4.0F);
-
-			} else if (this == ModBlocks.RUNE_STONE_FRE.get()) {
-				entityIn.setSecondsOnFire(20);
-
-			} else if (this == ModBlocks.RUNE_STONE_HRD.get()) {
-				entityIn.hurt(DamageSource.MAGIC, 2.0F);
-
-			} else if (this == ModBlocks.RUNE_STONE_PTL.get()) {
-				entityIn.handleInsidePortal(pos); //TODO TEST
-			}
-		}
-		return false;
-	}
-
-
 
 	@Override
 	public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
-		Random rand = new Random();
-		double d0 = (double)((float)pos.getX() + rand.nextFloat());
-		double d1 = (double)((float)pos.getY() + 0.8F);
-		double d2 = (double)((float)pos.getZ() + rand.nextFloat());
-		double d3 = 0.0D;
-		double d4 = 0.0D;
-		double d5 = 0.0D;
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		if (!world.isClientSide) {
+			Random rand = new Random();
+			double d0 = (double) ((float) pos.getX() + rand.nextFloat());
+			double d1 = (double) ((float) pos.getY() + 0.8F);
+			double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
+			double d3 = 0.0D;
+			double d4 = 0.0D;
+			double d5 = 0.0D;
+			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+
+			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
+			world.addFreshEntity(drop);
+
+			if (this != ModBlocks.RUNE_STONE.get()) {
+				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(this.getRegistryName().toString().substring(21))));
+				world.addFreshEntity(extraDrop);
+			}
+		}
 	}
 
 
 	//TODO test
 	@Override
-	public void playerDestroy(Level world, Player pPlayer, BlockPos pos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
-		Random rand = new Random();
-		double d0 = (double)((float)pos.getX() + rand.nextFloat());
-		double d1 = (double)((float)pos.getY() + 0.8F);
-		double d2 = (double)((float)pos.getZ() + rand.nextFloat());
-		double d3 = 0.0D;
-		double d4 = 0.0D;
-		double d5 = 0.0D;
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
-	}
+	public void playerDestroy(Level world, Player player, BlockPos pos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
+		if (!world.isClientSide) {
+			Random rand = new Random();
+			double d0 = (double) ((float) pos.getX() + rand.nextFloat());
+			double d1 = (double) ((float) pos.getY() + 0.8F);
+			double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
+			double d3 = 0.0D;
+			double d4 = 0.0D;
+			double d5 = 0.0D;
+			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
+			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
+			world.addFreshEntity(drop);
+
+			if (this != ModBlocks.RUNE_STONE.get()) {
+				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(this.getRegistryName().toString().substring(21))));
+				world.addFreshEntity(extraDrop);
+			}
+		}
+	}
 
 	//TODO Test
 /**	@Override

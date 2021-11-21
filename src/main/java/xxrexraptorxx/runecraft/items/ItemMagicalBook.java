@@ -45,7 +45,7 @@ public class ItemMagicalBook extends Item {
 
 
     @Override
-    public ItemStack getContainerItem(ItemStack stack) {
+    public ItemStack getContainerItem(ItemStack stack) {    //TODO Test break
         if (stack.getMaxDamage() == stack.getDamageValue()) {
             return (ItemStack) null;
         } else {

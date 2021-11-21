@@ -1,7 +1,5 @@
 {
     "variants": {
-            "": {
-                "model": "runecraft:block/ashe_block"
-            }
+            "": { "model": "runecraft:block/ashe_block" }
     }
 }

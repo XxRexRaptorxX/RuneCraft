@@ -51,8 +51,6 @@ public class TagsBlock extends BlockTagsProvider {
                         ModBlocks.RUNE_STONE_HRD.get(),
                         ModBlocks.RUNE_STONE_GHS.get(),
                         ModBlocks.RUNE_STONE_PTL.get()
-
-
                         );
 
 

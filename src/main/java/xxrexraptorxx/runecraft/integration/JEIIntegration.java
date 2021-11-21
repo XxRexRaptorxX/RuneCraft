@@ -8,6 +8,7 @@ import mezz.jei.api.runtime.IIngredientManager;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 
@@ -29,9 +30,18 @@ public class JEIIntegration implements IModPlugin {
         //gems.add(new ItemStack(ModItems..get()));
 
         IIngredientManager ingredientManager = registry.getIngredientManager();
+        //TODO: JEI desc ritual
 
         registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.magical_book_jei_desc"));
-        //TODO
+        registry.addIngredientInfo(new ItemStack(ModBlocks.RUIN_BLOCK.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.ruin_block_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.basic_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ORB.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_jei_desc"));
+
+        registry.addIngredientInfo(new ItemStack(ModItems.SPELL_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.spell_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.CURSE_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.curse_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.LOST_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.lost_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.WAND_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.wand_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ORB_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_page_jei_desc"));
     }
 }
 

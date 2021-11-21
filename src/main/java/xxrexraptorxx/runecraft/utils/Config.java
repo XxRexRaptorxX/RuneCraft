@@ -24,11 +24,11 @@ public class Config {
     public static ForgeConfigSpec.IntValue CHARGING_COST_PAGES;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
+    public static ForgeConfigSpec.IntValue PORTABLE_RUNE_STONE_DURABILITY;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_DURATION;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_RADIUS;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_AMPLIFIER;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_COOLDOWN;
-    public static ForgeConfigSpec.IntValue WAND_COOLDOWN;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_REDSTONE_EFFECT;
@@ -82,12 +82,13 @@ public class Config {
         builder.pop();
 
         builder.comment("Portable Rune Stones").push(CATEGORY_PORTABLE_RUNESTONES);
-        ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT = builder.comment("Activate if the effects from the portable rune stones are public").define("activate_runstone_public_effect", true);
-        PORTABLE_SPELL_DURATION = builder.comment("The duration of the portable rune stone effects").defineInRange("portable_spell_duration", 10, 5, 500);
+        PORTABLE_RUNE_STONE_DURABILITY = builder.comment("The durability of portable rune stones").defineInRange("portable_runestone_durability", 200, 1, 1000);
+        ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT = builder.comment("Activate if the effects from the portable rune stones are public").define("activate_runestone_public_effect", true);
+        PORTABLE_SPELL_DURATION = builder.comment("The duration of the portable rune stone effects").defineInRange("portable_spell_duration", 200, 10, 1000);
         PORTABLE_SPELL_AMPLIFIER = builder.comment("The amplifier of the portable rune stone effects").defineInRange("portable_spell_amplifier", 0, 0, 5);
         PORTABLE_SPELL_RADIUS = builder.comment("The radius of the portable rune stone effects").defineInRange("portable_spell_radius", 2, 1, 10);
-        PORTABLE_SPELL_COOLDOWN = builder.comment("The cooldown of the portable rune stone effects").defineInRange("portable_spell_cooldown", 200, 5, 10000);
-        WAND_COOLDOWN = builder.comment("The cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
+        PORTABLE_SPELL_COOLDOWN = builder.comment("The cooldown of the portable rune stone effects (should be more than portable spell duration)").defineInRange("portable_spell_cooldown", 300, 10, 10000);
+        //WAND_COOLDOWN = builder.comment("The cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

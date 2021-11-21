@@ -2,9 +2,20 @@ package xxrexraptorxx.runecraft.utils;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
@@ -35,7 +46,7 @@ public class Events {
 
                     hasShownUp = true;
                 } else if (VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.FAILED) {
-                    System.err.println("Version checker failed!");
+                    System.err.println(References.NAME + "'s version checker failed!");
                 }
             }
         }
@@ -45,276 +56,115 @@ public class Events {
 
 
     /** Altar Functions **/
-/**
+
     @SubscribeEvent
     public void onInteract(PlayerInteractEvent.RightClickBlock event) {
-        //MAGICAL BOOK
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(Items.BOOK))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
+        ItemStack stack = event.getItemStack();
+        Level world = event.getWorld();
+        BlockPos pos = event.getPos();
+        Player player = event.getPlayer();
 
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
+            /** MAGICAL BOOK **/
+            if(stack == new ItemStack(Items.BOOK)) {
+                if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCost) {
+                    if (player.experienceLevel >= Config.CHARGING_COST.get()) {
 
-                    if(world.getCurrentMoonPhaseFactor() == 1 && !world.isDaytime()) {
-                        // convert
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+                        if (world.getMoonPhase() == 0) {
+                            // convert
+                            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1f, 1f);
 
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
-                        world.spawnEntity(entity);
+                            for (int i = 0; i < 2; i++) {
+                                world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                            }
 
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCost);
-                            ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.magicalBook).copy());
+                            if (!world.isClientSide) {
+                                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                                lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                                lightningbolt.setVisualOnly(true);
+                                world.addFreshEntity(lightningbolt);
 
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
-                        }
-                    } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_full_moon", new Object[] { 10 }), true);
-                    }
-                } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
-                }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
+                                event.getItemStack().shrink(1);
+                                player.onEnchantmentPerformed(null, Config.CHARGING_COST.get());
+                                ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.MAGICAL_BOOK.get())); //TODO copy?
 
-        //WAND
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(ModItems.wandPage))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
-
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
-
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCostPages) {
-
-                    if(!world.isDaytime()) {
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
-
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
-                        world.spawnEntity(entity);
-
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCostPages);
-                            ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.wandBasic).copy());
-
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
+                                event.setUseBlock(Event.Result.DENY);
+                                event.setUseItem(Event.Result.DENY);
+                                event.setCanceled(true);
+                            }
+                        } else {
+                            player.sendMessage(new TranslatableComponent("message.runecraft.not_full_moon", new Object[]{10}), UUID.randomUUID());
                         }
                     } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_night", new Object[] { 10 }), true);
+                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
                     }
                 } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
+                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
                 }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
 
-        //ORB
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(ModItems.orbPage))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
+                /** PAGES **/
+            } else if(stack.getItem() == ModItems.WAND_PAGE.get() || stack.getItem() == ModItems.ORB_PAGE.get() || stack.getItem() == ModItems.CURSE_PAGE.get() ||
+                stack.getItem() == ModItems.LOST_PAGE.get() || stack.getItem() == ModItems.SPELL_PAGE.get()) {
 
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
+                if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCostPages) {
+                    if (player.experienceLevel >= Config.CHARGING_COST_PAGES.get()) {
+                        if (world.isNight()) { //TODO TEST
+                            player.playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1f, 1f);
 
-                    if(!world.isDaytime()) {
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+                            for (int i = 0; i < 2; i++) {
+                                world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                            }
 
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
-                        world.spawnEntity(entity);
+                            if (!world.isClientSide) {
+                                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                                lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                                lightningbolt.setVisualOnly(true);
+                                world.addFreshEntity(lightningbolt);
 
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCostPages);
-                            ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.orb).copy());
+                                event.getItemStack().shrink(1);
+                                player.onEnchantmentPerformed(null, Config.CHARGING_COST_PAGES.get());
 
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
+                                //reward
+                                if (stack.getItem() == ModItems.WAND_PAGE.get()) {
+                                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.BASIC_WAND.get()));
+
+                                } else if (stack.getItem() == ModItems.ORB_PAGE.get()) {
+                                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ModItems.ORB.get()));
+
+                                } else if (stack.getItem() == ModItems.LOST_PAGE.get()) {
+                                    ItemHandlerHelper.giveItemToPlayer(player, AltarHelper.getRandomItem());
+
+                                } else if (stack.getItem() == ModItems.CURSE_PAGE.get()) {
+                                    AltarHelper.getRandomCurse(world, pos);
+
+                                } else if (stack.getItem() == ModItems.SPELL_PAGE.get()) {
+                                    AltarHelper.getRandomSpell(world, pos);
+                                }
+
+                                event.setUseBlock(Event.Result.DENY);
+                                event.setUseItem(Event.Result.DENY);
+                                event.setCanceled(true);
+                            }
+                        } else {
+                            player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
                         }
                     } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_night", new Object[] { 10 }), true);
+                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
                     }
                 } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
+                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
                 }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
-
-        //LOST PAGE
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(ModItems.lostPage))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
-
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
-
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCostPages) {
-
-                    if(!world.isDaytime()) {
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
-
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
-                        world.spawnEntity(entity);
-
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCostPages);
-                            ItemHandlerHelper.giveItemToPlayer(player, AltarHelper.getRandomItem().copy());
-
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
-                        }
-                    } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_night", new Object[] { 10 }), true);
-                    }
-                } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
-                }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
-
-        //SPELL
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(ModItems.spellPage))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
-
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
-
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCostPages) {
-
-                    if(!world.isDaytime()) {
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
-
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), false);
-                        world.spawnEntity(entity);
-
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCostPages);
-                            AltarHelper.getRandomSpell(world, pos);
-
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
-                        }
-                    } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_night", new Object[] { 10 }), true);
-                    }
-                } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
-                }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
-
-
-        //CURSE
-        if(ItemStack.areItemsEqual(event.getItemStack(), new ItemStack(ModItems.cursePage))) {
-            World world = event.getWorld();
-            BlockPos pos = event.getPos();
-
-            if(world.getBlockState(pos).getBlock() == ModBlocks.altar) {
-                EntityPlayer player = event.getEntityPlayer();
-
-                if(event.getEntityPlayer().experienceLevel >= ConfigGeneral.chargingCostPages) {
-
-                    if(!world.isDaytime()) {
-                        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
-
-                        for (int i = 0; i < 2; i++) {
-                            world.spawnParticle(EnumParticleTypes.LAVA, 		  pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D, new int[0]);
-                            world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D, new int[0]);
-                        }
-                        EntityLightningBolt entity = new EntityLightningBolt(world, pos.getX(), pos.getY(), pos.getZ(), true);
-                        world.spawnEntity(entity);
-
-                        if(!event.getWorld().isRemote) {
-                            event.getItemStack().shrink(1);
-                            player.onEnchant(null, ConfigGeneral.chargingCostPages);
-                            AltarHelper.getRandomCurse(world, pos);
-
-                            event.setUseBlock(Result.DENY);
-                            event.setUseItem(Result.DENY);
-                            event.setCanceled(true);
-                        }
-                    } else {
-                        player.sendStatusMessage(new TextComponentTranslation("message.not_night", new Object[] { 10 }), true);
-                    }
-                } else {
-                    player.sendStatusMessage(new TextComponentTranslation("message.not_enough_levels", new Object[] { 10 }), true);
-                }
-            } else {
-                EntityPlayer player = event.getEntityPlayer();
-                player.sendStatusMessage(new TextComponentTranslation("message.wrong_block", new Object[] { 10 }), true);
-            }
-        }
-
+           }
     }
-**/
+
 
 }

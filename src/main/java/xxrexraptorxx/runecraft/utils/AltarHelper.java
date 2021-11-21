@@ -21,7 +21,7 @@ public class AltarHelper {
 		
 		switch (rand.nextInt(16)) {
 		case 0:
-			return new ItemStack(Items.DIAMOND, 5);
+			return new ItemStack(Items.DIAMOND);
 		case 1:
 			return new ItemStack(Items.ELYTRA);
 		case 2:
@@ -100,7 +100,7 @@ public class AltarHelper {
     	cloud.setRadius(3);
     	cloud.setWaitTime(10);
 		
-		switch (rand.nextInt(7)) {
+		switch (rand.nextInt(11)) {
 		case 0:
 	    	Vindicator vindicator = new Vindicator(EntityType.VINDICATOR, world);
 	    	vindicator.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
@@ -142,7 +142,34 @@ public class AltarHelper {
 	    	world.addFreshEntity(cloud);
 	    	world.addFreshEntity(stray);
 	    	break;
-	    	
+
+		case 6:
+			Ravager ravanger = new Ravager(EntityType.RAVAGER, world);
+			ravanger.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			world.addFreshEntity(cloud);
+			world.addFreshEntity(ravanger);
+			break;
+
+		case 7:
+			Phantom phantom = new Phantom(EntityType.PHANTOM, world);
+			phantom.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			world.addFreshEntity(cloud);
+			world.addFreshEntity(phantom);
+			break;
+
+		case 8:
+			Pillager pillager = new Pillager(EntityType.PILLAGER, world);
+			pillager.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			world.addFreshEntity(cloud);
+			world.addFreshEntity(pillager);
+			break;
+
+		case 9:
+			Husk husk = new Husk(EntityType.HUSK, world);
+			husk.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			world.addFreshEntity(cloud);
+			world.addFreshEntity(husk);
+			break;
 	    	
 		default:
 	    	Witch witch = new Witch(EntityType.WITCH, world);

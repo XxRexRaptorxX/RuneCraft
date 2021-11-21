@@ -10,7 +10,7 @@ public class ItemRelict extends Item {
     public ItemRelict() {
         super(new Properties()
             .tab(CreativeTab.MOD_TAB)
-            .rarity(Rarity.EPIC)
+            .rarity(Rarity.RARE)
         );
 
     }
