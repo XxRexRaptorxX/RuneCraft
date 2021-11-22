@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class AltarHelper {
 	
-	public static ItemStack getRandomItem() {
+	public static ItemStack getRandomTreasure() {
 		Random rand = new Random();
 		
 		switch (rand.nextInt(16)) {

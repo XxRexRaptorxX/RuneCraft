@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
@@ -48,7 +49,7 @@ public class ItemPortableRuneStone extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(new TextComponent(ChatFormatting.BLUE + RuneHelper.getRuneName(this.asItem().getRegistryName().toString().substring(30))));
+            list.add(new TextComponent(ChatFormatting.YELLOW + RuneHelper.getRuneName(this.asItem().getRegistryName().toString().substring(30))));
         }
         if (Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
             list.add(new TextComponent((ChatFormatting.GRAY + "Contains: " + RuneHelper.getEffect(this.getRegistryName().toString().substring(30)).getRegistryName().toString().substring(10).replace("_", " "))));
@@ -62,7 +63,7 @@ public class ItemPortableRuneStone extends Item {
         ItemStack stack = player.getItemInHand();
         Random random = new Random();
 
-        level.playSound(player.getPlayer(), player.getPlayer().position().x, player.getPlayer().position().y, player.getPlayer().position().z, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        level.playSound((Player) null, player.getPlayer().position().x(), player.getPlayer().position().y(), player.getPlayer().position().z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
         player.getPlayer().getCooldowns().addCooldown(this, Config.PORTABLE_SPELL_COOLDOWN.get());
         stack.setDamageValue(stack.getDamageValue() + 1);
 

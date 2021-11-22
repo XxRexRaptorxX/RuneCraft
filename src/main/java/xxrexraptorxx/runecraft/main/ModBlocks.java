@@ -127,8 +127,8 @@ public class ModBlocks {
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_HRD = BLOCKS.register("rune_stone_hrd", BlockRuneStone::new);
     public static final RegistryObject<Item> RUNE_STONE_HRD_BLOCKITEM = ITEMS.register("rune_stone_hrd", () -> new BlockItem(RUNE_STONE_HRD.get(), new Item.Properties()));
 
-    public static final RegistryObject<BlockRuneStone> RUNE_STONE_GHS = BLOCKS.register("rune_stone_ghs", BlockRuneStone::new);
-    public static final RegistryObject<Item> RUNE_STONE_GHS_BLOCKITEM = ITEMS.register("rune_stone_ghs", () -> new BlockItem(RUNE_STONE_GHS.get(), new Item.Properties()));
+    //public static final RegistryObject<BlockRuneStone> RUNE_STONE_GHS = BLOCKS.register("rune_stone_ghs", BlockRuneStone::new);
+    //public static final RegistryObject<Item> RUNE_STONE_GHS_BLOCKITEM = ITEMS.register("rune_stone_ghs", () -> new BlockItem(RUNE_STONE_GHS.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_FRE = BLOCKS.register("rune_stone_fre", BlockRuneStone::new);
     public static final RegistryObject<Item> RUNE_STONE_FRE_BLOCKITEM = ITEMS.register("rune_stone_fre", () -> new BlockItem(RUNE_STONE_FRE.get(), new Item.Properties()));

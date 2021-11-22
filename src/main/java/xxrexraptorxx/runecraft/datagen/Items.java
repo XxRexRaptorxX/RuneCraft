@@ -53,7 +53,7 @@ public class Items extends ItemModelProvider {
         itemBlock(ModBlocks.RUNE_STONE_Z);
         itemBlock(ModBlocks.RUNE_STONE_DMG);
         itemBlock(ModBlocks.RUNE_STONE_FRE);
-        itemBlock(ModBlocks.RUNE_STONE_GHS);
+        //itemBlock(ModBlocks.RUNE_STONE_GHS);
         itemBlock(ModBlocks.RUNE_STONE_HRD);
         itemBlock(ModBlocks.RUNE_STONE_PTL);
 

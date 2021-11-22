@@ -49,7 +49,7 @@ public class TagsBlock extends BlockTagsProvider {
                         ModBlocks.RUNE_STONE_DMG.get(),
                         ModBlocks.RUNE_STONE_FRE.get(),
                         ModBlocks.RUNE_STONE_HRD.get(),
-                        ModBlocks.RUNE_STONE_GHS.get(),
+                        //ModBlocks.RUNE_STONE_GHS.get(),
                         ModBlocks.RUNE_STONE_PTL.get()
                         );
 
@@ -86,7 +86,7 @@ public class TagsBlock extends BlockTagsProvider {
                         ModBlocks.RUNE_STONE_DMG.get(),
                         ModBlocks.RUNE_STONE_FRE.get(),
                         ModBlocks.RUNE_STONE_HRD.get(),
-                        ModBlocks.RUNE_STONE_GHS.get(),
+                        //ModBlocks.RUNE_STONE_GHS.get(),
                         ModBlocks.RUNE_STONE_PTL.get()
                         );
 
