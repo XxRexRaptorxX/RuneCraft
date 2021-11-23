@@ -96,8 +96,6 @@ public class RuneHelper {
 				return ModItems.RUNE_HRD.get();
 			case "ptl":
 				return ModItems.RUNE_PTL.get();
-			case "ghs":
-				return ModItems.RUNE_GHS.get();
 			default:
 				System.err.println("Unknown rune type. [getRuneFromType]");
 				return ModItems.RUNE_A.get();
@@ -167,8 +165,6 @@ public class RuneHelper {
 				return ModBlocks.RUNE_STONE_HRD.get();
 			case "ptl":
 				return ModBlocks.RUNE_STONE_PTL.get();
-			case "ghs":
-				return ModBlocks.RUNE_STONE_GHS.get();
 			default:
 				System.err.println("Unknown rune type. [getRuneStoneFromType]");
 				return ModBlocks.RUNE_STONE.get();

@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
 
-    CLOTH(References.MODID + ":cloth", 20, new int[] {1, 2, 2, 1}, 30, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, ()-> { return Ingredient.of(ModItems.CLOTH.get());});
+    MAGICAL(References.MODID + ":magical", 20, new int[] {1, 2, 2, 1}, 30, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, ()-> { return Ingredient.of(ModItems.CLOTH.get());});
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;
@@ -27,11 +27,7 @@ public enum ArmorMaterials implements ArmorMaterial {
     private final float toughness;
     private final Lazy<Ingredient> repairMaterial;
 
-    private ArmorMaterials(String nameIn, int maxDamageIn, int[] drAmtArray,
-                                    int enchantabilityIn, SoundEvent soundIn,
-                                    float toughnessIn,
-                                    Supplier<Ingredient> repairMatIn)
-    {
+    private ArmorMaterials(String nameIn, int maxDamageIn, int[] drAmtArray, int enchantabilityIn, SoundEvent soundIn, float toughnessIn, Supplier<Ingredient> repairMatIn) {
         name = nameIn;
         maxDamageFactor = maxDamageIn;
         damageReductionAmountArray = drAmtArray;
