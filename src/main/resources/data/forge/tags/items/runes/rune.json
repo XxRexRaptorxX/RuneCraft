@@ -1,0 +1,36 @@
+{
+  "replace": false,
+  "values":
+  [
+    "runecraft:rune_a",
+    "runecraft:rune_b",
+    "runecraft:rune_c",
+    "runecraft:rune_d",
+    "runecraft:rune_e",
+    "runecraft:rune_f",
+    "runecraft:rune_g",
+    "runecraft:rune_h",
+    "runecraft:rune_i",
+    "runecraft:rune_j",
+    "runecraft:rune_k",
+    "runecraft:rune_l",
+    "runecraft:rune_m",
+    "runecraft:rune_n",
+    "runecraft:rune_o",
+    "runecraft:rune_p",
+    "runecraft:rune_q",
+    "runecraft:rune_r",
+    "runecraft:rune_s",
+    "runecraft:rune_t",
+    "runecraft:rune_u",
+    "runecraft:rune_v",
+    "runecraft:rune_w",
+    "runecraft:rune_x",
+    "runecraft:rune_y",
+    "runecraft:rune_z",
+    "runecraft:rune_dmg",
+    "runecraft:rune_fre",
+    "runecraft:rune_ptl",
+    "runecraft:rune_hrd"
+  ]
+}

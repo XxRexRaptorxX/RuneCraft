@@ -19,7 +19,7 @@ public class AltarHelper {
 	public static ItemStack getRandomTreasure() {
 		Random rand = new Random();
 		
-		switch (rand.nextInt(16)) {
+		switch (rand.nextInt(14)) {
 		case 0:
 			return new ItemStack(Items.DIAMOND);
 		case 1:
@@ -44,8 +44,10 @@ public class AltarHelper {
 			return new ItemStack(ModItems.SPIRIT_CRYSTAL.get());
 		case 11:
 			return new ItemStack(Items.DRAGON_BREATH);
+		case 12:
+			return new ItemStack(Items.BUNDLE);
 		default:
-			return new ItemStack(Items.COAL, 5);
+			return new ItemStack(Items.ENDER_EYE);
 		}
 	}
 	

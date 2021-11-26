@@ -18,7 +18,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 //apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
 
-version = "3.0.0"
+version = "3.0.0-pre1"
 group = "xxrexraptorxx.main.runecraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "runecraft"
 

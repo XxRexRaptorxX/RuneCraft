@@ -1,4 +1,4 @@
-package xxrexraptorxx.runecraft.utils;
+package xxrexraptorxx.runecraft.world;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -32,6 +32,9 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
+import xxrexraptorxx.runecraft.utils.AltarHelper;
+import xxrexraptorxx.runecraft.utils.Config;
+import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import java.util.Random;
 import java.util.UUID;
@@ -74,20 +77,22 @@ public class Events {
 
         if(!world.isClientSide) {
             if (block.getRegistryName().toString().contains("runecraft:rune_stone")) {
-                world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                if(block != ModBlocks.RUNE_STONE.get()) {
+                    world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
 
-                //Area effect
-                if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !item.getRegistryName().toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
-                        block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
+                    //Area effect
+                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !item.getRegistryName().toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
+                            block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
 
-                    AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-                    cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(block.getRegistryName().toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-                    cloud.setDuration(Config.AREA_SPELL_DURATION.get());
-                    cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
-                    cloud.setFixedColor(0x616161);
-                    cloud.setWaitTime(10);
-                    cloud.setParticle(ParticleTypes.ENCHANT);
-                    world.addFreshEntity(cloud);
+                        AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX(), pos.getY() + 0.5F, pos.getZ());
+                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(block.getRegistryName().toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+                        cloud.setDuration(Config.AREA_SPELL_DURATION.get());
+                        cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
+                        cloud.setFixedColor(0x616161);
+                        cloud.setWaitTime(10);
+                        cloud.setParticle(ParticleTypes.ENCHANT);
+                        world.addFreshEntity(cloud);
+                    }
                 }
 
                 if (item.getRegistryName().toString().contains("runecraft:rune_")) {

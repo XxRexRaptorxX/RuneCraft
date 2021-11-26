@@ -1,9 +1,12 @@
 package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -21,7 +24,7 @@ public class ItemMagicalBook extends Item {
                 .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.RARE)
                 .stacksTo(1)
-                .durability(20)
+                .durability(16)
         );
 
     }
@@ -33,21 +36,15 @@ public class ItemMagicalBook extends Item {
 
 
     @Override
-    public boolean isRepairable(ItemStack stack) {
-        return stack.getItem() == Items.ENCHANTED_BOOK;
-    }
-
-
-    @Override
     public boolean hasContainerItem(ItemStack stack) {
         return true;
     }
 
 
     @Override
-    public ItemStack getContainerItem(ItemStack stack) {    //TODO Test break
+    public ItemStack getContainerItem(ItemStack stack) {
         if (stack.getMaxDamage() == stack.getDamageValue()) {
-            return (ItemStack) null;
+            return new ItemStack(Items.AIR);
         } else {
             ItemStack newItemStack = stack.copy();
             newItemStack.setDamageValue(stack.getDamageValue() + 1);
@@ -67,7 +64,6 @@ public class ItemMagicalBook extends Item {
             cloud.setWaitTime(1);
             cloud.setFixedColor(0x616161);
             cloud.setParticle(ParticleTypes.ENCHANT);
-
             level.addFreshEntity(cloud);
         }
         return InteractionResult.SUCCESS;

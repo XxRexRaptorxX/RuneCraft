@@ -447,12 +447,5 @@ public class ItemWand extends Item {
         return true;
     }
 
-
-
-
-    @Override
-    public boolean isRepairable(ItemStack stack) {
-        return stack.getItem() == ModItems.SPIRIT_CRYSTAL.get();
-    }
 }
 

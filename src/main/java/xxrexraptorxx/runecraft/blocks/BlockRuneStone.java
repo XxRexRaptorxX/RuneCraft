@@ -26,6 +26,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -55,13 +56,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockRuneStone extends Block {
 
-	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0625D, 0.0625D, 0.0625D, 0.9375D, 0.9375D, 0.9375D);
+	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0625D, 0.0625D, 0.0625D, 15.9375D, 15.9375D, 15.9375D);
 
 
 	public BlockRuneStone() {
 		super(Properties.of(Material.STONE)
 				.requiresCorrectToolForDrops()
-				.strength(5.0F, 10.0F)
+				.strength(5.0F, 7.0F)
 				.sound(SoundType.STONE)
 				.color(MaterialColor.DEEPSLATE)
 				.noOcclusion()
@@ -143,18 +144,20 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
-		if (!world.isClientSide) {
-			Random rand = new Random();
+		Random rand = new Random();
 
-			double d0 = (double) ((float) pos.getX() + rand.nextFloat());
-			double d1 = (double) ((float) pos.getY() + 0.8F);
-			double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
-			double d3 = 0.0D;
-			double d4 = 0.0D;
-			double d5 = 0.0D;
-			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-			world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		double d0 = (double) ((float) pos.getX() + rand.nextFloat());
+		double d1 = (double) ((float) pos.getY() + 0.8F);
+		double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
+		double d3 = 0.0D;
+		double d4 = 0.0D;
+		double d5 = 0.0D;
+		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+
+		if (!world.isClientSide) {
+			world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
 			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
 			world.addFreshEntity(drop);
@@ -169,18 +172,18 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void playerDestroy(Level world, Player player, BlockPos pos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
-		if (!world.isClientSide) {
-			Random rand = new Random();
-			double d0 = (double) ((float) pos.getX() + rand.nextFloat());
-			double d1 = (double) ((float) pos.getY() + 0.8F);
-			double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
-			double d3 = 0.0D;
-			double d4 = 0.0D;
-			double d5 = 0.0D;
-			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-			world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-			world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		Random rand = new Random();
+		double d0 = (double) ((float) pos.getX() + rand.nextFloat());
+		double d1 = (double) ((float) pos.getY() + 0.8F);
+		double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
+		double d3 = 0.0D;
+		double d4 = 0.0D;
+		double d5 = 0.0D;
+		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
+		if(!world.isClientSide) {
 			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
 			world.addFreshEntity(drop);
 

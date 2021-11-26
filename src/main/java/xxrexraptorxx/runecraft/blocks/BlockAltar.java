@@ -19,10 +19,11 @@ public class BlockAltar extends Block {
 	public BlockAltar() {
 		super(Properties.of(Material.METAL)
 				.requiresCorrectToolForDrops()
-				.strength(5.0F, 10.0F)
+				.strength(5.0F, 7.0F)
 				.sound(SoundType.STONE)
 				.color(MaterialColor.COLOR_BLACK)
 				.noOcclusion()
+				.lightLevel(value -> 7)
 		);
 	}
 

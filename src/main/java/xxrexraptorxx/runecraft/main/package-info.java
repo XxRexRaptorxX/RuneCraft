@@ -7,5 +7,4 @@ package xxrexraptorxx.runecraft.main;
 
 //TODO ORB uses + desc?
 //TODO spirit star alt recipe? to easy
-//runedust stack limit, change item rarity, block material color, überarbeitete config,neue config optionen, deleted meteor recipes, change portal runestone, add portable runestone durability
-// changed wand sounds, new jei infos, doubled jei transl. key removed, code cleanup, more curses, vex spawn, changed sounds for wand and runestones, several bugfixes, - runestone ghs
+//pages rename, altar is now a piglin repellents, altar lightlevel 7, new ashe collision box, changed explosion resistance, bugfixes, fixed collision boxes, rune item tag entry, bundles added to treshures
