@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:magical_page"
+    },
+    "1": {
+      "item": "runecraft:rune_o"
+    },
+    "2": {
+      "item": "runecraft:rune_r"
+    },
+    "3": {
+      "item": "runecraft:rune_b"
+    },
+    "4": {
+      "item": "runecraft:rune_s"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:orb_page"
+  }
+}

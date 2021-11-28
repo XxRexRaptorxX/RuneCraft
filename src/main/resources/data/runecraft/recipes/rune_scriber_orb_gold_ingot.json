@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:orb"
+    },
+    "1": {
+      "item": "runecraft:rune_g"
+    },
+    "2": {
+      "item": "runecraft:rune_o"
+    },
+    "3": {
+      "item": "runecraft:rune_l"
+    },
+    "4": {
+      "item": "runecraft:rune_d"
+    }
+  },
+  
+  "result": {
+    "item": "minecraft:gold_ingot"
+  }
+}

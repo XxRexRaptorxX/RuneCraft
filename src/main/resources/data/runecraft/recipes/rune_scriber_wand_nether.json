@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:basic_wand"
+    },
+    "1": {
+      "item": "runecraft:rune_h"
+    },
+    "2": {
+      "item": "runecraft:rune_e"
+    },
+    "3": {
+      "item": "runecraft:rune_l"
+    },
+    "4": {
+      "item": "runecraft:rune_l"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:nether_wand"
+  }
+}

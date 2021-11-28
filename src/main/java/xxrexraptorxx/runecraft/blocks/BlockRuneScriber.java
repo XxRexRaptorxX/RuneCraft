@@ -4,7 +4,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import xxrexraptorxx.runecraft.main.RuneCraft;
 
 
 public class BlockRuneScriber extends Block {
@@ -16,48 +15,22 @@ public class BlockRuneScriber extends Block {
 				.color(MaterialColor.COLOR_BLACK)
 		);
 	}
-/**
 
+	//Note: I'm too stupid to port runescriber functions
+
+	/**
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote) {
-			return true;
-		} else {
-			TileEntity tileentity = worldIn.getTileEntity(pos);
+	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+		if (!world.isClientSide) {
+			world.playSound(null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1f, 1f);
 
-			if (tileentity instanceof TileEntityRuneScriber) {
-				playerIn.openGui(RuneCraft.instance, 0, worldIn, pos.getX(), pos.getY(), pos.getZ());
-				playerIn.addStat(StatList.CRAFTING_TABLE_INTERACTION);
-			}
-
-			return true;
+			RuneScriberBlockEntity runeScriberBlockEntity = (RuneScriberBlockEntity) world.getBlockEntity(pos);
+			NetworkHooks.openGui((ServerPlayer) player, runeScriberBlockEntity, (FriendlyByteBuf packerBuffer) -> {
+				packerBuffer.writeBlockPos(runeScriberBlockEntity.getBlockPos());
+			});
 		}
+		return InteractionResult.sidedSuccess(world.isClientSide);
 	}
-
-
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityRuneScriber();
-	}
-
-
-	@Override
-	public boolean hasTileEntity(IBlockState state){
-		return true;
-	}
-
-
-	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		TileEntity tileentity = worldIn.getTileEntity(pos);
-
-		if (tileentity instanceof IInventory) {
-			InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
-			worldIn.updateComparatorOutputLevel(pos, this);
-		}
-
-		super.breakBlock(worldIn, pos, state);
-	}
-
 **/
+
 }

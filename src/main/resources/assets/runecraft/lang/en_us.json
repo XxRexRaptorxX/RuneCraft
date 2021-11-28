@@ -9,6 +9,7 @@
     "message.runecraft.not_night": "It has to be night...",
     "message.runecraft.page_jei_desc": "Use it on a Altar",
     "message.runecraft.rune_stone_desc": "Use runes to activate the Rune Stone",
+    "message.runecraft.treasure_ritual_drops_jei_desc": "Random chance of spawning in a treasure ritual with a Lost Page at the Altar.",
     "message.runecraft.rune_stone_jei_desc": "Use runes to activate or change the power and effects on Rune Stones. Rune Stones have effects when you stand on them and release effect clouds when activated by redstone or clicking. ",
     "message.runecraft.basic_wand_jei_desc": "Perform a ritual with a Page of Spells at night with enough experience levels on the Altar.",
     "message.runecraft.orb_jei_desc": "Perform a ritual with a Page of Orbs at night with enough experience levels on the Altar.",

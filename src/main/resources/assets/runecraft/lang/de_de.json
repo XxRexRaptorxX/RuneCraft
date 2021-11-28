@@ -9,6 +9,7 @@
     "message.runecraft.not_night": "Es muss nacht sein...",
     "message.runecraft.page_jei_desc": "Benutze es an einem Altar",
     "message.runecraft.rune_stone_desc": "Benutze Runen um den Runen Stein zu aktivieren",
+    "message.runecraft.treasure_ritual_drops_jei_desc": "Zufällige Chance zu spawnen wenn ein Schatz Ritual mit einer Verlorenen Seite auf dem Altar durchgeführt wird.",
     "message.runecraft.rune_stone_jei_desc": "Benutze Runen um die Macht und Effecte des Runen Stein's freizusetzen. Runen Steine haben Effekte wenn du auf ihnen stehst und setzen Effekt Wolken frei wenn sie durch Redstone oder klicken aktiviert werden.",
     "message.runecraft.basic_wand_jei_desc": "Führe Nachts ein Ritual mit einer Seite der Zauberstäbe und genügend XP auf dem Altar durch.",
     "message.runecraft.orb_jei_desc": "Führe Nachts ein Ritual mit einer Seite der Orbs und genügend XP auf dem Altar durch.",

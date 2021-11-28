@@ -78,7 +78,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> list, TooltipFlag pFlag) {
-		list.add(new TranslatableComponent(ChatFormatting.GRAY + "message.runecraft.rune_stone_desc"));
+		list.add(new TranslatableComponent("message.runecraft.rune_stone_desc").withStyle(ChatFormatting.GRAY));
 	}
 
 

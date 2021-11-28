@@ -19,7 +19,7 @@ public class AltarHelper {
 	public static ItemStack getRandomTreasure() {
 		Random rand = new Random();
 		
-		switch (rand.nextInt(14)) {
+		switch (rand.nextInt(19)) {
 		case 0:
 			return new ItemStack(Items.DIAMOND);
 		case 1:
@@ -46,6 +46,16 @@ public class AltarHelper {
 			return new ItemStack(Items.DRAGON_BREATH);
 		case 12:
 			return new ItemStack(Items.BUNDLE);
+		case 13:
+			return new ItemStack(Items.HEART_OF_THE_SEA);
+		case 14:
+			return new ItemStack(Items.EMERALD);
+		case 15:
+			return new ItemStack(Items.AMETHYST_CLUSTER);
+		case 16:
+			return new ItemStack(Items.ENDER_PEARL);
+		case 17:
+			return new ItemStack(Items.PRISMARINE_CRYSTALS);
 		default:
 			return new ItemStack(Items.ENDER_EYE);
 		}
@@ -146,10 +156,10 @@ public class AltarHelper {
 	    	break;
 
 		case 6:
-			Ravager ravanger = new Ravager(EntityType.RAVAGER, world);
-			ravanger.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			Ravager ravager = new Ravager(EntityType.RAVAGER, world);
+			ravager.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 			world.addFreshEntity(cloud);
-			world.addFreshEntity(ravanger);
+			world.addFreshEntity(ravager);
 			break;
 
 		case 7:

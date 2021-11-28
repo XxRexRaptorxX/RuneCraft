@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:magical_page"
+    },
+    "1": {
+      "item": "runecraft:rune_w"
+    },
+    "2": {
+      "item": "runecraft:rune_a"
+    },
+    "3": {
+      "item": "runecraft:rune_n"
+    },
+    "4": {
+      "item": "runecraft:rune_d"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:wand_page"
+  }
+}

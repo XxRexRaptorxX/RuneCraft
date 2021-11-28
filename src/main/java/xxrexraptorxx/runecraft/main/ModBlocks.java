@@ -1,13 +1,8 @@
 package xxrexraptorxx.runecraft.main;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -20,16 +15,11 @@ public class ModBlocks {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, References.MODID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, References.MODID);
-    private static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, References.MODID);
-    private static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, References.MODID);
-
 
     public static void init() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
-        TILES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        CONTAINERS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
 
@@ -39,14 +29,7 @@ public class ModBlocks {
 
     public static final RegistryObject<BlockRuneScriber> RUNE_SCRIBER_BLOCK = BLOCKS.register("rune_scriber", BlockRuneScriber::new);
     public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("rune_scriber", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
-/**    public static final RegistryObject<BlockEntityType<BlockEntityRuneScriber>> RUNE_SCRIBER_TILE = TILES.register("rune_scriber", () -> BlockEntityType.Builder.of(BlockEntityRuneScriber::new, RUNE_SCRIBER_BLOCK.get()).build(null));
 
-    public static final RegistryObject<MenuType<RuneScriberContainer>> FIRSTBLOCK_CONTAINER = CONTAINERS.register("rune_scriber", () -> IForgeContainerType.create((windowId, inv, data) -> {
-        BlockPos pos = data.readBlockPos();
-        Level world = inv.player.getCommandSenderWorld();
-        return new RuneScriberContainer(windowId, world, pos, inv, inv.player);
-    }));
-**/
     public static final RegistryObject<BlockAshe> ASHE_BLOCK = BLOCKS.register("ashe_block", BlockAshe::new);
     public static final RegistryObject<Item> ASHE_BLOCKITEM = ITEMS.register("ashe_block", () -> new BlockItem(ASHE_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 

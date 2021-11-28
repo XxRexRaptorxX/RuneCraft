@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 1 ",
+    " X ",
+    "   "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_stone"
+    },
+    "1": {
+      "item": "runecraft:rune_c"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:rune_stone_c"
+  }
+}
