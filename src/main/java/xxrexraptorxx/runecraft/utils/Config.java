@@ -29,6 +29,7 @@ public class Config {
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_RADIUS;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_AMPLIFIER;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_COOLDOWN;
+    public static ForgeConfigSpec.IntValue WAND_COOLDOWN;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_REDSTONE_EFFECT;
@@ -88,7 +89,7 @@ public class Config {
         PORTABLE_SPELL_AMPLIFIER = builder.comment("The amplifier of the portable rune stone effects").defineInRange("portable_spell_amplifier", 0, 0, 5);
         PORTABLE_SPELL_RADIUS = builder.comment("The radius of the portable rune stone effects").defineInRange("portable_spell_radius", 2, 1, 10);
         PORTABLE_SPELL_COOLDOWN = builder.comment("The cooldown of the portable rune stone effects (should be more than portable spell duration)").defineInRange("portable_spell_cooldown", 300, 10, 10000);
-        //WAND_COOLDOWN = builder.comment("The cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
+        WAND_COOLDOWN = builder.comment("The cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

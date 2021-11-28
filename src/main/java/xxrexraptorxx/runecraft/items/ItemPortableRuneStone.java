@@ -84,8 +84,12 @@ public class ItemPortableRuneStone extends Item {
                 } else {
                     player.getPlayer().addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
                 }
-
                 level.addFreshEntity(cloud);
+            }
+
+            if (stack.getDamageValue() == stack.getMaxDamage()) {
+                level.playSound((Player) null, player.getPlayer().getX(), player.getPlayer().getY(), player.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                stack.shrink(1);
             }
         }
         return InteractionResult.SUCCESS;
