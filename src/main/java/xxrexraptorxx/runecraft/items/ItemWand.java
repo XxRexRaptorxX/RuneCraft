@@ -1,24 +1,31 @@
 package xxrexraptorxx.runecraft.items;
 
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Position;
+import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.ChatType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stat;
 import net.minecraft.stats.StatType;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AreaEffectCloud;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,13 +35,21 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.fml.common.Mod;
 import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
 
+import javax.annotation.Nullable;
 import java.math.MathContext;
+import java.util.Collection;
 import java.util.Random;
 
 public class ItemWand extends Item {
@@ -59,11 +74,13 @@ public class ItemWand extends Item {
         Random random = new Random();
 
         if(item == ModItems.CURSE_WAND.get() || item == ModItems.HOLY_WAND.get() || item == ModItems.BASIC_WAND.get() ||
-                item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get()) {
+                item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get() || item == ModItems.ESCAPE_WAND.get() || item == ModItems.DESTRUCTION_WAND.get() ||
+                item == ModItems.THUNDER_WAND.get() || item == ModItems.DEFENSIVE_WAND.get() || item == ModItems.CHANGING_WAND.get() || item == ModItems.CREATURE_WAND.get()) {
 
             /** BASIC **/
             if (item == ModItems.BASIC_WAND.get()) {
                 level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
 
                 if (!level.isClientSide) {
                     AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
@@ -126,6 +143,7 @@ public class ItemWand extends Item {
             /** CURSE **/
             } else if (item == ModItems.CURSE_WAND.get()) {
                 level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
 
                 if (!level.isClientSide) {
                     AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
@@ -204,6 +222,7 @@ public class ItemWand extends Item {
             /** HOLY **/
             } else if (item == ModItems.HOLY_WAND.get()) {
                 level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
 
                 if (!level.isClientSide) {
                     AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
@@ -236,6 +255,7 @@ public class ItemWand extends Item {
             /** MAELSTROM **/
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
                 level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
 
                 if (!level.isClientSide) {
                     AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.getPlayer().getX() + 7.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ());
@@ -300,10 +320,133 @@ public class ItemWand extends Item {
                     cloud9.setParticle(ParticleTypes.LAVA);
                     level.addFreshEntity(cloud9);
                 }
+
+            /** ESCAPE **/
+            } else if (item == ModItems.ESCAPE_WAND.get()) {
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+
+                if (!level.isClientSide) {
+                    player.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
+                    player.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 1));
+
+                    AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 0.5, player.getPlayer().getZ());
+                    cloud1.setDuration(500);
+                    cloud1.setRadius(15F);
+                    cloud1.setWaitTime(0);
+                    cloud1.setParticle(ParticleTypes.LARGE_SMOKE);
+                    level.addFreshEntity(cloud1);
+
+                    AreaEffectCloud cloud2 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 1.0F, player.getPlayer().getZ());
+                    cloud2.setDuration(500);
+                    cloud2.setRadius(12F);
+                    cloud2.setWaitTime(0);
+                    cloud2.setParticle(ParticleTypes.LARGE_SMOKE);
+                    level.addFreshEntity(cloud2);
+
+                    AreaEffectCloud cloud3 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 1.5F, player.getPlayer().getZ());
+                    cloud3.setDuration(500);
+                    cloud3.setRadius(10F);
+                    cloud3.setWaitTime(0);
+                    cloud3.setParticle(ParticleTypes.LARGE_SMOKE);
+                    level.addFreshEntity(cloud3);
+
+                    AreaEffectCloud cloud4 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 2.0F, player.getPlayer().getZ());
+                    cloud4.setDuration(500);
+                    cloud4.setRadius(5F);
+                    cloud4.setWaitTime(0);
+                    cloud4.setParticle(ParticleTypes.LARGE_SMOKE);
+                    level.addFreshEntity(cloud4);
+                }
+
+            /** DESTRUCTION **/
+            } else if (item == ModItems.DESTRUCTION_WAND.get()) {
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+
+                if(player.getPlayer().isShiftKeyDown()) player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+
+                if (!level.isClientSide) {
+                    if (player.getPlayer().isShiftKeyDown()) {
+                        level.addFreshEntity(new PrimedTnt(level, player.getClickedPos().getX(), player.getClickedPos().getY(), player.getClickedPos().getZ(), player.getPlayer()));
+                    } else {
+                        level.setBlock(player.getClickedPos(), Blocks.AIR.defaultBlockState(), 11);
+                    }
+                }
+
+            /** THUNDER **/
+            } else if (item == ModItems.THUNDER_WAND.get()) {
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+
+               if (!level.isClientSide) {
+                    if (player.getPlayer().isShiftKeyDown()) {
+                        level.getLevelData().setRaining(true);
+                        level.setThunderLevel(1);
+                    } else {
+                        level.getLevelData().setRaining(false);
+                    }
+                }
+
+            /** DEFENSIVE **/
+             } else if (item == ModItems.DEFENSIVE_WAND.get()) {
+                BlockPos blockPos = player.getPlayer().blockPosition();
+
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                player.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 0));
+
+
+                if(player.getPlayer().isShiftKeyDown()) {
+                    if (level.getBlockState(blockPos.offset(0,-1,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, -1, 0), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,2,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, 2, 0), Blocks.AIR.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1,0,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(1, 0, 0), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1,0,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(-1, 0, 0), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,0,1)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, 0, 1), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,0,-1)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, 0, -1), Blocks.AIR.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1,1,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(1, 1, 0), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1,1,0)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(-1, 1, 0), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,1,1)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, 1, 1), Blocks.AIR.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,1,-1)) == Blocks.COBBLESTONE.defaultBlockState()) level.setBlock(blockPos.offset(0, 1, -1), Blocks.AIR.defaultBlockState(), 11);
+
+                } else {
+                    if (level.getBlockState(blockPos.offset(0,-1,0)).isAir()) level.setBlock(blockPos.offset(0, -1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,2,0)).isAir()) level.setBlock(blockPos.offset(0, 2, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1,0,0)).isAir()) level.setBlock(blockPos.offset(1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1,0,0)).isAir()) level.setBlock(blockPos.offset(-1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,0,1)).isAir()) level.setBlock(blockPos.offset(0, 0, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,0,-1)).isAir()) level.setBlock(blockPos.offset(0, 0, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1,1,0)).isAir()) level.setBlock(blockPos.offset(1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1,1,0)).isAir()) level.setBlock(blockPos.offset(-1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,1,1)).isAir()) level.setBlock(blockPos.offset(0, 1, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0,1,-1)).isAir()) level.setBlock(blockPos.offset(0, 1, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                }
+
+            /** CHANGING **/
+            } else if (item == ModItems.CHANGING_WAND.get()) {
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+
+                 if (!level.isClientSide && player != null) {
+                    BlockPos blockpos = player.getClickedPos();
+                    if (!this.handleInteraction(player.getPlayer(), level.getBlockState(blockpos), level, blockpos, true, player.getItemInHand())) {
+                        return InteractionResult.FAIL;
+                    }
+                }
+
+
+            /** CREATURE **/
+            } else if (item == ModItems.CREATURE_WAND.get()) {
+                level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+
+                AltarHelper.getRandomWeakMob(level, player.getClickedPos());
+                AltarHelper.getRandomWeakMob(level, player.getClickedPos());
+                AltarHelper.getRandomWeakMob(level, player.getClickedPos());
             }
 
-
-            player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
@@ -312,7 +455,6 @@ public class ItemWand extends Item {
             }
         }
 
-        //return InteractionResult.sidedSuccess(level.isClientSide);
         return InteractionResult.SUCCESS;
     }
 
@@ -324,7 +466,7 @@ public class ItemWand extends Item {
         Random random = new Random();
 
         if(item == ModItems.AETHER_WAND.get() || item == ModItems.CURSE_WAND.get() || item == ModItems.HOLY_WAND.get() || item == ModItems.STORM_WAND.get() ||
-        item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get()) {
+        item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get() || item == ModItems.THUNDER_WAND.get()) {
 
             level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
@@ -342,7 +484,7 @@ public class ItemWand extends Item {
                     entityIn.hurt(DamageSource.GENERIC, 1.0F);
                 }
 
-                /** CURSE **/
+            /** CURSE **/
             } else if (item == ModItems.CURSE_WAND.get()) {
                 if (entity instanceof Player) {
                     Player entityIn = (Player) entity;
@@ -360,7 +502,7 @@ public class ItemWand extends Item {
                     player.hurt(DamageSource.MAGIC, 1.0F);
                 }
 
-                /** HOLY **/
+            /** HOLY **/
             } else if (item == ModItems.HOLY_WAND.get()) {
                 if (entity instanceof Player) {
                     Player entityIn = (Player) entity;
@@ -372,7 +514,7 @@ public class ItemWand extends Item {
                     entityIn.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
                 }
 
-                /** STORM **/
+            /** STORM **/
             } else if (item == ModItems.STORM_WAND.get()) {
                 if (!level.isClientSide) {
                     AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.position().x, player.position().y + 0.5F, player.position().z);
@@ -393,12 +535,12 @@ public class ItemWand extends Item {
                 }
 
 
-                /** NETHER **/
+            /** NETHER **/
             } else if (item == ModItems.NETHER_WAND.get()) {
                 entity.setSecondsOnFire(10);
 
 
-                /** MAELSTROM **/
+            /** MAELSTROM **/
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
                 if (entity instanceof Player) {
                     Player entityIn = (Player) entity;
@@ -411,7 +553,17 @@ public class ItemWand extends Item {
                     entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
                     entityIn.hurt(DamageSource.MAGIC, 1.0F);
                 }
+
+
+            /** THUNDER **/
+            } else if (item == ModItems.THUNDER_WAND.get()) {
+                if(!level.isClientSide) {
+                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
+                    lightningbolt.moveTo(entity.getX(), entity.getY(), entity.getZ());
+                    level.addFreshEntity(lightningbolt);
+                }
             }
+
 
 
             player.getCooldowns().addCooldown(this, 150);
@@ -448,13 +600,61 @@ public class ItemWand extends Item {
 
             player.level.addParticle(ParticleTypes.SWEEP_ATTACK, player.position().x, player.position().y + 1, player.position().z, 0.0D, 0.0D, 0.0D);
 
-            if(stack.getDamageValue() == stack.getMaxDamage()) {
+            if (stack.getDamageValue() == stack.getMaxDamage()) {
                 player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 stack.shrink(1);
             }
         }
 
         return true;
+    }
+
+
+
+
+    /** CHANGING WAND **/
+    private boolean handleInteraction(Player pPlayer, BlockState pStateClicked, LevelAccessor pAccessor, BlockPos pPos, boolean pShouldCycleState, ItemStack pDebugStack) {
+        if (!pPlayer.canUseGameMasterBlocks()) {
+            return false;
+        } else {
+            Block block = pStateClicked.getBlock();
+            StateDefinition<Block, BlockState> statedefinition = block.getStateDefinition();
+            Collection<Property<?>> collection = statedefinition.getProperties();
+            String s = Registry.BLOCK.getKey(block).toString();
+            if (collection.isEmpty()) {
+                return false;
+            } else {
+                CompoundTag compoundtag = pDebugStack.getOrCreateTagElement("DebugProperty");
+                String s1 = compoundtag.getString(s);
+                Property<?> property = statedefinition.getProperty(s1);
+                if (pShouldCycleState) {
+                    if (property == null) {
+                        property = collection.iterator().next();
+                    }
+
+                    BlockState blockstate = cycleState(pStateClicked, property, pPlayer.isSecondaryUseActive());
+                    pAccessor.setBlock(pPos, blockstate, 18);
+                } else {
+                    property = getRelative(collection, property, pPlayer.isSecondaryUseActive());
+                    String s2 = property.getName();
+                    compoundtag.putString(s, s2);
+                }
+
+                return true;
+            }
+        }
+    }
+
+    private static <T extends Comparable<T>> BlockState cycleState(BlockState pState, Property<T> pProperty, boolean pBackwards) {
+        return pState.setValue(pProperty, getRelative(pProperty.getPossibleValues(), pState.getValue(pProperty), pBackwards));
+    }
+
+    private static <T> T getRelative(Iterable<T> pAllowedValues, @Nullable T pCurrentValue, boolean pBackwards) {
+        return (T)(pBackwards ? Util.findPreviousInIterable(pAllowedValues, pCurrentValue) : Util.findNextInIterable(pAllowedValues, pCurrentValue));
+    }
+
+    private static <T extends Comparable<T>> String getNameHelper(BlockState pState, Property<T> pProperty) {
+        return pProperty.getName(pState.getValue(pProperty));
     }
 
 }

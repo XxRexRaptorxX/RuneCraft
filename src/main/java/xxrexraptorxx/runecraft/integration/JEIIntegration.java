@@ -47,7 +47,6 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(Items.HEART_OF_THE_SEA));
         treasures.add(new ItemStack(Items.ENDER_PEARL));
         treasures.add(new ItemStack(Items.PRISMARINE_CRYSTALS));
-
         treasures.add(new ItemStack(ModItems.SPIRIT_STAR.get()));
         treasures.add(new ItemStack(ModItems.SPIRIT_CRYSTAL.get()));
 
@@ -64,6 +63,8 @@ public class JEIIntegration implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(ModItems.LOST_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.lost_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.WAND_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.wand_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.ORB_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BANNED_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.banned_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ALCHEMY_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.alchemy_page_jei_desc"));
     }
 }
 
