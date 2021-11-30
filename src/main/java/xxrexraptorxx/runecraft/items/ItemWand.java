@@ -591,10 +591,10 @@ public class ItemWand extends Item {
     public boolean onEntitySwing(ItemStack stack, LivingEntity player) {
         Random random = new Random();
 
-        /** AETHER **/          //TODO: x/z push
+        /** AETHER **/
         if(stack.getItem() == ModItems.AETHER_WAND.get()) {
             player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-            player.setDeltaMovement(0, 0.5D, 0);
+            player.setDeltaMovement(player.getDeltaMovement().x, 0.5D, player.getDeltaMovement().z);
             player.fallDistance = 0.0F;
             stack.setDamageValue(stack.getDamageValue() + 1);
 
