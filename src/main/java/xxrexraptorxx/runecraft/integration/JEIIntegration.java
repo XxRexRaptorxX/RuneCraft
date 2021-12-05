@@ -18,12 +18,12 @@ import java.util.ArrayList;
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
 
-        private static final ResourceLocation ID = new ResourceLocation(References.MODID, "jei_plugin");
+    private static final ResourceLocation ID = new ResourceLocation(References.MODID, "jei_plugin");
 
-        @Override
-        public ResourceLocation getPluginUid() {
-            return ID;
-        }
+    @Override
+    public ResourceLocation getPluginUid() {
+        return ID;
+    }
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
@@ -82,4 +82,3 @@ public class JEIIntegration implements IModPlugin {
 
     }
 }
-

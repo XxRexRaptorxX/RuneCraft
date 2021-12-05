@@ -5,9 +5,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.blocks.*;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
 
@@ -52,7 +52,7 @@ public class ModBlocks {
     public static final RegistryObject<Item> RUNE_STONE_C_BLOCKITEM = ITEMS.register("rune_stone_c", () -> new BlockItem(RUNE_STONE_C.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_D = BLOCKS.register("rune_stone_d", BlockRuneStone::new);
-    public static final RegistryObject<Item> RUNE_STONE__BLOCKITEM = ITEMS.register("rune_stone_d", () -> new BlockItem(RUNE_STONE_D.get(), new Item.Properties()));
+    public static final RegistryObject<Item> RUNE_STONE_D_BLOCKITEM = ITEMS.register("rune_stone_d", () -> new BlockItem(RUNE_STONE_D.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_E = BLOCKS.register("rune_stone_e", BlockRuneStone::new);
     public static final RegistryObject<Item> RUNE_STONE_E_BLOCKITEM = ITEMS.register("rune_stone_e", () -> new BlockItem(RUNE_STONE_E.get(), new Item.Properties()));

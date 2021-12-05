@@ -14,7 +14,6 @@ public class Config {
 
     public static ForgeConfigSpec SERVER_CONFIG;
     public static ForgeConfigSpec CLIENT_CONFIG;
-    public static ForgeConfigSpec COMMON_CONFIG;
 
     public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_VISIBLE_RUNE_TYPE;
@@ -43,11 +42,9 @@ public class Config {
     public static void init() {
         initServer();
         initClient();
-        initCommon();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_CONFIG);
     }
 
 
@@ -96,12 +93,5 @@ public class Config {
 
         SERVER_CONFIG = builder.build();
     }
-
-
-    public static void initCommon() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        COMMON_CONFIG = builder.build();
-    }
-
 
 }

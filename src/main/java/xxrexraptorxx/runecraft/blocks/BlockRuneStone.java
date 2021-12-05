@@ -203,7 +203,7 @@ public class BlockRuneStone extends Block {
 
 			if(world.hasNeighborSignal(pos)) {
 				world.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
-				world.getBlockTicks().scheduleTick(pos, this, 4);
+				world.scheduleTick(pos, this, 4);
 
 				if(this != ModBlocks.RUNE_STONE.get() && this != ModBlocks.RUNE_STONE_DMG.get() && this != ModBlocks.RUNE_STONE_FRE.get() &&
 						this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && this.getRegistryName().toString().contains("rune_stone_")) {
