@@ -100,9 +100,8 @@ public class BlockRuneStone extends Block {
 		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 
-
 	@Override
-	public void stepOn(Level level, BlockPos pos, BlockState pState, Entity entityIn) {
+	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
 		//base blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && this.getRegistryName().toString().length() == 22) {
 			if(entityIn instanceof Player) {
