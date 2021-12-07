@@ -36,7 +36,7 @@ public class ItemArmorMagical extends ArmorItem {
 
 
     private void effectPlayer(Player player, MobEffect effect, int amplifier) {
-        if (player.getEffect(effect) == null || player.getEffect(effect).getDuration() <= 1)
-            player.addEffect(new MobEffectInstance(effect, 10, amplifier, true, true));
+        if (player.getEffect(effect) == null || player.getEffect(effect).getDuration() <= 70)
+            player.addEffect(new MobEffectInstance(effect, 70, amplifier, true, true));
     }
 }

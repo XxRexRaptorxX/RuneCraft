@@ -14,12 +14,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 
-public class BlockAshe extends FallingBlock {
+public class BlockAsh extends FallingBlock {
 
 	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
 
-	public BlockAshe() {
+	public BlockAsh() {
 		super(Properties.of(Material.SAND)
 				.strength(0.2F, 0.0F)
 				.sound(SoundType.SAND)
