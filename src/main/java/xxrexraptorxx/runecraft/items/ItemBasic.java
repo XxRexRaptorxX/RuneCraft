@@ -9,6 +9,5 @@ public class ItemBasic extends Item {
         super(new Properties()
                 .tab(CreativeTab.MOD_TAB)
         );
-
     }
 }

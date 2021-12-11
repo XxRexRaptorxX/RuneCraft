@@ -169,10 +169,6 @@ public class Events {
                                     Vex vex = new Vex(EntityType.VEX, world);
                                     vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
                                     world.addFreshEntity(vex);
-
-                                    event.setUseBlock(Event.Result.DENY);
-                                    event.setUseItem(Event.Result.DENY);
-                                    event.setCanceled(true);
                                 }
 
                                 event.setUseBlock(Event.Result.DENY);
@@ -247,11 +243,11 @@ public class Events {
                                     Vex vex = new Vex(EntityType.VEX, world);
                                     vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
                                     world.addFreshEntity(vex);
-
-                                    event.setUseBlock(Event.Result.DENY);
-                                    event.setUseItem(Event.Result.DENY);
-                                    event.setCanceled(true);
                                 }
+
+                                event.setUseBlock(Event.Result.DENY);
+                                event.setUseItem(Event.Result.DENY);
+                                event.setCanceled(true);
                             }
                         } else { //TODO BUGGY makes no sense!
                             //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
