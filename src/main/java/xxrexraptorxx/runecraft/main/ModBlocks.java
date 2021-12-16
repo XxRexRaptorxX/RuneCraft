@@ -134,4 +134,96 @@ public class ModBlocks {
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_PTL = BLOCKS.register("rune_stone_ptl", BlockRuneStone::new);
     public static final RegistryObject<Item> RUNE_STONE_PTL_BLOCKITEM = ITEMS.register("rune_stone_ptl", () -> new BlockItem(RUNE_STONE_PTL.get(), new Item.Properties()));
+
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_A = BLOCKS.register("rune_block_a", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_A_BLOCKITEM = ITEMS.register("rune_block_a", () -> new BlockItem(RUNE_BLOCK_A.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_B = BLOCKS.register("rune_block_b", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_B_BLOCKITEM = ITEMS.register("rune_block_b", () -> new BlockItem(RUNE_BLOCK_B.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_C = BLOCKS.register("rune_block_c", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_C_BLOCKITEM = ITEMS.register("rune_block_c", () -> new BlockItem(RUNE_BLOCK_C.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_D = BLOCKS.register("rune_block_d", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_D_BLOCKITEM = ITEMS.register("rune_block_d", () -> new BlockItem(RUNE_BLOCK_D.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_E = BLOCKS.register("rune_block_e", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_E_BLOCKITEM = ITEMS.register("rune_block_e", () -> new BlockItem(RUNE_BLOCK_E.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_F = BLOCKS.register("rune_block_f", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_F_BLOCKITEM = ITEMS.register("rune_block_f", () -> new BlockItem(RUNE_BLOCK_F.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_G = BLOCKS.register("rune_block_g", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_G_BLOCKITEM = ITEMS.register("rune_block_g", () -> new BlockItem(RUNE_BLOCK_G.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_H = BLOCKS.register("rune_block_h", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_H_BLOCKITEM = ITEMS.register("rune_block_h", () -> new BlockItem(RUNE_BLOCK_H.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_I = BLOCKS.register("rune_block_i", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_I_BLOCKITEM = ITEMS.register("rune_block_i", () -> new BlockItem(RUNE_BLOCK_I.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_J = BLOCKS.register("rune_block_j", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_J_BLOCKITEM = ITEMS.register("rune_block_j", () -> new BlockItem(RUNE_BLOCK_J.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_K = BLOCKS.register("rune_block_k", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_K_BLOCKITEM = ITEMS.register("rune_block_k", () -> new BlockItem(RUNE_BLOCK_K.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_L = BLOCKS.register("rune_block_l", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_L_BLOCKITEM = ITEMS.register("rune_block_l", () -> new BlockItem(RUNE_BLOCK_L.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_M = BLOCKS.register("rune_block_m", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_M_BLOCKITEM = ITEMS.register("rune_block_m", () -> new BlockItem(RUNE_BLOCK_M.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_N = BLOCKS.register("rune_block_n", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_N_BLOCKITEM = ITEMS.register("rune_block_n", () -> new BlockItem(RUNE_BLOCK_N.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_O = BLOCKS.register("rune_block_o", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_O_BLOCKITEM = ITEMS.register("rune_block_o", () -> new BlockItem(RUNE_BLOCK_O.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_P = BLOCKS.register("rune_block_p", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_P_BLOCKITEM = ITEMS.register("rune_block_p", () -> new BlockItem(RUNE_BLOCK_P.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_Q = BLOCKS.register("rune_block_q", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_Q_BLOCKITEM = ITEMS.register("rune_block_q", () -> new BlockItem(RUNE_BLOCK_Q.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_R = BLOCKS.register("rune_block_r", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_R_BLOCKITEM = ITEMS.register("rune_block_r", () -> new BlockItem(RUNE_BLOCK_R.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_S = BLOCKS.register("rune_block_s", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_S_BLOCKITEM = ITEMS.register("rune_block_s", () -> new BlockItem(RUNE_BLOCK_S.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_T = BLOCKS.register("rune_block_t", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_T_BLOCKITEM = ITEMS.register("rune_block_t", () -> new BlockItem(RUNE_BLOCK_T.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_U = BLOCKS.register("rune_block_u", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_U_BLOCKITEM = ITEMS.register("rune_block_u", () -> new BlockItem(RUNE_BLOCK_U.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_V = BLOCKS.register("rune_block_v", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_V_BLOCKITEM = ITEMS.register("rune_block_v", () -> new BlockItem(RUNE_BLOCK_V.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_W = BLOCKS.register("rune_block_w", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_W_BLOCKITEM = ITEMS.register("rune_block_w", () -> new BlockItem(RUNE_BLOCK_W.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_X = BLOCKS.register("rune_block_x", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_X_BLOCKITEM = ITEMS.register("rune_block_x", () -> new BlockItem(RUNE_BLOCK_X.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_Y = BLOCKS.register("rune_block_y", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_Y_BLOCKITEM = ITEMS.register("rune_block_y", () -> new BlockItem(RUNE_BLOCK_Y.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_Z = BLOCKS.register("rune_block_z", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_Z_BLOCKITEM = ITEMS.register("rune_block_z", () -> new BlockItem(RUNE_BLOCK_Z.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_DMG = BLOCKS.register("rune_block_dmg", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_DMG_BLOCKITEM = ITEMS.register("rune_block_dmg", () -> new BlockItem(RUNE_BLOCK_DMG.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_FRE = BLOCKS.register("rune_block_fre", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_FRE_BLOCKITEM = ITEMS.register("rune_block_fre", () -> new BlockItem(RUNE_BLOCK_FRE.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_HRD = BLOCKS.register("rune_block_hrd", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_HRD_BLOCKITEM = ITEMS.register("rune_block_hrd", () -> new BlockItem(RUNE_BLOCK_HRD.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockRune> RUNE_BLOCK_PTL = BLOCKS.register("rune_block_ptl", BlockRune::new);
+    public static final RegistryObject<Item> RUNE_BLOCK_PTL_BLOCKITEM = ITEMS.register("rune_block_ptl", () -> new BlockItem(RUNE_BLOCK_PTL.get(), new Item.Properties()));
+
 }

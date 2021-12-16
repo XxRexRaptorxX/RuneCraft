@@ -21,7 +21,7 @@ import xxrexraptorxx.runecraft.main.References;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = References.MODID,bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = References.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class OreGenerator {
 
     @SubscribeEvent

@@ -55,7 +55,36 @@ public class Items extends ItemModelProvider {
         itemBlock(ModBlocks.RUNE_STONE_HRD);
         itemBlock(ModBlocks.RUNE_STONE_PTL);
 
-
+        itemBlock(ModBlocks.RUNE_BLOCK_A);
+        itemBlock(ModBlocks.RUNE_BLOCK_B);
+        itemBlock(ModBlocks.RUNE_BLOCK_C);
+        itemBlock(ModBlocks.RUNE_BLOCK_D);
+        itemBlock(ModBlocks.RUNE_BLOCK_E);
+        itemBlock(ModBlocks.RUNE_BLOCK_F);
+        itemBlock(ModBlocks.RUNE_BLOCK_G);
+        itemBlock(ModBlocks.RUNE_BLOCK_H);
+        itemBlock(ModBlocks.RUNE_BLOCK_I);
+        itemBlock(ModBlocks.RUNE_BLOCK_J);
+        itemBlock(ModBlocks.RUNE_BLOCK_K);
+        itemBlock(ModBlocks.RUNE_BLOCK_L);
+        itemBlock(ModBlocks.RUNE_BLOCK_M);
+        itemBlock(ModBlocks.RUNE_BLOCK_N);
+        itemBlock(ModBlocks.RUNE_BLOCK_O);
+        itemBlock(ModBlocks.RUNE_BLOCK_P);
+        itemBlock(ModBlocks.RUNE_BLOCK_Q);
+        itemBlock(ModBlocks.RUNE_BLOCK_R);
+        itemBlock(ModBlocks.RUNE_BLOCK_S);
+        itemBlock(ModBlocks.RUNE_BLOCK_T);
+        itemBlock(ModBlocks.RUNE_BLOCK_U);
+        itemBlock(ModBlocks.RUNE_BLOCK_V);
+        itemBlock(ModBlocks.RUNE_BLOCK_W);
+        itemBlock(ModBlocks.RUNE_BLOCK_X);
+        itemBlock(ModBlocks.RUNE_BLOCK_Y);
+        itemBlock(ModBlocks.RUNE_BLOCK_Z);
+        itemBlock(ModBlocks.RUNE_BLOCK_DMG);
+        itemBlock(ModBlocks.RUNE_BLOCK_FRE);
+        itemBlock(ModBlocks.RUNE_BLOCK_HRD);
+        itemBlock(ModBlocks.RUNE_BLOCK_PTL);
     }
 
 

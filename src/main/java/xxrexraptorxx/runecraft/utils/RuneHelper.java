@@ -172,6 +172,75 @@ public class RuneHelper {
 	}
 
 
+	public static Block getRuneBlockFromType(String type) {
+		switch (type) {
+			case "a":
+				return ModBlocks.RUNE_BLOCK_A.get();
+			case "b":
+				return ModBlocks.RUNE_BLOCK_B.get();
+			case "c":
+				return ModBlocks.RUNE_BLOCK_C.get();
+			case "d":
+				return ModBlocks.RUNE_BLOCK_D.get();
+			case "e":
+				return ModBlocks.RUNE_BLOCK_E.get();
+			case "f":
+				return ModBlocks.RUNE_BLOCK_F.get();
+			case "g":
+				return ModBlocks.RUNE_BLOCK_G.get();
+			case "h":
+				return ModBlocks.RUNE_BLOCK_H.get();
+			case "i":
+				return ModBlocks.RUNE_BLOCK_I.get();
+			case "j":
+				return ModBlocks.RUNE_BLOCK_J.get();
+			case "k":
+				return ModBlocks.RUNE_BLOCK_K.get();
+			case "l":
+				return ModBlocks.RUNE_BLOCK_L.get();
+			case "m":
+				return ModBlocks.RUNE_BLOCK_M.get();
+			case "n":
+				return ModBlocks.RUNE_BLOCK_N.get();
+			case "o":
+				return ModBlocks.RUNE_BLOCK_O.get();
+			case "p":
+				return ModBlocks.RUNE_BLOCK_P.get();
+			case "q":
+				return ModBlocks.RUNE_BLOCK_Q.get();
+			case "r":
+				return ModBlocks.RUNE_BLOCK_R.get();
+			case "s":
+				return ModBlocks.RUNE_BLOCK_S.get();
+			case "t":
+				return ModBlocks.RUNE_BLOCK_T.get();
+			case "u":
+				return ModBlocks.RUNE_BLOCK_U.get();
+			case "v":
+				return ModBlocks.RUNE_BLOCK_V.get();
+			case "w":
+				return ModBlocks.RUNE_BLOCK_W.get();
+			case "x":
+				return ModBlocks.RUNE_BLOCK_X.get();
+			case "y":
+				return ModBlocks.RUNE_BLOCK_Y.get();
+			case "z":
+				return ModBlocks.RUNE_BLOCK_Z.get();
+			case "dmg":
+				return ModBlocks.RUNE_BLOCK_DMG.get();
+			case "fre":
+				return ModBlocks.RUNE_BLOCK_FRE.get();
+			case "hrd":
+				return ModBlocks.RUNE_BLOCK_HRD.get();
+			case "ptl":
+				return ModBlocks.RUNE_BLOCK_PTL.get();
+			default:
+				System.err.println("Unknown rune type. [getRuneBlockFromType]");
+				return ModBlocks.RUNE_BLOCK_A.get();
+		}
+	}
+
+
 	public static String getRuneName(String runeType) {
 		switch (runeType) {
 			case "a":
