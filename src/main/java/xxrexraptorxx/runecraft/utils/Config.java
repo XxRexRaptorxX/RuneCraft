@@ -11,6 +11,7 @@ public class Config {
     public static final String CATEGORY_GENERAL = "general";
     public static final String CATEGORY_RUNESTONES = "runestones";
     public static final String CATEGORY_PORTABLE_RUNESTONES = "portable_runestones";
+    public static final String CATEGORY_PAGES = "pages";
 
     public static ForgeConfigSpec SERVER_CONFIG;
     public static ForgeConfigSpec CLIENT_CONFIG;
@@ -20,7 +21,6 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_DESCRIPTION;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_JEI_DESCRIPTION;
     public static ForgeConfigSpec.IntValue CHARGING_COST;
-    public static ForgeConfigSpec.IntValue CHARGING_COST_PAGES;
     public static ForgeConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
@@ -38,6 +38,14 @@ public class Config {
     public static ForgeConfigSpec.IntValue AREA_SPELL_DURATION;
     public static ForgeConfigSpec.IntValue AREA_SPELL_RADIUS;
     public static ForgeConfigSpec.IntValue AREA_SPELL_AMPLIFIER;
+
+    public static ForgeConfigSpec.IntValue ORB_PAGE_COST;
+    public static ForgeConfigSpec.IntValue WAND_PAGE_COST;
+    public static ForgeConfigSpec.IntValue SPELL_PAGE_COST;
+    public static ForgeConfigSpec.IntValue ALCHEMY_PAGE_COST;
+    public static ForgeConfigSpec.IntValue CURSE_PAGE_COST;
+    public static ForgeConfigSpec.IntValue LOST_PAGE_COST;
+    public static ForgeConfigSpec.IntValue BANNED_PAGE_COST;
 
     public static void init() {
         initServer();
@@ -67,7 +75,6 @@ public class Config {
 
         builder.comment("General").push(CATEGORY_GENERAL);
         CHARGING_COST = builder.comment("The amount of experience levels that you need to create the magical book").defineInRange("charging_cost", 15, 1, 30);
-        CHARGING_COST_PAGES = builder.comment("The amount of experience levels that you need to use pages on the altar").defineInRange("charging_cost_pages", 5, 1, 30);
         WAND_COOLDOWN = builder.comment("The cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
         CAN_SPAWN_ENDERDRAGON = builder.comment("Activate that the banned ritual can spawn an ender dragon").define("can_spawn_enderdragon", false);
         builder.pop();
@@ -89,6 +96,16 @@ public class Config {
         PORTABLE_SPELL_AMPLIFIER = builder.comment("The amplifier of the portable rune stone effects").defineInRange("portable_spell_amplifier", 0, 0, 5);
         PORTABLE_SPELL_RADIUS = builder.comment("The radius of the portable rune stone effects").defineInRange("portable_spell_radius", 2, 1, 10);
         PORTABLE_SPELL_COOLDOWN = builder.comment("The cooldown of the portable rune stone effects (should be more than portable spell duration)").defineInRange("portable_spell_cooldown", 300, 10, 10000);
+        builder.pop();
+
+        builder.comment("Pages").push(CATEGORY_PAGES);
+        ORB_PAGE_COST = builder.comment("The amount of experience levels that you need to use the orb page on the altar").defineInRange("orb_page_cost", 10, 1, 30);
+        SPELL_PAGE_COST = builder.comment("The amount of experience levels that you need to use the spell page on the altar").defineInRange("spell_page_cost", 5, 1, 30);
+        WAND_PAGE_COST = builder.comment("The amount of experience levels that you need to use the wand page on the altar").defineInRange("wand_page_cost", 10, 1, 30);
+        CURSE_PAGE_COST = builder.comment("The amount of experience levels that you need to use the curse page on the altar").defineInRange("curse_page_cost", 5, 1, 30);
+        ALCHEMY_PAGE_COST = builder.comment("The amount of experience levels that you need to use the alchemy page on the altar").defineInRange("alchemy_page_cost", 10, 1, 30);
+        LOST_PAGE_COST = builder.comment("The amount of experience levels that you need to use the lost page on the altar").defineInRange("lost_page_cost", 10, 1, 30);
+        BANNED_PAGE_COST = builder.comment("The amount of experience levels that you need to use the banned page on the altar").defineInRange("banned_page_cost", 20, 1, 30);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

@@ -139,7 +139,7 @@ public class Events {
             if(item == Items.BOOK) {
                 if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                    if (player.experienceLevel >= Config.CHARGING_COST.get()) {
+                    if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
 
                         if (world.getMoonPhase() == 0) {
                             // convert
@@ -191,7 +191,7 @@ public class Events {
 
                 if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                    if (player.experienceLevel >= Config.CHARGING_COST_PAGES.get()) {
+                    if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
                         if (player.level.isDay() == false) {
                             world.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
 
@@ -210,7 +210,7 @@ public class Events {
                                 world.addFreshEntity(lightningbolt);
 
                                 event.getItemStack().shrink(1);
-                                player.onEnchantmentPerformed(null, Config.CHARGING_COST_PAGES.get());
+                                player.onEnchantmentPerformed(null, AltarHelper.getPageXpRequirement(item));
 
                                 //reward
                                 if (item == ModItems.WAND_PAGE.get()) {

@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
@@ -410,6 +411,18 @@ public class AltarHelper {
 				world.addFreshEntity(zombie);
 				break;
 		}
+	}
+
+
+	public static int getPageXpRequirement(Item item) {
+		if(item == ModItems.WAND_PAGE.get()) return Config.WAND_PAGE_COST.get();
+		if(item == ModItems.SPELL_PAGE.get()) return Config.SPELL_PAGE_COST.get();
+		if(item == ModItems.CURSE_PAGE.get()) return Config.CURSE_PAGE_COST.get();
+		if(item == ModItems.LOST_PAGE.get()) return Config.LOST_PAGE_COST.get();
+		if(item == ModItems.BANNED_PAGE.get()) return Config.BANNED_PAGE_COST.get();
+		if(item == ModItems.ORB_PAGE.get()) return Config.ORB_PAGE_COST.get();
+		if(item == ModItems.ALCHEMY_PAGE.get()) return Config.ALCHEMY_PAGE_COST.get();
+		else return 0;
 	}
 
 }

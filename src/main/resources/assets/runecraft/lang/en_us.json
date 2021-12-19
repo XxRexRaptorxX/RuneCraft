@@ -1,6 +1,7 @@
 {
     "itemGroup.runecraft_tab": "RuneCraft",
     "message.runecraft.not_enough_levels": "You have not enough experience levels!",
+    "message.runecraft.page_required_xp": "Required XP levels: ",
     "message.runecraft.wrong_block": "Use it on an altar...",
     "message.runecraft.not_full_moon": "Not full moon...",
     "message.runecraft.magical_book_jei_desc": "To get the Magical Book, use a normal Book and enough XP on fullmoon on the Altar.",

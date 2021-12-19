@@ -3,6 +3,7 @@
     "message.runecraft.not_enough_levels": "Du hast nicht genügend Erfahrungslevel!",
     "message.runecraft.wrong_block": "Benutze es an einem Altar...",
     "message.runecraft.not_full_moon": "Kein Vollmond...",
+    "message.runecraft.page_required_xp": "Erforderte Xp Level: ",
     "message.runecraft.magical_book_jei_desc": "Um das Magische Buch zu erlangen ist es nötig mit einem normalem Buch und genügend XP während Vollmond den Altar zu benutzen.",
     "message.runecraft.ruin_block_jei_desc": "Kann in Runen Tempeln gefunden werden.",
     "message.runecraft.empty_runestone": "Füge eine Rune ein...",
