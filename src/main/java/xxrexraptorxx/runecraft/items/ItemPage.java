@@ -36,8 +36,6 @@ public class ItemPage extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
-        if(Config.ACTIVATE_VISIBLE_RUNE_TYPE.get()) {
-            list.add(new TextComponent("Required Xp levels: " + AltarHelper.getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
-        }
+        list.add(new TextComponent("Required Xp levels: " + AltarHelper.getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
     }
 }
