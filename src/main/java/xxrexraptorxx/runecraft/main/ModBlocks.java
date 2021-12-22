@@ -17,9 +17,8 @@ public class ModBlocks {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, References.MODID);
 
     public static void init() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        BLOCKS.register(bus);
-        ITEMS.register(bus);
+        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
 

@@ -2,6 +2,7 @@ package xxrexraptorxx.runecraft.world;
 
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -34,9 +35,8 @@ public class OreGenerator {
     private static void genOre(BiomeGenerationSettingsBuilder settings, RuleTest fillertype, BlockState state, int veinSize, int minHeight, int maxHeight, int maxperchunk) {
         settings.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
                 Feature.ORE.configured(new OreConfiguration(fillertype, state, veinSize))
-                        .placed(List.of((CountPlacement.of(UniformInt.of(0,maxperchunk)))
+                        .placed(List.of((CountPlacement.of(UniformInt.of(0, maxperchunk)))
                                 , InSquarePlacement.spread()
                                 , HeightRangePlacement.uniform(VerticalAnchor.absolute(minHeight), VerticalAnchor.absolute(maxHeight)), BiomeFilter.biome())));
     }
-
 }

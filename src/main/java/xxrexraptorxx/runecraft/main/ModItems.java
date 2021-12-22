@@ -18,8 +18,7 @@ public class ModItems {
 
 
     public static void init() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        ITEMS.register(bus);
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final RegistryObject<ItemWand> BASIC_WAND = ITEMS.register("basic_wand", ItemWand::new);
