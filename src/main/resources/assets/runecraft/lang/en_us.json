@@ -15,6 +15,7 @@
     "message.runecraft.basic_wand_crafting_jei_desc": "Perform a ritual with a Page of Spells at night with enough experience levels on the Altar.",
     "message.runecraft.orb_jei_desc": "Perform a ritual with a Page of Orbs at night with enough experience levels on the Altar.",
     "message.runecraft.spell_page_jei_desc": "Describes an old Spell ritual. Use this page at night with enough experience levels on the Altar to perform the ritual. It gives the caster random spell effects.",
+    "message.runecraft.enchanting_page_jei_desc": "Describes an old Enchanting ritual. Use this page at night with enough experience levels on the Altar to perform the ritual. It gives the caster an enchanted book that can be written on with runes.",
     "message.runecraft.wand_page_jei_desc": "Describes an old Wand ritual. Use this page at night with enough experience levels on the Altar to perform the ritual. It gives the caster a magical wand.",
     "message.runecraft.orb_page_jei_desc": "Describes an old Orb ritual. Use this page at night with enough experience levels on the Altar to perform the ritual. It gives the caster a magical orb.",
     "message.runecraft.alchemy_page_jei_desc": "Describes an old Alchemy ritual. Use this page at night with enough experience levels on the Altar to perform the ritual. It gives the caster a random potion.",
@@ -121,6 +122,7 @@
     "item.runecraft.magical_page": "Magical Page",
     "item.runecraft.wand_page": "Page of Wands",
     "item.runecraft.orb_page": "Page of Orbs",
+    "item.runecraft.enchanting_page": "Page of Enchantments",
     "item.runecraft.spell_page": "Page of Spells",
     "item.runecraft.curse_page": "Page of Curses",
     "item.runecraft.banned_page": "Banned Page",
@@ -134,6 +136,7 @@
     "item.runecraft.potion": "Ritual Potion",
     "item.runecraft.splash_potion": "Ritual Splash Potion",
     "item.runecraft.lingering_potion": "Ritual Lingering Potion",
+    "item.runecraft.enchanting_book": "Empty Enchanted Book",
 
     "block.runecraft.rune_stone": "Rune Stone",
     "block.runecraft.rune_stone_a": "Rune Stone",

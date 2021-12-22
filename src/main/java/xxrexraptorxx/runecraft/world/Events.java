@@ -187,7 +187,8 @@ public class Events {
 
                 /** PAGES **/
             } else if(item == ModItems.WAND_PAGE.get() || item == ModItems.ORB_PAGE.get() || item == ModItems.CURSE_PAGE.get() ||
-                    item == ModItems.LOST_PAGE.get() || item == ModItems.SPELL_PAGE.get() || item == ModItems.ALCHEMY_PAGE.get() || item == ModItems.BANNED_PAGE.get()) {
+                    item == ModItems.LOST_PAGE.get() || item == ModItems.SPELL_PAGE.get() || item == ModItems.ALCHEMY_PAGE.get() ||
+                    item == ModItems.BANNED_PAGE.get() || item == ModItems.ENCHANTING_PAGE.get()) {
 
                 if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
@@ -236,6 +237,13 @@ public class Events {
 
                                 } else if (item == ModItems.ALCHEMY_PAGE.get()) {
                                     ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, AltarHelper.getRandomPotion());
+                                    world.addFreshEntity(reward);
+
+                                } else if (item == ModItems.ENCHANTING_PAGE.get()) {
+                                    ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                                    book.setHoverName(new TranslatableComponent("item.runecraft.enchanting_book"));
+
+                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, book);
                                     world.addFreshEntity(reward);
                                 }
 

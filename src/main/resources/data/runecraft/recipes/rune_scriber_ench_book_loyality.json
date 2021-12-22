@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "minecraft:enchanted_book"
+    },
+    "1": {
+      "item": "runecraft:rune_l"
+    },
+    "2": {
+      "item": "runecraft:rune_y"
+    },
+    "3": {
+      "item": "runecraft:rune_t"
+    },
+    "4": {
+      "item": "runecraft:rune_y"
+    }
+  },
+
+    "result": {
+      "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "loyality",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}

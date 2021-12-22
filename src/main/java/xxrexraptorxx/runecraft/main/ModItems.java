@@ -38,6 +38,7 @@ public class ModItems {
     public static final RegistryObject<ItemMagicalBook> MAGICAL_BOOK = ITEMS.register("magical_book", ItemMagicalBook::new);
     public static final RegistryObject<ItemPage> MAGICAL_PAGE = ITEMS.register("magical_page", ItemPage::new);
     public static final RegistryObject<ItemPage> SPELL_PAGE = ITEMS.register("spell_page", ItemPage::new);
+    public static final RegistryObject<ItemPage> ENCHANTING_PAGE = ITEMS.register("enchanting_page", ItemPage::new);
     public static final RegistryObject<ItemPage> WAND_PAGE = ITEMS.register("wand_page", ItemPage::new);
     public static final RegistryObject<ItemPage> ORB_PAGE = ITEMS.register("orb_page", ItemPage::new);
     public static final RegistryObject<ItemPage> ALCHEMY_PAGE = ITEMS.register("alchemy_page", ItemPage::new);

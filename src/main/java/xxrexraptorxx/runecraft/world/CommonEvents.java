@@ -45,8 +45,6 @@ public class CommonEvents {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUNE_BLOCK_HRD.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUNE_BLOCK_FRE.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUNE_BLOCK_DMG.get(), RenderType.cutoutMipped());
-
-
     }
 
 }

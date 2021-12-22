@@ -15,6 +15,7 @@
     "message.runecraft.basic_wand_crafting_jei_desc": "Führe Nachts ein Ritual mit einer Seite der Zauberstäbe und genügend XP auf dem Altar durch.",
     "message.runecraft.orb_jei_desc": "Führe Nachts ein Ritual mit einer Seite der Orbs und genügend XP auf dem Altar durch.",
     "message.runecraft.spell_page_jei_desc": "Beschreibt ein altes Zauber Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es gibt dem Beschwörer einen zufälligen Zauber.",
+    "message.runecraft.enchanting_page_jei_desc": "Beschreibt ein altes Verzauberungs Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es gibt dem Beschwörer ein Verzaubertes Buch das mit Runen beschrieben werden kann.",
     "message.runecraft.wand_page_jei_desc": "Beschreibt ein altes Zauberstab Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es gibt dem Beschwörer einen magischen Zauberstab.",
     "message.runecraft.orb_page_jei_desc": "Beschreibt ein altes Orb Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es gibt dem Beschwörer ein magisches Orb.",
     "message.runecraft.alchemy_page_jei_desc": "Beschreibt ein altes Alchemie Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es gibt dem Beschwörer einen zufälligen Trank.",
@@ -125,6 +126,7 @@
     "item.runecraft.spell_page": "Seite der Zauber",
     "item.runecraft.curse_page": "Seite der Flüche",
     "item.runecraft.banned_page": "Verbannte Seite",
+    "item.runecraft.enchanting_page": "Seite der Verzauberungen",
     "item.runecraft.alchemy_page": "Seite der Alchemie",
     "item.runecraft.orb": "Orb",
     "item.runecraft.cloth": "Magischer Stoff",
@@ -135,6 +137,7 @@
     "item.runecraft.potion": "Ritual Trank",
     "item.runecraft.splash_potion": "Ritual Wurftrank",
     "item.runecraft.lingering_potion": "Ritual Verweiltrank",
+    "item.runecraft.enchanting_book": "Leeres Verzaubertes Buch",
 
     "block.runecraft.rune_stone": "Runen Stein",
     "block.runecraft.rune_stone_a": "Runen Stein",

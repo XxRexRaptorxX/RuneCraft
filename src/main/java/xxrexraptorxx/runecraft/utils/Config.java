@@ -44,6 +44,7 @@ public class Config {
     public static ForgeConfigSpec.IntValue SPELL_PAGE_COST;
     public static ForgeConfigSpec.IntValue ALCHEMY_PAGE_COST;
     public static ForgeConfigSpec.IntValue CURSE_PAGE_COST;
+    public static ForgeConfigSpec.IntValue ENCHANTING_PAGE_COST;
     public static ForgeConfigSpec.IntValue LOST_PAGE_COST;
     public static ForgeConfigSpec.IntValue BANNED_PAGE_COST;
 
@@ -99,13 +100,14 @@ public class Config {
         builder.pop();
 
         builder.comment("Pages").push(CATEGORY_PAGES);
-        ORB_PAGE_COST = builder.comment("The amount of experience levels that you need to use the orb page on the altar").defineInRange("orb_page_cost", 10, 1, 30);
-        SPELL_PAGE_COST = builder.comment("The amount of experience levels that you need to use the spell page on the altar").defineInRange("spell_page_cost", 5, 1, 30);
-        WAND_PAGE_COST = builder.comment("The amount of experience levels that you need to use the wand page on the altar").defineInRange("wand_page_cost", 10, 1, 30);
-        CURSE_PAGE_COST = builder.comment("The amount of experience levels that you need to use the curse page on the altar").defineInRange("curse_page_cost", 5, 1, 30);
-        ALCHEMY_PAGE_COST = builder.comment("The amount of experience levels that you need to use the alchemy page on the altar").defineInRange("alchemy_page_cost", 10, 1, 30);
-        LOST_PAGE_COST = builder.comment("The amount of experience levels that you need to use the lost page on the altar").defineInRange("lost_page_cost", 10, 1, 30);
-        BANNED_PAGE_COST = builder.comment("The amount of experience levels that you need to use the banned page on the altar").defineInRange("banned_page_cost", 20, 1, 30);
+        ORB_PAGE_COST = builder.comment("The amount of experience levels that you need to use the orb page on the altar").defineInRange("orb_page_cost", 10, 1, 50);
+        ENCHANTING_PAGE_COST = builder.comment("The amount of experience levels that you need to use the enchanting page on the altar").defineInRange("enchanting_page_cost", 10, 1, 50);
+        SPELL_PAGE_COST = builder.comment("The amount of experience levels that you need to use the spell page on the altar").defineInRange("spell_page_cost", 5, 1, 50);
+        WAND_PAGE_COST = builder.comment("The amount of experience levels that you need to use the wand page on the altar").defineInRange("wand_page_cost", 10, 1, 50);
+        CURSE_PAGE_COST = builder.comment("The amount of experience levels that you need to use the curse page on the altar").defineInRange("curse_page_cost", 5, 1, 50);
+        ALCHEMY_PAGE_COST = builder.comment("The amount of experience levels that you need to use the alchemy page on the altar").defineInRange("alchemy_page_cost", 10, 1, 50);
+        LOST_PAGE_COST = builder.comment("The amount of experience levels that you need to use the lost page on the altar").defineInRange("lost_page_cost", 10, 1, 50);
+        BANNED_PAGE_COST = builder.comment("The amount of experience levels that you need to use the banned page on the altar").defineInRange("banned_page_cost", 20, 1, 50);
         builder.pop();
 
         SERVER_CONFIG = builder.build();

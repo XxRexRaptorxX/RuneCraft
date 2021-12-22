@@ -27,7 +27,7 @@ public class AltarHelper {
 	public static ItemStack getRandomTreasure() {
 		Random rand = new Random();
 		
-		switch (rand.nextInt(19)) {
+		switch (rand.nextInt(25)) {
 		case 0:
 			return new ItemStack(Items.DIAMOND);
 		case 1:
@@ -64,6 +64,10 @@ public class AltarHelper {
 			return new ItemStack(Items.ENDER_PEARL);
 		case 17:
 			return new ItemStack(Items.PRISMARINE_CRYSTALS);
+		case 18:
+			return new ItemStack(Items.GOLDEN_APPLE);
+		case 19:
+			return new ItemStack(Items.ENCHANTED_BOOK);
 		default:
 			return new ItemStack(Items.ENDER_EYE);
 		}
@@ -421,6 +425,7 @@ public class AltarHelper {
 		if(item == ModItems.LOST_PAGE.get()) return Config.LOST_PAGE_COST.get();
 		if(item == ModItems.BANNED_PAGE.get()) return Config.BANNED_PAGE_COST.get();
 		if(item == ModItems.ORB_PAGE.get()) return Config.ORB_PAGE_COST.get();
+		if(item == ModItems.ENCHANTING_PAGE.get()) return Config.ENCHANTING_PAGE_COST.get();
 		if(item == ModItems.ALCHEMY_PAGE.get()) return Config.ALCHEMY_PAGE_COST.get();
 		else return 0;
 	}

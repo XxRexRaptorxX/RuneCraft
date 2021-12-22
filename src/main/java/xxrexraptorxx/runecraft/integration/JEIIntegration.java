@@ -41,6 +41,8 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(Items.DIAMOND_SWORD));
         treasures.add(new ItemStack(Items.DRAGON_BREATH));
         treasures.add(new ItemStack(Items.BUNDLE));
+        treasures.add(new ItemStack(Items.ENCHANTED_BOOK));
+        treasures.add(new ItemStack(Items.GOLDEN_APPLE));
         treasures.add(new ItemStack(Items.ENDER_EYE));
         treasures.add(new ItemStack(Items.EMERALD));
         treasures.add(new ItemStack(Items.AMETHYST_CLUSTER));
@@ -63,6 +65,7 @@ public class JEIIntegration implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(ModItems.LOST_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.lost_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.WAND_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.wand_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.ORB_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ENCHANTING_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.enchanting_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.BANNED_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.banned_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.ALCHEMY_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.alchemy_page_jei_desc"));
 

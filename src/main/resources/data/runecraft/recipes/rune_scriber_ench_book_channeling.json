@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "minecraft:enchanted_book"
+    },
+    "1": {
+      "item": "runecraft:rune_c"
+    },
+    "2": {
+      "item": "runecraft:rune_h"
+    },
+    "3": {
+      "item": "runecraft:rune_a"
+    },
+    "4": {
+      "item": "runecraft:rune_n"
+    }
+  },
+
+  "result": {
+    "item": "minecraft:enchanted_book",
+  "nbt": {
+    "StoredEnchantments": [
+      {
+        "id": "channeling",
+        "lvl": 1
+      }
+    ]
+  }
+}
+}
