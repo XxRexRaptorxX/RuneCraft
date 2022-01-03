@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:resistance"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_m"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_m"
+    }
+  ]
+}

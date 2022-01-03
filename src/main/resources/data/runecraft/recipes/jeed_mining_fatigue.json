@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:mining_fatigue"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_j"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_j"
+    }
+  ]
+}

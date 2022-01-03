@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:wither"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_e"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_e"
+    }
+  ]
+}

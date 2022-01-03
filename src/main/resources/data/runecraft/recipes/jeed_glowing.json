@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:glowing"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_w"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_w"
+    }
+  ]
+}

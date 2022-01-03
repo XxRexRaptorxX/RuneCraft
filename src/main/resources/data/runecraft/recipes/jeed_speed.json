@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:speed"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_a"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_a"
+    }
+  ]
+}

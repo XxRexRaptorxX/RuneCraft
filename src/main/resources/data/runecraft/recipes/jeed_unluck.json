@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:unluck"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_y"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_y"
+    }
+  ]
+}

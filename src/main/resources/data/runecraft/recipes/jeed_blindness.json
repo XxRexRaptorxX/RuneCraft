@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:blindness"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_p"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_p"
+    }
+  ]
+}

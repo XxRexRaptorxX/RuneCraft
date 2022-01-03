@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:night_vision"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_q"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_q"
+    }
+  ]
+}

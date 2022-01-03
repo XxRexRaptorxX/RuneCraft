@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:strength"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_g"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_g"
+    }
+  ]
+}

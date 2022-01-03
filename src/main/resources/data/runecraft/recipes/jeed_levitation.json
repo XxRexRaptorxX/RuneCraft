@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:levitation"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_f"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_f"
+    }
+  ]
+}

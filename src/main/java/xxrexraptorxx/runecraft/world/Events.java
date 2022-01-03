@@ -60,8 +60,11 @@ public class Events {
                     Minecraft.getInstance().player.sendMessage(new TextComponent(ChatFormatting.GRAY + References.URL), UUID.randomUUID());
 
                     hasShownUp = true;
+
                 } else if (VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.FAILED) {
                     System.err.println(References.NAME + "'s version checker failed!");
+                    hasShownUp = true;
+
                 }
             }
         }

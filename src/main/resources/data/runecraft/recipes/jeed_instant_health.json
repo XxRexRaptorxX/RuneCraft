@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:instant_health"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_k"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_k"
+    }
+  ]
+}

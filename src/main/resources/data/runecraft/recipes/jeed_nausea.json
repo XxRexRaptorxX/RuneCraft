@@ -1,0 +1,14 @@
+{
+  "type": "jeed:effect_provider",
+  "effect":{
+    "id": "minecraft:nausea"
+  },
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_l"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_l"
+    }
+  ]
+}
