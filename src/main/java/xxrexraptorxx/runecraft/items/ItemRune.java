@@ -51,7 +51,7 @@ public class ItemRune extends Item {
         BlockPos pos = event.getClickedPos().above();
 
         if(!level.isClientSide) {
-            level.setBlock(pos, RuneHelper.getRuneBlockFromType(item.getRegistryName().toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.FACING, player.getDirection()), 11);
+            level.setBlock(pos, RuneHelper.getRuneBlockFromType(item.getRegistryName().toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
         }
         stack.shrink(1);
 
