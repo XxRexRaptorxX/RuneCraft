@@ -29,7 +29,7 @@
     "message.runecraft.holy_wand_jei_desc": "Rechts Click: Setzt eine Wolke aus Heilzauber frei. Links Click: Heilt Kreaturen und Schadet Untoten.",
     "message.runecraft.escape_wand_jei_desc": "Rechts Click: Setzt eine Rauchwolke frei und gibt dem Benutzer Unsichtbarkeit und Schnelligkeit.",
     "message.runecraft.defensive_wand_jei_desc": "Rechts Click: Generiert eine Bruchstein Kabsel um den Benutzer und gibt ihn Resistenz. Shift + Rechts Click: Zerstört die Kapsel.",
-    "message.runecraft.thunder_wand_jei_desc": "Rechts Click: Das Wetter wird Sonnig. Shift + Rechts Click: Das Wetter wird regnerisch.",
+    "message.runecraft.thunder_wand_jei_desc": "Rechts Click: Das Wetter wird Sonnig. Shift + Rechts Click: Das Wetter wird regnerisch. Links Click: Lässt die Kreatur vom Blitz treffen.",
     "message.runecraft.creature_wand_jei_desc": "Rechts Click: Spawnt zufällig einige Monster.",
     "message.runecraft.destruction_wand_jei_desc": "Rechts Click: Spawnt ein gezündetes TNT. Links Click: Zerstört den ausgewählten Block sofort.",
     "message.runecraft.changing_wand_jei_desc": "Rechts Click: Wechselt zwischen den Blockstates des ausgewählten Blocks.",

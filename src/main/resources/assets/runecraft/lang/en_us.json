@@ -29,7 +29,7 @@
     "message.runecraft.holy_wand_jei_desc": "Right Click: Releases a healing effect cloud. Left Click: Heal creatures and damages undead.",
     "message.runecraft.escape_wand_jei_desc": "Right Click: Releases a big smoke cloud and gives the user invisibility and movement speed",
     "message.runecraft.defensive_wand_jei_desc": "Right Click: Generates a cobblestone capsule around the user and gives it damage resistance. Shift + Right Click: Destroys the capsule.",
-    "message.runecraft.thunder_wand_jei_desc": "Right Click: Changes the weather to sunshine. Shift + Right Click: Changes the weather to rain.",
+    "message.runecraft.thunder_wand_jei_desc": "Right Click: Changes the weather to sunshine. Shift + Right Click: Changes the weather to rain. Left Click: Sends a lightning bolt to the creature.",
     "message.runecraft.creature_wand_jei_desc": "Right Click: Spawns random monsters.",
     "message.runecraft.destruction_wand_jei_desc": "Right Click: Spawnt primed TNT. Left Click: Destroys the selected block instant.",
     "message.runecraft.changing_wand_jei_desc": "Right Click: Switches between the block states of the selected block.",
