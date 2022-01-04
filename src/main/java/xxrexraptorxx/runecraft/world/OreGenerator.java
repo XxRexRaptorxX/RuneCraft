@@ -28,7 +28,7 @@ public class OreGenerator {
     @SubscribeEvent
     public static void oreGeneration(final BiomeLoadingEvent event) {
         if (event.getName().toString().equals("minecraft:basalt_deltas")) {
-            genOre(event.getGeneration(), OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.ASHE_BLOCK.get().defaultBlockState(), 15, 10, 64, 10);
+            genOre(event.getGeneration(), OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.ASH_BLOCK.get().defaultBlockState(), 15, 10, 64, 10);
         }
     }
 

@@ -48,7 +48,7 @@ public class ModItems {
     public static final RegistryObject<ItemRelict> ORB = ITEMS.register("orb", ItemRelict::new);
     public static final RegistryObject<ItemRelict> SPIRIT_STAR = ITEMS.register("spirit_star", ItemRelict::new);
     public static final RegistryObject<ItemRelict> SPIRIT_CRYSTAL = ITEMS.register("spirit_crystal", ItemRelict::new);
-    public static final RegistryObject<ItemBasic> ASHE = ITEMS.register("ashe", ItemBasic::new);
+    public static final RegistryObject<ItemBasic> ASH = ITEMS.register("ash", ItemBasic::new);
     public static final RegistryObject<ItemBasic> RUNE_DUST = ITEMS.register("rune_dust", ItemBasic::new);
     public static final RegistryObject<ItemBasic> CLOTH = ITEMS.register("cloth", ItemBasic::new);
     public static final RegistryObject<ItemRune> RUNE_A = ITEMS.register("rune_a", ItemRune::new);

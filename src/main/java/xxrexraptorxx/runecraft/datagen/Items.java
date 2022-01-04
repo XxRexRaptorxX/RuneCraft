@@ -17,7 +17,7 @@ public class Items extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
-        itemBlock(ModBlocks.ASHE_BLOCK);
+        itemBlock(ModBlocks.ASH_BLOCK);
         itemBlock(ModBlocks.ALTAR_BLOCK);
         itemBlock(ModBlocks.RUIN_BLOCK);
         itemBlock(ModBlocks.RUNE_DUST_BLOCK);

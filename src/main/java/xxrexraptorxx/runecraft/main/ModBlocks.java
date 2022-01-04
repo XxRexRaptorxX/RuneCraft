@@ -29,8 +29,8 @@ public class ModBlocks {
     public static final RegistryObject<BlockRuneScriber> RUNE_SCRIBER_BLOCK = BLOCKS.register("rune_scriber", BlockRuneScriber::new);
     public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("rune_scriber", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
-    public static final RegistryObject<BlockAsh> ASHE_BLOCK = BLOCKS.register("ashe_block", BlockAsh::new);
-    public static final RegistryObject<Item> ASHE_BLOCKITEM = ITEMS.register("ashe_block", () -> new BlockItem(ASHE_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<BlockAsh> ASH_BLOCK = BLOCKS.register("ash_block", BlockAsh::new);
+    public static final RegistryObject<Item> ASH_BLOCKITEM = ITEMS.register("ash_block", () -> new BlockItem(ASH_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
     public static final RegistryObject<BlockRuneDust> RUNE_DUST_BLOCK = BLOCKS.register("rune_dust_block", BlockRuneDust::new);
     public static final RegistryObject<Item> RUNE_DUST_BLOCKITEM = ITEMS.register("rune_dust_block", () -> new BlockItem(RUNE_DUST_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));

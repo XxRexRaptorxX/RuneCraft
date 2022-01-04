@@ -93,7 +93,7 @@
     "item.runecraft.portable_rune_stone_x": "Portable Rune Stone",
     "item.runecraft.portable_rune_stone_y": "Portable Rune Stone",
     "item.runecraft.portable_rune_stone_z": "Portable Rune Stone",
-    "item.runecraft.ashe": "Ash",
+    "item.runecraft.ash": "Ash",
     "item.runecraft.rune_dust": "Rune Dust",
     "item.runecraft.spirit_crystal": "Spirit Crystal",
     "item.runecraft.magical_book": "Magical Book",
@@ -203,7 +203,7 @@
     "block.runecraft.rune_block_fre": "Rune",
     "block.runecraft.rune_block_ptl": "Rune",
 
-    "block.runecraft.ashe_block": "Ash Block",
+    "block.runecraft.ash_block": "Ash Block",
     "block.runecraft.rune_dust_block": "Rune Dust Block",
     "block.runecraft.altar": "Altar",
     "block.runecraft.ruin_block": "Ruin Block",

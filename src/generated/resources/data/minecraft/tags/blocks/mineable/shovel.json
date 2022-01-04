@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "runecraft:ashe_block",
+    "runecraft:ash_block",
     "runecraft:rune_dust_block"
   ]
 }

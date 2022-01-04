@@ -51,7 +51,8 @@ public class TagsBlock extends BlockTagsProvider {
                         ModBlocks.RUNE_STONE_HRD.get(),
                         //ModBlocks.RUNE_STONE_GHS.get(),
                         ModBlocks.RUNE_STONE_PTL.get(),
-                        ModBlocks.RUIN_BLOCK.get()
+                        ModBlocks.RUIN_BLOCK.get(),
+                        ModBlocks.RUNE_SCRIBER_BLOCK.get()
                         );
 
 
@@ -94,7 +95,7 @@ public class TagsBlock extends BlockTagsProvider {
 
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(   ModBlocks.ASHE_BLOCK.get(),
+                .add(   ModBlocks.ASH_BLOCK.get(),
                         ModBlocks.RUNE_DUST_BLOCK.get()
                 );
 

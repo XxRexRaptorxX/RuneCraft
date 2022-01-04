@@ -2,6 +2,7 @@ package xxrexraptorxx.runecraft.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Explosion;
@@ -51,6 +52,12 @@ public class BlockRuin extends Block {
 		if(!world.isClientSide) {
 			world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
+			ItemEntity drop1 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop2 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop3 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			world.addFreshEntity(drop1);
+			world.addFreshEntity(drop2);
+			world.addFreshEntity(drop3);
 		}
 	}
 
@@ -68,6 +75,15 @@ public class BlockRuin extends Block {
 		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
 		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+
+		if(!world.isClientSide) {
+			ItemEntity drop1 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop2 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop3 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			world.addFreshEntity(drop1);
+			world.addFreshEntity(drop2);
+			world.addFreshEntity(drop3);
+		}
 	}
 
 
