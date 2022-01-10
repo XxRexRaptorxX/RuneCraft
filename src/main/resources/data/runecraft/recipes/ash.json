@@ -7,12 +7,12 @@
   
   "key": {
     "#": {
-      "item": "runecraft:ashe_block"
+      "item": "runecraft:ash_block"
     }
   },
   
   "result": {
-    "item": "runecraft:ashe",
+    "item": "runecraft:ash",
     "count": 4
   }
 }

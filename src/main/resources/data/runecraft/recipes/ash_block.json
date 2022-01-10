@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "runecraft:ashe"
+      "item": "runecraft:ash"
     }
   },
   "result": {
-    "item": "runecraft:ashe_block"
+    "item": "runecraft:ash_block"
   }
 }

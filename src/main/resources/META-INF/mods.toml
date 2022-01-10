@@ -5,7 +5,7 @@ issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft/issues"
 
 [[mods]]
 modId="runecraft"
-version="3.4.0"
+version="3.4.1"
 displayName="RuneCraft"
 itemIcon="runecraft:altar"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/RuneCraft.json"
