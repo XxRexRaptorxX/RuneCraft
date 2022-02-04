@@ -440,7 +440,7 @@ public class ItemWand extends Item {
             }
         }
 
-        player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
+        if(level.isClientSide) player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 
@@ -550,7 +550,7 @@ public class ItemWand extends Item {
 
 
             if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(this, 150);
-            player.awardStat(Stats.ITEM_USED.get(this));
+            if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
@@ -575,19 +575,20 @@ public class ItemWand extends Item {
     public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
         Random random = new Random();
         Player player = (Player) entity;
+        Level level = entity.level;
 
         /** AETHER **/
         if(stack.getItem() == ModItems.AETHER_WAND.get()) {
-            entity.level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+            level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
             entity.setDeltaMovement(entity.getDeltaMovement().x, 0.5D, entity.getDeltaMovement().z);
             entity.fallDistance = 0.0F;
 
-            entity.level.addParticle(ParticleTypes.SWEEP_ATTACK, entity.position().x, entity.position().y + 1, entity.position().z, 0.0D, 0.0D, 0.0D);
-            player.awardStat(Stats.ITEM_USED.get(this));
+            level.addParticle(ParticleTypes.SWEEP_ATTACK, entity.position().x, entity.position().y + 1, entity.position().z, 0.0D, 0.0D, 0.0D);
+            if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
-                player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 stack.shrink(1);
             }
         }
@@ -621,7 +622,7 @@ public class ItemWand extends Item {
                     BlockState blockstate = cycleState(pStateClicked, property, player.isSecondaryUseActive());
                     pAccessor.setBlock(pPos, blockstate, 18);
 
-                    player.awardStat(Stats.ITEM_USED.get(this));
+                    if (player.level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
 
                 } else {
                     property = getRelative(collection, property, player.isSecondaryUseActive());
