@@ -306,9 +306,15 @@ public class Events {
 
 
     @SubscribeEvent
+    public static void onInteractWithWands (PlayerInteractEvent.RightClickBlock event) {
+
+    }
+
+
+    @SubscribeEvent
     public static void onEntityDeath(LivingDeathEvent event) {
         //event.getEntity() instanceof Player
-        System.err.println(event.getEntity().getCustomName());
+        //System.err.println(event.getEntity().getDisplayName().getString());
     }
 
 
