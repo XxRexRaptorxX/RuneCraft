@@ -20,6 +20,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
@@ -62,39 +63,50 @@ public class ItemPortableRuneStone extends Item {
 
 
     @Override
-    public InteractionResult useOn(UseOnContext player) {
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        ItemStack stack = context.getItemInHand();
+        Player player = context.getPlayer();
+        Random random = new Random();
+
+        //test if the item is no empty rune stone
         if (this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            Level level = player.getLevel();
-            ItemStack stack = player.getItemInHand();
-            Random random = new Random();
 
-            level.playSound((Player) null, player.getPlayer().position().x(), player.getPlayer().position().y(), player.getPlayer().position().z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-            player.getPlayer().getCooldowns().addCooldown(this, Config.PORTABLE_SPELL_COOLDOWN.get());
-            stack.setDamageValue(stack.getDamageValue() + 1);
+            //test if used on a alter (to enable xp repair without using the wand effect)
+            if (!level.getBlockState(context.getClickedPos()).getBlock().equals(ModBlocks.ALTAR_BLOCK.get())) {
 
-            if (!level.isClientSide) {
-                AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
-                cloud.setDuration(10);
-                cloud.setRadius(Config.PORTABLE_SPELL_RADIUS.get());
-                cloud.setWaitTime(2);
-                cloud.setFixedColor(0x616161);
-                cloud.setParticle(ParticleTypes.ENCHANT);
+                level.playSound((Player) null, player.position().x(), player.position().y(), player.position().z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
-                if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
-                    cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
-                } else {
-                    player.getPlayer().addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                //effect
+                if (!level.isClientSide) {
+                    AreaEffectCloud cloud = new AreaEffectCloud(level, player.position().x, player.position().y + 0.5F, player.position().z);
+                    cloud.setDuration(10);
+                    cloud.setRadius(Config.PORTABLE_SPELL_RADIUS.get());
+                    cloud.setWaitTime(2);
+                    cloud.setFixedColor(0x616161);
+                    cloud.setParticle(ParticleTypes.ENCHANT);
+
+                    if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
+                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                    } else {
+                        player.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                    }
+                    level.addFreshEntity(cloud);
                 }
-                level.addFreshEntity(cloud);
-            }
 
-            if (stack.getDamageValue() == stack.getMaxDamage()) {
-                level.playSound((Player) null, player.getPlayer().getX(), player.getPlayer().getY(), player.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                stack.shrink(1);
+                //item stuff
+                player.getCooldowns().addCooldown(this, Config.PORTABLE_SPELL_COOLDOWN.get());
+                stack.setDamageValue(stack.getDamageValue() + 1);
+
+                if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+
+                if (stack.getDamageValue() == stack.getMaxDamage()) {
+                    level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                    stack.shrink(1);
+                }
             }
         }
 
-        player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 

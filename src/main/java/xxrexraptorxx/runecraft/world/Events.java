@@ -307,7 +307,83 @@ public class Events {
 
     @SubscribeEvent
     public static void onInteractWithWands (PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
+        Level world = event.getWorld();
+        Player player = event.getPlayer();
+        BlockPos pos = event.getPos();
 
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && item.getRegistryName().toString().contains(References.MODID) && item.getRegistryName().toString().contains("_wand")) {
+            if (Config.WAND_XP_REPAIR.get() && stack.getDamageValue() > 0) {
+                if (player.experienceLevel >= 1) {
+
+                    //Ambient
+                    world.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+
+                    for (int i = 0; i < 2; i++) {
+                        world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                    }
+
+                    //Item stuff
+                    player.onEnchantmentPerformed(null, 1);
+
+                    if (stack.getDamageValue() >= 50) {
+                        stack.setDamageValue(stack.getDamageValue() - 50);
+                    } else {
+                        stack.setDamageValue(0);
+                    }
+
+
+                } else {
+                    if (world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                }
+            }
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void onInteractWithPortableRuneStones (PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
+        Level world = event.getWorld();
+        Player player = event.getPlayer();
+        BlockPos pos = event.getPos();
+
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && item.getRegistryName().toString().contains(References.MODID) && item.getRegistryName().toString().contains("portable_rune_stone")) {
+            if (Config.PORTABLE_RUNE_STONE_XP_REPAIR.get() && stack.getDamageValue() > 0) {
+                if (player.experienceLevel >= 1) {
+
+                    //Ambient
+                    world.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+
+                    for (int i = 0; i < 2; i++) {
+                        world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                        world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                    }
+
+                    //Item stuff
+                    player.onEnchantmentPerformed(null, 1);
+
+                    if (stack.getDamageValue() >= 50) {
+                        stack.setDamageValue(stack.getDamageValue() - 50);
+                    } else {
+                        stack.setDamageValue(0);
+                    }
+
+
+                } else {
+                    if (world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                }
+            }
+        }
     }
 
 
