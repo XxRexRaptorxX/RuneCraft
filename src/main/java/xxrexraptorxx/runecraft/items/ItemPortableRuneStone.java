@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stat;
 import net.minecraft.stats.StatType;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -62,7 +63,7 @@ public class ItemPortableRuneStone extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext player) {
-        if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
+        if (this != ModItems.PORTABLE_RUNE_STONE.get()) {
             Level level = player.getLevel();
             ItemStack stack = player.getItemInHand();
             Random random = new Random();
@@ -92,6 +93,8 @@ public class ItemPortableRuneStone extends Item {
                 stack.shrink(1);
             }
         }
+
+        player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 

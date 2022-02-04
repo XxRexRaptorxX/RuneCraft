@@ -6,14 +6,8 @@ import net.minecraft.core.Position;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stat;
-import net.minecraft.stats.StatType;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
@@ -21,18 +15,12 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -41,14 +29,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraftforge.fml.common.Mod;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
 
 import javax.annotation.Nullable;
-import java.math.MathContext;
 import java.util.Collection;
 import java.util.Random;
 
@@ -61,7 +47,6 @@ public class ItemWand extends Item {
                 .stacksTo(1)
                 .defaultDurability(200)
         );
-
     }
 
 
@@ -455,6 +440,7 @@ public class ItemWand extends Item {
             }
         }
 
+        player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 
@@ -564,6 +550,7 @@ public class ItemWand extends Item {
 
 
             if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(this, 150);
+            player.awardStat(Stats.ITEM_USED.get(this));
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
@@ -585,17 +572,19 @@ public class ItemWand extends Item {
 
 
     @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity player) {
+    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
         Random random = new Random();
+        Player player = (Player) entity;
 
         /** AETHER **/
         if(stack.getItem() == ModItems.AETHER_WAND.get()) {
-            player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-            player.setDeltaMovement(player.getDeltaMovement().x, 0.5D, player.getDeltaMovement().z);
-            player.fallDistance = 0.0F;
-            stack.setDamageValue(stack.getDamageValue() + 1);
+            entity.level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+            entity.setDeltaMovement(entity.getDeltaMovement().x, 0.5D, entity.getDeltaMovement().z);
+            entity.fallDistance = 0.0F;
 
-            player.level.addParticle(ParticleTypes.SWEEP_ATTACK, player.position().x, player.position().y + 1, player.position().z, 0.0D, 0.0D, 0.0D);
+            entity.level.addParticle(ParticleTypes.SWEEP_ATTACK, entity.position().x, entity.position().y + 1, entity.position().z, 0.0D, 0.0D, 0.0D);
+            player.awardStat(Stats.ITEM_USED.get(this));
+            stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
                 player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
@@ -610,8 +599,8 @@ public class ItemWand extends Item {
 
 
     /** CHANGING WAND **/
-    private boolean handleInteraction(Player pPlayer, BlockState pStateClicked, LevelAccessor pAccessor, BlockPos pPos, boolean pShouldCycleState, ItemStack pDebugStack) {
-        if (!pPlayer.canUseGameMasterBlocks()) {
+    private boolean handleInteraction(Player player, BlockState pStateClicked, LevelAccessor pAccessor, BlockPos pPos, boolean pShouldCycleState, ItemStack pDebugStack) {
+        if (!player.canUseGameMasterBlocks()) {
             return false;
         } else {
             Block block = pStateClicked.getBlock();
@@ -629,11 +618,13 @@ public class ItemWand extends Item {
                         property = collection.iterator().next();
                     }
 
-                    BlockState blockstate = cycleState(pStateClicked, property, pPlayer.isSecondaryUseActive());
+                    BlockState blockstate = cycleState(pStateClicked, property, player.isSecondaryUseActive());
                     pAccessor.setBlock(pPos, blockstate, 18);
 
+                    player.awardStat(Stats.ITEM_USED.get(this));
+
                 } else {
-                    property = getRelative(collection, property, pPlayer.isSecondaryUseActive());
+                    property = getRelative(collection, property, player.isSecondaryUseActive());
                     String s2 = property.getName();
                     compoundtag.putString(s, s2);
                 }
