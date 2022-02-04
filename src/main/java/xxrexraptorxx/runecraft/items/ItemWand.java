@@ -539,7 +539,6 @@ public class ItemWand extends Item {
             } else if (item == ModItems.NETHER_WAND.get()) {
                 entity.setSecondsOnFire(10);
 
-
             /** MAELSTROM **/
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
                 if (entity instanceof Player) {
@@ -554,7 +553,6 @@ public class ItemWand extends Item {
                     entityIn.hurt(DamageSource.MAGIC, 1.0F);
                 }
 
-
             /** THUNDER **/
             } else if (item == ModItems.THUNDER_WAND.get()) {
                 if(!level.isClientSide) {
@@ -565,8 +563,7 @@ public class ItemWand extends Item {
             }
 
 
-
-            player.getCooldowns().addCooldown(this, 150);
+            if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(this, 150);
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
@@ -634,6 +631,7 @@ public class ItemWand extends Item {
 
                     BlockState blockstate = cycleState(pStateClicked, property, pPlayer.isSecondaryUseActive());
                     pAccessor.setBlock(pPos, blockstate, 18);
+
                 } else {
                     property = getRelative(collection, property, pPlayer.isSecondaryUseActive());
                     String s2 = property.getName();
@@ -645,13 +643,16 @@ public class ItemWand extends Item {
         }
     }
 
+
     private static <T extends Comparable<T>> BlockState cycleState(BlockState pState, Property<T> pProperty, boolean pBackwards) {
         return pState.setValue(pProperty, getRelative(pProperty.getPossibleValues(), pState.getValue(pProperty), pBackwards));
     }
 
+
     private static <T> T getRelative(Iterable<T> pAllowedValues, @Nullable T pCurrentValue, boolean pBackwards) {
         return (T)(pBackwards ? Util.findPreviousInIterable(pAllowedValues, pCurrentValue) : Util.findNextInIterable(pAllowedValues, pCurrentValue));
     }
+
 
     private static <T extends Comparable<T>> String getNameHelper(BlockState pState, Property<T> pProperty) {
         return pProperty.getName(pState.getValue(pProperty));

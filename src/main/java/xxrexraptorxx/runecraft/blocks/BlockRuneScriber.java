@@ -1,9 +1,18 @@
 package xxrexraptorxx.runecraft.blocks;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 
 public class BlockRuneScriber extends Block {
@@ -17,6 +26,10 @@ public class BlockRuneScriber extends Block {
 	}
 
 	//Note: I'm too stupid to port runescriber functions
+	@Override
+	public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> list, TooltipFlag flag) {
+		list.add(new TextComponent(ChatFormatting.RED + "Work in progress..."));
+	}
 
 	/**
 	@Override

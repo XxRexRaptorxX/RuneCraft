@@ -24,13 +24,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Material;
@@ -56,6 +55,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockRuneStone extends Block {
 
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0625D, 0.0625D, 0.0625D, 15.9375D, 15.9375D, 15.9375D);
 
 
@@ -67,7 +67,10 @@ public class BlockRuneStone extends Block {
 				.color(MaterialColor.DEEPSLATE)
 				.noOcclusion()
 		);
+		this.registerDefaultState(this.defaultBlockState().setValue(POWERED, Boolean.valueOf(false)));
 	}
+
+	//Properties
 
 
 	@Override
@@ -83,12 +86,6 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction direction) {
-		return true;
-	}
-
-
-	@Override
 	public void animateTick(BlockState pState, Level world, BlockPos pos, Random pRandom) {
 		Random rand = new Random();
 		double d0 = (double)((float)pos.getX() + rand.nextFloat());
@@ -99,6 +96,9 @@ public class BlockRuneStone extends Block {
 		double d5 = 0.0D;
 		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
+
+
+	//Interactions
 
 	@Override
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
@@ -193,31 +193,66 @@ public class BlockRuneStone extends Block {
 		}
 	}
 
-	//TODO: bug- triggers when activated AND deaktivated
+
+	//Redstone stuff
+
 	@Override
-	public void neighborChanged(BlockState pState, Level world, BlockPos pos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
-		Random random = new Random();
+	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, @Nullable Direction direction) {
+		return true;
+	}
 
-		if(!world.isClientSide() && Config.ACTIVATE_REDSTONE_EFFECT.get()) {
 
-			if(world.hasNeighborSignal(pos)) {
-				world.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
-				world.scheduleTick(pos, this, 4);
+	@Override
+	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+		if (!level.isClientSide && Config.ACTIVATE_REDSTONE_EFFECT.get()) {
+			boolean flag = state.getValue(POWERED);
 
-				if(this != ModBlocks.RUNE_STONE.get() && this != ModBlocks.RUNE_STONE_DMG.get() && this != ModBlocks.RUNE_STONE_FRE.get() &&
-						this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && this.getRegistryName().toString().contains("rune_stone_")) {
+			if (flag != level.hasNeighborSignal(pos)) {
+				if (flag) {
+					level.scheduleTick(pos, this, 4);
 
-					AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-					cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-					cloud.setDuration(Config.AREA_SPELL_DURATION.get());
-					cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
-					cloud.setFixedColor(0x616161);
-					cloud.setWaitTime(10);
-					cloud.setParticle(ParticleTypes.ENCHANT);
-					world.addFreshEntity(cloud);
+				} else {
+					level.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
+
+					if(this != ModBlocks.RUNE_STONE.get() && this != ModBlocks.RUNE_STONE_DMG.get() && this != ModBlocks.RUNE_STONE_FRE.get() &&
+							this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && this.getRegistryName().toString().contains("rune_stone_")) {
+
+						level.setBlock(pos, state.cycle(POWERED), 2);
+						AreaEffectCloud cloud = new AreaEffectCloud(level, pos.getX(), pos.getY() + 0.5F, pos.getZ());
+						cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(this.getRegistryName().toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+						cloud.setDuration(Config.AREA_SPELL_DURATION.get());
+						cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
+						cloud.setFixedColor(0x616161);
+						cloud.setWaitTime(10);
+						cloud.setParticle(ParticleTypes.ENCHANT);
+						level.addFreshEntity(cloud);
+					}
 				}
 			}
+
 		}
+	}
+
+
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+		pBuilder.add(POWERED);
+	}
+
+
+	@Override
+	@Nullable
+	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+		return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(pContext.getLevel().hasNeighborSignal(pContext.getClickedPos())));
+	}
+
+
+	@Override
+	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRand) {
+		if (pState.getValue(POWERED) && !pLevel.hasNeighborSignal(pPos)) {
+			pLevel.setBlock(pPos, pState.cycle(POWERED), 2);
+		}
+
 	}
 
 }
