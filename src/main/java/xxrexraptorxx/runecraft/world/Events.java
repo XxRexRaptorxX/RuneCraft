@@ -131,10 +131,10 @@ public class Events {
 
 
 
-    /** Altar Functions **/
+     /** Altar Functions **/
 
     @SubscribeEvent
-    public static void onInteract(PlayerInteractEvent.RightClickBlock event) {
+    public static void onInteractWithMagicalBook(PlayerInteractEvent.RightClickBlock event) {
         Item item = event.getItemStack().getItem();
         Level world = event.getWorld();
         BlockPos pos = event.getPos();
@@ -142,143 +142,173 @@ public class Events {
         Random random = new Random();
 
         /** MAGICAL BOOK **/
-            if(item == Items.BOOK) {
-                if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
+        if (item == Items.BOOK) {
+            if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                    if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
+                if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
 
-                        if (world.getMoonPhase() == 0) {
-                            // convert
-                            world.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                    if (world.getMoonPhase() == 0) {
+                        //ambient
+                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
 
-                            for (int i = 0; i < 2; i++) {
-                                world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                        for (int i = 0; i < 2; i++) {
+                            world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                        }
+
+                        //Spawn a lightning bolt
+                        if (!world.isClientSide) {
+                            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setVisualOnly(true);
+                            world.addFreshEntity(lightningbolt);
+
+                            //Item stuff
+                            event.getItemStack().shrink(1);
+                            player.onEnchantmentPerformed(null, Config.CHARGING_COST.get());
+
+                            ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.MAGICAL_BOOK.get()));
+                            world.addFreshEntity(reward);
+
+                            //Spawn random vex's
+                            if (random.nextInt(3) == 1) {
+                                Vex vex = new Vex(EntityType.VEX, world);
+                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
+                                world.addFreshEntity(vex);
                             }
 
-                            if (!world.isClientSide) {
-                                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
-                                lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
-                                lightningbolt.setVisualOnly(true);
-                                world.addFreshEntity(lightningbolt);
+                            event.setUseBlock(Event.Result.DENY);
+                            event.setUseItem(Event.Result.DENY);
+                            event.setCanceled(true);
+                        }
 
-                                event.getItemStack().shrink(1);
-                                player.onEnchantmentPerformed(null, Config.CHARGING_COST.get());
 
-                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.MAGICAL_BOOK.get()));
+                    } else {
+                        if (world.isClientSide)
+                            player.sendMessage(new TranslatableComponent("message.runecraft.not_full_moon", new Object[]{10}), UUID.randomUUID());
+                    }
+                } else {
+                    if (world.isClientSide)
+                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                }
+            } else {
+                if (world.isClientSide)
+                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+            }
+
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void onInteractWithPages (PlayerInteractEvent.RightClickBlock event) {
+        Item item = event.getItemStack().getItem();
+        Level world = event.getWorld();
+        BlockPos pos = event.getPos();
+        Player player = event.getPlayer();
+        Random random = new Random();
+
+        /** PAGES **/
+        if (item == ModItems.WAND_PAGE.get() || item == ModItems.ORB_PAGE.get() || item == ModItems.CURSE_PAGE.get() ||
+                item == ModItems.LOST_PAGE.get() || item == ModItems.SPELL_PAGE.get() || item == ModItems.ALCHEMY_PAGE.get() ||
+                item == ModItems.BANNED_PAGE.get() || item == ModItems.ENCHANTING_PAGE.get()) {
+
+            if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
+
+                if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
+
+                    if (player.level.isDay() == false) {
+
+                        //Ambient
+                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+
+                        for (int i = 0; i < 2; i++) {
+                            world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                        }
+
+                        if (!world.isClientSide) {
+                            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setVisualOnly(true);
+                            world.addFreshEntity(lightningbolt);
+
+                            //item stuff
+                            event.getItemStack().shrink(1);
+                            player.onEnchantmentPerformed(null, AltarHelper.getPageXpRequirement(item));
+
+                            //rewards
+                            if (item == ModItems.WAND_PAGE.get()) {
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.BASIC_WAND.get()));
                                 world.addFreshEntity(reward);
 
-                                if(random.nextInt(3) == 1) {
-                                    Vex vex = new Vex(EntityType.VEX, world);
-                                    vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                    world.addFreshEntity(vex);
-                                }
+                            } else if (item == ModItems.ORB_PAGE.get()) {
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.ORB.get()));
+                                world.addFreshEntity(reward);
 
-                                event.setUseBlock(Event.Result.DENY);
-                                event.setUseItem(Event.Result.DENY);
-                                event.setCanceled(true);
+                            } else if (item == ModItems.LOST_PAGE.get()) {
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, AltarHelper.getRandomTreasure());
+                                world.addFreshEntity(reward);
+
+                            } else if (item == ModItems.CURSE_PAGE.get()) {
+                                AltarHelper.getRandomCurse(world, pos);
+
+                            } else if (item == ModItems.SPELL_PAGE.get()) {
+                                AltarHelper.getRandomSpell(world, pos);
+
+                            } else if (item == ModItems.BANNED_PAGE.get()) {
+                                AltarHelper.getRandomBann(world, pos);
+
+                            } else if (item == ModItems.ALCHEMY_PAGE.get()) {
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, AltarHelper.getRandomPotion());
+                                world.addFreshEntity(reward);
+
+                            } else if (item == ModItems.ENCHANTING_PAGE.get()) {
+                                ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                                book.setHoverName(new TranslatableComponent("item.runecraft.enchanting_book"));
+
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, book);
+                                world.addFreshEntity(reward);
                             }
-                        } else {
-                            if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_full_moon", new Object[]{10}), UUID.randomUUID());
+
+                            //Spawn random vex's
+                            if (random.nextInt(3) == 1) {
+                                Vex vex = new Vex(EntityType.VEX, world);
+                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
+                                world.addFreshEntity(vex);
+                            }
+
+                            event.setUseBlock(Event.Result.DENY);
+                            event.setUseItem(Event.Result.DENY);
+                            event.setCanceled(true);
                         }
-                    } else {
-                        if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+
+
+                    } else { //TODO BUGGY makes no sense!
+                        //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
                     }
                 } else {
-                    if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+                    if (world.isClientSide)
+                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
                 }
-
-                /** PAGES **/
-            } else if(item == ModItems.WAND_PAGE.get() || item == ModItems.ORB_PAGE.get() || item == ModItems.CURSE_PAGE.get() ||
-                    item == ModItems.LOST_PAGE.get() || item == ModItems.SPELL_PAGE.get() || item == ModItems.ALCHEMY_PAGE.get() ||
-                    item == ModItems.BANNED_PAGE.get() || item == ModItems.ENCHANTING_PAGE.get()) {
-
-                if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
-
-                    if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
-                        if (player.level.isDay() == false) {
-                            world.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
-
-                            for (int i = 0; i < 2; i++) {
-                                world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-                                world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
-                            }
-
-                            if (!world.isClientSide) {
-                                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
-                                lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
-                                lightningbolt.setVisualOnly(true);
-                                world.addFreshEntity(lightningbolt);
-
-                                event.getItemStack().shrink(1);
-                                player.onEnchantmentPerformed(null, AltarHelper.getPageXpRequirement(item));
-
-                                //reward
-                                if (item == ModItems.WAND_PAGE.get()) {
-                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.BASIC_WAND.get()));
-                                    world.addFreshEntity(reward);
-
-                                } else if (item == ModItems.ORB_PAGE.get()) {
-                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.ORB.get()));
-                                    world.addFreshEntity(reward);
-
-                                } else if (item == ModItems.LOST_PAGE.get()) {
-                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, AltarHelper.getRandomTreasure());
-                                    world.addFreshEntity(reward);
-
-                                } else if (item == ModItems.CURSE_PAGE.get()) {
-                                    AltarHelper.getRandomCurse(world, pos);
-
-                                } else if (item == ModItems.SPELL_PAGE.get()) {
-                                    AltarHelper.getRandomSpell(world, pos);
-
-                                } else if (item == ModItems.BANNED_PAGE.get()) {
-                                    AltarHelper.getRandomBann(world, pos);
-
-                                } else if (item == ModItems.ALCHEMY_PAGE.get()) {
-                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, AltarHelper.getRandomPotion());
-                                    world.addFreshEntity(reward);
-
-                                } else if (item == ModItems.ENCHANTING_PAGE.get()) {
-                                    ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                                    book.setHoverName(new TranslatableComponent("item.runecraft.enchanting_book"));
-
-                                    ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, book);
-                                    world.addFreshEntity(reward);
-                                }
-
-                                if(random.nextInt(3) == 1) {
-                                    Vex vex = new Vex(EntityType.VEX, world);
-                                    vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                    world.addFreshEntity(vex);
-                                }
-
-                                event.setUseBlock(Event.Result.DENY);
-                                event.setUseItem(Event.Result.DENY);
-                                event.setCanceled(true);
-                            }
-                        } else { //TODO BUGGY makes no sense!
-                            //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
-                        }
-                    } else {
-                        if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
-                    }
-                } else {
-                    if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
-                }
-           }
+            } else {
+                if (world.isClientSide)
+                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+            }
+        }
     }
 
 
     @SubscribeEvent
     public static void onEntityDeath(LivingDeathEvent event) {
         //event.getEntity() instanceof Player
+        System.err.println(event.getEntity().getCustomName());
     }
 
 
