@@ -51,6 +51,7 @@ public class ModItems {
     public static final RegistryObject<ItemBasic> ASH = ITEMS.register("ash", ItemBasic::new);
     public static final RegistryObject<ItemBasic> RUNE_DUST = ITEMS.register("rune_dust", ItemBasic::new);
     public static final RegistryObject<ItemBasic> CLOTH = ITEMS.register("cloth", ItemBasic::new);
+    public static final RegistryObject<ItemSoul> SOUL = ITEMS.register("soul", ItemSoul::new);
     public static final RegistryObject<ItemRune> RUNE_A = ITEMS.register("rune_a", ItemRune::new);
     public static final RegistryObject<ItemRune> RUNE_B = ITEMS.register("rune_b", ItemRune::new);
     public static final RegistryObject<ItemRune> RUNE_C = ITEMS.register("rune_c", ItemRune::new);

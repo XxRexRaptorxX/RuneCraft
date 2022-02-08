@@ -4,18 +4,20 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.AreaEffectCloud;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Phantom;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -23,7 +25,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -33,7 +34,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.ItemHandlerHelper;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
@@ -387,15 +387,40 @@ public class Events {
     }
 
 
+    /** Soul stuff **/
+
+    public static final DamageSource SOUL_REAPER = new DamageSource(References.MODID + ".soul_reaper");
+
+
     @SubscribeEvent
     public static void onEntityDeath(LivingDeathEvent event) {
-        //event.getEntity() instanceof Player
-        //System.err.println(event.getEntity().getDisplayName().getString());
+        Entity attacker = event.getSource().getEntity();
+        Entity victim = event.getEntity();
+
+        //Attacker
+        if (attacker instanceof Player) {
+            if (((Player) attacker).getMainHandItem().getItem().equals(Items.NETHERITE_SWORD)) {
+                //gibt soul hunter und soul
+                CompoundTag tag = new CompoundTag();
+                ItemStack stack = new ItemStack(ModItems.SOUL.get());
+
+                tag.putString("owner", victim.getDisplayName().getString());
+                stack.setTag(tag);
+                stack.setHoverName(new TextComponent(tag.getString("owner")).append(" ").append(new TranslatableComponent("item.runecraft.soul")));
+
+                ((Player) attacker).addItem(stack);
+            }
+        }
     }
 
 
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        Player player = event.getPlayer();
+
+        if (player.getLastDamageSource().equals(SOUL_REAPER)) {
+            //gibt soulless
+        }
     }
 
 

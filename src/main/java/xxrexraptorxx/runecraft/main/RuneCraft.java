@@ -1,7 +1,6 @@
 package xxrexraptorxx.runecraft.main;
 
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
@@ -23,6 +22,7 @@ public class RuneCraft {
         Config.init();
         ModBlocks.init();
         ModItems.init();
+
 
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerator::oreGeneration);
         MinecraftForge.EVENT_BUS.register(this);
