@@ -35,7 +35,7 @@
     "message.runecraft.changing_wand_jei_desc": "Rechts Click: Wechselt zwischen den Blockstates des ausgewählten Blocks.",
     "message.runecraft.maelstrom_wand_jei_desc": "Rechts Click: Setzt einen Ring aus Wither Zauber frei. Links Click: Withert die Kreatur.",
     "message.runecraft.storm_wand_jei_desc": "Links Click: Stößt die Kreatur weit zurück.",
-    "message.runecraft.soul_jei_desc": "Droppt aus Kreaturen die mit einem Ritual Dolch erledigt wurden.",
+    "message.runecraft.soul_jei_desc": "Erhält man aus Kreaturen die mit einem Ritual Dolch erledigt wurden. Verwende sie am Altar um aus ihnen Spawn-Eier zu erschaffen.",
 
     "item.runecraft.rune_a": "Rune",
     "item.runecraft.rune_b": "Rune",

@@ -35,7 +35,7 @@
     "message.runecraft.changing_wand_jei_desc": "Right Click: Switches between the block states of the selected block.",
     "message.runecraft.maelstrom_wand_jei_desc": "Right Click: Releases a ring of wither spells. Left Click: Gives the creature a wither effect.",
     "message.runecraft.storm_wand_jei_desc": "Left Click: Pushes the creature far back.",
-    "message.runecraft.soul_jei_desc": "Drops from creatures killed with a Ritual Dagger",
+    "message.runecraft.soul_jei_desc": "Obtained from creatures killed with a Ritual Dagger. Use them at the altar to create spawn eggs from them. ",
 
     "item.runecraft.rune_a": "Rune",
     "item.runecraft.rune_b": "Rune",
