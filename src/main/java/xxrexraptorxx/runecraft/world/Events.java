@@ -10,6 +10,7 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -23,8 +24,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.entity.EntityAccess;
+import net.minecraft.world.level.entity.EntityTickList;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -37,6 +42,7 @@ import net.minecraftforge.fml.common.Mod;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
+import xxrexraptorxx.runecraft.main.RuneCraft;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -87,7 +93,7 @@ public class Events {
         if(!world.isClientSide) {
             if (block.getRegistryName().toString().contains("runecraft:rune_stone")) {
                 if(block != ModBlocks.RUNE_STONE.get()) {
-                    world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                    world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                     //Area effect
                     if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !item.getRegistryName().toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
@@ -149,7 +155,7 @@ public class Events {
 
                     if (world.getMoonPhase() == 0) {
                         //ambient
-                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                         for (int i = 0; i < 2; i++) {
                             world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
@@ -223,7 +229,7 @@ public class Events {
                     if (player.level.isDay() == false) {
 
                         //Ambient
-                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                         for (int i = 0; i < 2; i++) {
                             world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
@@ -359,7 +365,7 @@ public class Events {
                 if (player.experienceLevel >= 1) {
 
                     //Ambient
-                    world.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.F);
+                    world.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                     for (int i = 0; i < 2; i++) {
                         world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
@@ -387,6 +393,88 @@ public class Events {
     }
 
 
+    @SubscribeEvent
+    public static void onInteractWithSoul (PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
+        Level world = event.getWorld();
+        BlockPos pos = event.getPos();
+        Player player = event.getPlayer();
+        Random random = new Random();
+
+        if (stack.getItem() == ModItems.SOUL.get()) {
+
+            if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
+
+                if (player.experienceLevel >= Config.SOUL_COST.get()) {
+
+                    if (player.level.isDay() == false) {
+
+                        //Ambient
+                        world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
+
+                        for (int i = 0; i < 2; i++) {
+                            world.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+                        }
+
+                        if (!world.isClientSide) {
+                            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(world);
+                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setVisualOnly(true);
+                            world.addFreshEntity(lightningbolt);
+
+                            //item stuff
+                            event.getItemStack().shrink(1);
+                            player.onEnchantmentPerformed(null, Config.SOUL_COST.get());
+
+                            //rewards
+                            try {
+                                System.err.println(stack.getTag().getString("owner"));
+
+                                ItemStack egg = new ItemStack(ForgeSpawnEggItem.fromEntityType(EntityType.byString(stack.getTag().getString("owner")).get()));
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, egg);
+                                world.addFreshEntity(reward);
+
+                            } catch (Exception e) {
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(Items.CHARCOAL));
+                                world.addFreshEntity(reward);
+
+                                RuneCraft.LOGGER.error(e);
+                                RuneCraft.LOGGER.error("Entity Type: " + stack.getTag().getString("owner"));
+
+                            }
+
+                            //Spawn random vex's
+                            if (random.nextInt(3) == 1) {
+                                Vex vex = new Vex(EntityType.VEX, world);
+                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
+                                world.addFreshEntity(vex);
+                            }
+
+                            event.setUseBlock(Event.Result.DENY);
+                            event.setUseItem(Event.Result.DENY);
+                            event.setCanceled(true);
+                        }
+
+
+                    } else { //TODO BUGGY makes no sense!
+                        //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
+                    }
+                } else {
+                    if (world.isClientSide)
+                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                }
+            } else {
+                if (world.isClientSide)
+                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+            }
+        }
+    }
+
+
     /** Soul stuff **/
 
     public static final DamageSource SOUL_REAPER = new DamageSource(References.MODID + ".soul_reaper");
@@ -396,19 +484,27 @@ public class Events {
     public static void onEntityDeath(LivingDeathEvent event) {
         Entity attacker = event.getSource().getEntity();
         Entity victim = event.getEntity();
+        Level world = event.getEntity().getLevel();
+        BlockPos pos = event.getEntity().getOnPos();
 
         //Attacker
         if (attacker instanceof Player) {
-            if (((Player) attacker).getMainHandItem().getItem().equals(Items.NETHERITE_SWORD)) {
-                //gibt soul hunter und soul
+            if (((Player) attacker).getMainHandItem().getItem().equals(ModItems.RITUAL_DAGGER.get())) {
+
+                //TODO: give soul hunter and soul
+
+                //give the player a soul item with the entity name and the entity id as tag
                 CompoundTag tag = new CompoundTag();
                 ItemStack stack = new ItemStack(ModItems.SOUL.get());
 
-                tag.putString("owner", victim.getDisplayName().getString());
+                tag.putString("owner", victim.getType().toString().substring(7).replace(".", ":"));
                 stack.setTag(tag);
-                stack.setHoverName(new TextComponent(tag.getString("owner")).append(" ").append(new TranslatableComponent("item.runecraft.soul")));
+                stack.setHoverName(new TextComponent(victim.getDisplayName().getString()).append(" ").append(new TranslatableComponent("item.runecraft.soul")));
 
                 ((Player) attacker).addItem(stack);
+
+                //Ambient
+                world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_CAST_SPELL, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 1.0F);
             }
         }
     }
@@ -419,7 +515,8 @@ public class Events {
         Player player = event.getPlayer();
 
         if (player.getLastDamageSource().equals(SOUL_REAPER)) {
-            //gibt soulless
+
+            //TODO: give soulless
         }
     }
 

@@ -35,6 +35,7 @@
     "message.runecraft.changing_wand_jei_desc": "Right Click: Switches between the block states of the selected block.",
     "message.runecraft.maelstrom_wand_jei_desc": "Right Click: Releases a ring of wither spells. Left Click: Gives the creature a wither effect.",
     "message.runecraft.storm_wand_jei_desc": "Left Click: Pushes the creature far back.",
+    "message.runecraft.soul_jei_desc": "Drops from creatures killed with a Ritual Dagger",
 
     "item.runecraft.rune_a": "Rune",
     "item.runecraft.rune_b": "Rune",
@@ -138,6 +139,7 @@
     "item.runecraft.splash_potion": "Ritual Splash Potion",
     "item.runecraft.lingering_potion": "Ritual Lingering Potion",
     "item.runecraft.enchanting_book": "Empty Enchanted Book",
+    "item.runecraft.ritual_dagger": "Ritual Dagger",
 
     "block.runecraft.rune_stone": "Rune Stone",
     "block.runecraft.rune_stone_a": "Rune Stone",

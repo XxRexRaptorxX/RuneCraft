@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[38,)"
+loaderVersion="[40,)"
 license="All rights reserved"
 issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft/issues"
 
 [[mods]]
 modId="runecraft"
-version="3.4.2"
+version="3.4.3"
 displayName="RuneCraft"
 itemIcon="runecraft:altar"
 updateJSONURL="https://raw.githubusercontent.com/XxRexRaptorxX/Update-Checker/main/RuneCraft.json"
@@ -20,13 +20,13 @@ This magical mod adds everything related to runes to the game!
 [[dependencies.runecraft]]
     modId="forge"
     mandatory=true
-    versionRange="[38,)"
+    versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.runecraft]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,1.19)"
+    versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"

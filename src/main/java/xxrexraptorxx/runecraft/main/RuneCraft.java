@@ -24,7 +24,7 @@ public class RuneCraft {
         ModItems.init();
 
 
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerator::oreGeneration);
+        //MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerator::oreGeneration);
         MinecraftForge.EVENT_BUS.register(this);
     }
 }

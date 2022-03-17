@@ -6,6 +6,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.main.ModBlocks;
+import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 
 public class Items extends ItemModelProvider {
@@ -85,17 +86,19 @@ public class Items extends ItemModelProvider {
         itemBlock(ModBlocks.RUNE_BLOCK_FRE);
         itemBlock(ModBlocks.RUNE_BLOCK_HRD);
         itemBlock(ModBlocks.RUNE_BLOCK_PTL);
+
+        itemHandheld(ModItems.RITUAL_DAGGER);
     }
 
 
 
-    private void itemGenerated(RegistryObject item) {
-        singleTexture(item.get().getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0", new ResourceLocation(References.MODID, "item/" + item.get().getRegistryName().toString().substring(References.MODID.length() + 1)));
+    private void itemGenerated(RegistryObject item) {                                                                                                           //path different from the convention
+        singleTexture(item.get().getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0", new ResourceLocation(References.MODID, "items/" + item.get().getRegistryName().toString().substring(References.MODID.length() + 1)));
     }
 
 
-    private void itemHandheld(RegistryObject item) {
-        singleTexture(item.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(References.MODID, "item/" + item.get().getRegistryName().toString().substring(References.MODID.length() + 1)));
+    private void itemHandheld(RegistryObject item) {                                                                                                            //path different from the convention
+        singleTexture(item.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(References.MODID, "items/" + item.get().getRegistryName().toString().substring(References.MODID.length() + 1)));
     }
 
 

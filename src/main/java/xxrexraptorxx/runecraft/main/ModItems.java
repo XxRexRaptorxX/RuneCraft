@@ -3,6 +3,8 @@ package xxrexraptorxx.runecraft.main;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -115,5 +117,7 @@ public class ModItems {
     public static final RegistryObject<ArmorItem> MAGICAL_ROBE = ITEMS.register("magical_robe", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.CHEST, new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<ArmorItem> MAGICAL_PANTS = ITEMS.register("magical_pants", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.LEGS, new Item.Properties().tab(CreativeTab.MOD_TAB)));
     public static final RegistryObject<ArmorItem> MAGICAL_BOOTS = ITEMS.register("magical_boots", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.FEET, new Item.Properties().tab(CreativeTab.MOD_TAB)));
+
+    public static final RegistryObject<SwordItem> RITUAL_DAGGER = ITEMS.register("ritual_dagger", () -> new SwordItem(Tiers.GOLD, 3, -1.0f, new Item.Properties().tab(CreativeTab.MOD_TAB)));
 
 }

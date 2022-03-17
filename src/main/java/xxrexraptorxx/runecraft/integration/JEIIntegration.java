@@ -59,6 +59,7 @@ public class JEIIntegration implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(ModBlocks.RUNE_STONE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.rune_stone_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.basic_wand_crafting_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.ORB.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.SOUL.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.soul_jei_desc"));
 
         registry.addIngredientInfo(new ItemStack(ModItems.SPELL_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.spell_page_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.CURSE_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.curse_page_jei_desc"));

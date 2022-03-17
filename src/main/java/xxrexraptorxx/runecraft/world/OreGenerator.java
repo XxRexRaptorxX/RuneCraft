@@ -24,7 +24,7 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = References.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class OreGenerator {
-
+/**
     @SubscribeEvent
     public static void oreGeneration(final BiomeLoadingEvent event) {
         if (event.getName().toString().equals("minecraft:basalt_deltas")) {
@@ -34,9 +34,10 @@ public class OreGenerator {
 
     private static void genOre(BiomeGenerationSettingsBuilder settings, RuleTest fillertype, BlockState state, int veinSize, int minHeight, int maxHeight, int maxperchunk) {
         settings.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
-                Feature.ORE.configured(new OreConfiguration(fillertype, state, veinSize))
+                Feature.ORE.(new OreConfiguration(fillertype, state, veinSize))
                         .placed(List.of((CountPlacement.of(UniformInt.of(0, maxperchunk)))
                                 , InSquarePlacement.spread()
                                 , HeightRangePlacement.uniform(VerticalAnchor.absolute(minHeight), VerticalAnchor.absolute(maxHeight)), BiomeFilter.biome())));
     }
+ **/
 }

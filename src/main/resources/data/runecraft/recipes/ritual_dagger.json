@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  
+    "O",
+    "#",
+    "X"
+  ],
+    
+  "key": {
+    "O": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "runecraft:spirit_crystal"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  
+  "result": {
+    "item": "runecraft:ritual_dagger"
+  }
+}
