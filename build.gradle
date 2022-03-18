@@ -119,6 +119,19 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
+
+    maven {
+        // location of the maven of flywheel
+        name "tterrag maven"
+        url "https://maven.tterrag.com/"
+    }
+    maven {
+        // location of the cursemaven
+        url 'https://www.cursemaven.com'
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -127,6 +140,9 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122")
+
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3680301")
+
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
