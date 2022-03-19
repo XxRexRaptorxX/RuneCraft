@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Runes are at the core of everything here, there's one for every letter, plus a few extra ones! $(br2)$(item)Rune Dust$() is required to start, this is made from Ash and Nether Warts on the one hand. $(item)Ash$() can be found as blocks in the nether in basalt deltas or by killing $(thing)Blazes$()."
+      "text": "Runes are at the core of everything here, there's one for every letter, plus a few extra ones! $(br2)$(item)Rune Dust$() is required to start, this is made from Ash and $(item)Nether Warts$() on the one hand. $(item)Ash$() can be found as blocks in the nether in basalt deltas or by killing $(thing)Blazes$()."
     },
     {
       "type": "patchouli:crafting",

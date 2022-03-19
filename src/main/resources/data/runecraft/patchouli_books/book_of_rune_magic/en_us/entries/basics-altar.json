@@ -15,7 +15,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "runecraft:altar",
-      "text": "For spells and curses at the $(item)Altar$() it is mostly required that it's currently night, there is enough $(thing)XP$() and sometimes the right moon phase prevails."
+      "text": "For rituals, spells and curses at the $(item)Altar$() it is mostly required that it's currently night, there is enough $(thing)XP$() and sometimes the right moon phase prevails."
     },
     {
       "type": "patchouli:entity",
