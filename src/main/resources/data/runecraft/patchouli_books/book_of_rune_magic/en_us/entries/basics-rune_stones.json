@@ -1,0 +1,29 @@
+{
+  "name": "Rune Stones",
+  "icon": "runecraft:rune_stone",
+  "category": "runecraft:basics",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Rune stones are another important ingredient. they are needed for recipes and combined with $(item)Runes$() have strong magical effects. $(br2)They should be used first to craft an $(item)Altar$()!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:blank_rune_stone",
+      "text": "The tricky part of the recipe is the $(item)Spirit Crystal$(), it can only be traded from a $(thing)Wandering Trader$() at this point or created via a found Altar."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/rune_stones.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:text",
+      "title": "How to use Rune Stones",
+      "text": "With a right click you can place a $(item)Rune$() on a $(item)Rune Stone$() and thus activate various effects (like speed, regeneration or damage). $(br2)The effects occur on touch when the block is right-clicked or gets a redstone signal. $(br2)Shift + right click removes the $(item)Rune$() again."
+    }
+  ]
+}

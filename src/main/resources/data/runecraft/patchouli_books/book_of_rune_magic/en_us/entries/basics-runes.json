@@ -1,0 +1,34 @@
+{
+  "name": "Runes",
+  "icon": "runecraft:rune_q",
+  "category": "runecraft:basics",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Runes are at the core of everything here, there's one for every letter, plus a few extra ones! $(br2)$(item)Rune Dust$() is required to start, this is made from Ash and Nether Warts on the one hand. $(item)Ash$() can be found as blocks in the nether in basalt deltas or by killing $(thing)Blazes$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_dust",
+      "recipe2": "runecraft:rune_m",
+      "text": "All the $(item)Runes$() of the alphabet can now be crafted from the dust."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/runic_alphabet.png"
+      ],
+      "title": "The Runic Alphabet",
+      "border": false
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/rune_effects.png"
+      ],
+      "text": "You can also place runes on the ground, they have the property of marking all living beings that touch them, even through obstacles!",
+      "border": true
+    }
+  ]
+}

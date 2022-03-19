@@ -1,0 +1,28 @@
+{
+  "name": "The Altar",
+  "icon": "runecraft:altar",
+  "category": "runecraft:basics",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Altar is important for gaining access to the more powerful items and spells! $(br2)It can either be crafted or found in rare places in your world."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:altar"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:altar",
+      "text": "For spells and curses at the $(item)Altar$() it is mostly required that it's currently night, there is enough $(thing)XP$() and sometimes the right moon phase prevails."
+    },
+    {
+      "type": "patchouli:entity",
+      "title": "Vex",
+      "entity": "minecraft:vex",
+      "scale": "0.8",
+      "text": "But be careful! Using the $(item)Altar$() can create lightning bolts and dangerous $(thing)Vex$()!"
+    }
+  ]
+}

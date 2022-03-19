@@ -49,6 +49,11 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            // Patchouli mixin fix
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+
             mods {
                 examplemod {
                     source sourceSets.main
@@ -125,12 +130,10 @@ repositories {
         name "tterrag maven"
         url "https://maven.tterrag.com/"
     }
+
     maven {
-        // location of the cursemaven
-        url 'https://www.cursemaven.com'
-        content {
-            includeGroup "curse.maven"
-        }
+        // patchouli
+        url 'https://maven.blamejared.com'
     }
 }
 
@@ -141,8 +144,8 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.4.3.122")
 
-    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3680301")
-
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-66:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.18.2-66")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
