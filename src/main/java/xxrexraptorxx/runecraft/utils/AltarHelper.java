@@ -29,7 +29,7 @@ public class AltarHelper {
 		
 		switch (rand.nextInt(25)) {
 		case 0:
-			return new ItemStack(Items.DIAMOND);
+			return new ItemStack(Items.NETHERITE_INGOT);
 		case 1:
 			return new ItemStack(Items.ELYTRA);
 		case 2:

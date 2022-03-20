@@ -35,7 +35,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "runecraft:rune_scriber_page_curse",
-      "text": "There are other $(item)Pages$(), but they are harder to get."
+      "text": "There are other $(item)Pages$() too, but they are harder to get."
     }
   ]
 }
