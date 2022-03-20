@@ -1,0 +1,17 @@
+{
+  "name": "Portable Rune Stones",
+  "icon": "runecraft:portable_rune_stone_z",
+  "category": "runecraft:basics",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "In addition to the normal $(item)Rune Stones$(), there are also the $(item)Portable Rune Stones$(), they can activate their effects with a simple click and are therefore very helpful."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:blank_portable_rune_stone",
+      "recipe2": "runecraft:portable_rune_stone_n"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Magical Book",
+  "icon": "runecraft:magical_book",
+  "category": "runecraft:rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "There are many different rituals that can be performed at the $(item)Altar$(), they do various things like creating items, creatures or effects! $(br2)The first important $(thing)Ritual$() required is that of creating the $(item)Magical Book$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/altar.png"
+      ],
+      "border": true,
+      "text": "For this $(thing)Ritual$(), just click on the $(item)Altar$() with a $(item)Book$() during $(thing)Full Moon$() and enough $(thing)XP$() and a $(item)Magic Book$() will appear!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:magical_page",
+      "recipe2": "runecraft:rune_scriber_page_spell",
+      "text": "With the $(item)Magical Book$() you can craft $(item)Pages$() that are needed for most other $(thing)Rituals$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_wand",
+      "recipe2": "runecraft:rune_scriber_page_orb"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_enchant",
+      "recipe2": "runecraft:rune_scriber_page_alchemy"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_curse",
+      "text": "There are other $(item)Pages$(), but they are harder to get."
+    }
+  ]
+}

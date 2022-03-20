@@ -1,0 +1,21 @@
+{
+  "name": "Curse Ritual",
+  "icon": "runecraft:curse_page",
+  "category": "runecraft:rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:curse_page",
+      "title": "Curse Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br)$(l)$(n)Effect:$() Lets you summon a random evil $(thing)Creature$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/curse_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

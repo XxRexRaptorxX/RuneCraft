@@ -1,0 +1,21 @@
+{
+  "name": "Spell Ritual",
+  "icon": "runecraft:spell_page",
+  "category": "runecraft:rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:spell_page",
+      "title": "Spell Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br)$(l)$(n)Effect:$() Lets you summon a $(thing)Effect Cloud$() with random abilities."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/spell_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

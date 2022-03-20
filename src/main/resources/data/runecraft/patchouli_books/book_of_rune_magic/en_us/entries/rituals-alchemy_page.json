@@ -1,0 +1,21 @@
+{
+  "name": "Alchemy Ritual",
+  "icon": "runecraft:alchemy_page",
+  "category": "runecraft:rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:alchemy_page",
+      "title": "Alchemy Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br)$(l)$(n)Effect:$() Lets you summon a random strong $(item)Potion$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/alchemy_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

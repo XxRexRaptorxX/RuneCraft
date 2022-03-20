@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The Altar is important for gaining access to the more powerful items and spells! $(br2)It can either be crafted or found in rare places in your world."
+      "text": "The $(item)Altar$() is important for gaining access to the more powerful items and spells! $(br2)It can either be crafted or found in rare places in your world."
     },
     {
       "type": "patchouli:crafting",
