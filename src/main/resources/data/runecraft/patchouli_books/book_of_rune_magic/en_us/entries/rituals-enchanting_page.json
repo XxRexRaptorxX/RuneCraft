@@ -1,0 +1,21 @@
+{
+  "name": "Enchanting Ritual",
+  "icon": "runecraft:enchanting_page",
+  "category": "runecraft:rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:enchanting_page",
+      "title": "Enchanting Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a rare $(item)Enchanted Book$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/enchanting_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

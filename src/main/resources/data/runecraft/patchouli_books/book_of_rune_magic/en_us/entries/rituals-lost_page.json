@@ -1,0 +1,21 @@
+{
+  "name": "Treasure Ritual",
+  "icon": "runecraft:lost_page",
+  "category": "runecraft:rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:lost_page",
+      "title": "Treasure Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a rare treasure item!"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/treasure_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

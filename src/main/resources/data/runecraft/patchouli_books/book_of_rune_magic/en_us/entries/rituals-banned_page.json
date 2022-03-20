@@ -1,0 +1,21 @@
+{
+  "name": "Dark Ritual",
+  "icon": "runecraft:banned_page",
+  "category": "runecraft:rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:banned_page",
+      "title": "Dark Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a random big evil $(thing)Boss Creature$() or $(thing)Mini Boss$() $(br)$(n)$(4)Very dangerous!$()"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/dark_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

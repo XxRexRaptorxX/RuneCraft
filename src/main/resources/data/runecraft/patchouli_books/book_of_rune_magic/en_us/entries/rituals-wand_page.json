@@ -8,7 +8,7 @@
       "type": "patchouli:spotlight",
       "item": "runecraft:wand_page",
       "title": "Wand Ritual",
-      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br)$(l)$(n)Effect:$() Lets you summon a $(item)Basic Wand$()."
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a $(item)Basic Wand$()."
     },
     {
       "type": "patchouli:image",

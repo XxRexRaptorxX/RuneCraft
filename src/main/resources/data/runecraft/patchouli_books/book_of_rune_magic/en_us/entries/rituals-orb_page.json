@@ -1,0 +1,21 @@
+{
+  "name": "Orb Ritual",
+  "icon": "runecraft:orb_page",
+  "category": "runecraft:rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:orb_page",
+      "title": "Orb Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a $(item)Orb$(), that can be transformed into many different items."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/orb_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

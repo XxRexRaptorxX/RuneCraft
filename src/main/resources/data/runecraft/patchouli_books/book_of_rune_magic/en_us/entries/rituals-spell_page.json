@@ -8,7 +8,7 @@
       "type": "patchouli:spotlight",
       "item": "runecraft:spell_page",
       "title": "Spell Ritual",
-      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br)$(l)$(n)Effect:$() Lets you summon a $(thing)Effect Cloud$() with random abilities."
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you summon a $(thing)Effect Cloud$() with random abilities."
     },
     {
       "type": "patchouli:image",
