@@ -1,0 +1,24 @@
+{
+  "name": "Nether Wand",
+  "icon": "runecraft:nether_wand",
+  "category": "runecraft:wands",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:nether_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a big fire. $(br2)$(l)Left Click on a creature:$() $(br)Sets the creature on fire."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/nether_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_nether"
+    }
+  ]
+}

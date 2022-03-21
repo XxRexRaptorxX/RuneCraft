@@ -1,0 +1,24 @@
+{
+  "name": "Aether Wand",
+  "icon": "runecraft:aether_wand",
+  "category": "runecraft:wands",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:aether_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Left Click:$() $(br)Let's you fly. $(br2)$(l)Left Click on a creature:$() $(br)Let it fly away."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/aether_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_aether"
+    }
+  ]
+}

@@ -30,3 +30,10 @@ This magical mod adds everything related to runes to the game!
     versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.runecraft]]
+    modId="patchouli"
+    mandatory=true
+    versionRange="[1.18.2-66,)"
+    ordering="NONE"
+    side="BOTH"

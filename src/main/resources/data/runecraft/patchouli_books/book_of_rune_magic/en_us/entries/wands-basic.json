@@ -1,0 +1,20 @@
+{
+  "name": "Basic Wand",
+  "icon": "runecraft:basic_wand",
+  "category": "runecraft:wands",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:basic_wand",
+      "text": "Can be obtained through a $(thing)Wand Ritual$() at the $(item)Altar.$() $(br2)$(n)$(l)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a spell ring of weakness."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/basic_wand.png"
+      ],
+      "border": true
+    }
+  ]
+}
