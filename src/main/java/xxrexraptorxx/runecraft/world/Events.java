@@ -313,7 +313,7 @@ public class Events {
         }
     }
 
-
+    //TODO CURSE WAND PARTICLE FIX
     @SubscribeEvent
     public static void onInteractWithWands (PlayerInteractEvent.RightClickBlock event) {
         ItemStack stack = event.getItemStack();

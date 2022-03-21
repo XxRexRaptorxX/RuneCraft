@@ -1,0 +1,12 @@
+{
+  "name": "Repair Ritual",
+  "icon": "minecraft:experience_bottle",
+  "category": "runecraft:rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you repair $(item)Wands$() and $(item)Portable Rune Stones$()."
+    }
+  ]
+}

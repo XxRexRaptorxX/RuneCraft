@@ -1,0 +1,21 @@
+{
+  "name": "Soulbind Ritual",
+  "icon": "runecraft:soul",
+  "category": "runecraft:rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:soul",
+      "title": "Soulbind Ritual",
+      "text": "$(l)$(n)Requirements:$() $(br)$(li)$(thing)Altar $(li)XP $(li)Nighttime $()$(br2)$(l)$(n)Effect:$() $(br2)Lets you bind $(item)Souls$() in $(item)Spawn Eggs$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/soulbind_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}
