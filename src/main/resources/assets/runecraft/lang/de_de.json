@@ -24,7 +24,7 @@
     "message.runecraft.curse_page_jei_desc": "Beschreibt ein altes Fluch Ritual. Benutze diese Seite nachts mit genügen XP an einem Altar um das Ritual durchzuführen. Es beschwört eine zufällige verfluchte Kreatur.",
     "message.runecraft.basic_wand_jei_desc": "Rechts Click: Setzt einen Ring aus Schwäche Zauber frei.",
     "message.runecraft.nether_wand_jei_desc": "Rechts Click: Setzt einen Brand Zauber frei. Links Click: Setzt eine Kreatur in brand.",
-    "message.runecraft.aether_wand_jei_desc": "Links Click: Lässt dich fliegen. Links Click auf eine Kreatur: Lässt sie fliegen.",
+    "message.runecraft.aether_wand_jei_desc": "Links Click: Lässt dich fliegen. Links Click: Lässt Kreaturen fliegen.",
     "message.runecraft.curse_wand_jei_desc": "Rechts Click: Setzt einen Ring aus negativen Zaubern frei, aber beeinträchtigt auch den Benutzer. Links Click: Verflucht eine Kreatur, aber gibt den Benutzer Schaden.",
     "message.runecraft.holy_wand_jei_desc": "Rechts Click: Setzt eine Wolke aus Heilzauber frei. Links Click: Heilt Kreaturen und Schadet Untoten.",
     "message.runecraft.escape_wand_jei_desc": "Rechts Click: Setzt eine Rauchwolke frei und gibt dem Benutzer Unsichtbarkeit und Schnelligkeit.",
@@ -34,7 +34,7 @@
     "message.runecraft.destruction_wand_jei_desc": "Rechts Click: Spawnt ein gezündetes TNT. Links Click: Zerstört den ausgewählten Block sofort.",
     "message.runecraft.changing_wand_jei_desc": "Rechts Click: Wechselt zwischen den Blockstates des ausgewählten Blocks.",
     "message.runecraft.maelstrom_wand_jei_desc": "Rechts Click: Setzt einen Ring aus Wither Zauber frei. Links Click: Withert die Kreatur.",
-    "message.runecraft.storm_wand_jei_desc": "Links Click: Stößt die Kreatur weit zurück.",
+    "message.runecraft.storm_wand_jei_desc": "Links Click: Stößt Kreaturen weit zurück.",
     "message.runecraft.soul_jei_desc": "Erhält man aus Kreaturen die mit einem Ritual Dolch erledigt wurden. Verwende sie am Altar um aus ihnen Spawn-Eier zu erschaffen.",
 
     "item.runecraft.rune_a": "Rune",
