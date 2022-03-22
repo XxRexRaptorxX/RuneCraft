@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "runecraft:altar_1",
+      "weight": 1
+    },
+    {
+      "structure": "runecraft:altar_2",
+      "weight": 1
+    },
+    {
+      "structure": "runecraft:underground_altar_1",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 30,
+    "salt": 247324020
+  }
+}
