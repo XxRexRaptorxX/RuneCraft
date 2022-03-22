@@ -1,0 +1,16 @@
+{
+  "name": "The Rune Scriber",
+  "icon": "runecraft:rune_scriber",
+  "category": "runecraft:basics",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The $(item)Rune Scriber$() is needed to write $(item)Runes$() on things like $(item)Wands$(), $(item)Orbs$() and more. $(br2)$(br2)$(8)Currently without function. Work in progress!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber"
+    }
+  ]
+}
