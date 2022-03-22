@@ -1,0 +1,24 @@
+{
+  "name": "Destruction Wand",
+  "icon": "runecraft:destruction_wand",
+  "category": "runecraft:wands",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:destruction_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Spawns primed TNT. $(br2)$(l)Left Click:$() $(br)Destroys the selected block instant. (Without drop)"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/destruction_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_destruction"
+    }
+  ]
+}

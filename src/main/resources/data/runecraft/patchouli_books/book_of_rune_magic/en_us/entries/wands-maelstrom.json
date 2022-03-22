@@ -1,0 +1,24 @@
+{
+  "name": "Maelstrom Wand",
+  "icon": "runecraft:maelstrom_wand",
+  "category": "runecraft:wands",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:maelstrom_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a ring of wither spells. $(br2)$(l)Left Click:$() $(br)Gives creatures a wither effect."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/maelstrom_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_maelstrom"
+    }
+  ]
+}

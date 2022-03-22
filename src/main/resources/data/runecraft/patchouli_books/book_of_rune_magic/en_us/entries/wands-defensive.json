@@ -1,0 +1,24 @@
+{
+  "name": "Defensive Wand",
+  "icon": "runecraft:defensive_wand",
+  "category": "runecraft:wands",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:defensive_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Generates a cobblestone capsule around the user and gives it damage resistance. $(br2)$(l)Right Click + Shift:$() $(br)Destroys the capsule."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/defensive_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_defensive"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "runecraft:aether_wand",
-      "text": "$(l)$(n)Effects$() $(br2)$(l)Left Click:$() $(br)Let's you fly. $(br2)$(l)Left Click on a creature:$() $(br)Let it fly away."
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Left Click:$() $(br)Let's you fly. $(br2)$(l)Left Click:$() $(br)Let creatures fly away."
     },
     {
       "type": "patchouli:image",

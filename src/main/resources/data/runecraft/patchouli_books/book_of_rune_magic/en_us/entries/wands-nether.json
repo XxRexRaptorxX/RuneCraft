@@ -7,7 +7,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "runecraft:nether_wand",
-      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a big fire. $(br2)$(l)Left Click on a creature:$() $(br)Sets the creature on fire."
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a big fire. $(br2)$(l)Left Click:$() $(br)Sets creatures on fire."
     },
     {
       "type": "patchouli:image",

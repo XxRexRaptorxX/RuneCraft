@@ -1,0 +1,24 @@
+{
+  "name": "Curse Wand",
+  "icon": "runecraft:curse_wand",
+  "category": "runecraft:wands",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:curse_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a ring of negative spells, but also affects the user. $(br2)$(l)Left Click:$() $(br)Curse a creature, but damages the user."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/curse_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_curse"
+    }
+  ]
+}

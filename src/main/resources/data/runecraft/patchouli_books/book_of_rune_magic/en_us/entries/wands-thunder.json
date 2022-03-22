@@ -1,0 +1,24 @@
+{
+  "name": "Thunder Wand",
+  "icon": "runecraft:thunder_wand",
+  "category": "runecraft:wands",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:thunder_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Changes the weather to sunshine. $(br2)$(l)Right Click + Shift:$() $(br)Changes the weather to rain. $(br2)$(l)Left Click:$() $(br)Sends a lightning bolt to the creature."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/thunder_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_thunder"
+    }
+  ]
+}

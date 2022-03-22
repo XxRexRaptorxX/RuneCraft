@@ -1,0 +1,24 @@
+{
+  "name": "Storm Wand",
+  "icon": "runecraft:storm_wand",
+  "category": "runecraft:wands",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:storm_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Left Click:$() $(br)Pushes creatures far back."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/storm_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_storm"
+    }
+  ]
+}

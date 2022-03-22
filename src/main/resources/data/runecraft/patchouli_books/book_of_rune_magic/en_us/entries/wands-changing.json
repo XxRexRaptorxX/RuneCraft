@@ -1,0 +1,24 @@
+{
+  "name": "Changing Wand",
+  "icon": "runecraft:changing_wand",
+  "category": "runecraft:wands",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:changing_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Switches between the block states of the selected block."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/changing_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_changing"
+    }
+  ]
+}

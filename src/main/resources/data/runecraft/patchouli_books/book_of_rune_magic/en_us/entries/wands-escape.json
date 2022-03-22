@@ -1,0 +1,24 @@
+{
+  "name": "Escape Wand",
+  "icon": "runecraft:escape_wand",
+  "category": "runecraft:wands",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:escape_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Releases a big smoke cloud and gives the user invisibility and movement speed."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/escape_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_escape"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Creature Wand",
+  "icon": "runecraft:creature_wand",
+  "category": "runecraft:wands",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:creature_wand",
+      "text": "$(l)$(n)Effects$() $(br2)$(l)Right Click:$() $(br)Spawns random monsters."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/creature_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_creature"
+    }
+  ]
+}
