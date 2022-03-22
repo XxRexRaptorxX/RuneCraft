@@ -1,34 +1,34 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-  
+
     " 3 ",
     "2X4",
     "1 5"
   ],
-    
+
   "key": {
     "X": {
       "item": "runecraft:basic_wand"
     },
     "1": {
-      "item": "runecraft:rune_c"
+      "item": "runecraft:rune_d"
     },
     "2": {
-      "item": "runecraft:rune_h"
+      "item": "runecraft:rune_e"
     },
     "3": {
-      "item": "runecraft:rune_n"
+      "item": "runecraft:rune_l"
     },
     "4": {
-      "item": "runecraft:rune_g"
+      "item": "runecraft:rune_e"
     },
     "5": {
-      "item": "runecraft:rune_e"
+      "item": "runecraft:rune_t"
     }
   },
-  
+
   "result": {
-    "item": "runecraft:changing_wand"
+    "item": "runecraft:destruction_wand"
   }
 }
