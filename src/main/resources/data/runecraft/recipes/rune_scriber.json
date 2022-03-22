@@ -4,7 +4,7 @@
   
     "XXX",
     "IOI",
-    "XXX" 
+    "###"
   ],
     
   "key": {
@@ -16,6 +16,9 @@
     },
     "I": {
       "item": "runecraft:rune_dust"
+    },
+    "#": {
+      "item": "minecraft:chiseled_deepslate"
     }
   },
   
