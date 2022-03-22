@@ -1,0 +1,67 @@
+{
+  "name": "Recipes",
+  "icon": "runecraft:orb",
+  "category": "runecraft:orbs",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Can be obtained through an $(thing)Orb Ritual$() on the $(item)Altar$(), $(item)Orbs$() can be used to create maaany different items."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_amethyst",
+      "recipe2": "runecraft:rune_scriber_orb_blaze_rod"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_cloth",
+      "recipe2": "runecraft:rune_scriber_orb_copper_ingot"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_diamond",
+      "recipe2": "runecraft:rune_scriber_orb_emerald"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_ender_pearl",
+      "recipe2": "runecraft:rune_scriber_orb_gold_ingot"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_iron_ingot",
+      "recipe2": "runecraft:rune_scriber_orb_lapis"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_prismarin",
+      "recipe2": "runecraft:rune_scriber_orb_quartz"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_redstone",
+      "recipe2": "runecraft:rune_scriber_orb_slime"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_spirit_crystal",
+      "recipe2": "runecraft:rune_scriber_orb_coarse_dirt"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_grass",
+      "recipe2": "runecraft:rune_scriber_orb_mycelium"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_podzol",
+      "recipe2": "runecraft:rune_scriber_orb_sea_lantern"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_glowstone",
+      "recipe2": "runecraft:rune_scriber_orb_obsidian"
+    }
+  ]
+}

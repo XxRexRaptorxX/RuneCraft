@@ -1,0 +1,16 @@
+{
+  "name": "Souls",
+  "icon": "runecraft:ritual_dagger",
+  "category": "runecraft:souls",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Souls can be turned into $(item)Spawn Eggs$() at the $(item)Altar$(). To get $(item)Souls$() you have to kill creatures with a $(item)Ritual Dagger$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:ritual_dagger"
+    }
+  ]
+}
