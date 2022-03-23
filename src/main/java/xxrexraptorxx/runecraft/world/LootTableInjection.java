@@ -30,6 +30,7 @@ public class LootTableInjection {
     private static final Map<String, ResourceLocation> INJECTION_TABLES = Maps.newHashMap();
     //inject
     public static final ResourceLocation stronghold_library = registerInject("stronghold_library");
+    public static final ResourceLocation woodland_mansion = registerInject("woodland_mansion");
     public static final ResourceLocation blaze = registerInject("blaze");
     public static final ResourceLocation evoker = registerInject("evoker");
     public static final ResourceLocation wither = registerInject("wither");
