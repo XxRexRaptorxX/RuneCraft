@@ -31,6 +31,7 @@ public class LootTableInjection {
     //inject
     public static final ResourceLocation stronghold_library = registerInject("stronghold_library");
     public static final ResourceLocation woodland_mansion = registerInject("woodland_mansion");
+    public static final ResourceLocation end_city_treasure = registerInject("end_city_treasure");
     public static final ResourceLocation blaze = registerInject("blaze");
     public static final ResourceLocation evoker = registerInject("evoker");
     public static final ResourceLocation wither = registerInject("wither");
