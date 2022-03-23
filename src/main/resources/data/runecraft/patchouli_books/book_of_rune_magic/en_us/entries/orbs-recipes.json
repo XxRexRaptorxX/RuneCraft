@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Can be obtained through an $(thing)Orb Ritual$() on the $(item)Altar$(), $(item)Orbs$() can be used to create maaany different items."
+      "text": "Can be obtained through an $(thing)Orb Ritual$() on the $(item)Altar$(). $(br2)$(item)Orbs$() can be used to create maaany different items."
     },
     {
       "type": "patchouli:crafting",
@@ -62,6 +62,11 @@
       "type": "patchouli:crafting",
       "recipe": "runecraft:rune_scriber_orb_glowstone",
       "recipe2": "runecraft:rune_scriber_orb_obsidian"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_moss",
+      "recipe2": "runecraft:rune_scriber_orb_ice"
     }
   ]
 }

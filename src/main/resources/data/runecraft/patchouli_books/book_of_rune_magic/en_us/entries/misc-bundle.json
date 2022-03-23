@@ -1,0 +1,16 @@
+{
+  "name": "Bundle",
+  "icon": "minecraft:bundle",
+  "category": "runecraft:misc",
+  "sortnum":1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A $(item)Bundle$() is a storage item that can be used for managing items inside the inventory, and allows for combination of multiple item types within single inventory slots."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:bundle"
+    }
+  ]
+}

@@ -35,7 +35,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "runecraft:rune_scriber_page_curse",
-      "text": "There are other $(item)Pages$() too, but they are harder to get."
+      "text": "There are other $(item)Pages$() too, but they are harder to get. $(br2)$(li)The $(item)Lost Page$() can be found in $(thing)Woodland Mansions$() $(br)$(li)The $(item)Banned Page$() can be found in $(thing)End Citys$()"
     }
   ]
 }

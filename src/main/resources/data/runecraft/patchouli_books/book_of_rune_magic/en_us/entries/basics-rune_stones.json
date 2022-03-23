@@ -11,7 +11,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "runecraft:blank_rune_stone",
-      "text": "The tricky part of the recipe is the $(item)Spirit Crystal$(), it can only be traded from a $(thing)Wandering Trader$() at this point or created via a found Altar."
+      "text": "The tricky part of the recipe is the $(item)Spirit Crystal$(), it can only be traded from a $(thing)Wandering Trader$() or get it from an $(thing)Evoker$() at this point ."
     },
     {
       "type": "patchouli:image",
@@ -23,7 +23,7 @@
     {
       "type": "patchouli:text",
       "title": "How to use Rune Stones",
-      "text": "With a right click you can place a $(item)Rune$() on a $(item)Rune Stone$() and thus activate various effects (like speed, regeneration or damage). $(br2)The effects occur on touch when the block is right-clicked or gets a redstone signal. $(br2)Shift + right click removes the $(item)Rune$() again."
+      "text": "With a $(l)right click$() you can place a $(item)Rune$() on a $(item)Rune Stone$() and thus activate various effects (like speed, regeneration or damage). $(br2)The effects occur on touch when the block is right-clicked or gets a redstone signal. $(br2)$(l)Shift + Right click$() removes the $(item)Rune$() again."
     }
   ]
 }
