@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
   
-    " 3 ",
-    "2X4",
-    "1 5"
+    " 2 ",
+    "1X3",
+    " 4 "
   ],
     
   "key": {
@@ -12,23 +12,20 @@
       "item": "runecraft:orb"
     },
     "1": {
-      "item": "runecraft:rune_g"
+      "item": "runecraft:rune_m"
     },
     "2": {
-      "item": "runecraft:rune_r"
+      "item": "runecraft:rune_o"
     },
     "3": {
-      "item": "runecraft:rune_a"
-    },
-    "4": {
       "item": "runecraft:rune_s"
     },
-    "5": {
+    "4": {
       "item": "runecraft:rune_s"
     }
   },
   
   "result": {
-    "item": "minecraft:grass_block"
+    "item": "minecraft:moss_block"
   }
 }
