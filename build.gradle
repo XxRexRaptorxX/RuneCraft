@@ -126,12 +126,6 @@ repositories {
     }
 
     maven {
-        // location of the maven of flywheel
-        name "tterrag maven"
-        url "https://maven.tterrag.com/"
-    }
-
-    maven {
         // patchouli
         url 'https://maven.blamejared.com'
     }
