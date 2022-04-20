@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -491,8 +492,8 @@ public class Events {
         BlockPos pos = event.getEntity().getOnPos();
 
         //Attacker
-        if (attacker instanceof Player) {
-            if (((Player) attacker).getMainHandItem().getItem().equals(ModItems.RITUAL_DAGGER.get())) {
+        if (attacker instanceof ServerPlayer) {
+            if (((ServerPlayer) attacker).getMainHandItem().getItem().equals(ModItems.RITUAL_DAGGER.get())) {
 
                 //TODO: give soul hunter and soul
 
@@ -517,10 +518,10 @@ public class Events {
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         Player player = event.getPlayer();
 
-        if (player.getLastDamageSource().equals(SOUL_REAPER)) {
+       // if (player instanceof ServerPlayer) {
+       //     if (player.getLastDamageSource().equals(SOUL_REAPER)) {     //TODO test server side
 
-            //TODO: give soulless
-        }
+                //TODO: give soulless
     }
 
 
