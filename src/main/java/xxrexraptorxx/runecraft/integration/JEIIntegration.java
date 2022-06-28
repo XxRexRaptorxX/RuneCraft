@@ -5,7 +5,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IIngredientManager;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -52,37 +52,37 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(ModItems.SPIRIT_STAR.get()));
         treasures.add(new ItemStack(ModItems.SPIRIT_CRYSTAL.get()));
 
-        registry.addIngredientInfo(treasures, VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.treasure_ritual_drops_jei_desc"));
+        registry.addIngredientInfo(treasures, VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.treasure_ritual_drops_jei_desc"));
 
-        registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.magical_book_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModBlocks.RUIN_BLOCK.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.ruin_block_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModBlocks.RUNE_STONE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.rune_stone_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.basic_wand_crafting_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.ORB.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.SOUL.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.soul_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.magical_book_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModBlocks.RUIN_BLOCK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.ruin_block_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModBlocks.RUNE_STONE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.rune_stone_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.basic_wand_crafting_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ORB.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.orb_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.SOUL.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.soul_jei_desc"));
 
-        registry.addIngredientInfo(new ItemStack(ModItems.SPELL_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.spell_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.CURSE_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.curse_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.LOST_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.lost_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.WAND_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.wand_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.ORB_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.orb_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.ENCHANTING_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.enchanting_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.BANNED_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.banned_page_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.ALCHEMY_PAGE.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.alchemy_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.SPELL_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.spell_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.CURSE_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.curse_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.LOST_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.lost_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.WAND_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.wand_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ORB_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.orb_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ENCHANTING_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.enchanting_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BANNED_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.banned_page_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ALCHEMY_PAGE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.alchemy_page_jei_desc"));
 
-        registry.addIngredientInfo(new ItemStack(ModItems.AETHER_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.aether_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.NETHER_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.nether_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.STORM_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.storm_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.HOLY_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.holy_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.CURSE_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.curse_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.MAELSTROM_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.maelstrom_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.CREATURE_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.creature_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.DEFENSIVE_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.defensive_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.DESTRUCTION_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.destruction_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.CHANGING_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.changing_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.THUNDER_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.thunder_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.ESCAPE_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.escape_wand_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM, new TranslatableComponent("message.runecraft.basic_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.AETHER_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.aether_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.NETHER_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.nether_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.STORM_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.storm_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.HOLY_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.holy_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.CURSE_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.curse_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.MAELSTROM_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.maelstrom_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.CREATURE_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.creature_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.DEFENSIVE_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.defensive_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.DESTRUCTION_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.destruction_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.CHANGING_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.changing_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.THUNDER_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.thunder_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.ESCAPE_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.escape_wand_jei_desc"));
+        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.basic_wand_jei_desc"));
 
     }
 }

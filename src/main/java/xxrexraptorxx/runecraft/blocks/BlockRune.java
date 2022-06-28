@@ -29,6 +29,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -77,7 +78,7 @@ public class BlockRune extends FallingBlock {
         world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
         if(!world.isClientSide) {
-            ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(this.getRegistryName().toString().substring(21))));
+            ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(this).toString().substring(21))));
             world.addFreshEntity(drop);
         }
     }

@@ -2,7 +2,7 @@ package xxrexraptorxx.runecraft.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
@@ -19,7 +19,6 @@ import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.main.ModItems;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 public class AltarHelper {
@@ -76,9 +75,9 @@ public class AltarHelper {
 
 	public static ItemStack getRandomPotion() {
 		Random rand = new Random();
-		ItemStack potion = new ItemStack (Items.POTION).setHoverName(new TranslatableComponent("item.runecraft.potion"));
-		ItemStack splash_potion = new ItemStack (Items.SPLASH_POTION).setHoverName(new TranslatableComponent("item.runecraft.splash_potion"));
-		ItemStack lingering_potion = new ItemStack (Items.LINGERING_POTION).setHoverName(new TranslatableComponent("item.runecraft.lingering_potion"));
+		ItemStack potion = new ItemStack (Items.POTION).setHoverName(Component.translatable("item.runecraft.potion"));
+		ItemStack splash_potion = new ItemStack (Items.SPLASH_POTION).setHoverName(Component.translatable("item.runecraft.splash_potion"));
+		ItemStack lingering_potion = new ItemStack (Items.LINGERING_POTION).setHoverName(Component.translatable("item.runecraft.lingering_potion"));
 		ArrayList<MobEffectInstance> effects = new ArrayList<MobEffectInstance>();
 
 

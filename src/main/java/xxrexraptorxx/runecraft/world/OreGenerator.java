@@ -1,21 +1,7 @@
 package xxrexraptorxx.runecraft.world;
 
-import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.utils.Config;
-
 public class OreGenerator {
-
+/**
     public static Holder<PlacedFeature> ASH_GEN;
 
 
@@ -40,5 +26,5 @@ public class OreGenerator {
                 event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ASH_GEN);
             }
         }
-    }
+    }**/
 }

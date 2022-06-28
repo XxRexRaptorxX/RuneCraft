@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.main.RuneCraft;
 
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class RuneHelper {
 				return stack.getTag().getString("Type");
 			}
 		}
-		System.err.println("Invalid ItemStack without Runetype tag");
+		RuneCraft.LOGGER.error("Invalid ItemStack without Runetype tag");
 		return "a";
 	}
 
@@ -97,7 +98,7 @@ public class RuneHelper {
 			case "ptl":
 				return ModItems.RUNE_PTL.get();
 			default:
-				System.err.println("Unknown rune type. [getRuneFromType]");
+				RuneCraft.LOGGER.error("Unknown rune type. [getRuneFromType]");
 				return ModItems.RUNE_A.get();
 		}
 	}
@@ -166,7 +167,7 @@ public class RuneHelper {
 			case "ptl":
 				return ModBlocks.RUNE_STONE_PTL.get();
 			default:
-				System.err.println("Unknown rune type. [getRuneStoneFromType]");
+				RuneCraft.LOGGER.error("Unknown rune type. [getRuneStoneFromType]");
 				return ModBlocks.RUNE_STONE.get();
 		}
 	}
@@ -235,7 +236,7 @@ public class RuneHelper {
 			case "ptl":
 				return ModBlocks.RUNE_BLOCK_PTL.get();
 			default:
-				System.err.println("Unknown rune type. [getRuneBlockFromType]");
+				RuneCraft.LOGGER.error("Unknown rune type. [getRuneBlockFromType]");
 				return ModBlocks.RUNE_BLOCK_A.get();
 		}
 	}
@@ -308,7 +309,7 @@ public class RuneHelper {
 				return "Ghos";
 
 			default:
-				System.err.println("Unknown Rune Type. [getRuneName]");
+				RuneCraft.LOGGER.error("Unknown Rune Type. [getRuneName]");
 				return "Unknown";
 		}
 	}
@@ -436,7 +437,7 @@ public class RuneHelper {
 			return MobEffects.ABSORPTION;
 			
 		default:
-			System.err.println("Unknown Rune Type. [getEffect]");
+			RuneCraft.LOGGER.error("Unknown Rune Type. [getEffect]");
 			return MobEffects.UNLUCK; // :(
 			}
 		}

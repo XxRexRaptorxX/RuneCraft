@@ -5,32 +5,24 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.ClickEvent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
+import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Vex;
-import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.entity.EntityAccess;
-import net.minecraft.world.level.entity.EntityTickList;
 import net.minecraftforge.common.BasicItemListing;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.TickEvent;
@@ -43,6 +35,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
@@ -52,7 +45,6 @@ import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import java.util.Random;
-import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = References.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Events {
@@ -66,18 +58,17 @@ public class Events {
         if (Config.UPDATE_CHECKER.get()) {
             if (!hasShownUp && Minecraft.getInstance().screen == null) {
                 if (VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.OUTDATED ||
-                        VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.BETA_OUTDATED) {
+                        VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.BETA_OUTDATED ) {
 
-                    TextComponent clickevent = new TextComponent(ChatFormatting.RED + "Click here to update!");
-                    clickevent.withStyle(clickevent.getStyle().withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, References.URL)));
-
-                    Minecraft.getInstance().player.sendMessage(new TextComponent(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), UUID.randomUUID());
-                    Minecraft.getInstance().player.sendMessage(clickevent, UUID.randomUUID());
+                    Minecraft.getInstance().player.displayClientMessage(Component.literal(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), false);
+                    Minecraft.getInstance().player.displayClientMessage(Component.literal(ChatFormatting.GRAY + References.URL), false);
 
                     hasShownUp = true;
+
                 } else if (VersionChecker.getResult(ModList.get().getModContainerById(References.MODID).get().getModInfo()).status() == VersionChecker.Status.FAILED) {
-                    System.err.println(References.NAME + "'s version checker failed!");
+                    RuneCraft.LOGGER.error(References.NAME + "'s version checker failed!");
                     hasShownUp = true;
+
                 }
             }
         }
@@ -95,16 +86,16 @@ public class Events {
         Block block = world.getBlockState(pos).getBlock();
 
         if(!world.isClientSide) {
-            if (block.getRegistryName().toString().contains("runecraft:rune_stone")) {
+            if (ForgeRegistries.BLOCKS.getKey(block).toString().contains("runecraft:rune_stone")) {
                 if(block != ModBlocks.RUNE_STONE.get()) {
                     world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                     //Area effect
-                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !item.getRegistryName().toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
+                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
                             block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
 
                         AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(block.getRegistryName().toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(ForgeRegistries.BLOCKS.getKey(block).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
                         cloud.setDuration(Config.AREA_SPELL_DURATION.get());
                         cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
                         cloud.setFixedColor(0x616161);
@@ -114,19 +105,19 @@ public class Events {
                     }
                 }
 
-                if (item.getRegistryName().toString().contains("runecraft:rune_")) {
+                if (ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_")) {
 
                     //Set the rune
                     if (block == ModBlocks.RUNE_STONE.get()) {                                          //test if the rune stone is already active (& prevents an error)
                         event.getItemStack().shrink(1);                                       // > rune stone is empty
-                        world.setBlock(pos, RuneHelper.getRuneStoneFromType(item.getRegistryName().toString().substring(15)).defaultBlockState(), 2);
+                        world.setBlock(pos, RuneHelper.getRuneStoneFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState(), 2);
 
                     } else {                                                                                                                  // > rune stone is active
-                        if (!block.getRegistryName().toString().substring(21).equals(item.getRegistryName().toString().substring(15))) {      //test that the item and blockstate is NOT the same type
-                            ItemEntity drop = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRuneFromType(block.getRegistryName().toString().substring(21))));
+                        if (!ForgeRegistries.BLOCKS.getKey(block).toString().substring(21).equals(ForgeRegistries.ITEMS.getKey(item).toString().substring(15))) {      //test that the item and blockstate is NOT the same type
+                            ItemEntity drop = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(block).toString().substring(21))));
                             world.addFreshEntity(drop);
                             event.getItemStack().shrink(1);
-                            world.setBlock(pos, RuneHelper.getRuneStoneFromType(item.getRegistryName().toString().substring(15)).defaultBlockState(), 2);
+                            world.setBlock(pos, RuneHelper.getRuneStoneFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState(), 2);
                         }
                     }
                 }
@@ -198,15 +189,15 @@ public class Events {
 
                     } else {
                         if (world.isClientSide)
-                            player.sendMessage(new TranslatableComponent("message.runecraft.not_full_moon", new Object[]{10}), UUID.randomUUID());
+                            player.displayClientMessage(Component.translatable("message.runecraft.not_full_moon", new Object[]{10}), true);
                     }
                 } else {
                     if (world.isClientSide)
-                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                        player.displayClientMessage(Component.translatable("message.runecraft.not_enough_levels", new Object[]{10}), true);
                 }
             } else {
                 if (world.isClientSide)
-                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+                    player.displayClientMessage(Component.translatable("message.runecraft.wrong_block", new Object[]{10}), true);
             }
 
         }
@@ -281,7 +272,7 @@ public class Events {
 
                             } else if (item == ModItems.ENCHANTING_PAGE.get()) {
                                 ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                                book.setHoverName(new TranslatableComponent("item.runecraft.enchanting_book"));
+                                book.setHoverName(Component.translatable("item.runecraft.enchanting_book"));
 
                                 ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, book);
                                 world.addFreshEntity(reward);
@@ -305,11 +296,11 @@ public class Events {
                     }
                 } else {
                     if (world.isClientSide)
-                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                        player.displayClientMessage(Component.translatable("message.runecraft.not_enough_levels", new Object[]{10}), true);
                 }
             } else {
                 if (world.isClientSide)
-                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+                    player.displayClientMessage(Component.translatable("message.runecraft.wrong_block", new Object[]{10}), true);
             }
         }
     }
@@ -323,7 +314,7 @@ public class Events {
         Player player = event.getPlayer();
         BlockPos pos = event.getPos();
 
-        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && item.getRegistryName().toString().contains(References.MODID) && item.getRegistryName().toString().contains("_wand")) {
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("_wand")) {
             if (Config.WAND_XP_REPAIR.get() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
@@ -349,7 +340,7 @@ public class Events {
 
 
                 } else {
-                    if (world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                    if (world.isClientSide) player.displayClientMessage(Component.translatable("message.runecraft.not_enough_levels", new Object[]{10}), true);
                 }
             }
         }
@@ -364,7 +355,7 @@ public class Events {
         Player player = event.getPlayer();
         BlockPos pos = event.getPos();
 
-        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && item.getRegistryName().toString().contains(References.MODID) && item.getRegistryName().toString().contains("portable_rune_stone")) {
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("portable_rune_stone")) {
             if (Config.PORTABLE_RUNE_STONE_XP_REPAIR.get() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
@@ -390,7 +381,7 @@ public class Events {
 
 
                 } else {
-                    if (world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                    if (world.isClientSide) player.displayClientMessage(Component.translatable("message.runecraft.not_enough_levels", new Object[]{10}), true);
                 }
             }
         }
@@ -469,11 +460,11 @@ public class Events {
                     }
                 } else {
                     if (world.isClientSide)
-                        player.sendMessage(new TranslatableComponent("message.runecraft.not_enough_levels", new Object[]{10}), UUID.randomUUID());
+                        player.displayClientMessage(Component.translatable("message.runecraft.not_enough_levels", new Object[]{10}), true);
                 }
             } else {
                 if (world.isClientSide)
-                    player.sendMessage(new TranslatableComponent("message.runecraft.wrong_block", new Object[]{10}), UUID.randomUUID());
+                    player.displayClientMessage(Component.translatable("message.runecraft.wrong_block", new Object[]{10}), true);
             }
         }
     }
@@ -503,7 +494,7 @@ public class Events {
 
                 tag.putString("owner", victim.getType().toString().substring(7).replace(".", ":"));
                 stack.setTag(tag);
-                stack.setHoverName(new TextComponent(victim.getDisplayName().getString()).append(" ").append(new TranslatableComponent("item.runecraft.soul")));
+                stack.setHoverName(Component.translatable(victim.getDisplayName().getString()).append(" ").append(Component.translatable("item.runecraft.soul")));
 
                 ((Player) attacker).addItem(stack);
 

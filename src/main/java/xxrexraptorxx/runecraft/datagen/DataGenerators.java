@@ -15,10 +15,10 @@ public class DataGenerators {
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         if (event.includeServer()) {
-            generator.addProvider(new TagsBlock(generator, helper));
+            generator.addProvider(event.includeServer(), new TagsBlock(generator, helper));
         }
         if (event.includeClient()) {
-            generator.addProvider(new Items(generator, helper));
+            generator.addProvider(event.includeClient(), new Items(generator, helper));
         }
     }
 }
