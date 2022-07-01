@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "runecraft:items/rune_fre"
+        "layer0": "runecraft:item/rune_fre"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "runecraft:items/thunder_wand"
+        "layer0": "runecraft:item/thunder_wand"
     }
 }

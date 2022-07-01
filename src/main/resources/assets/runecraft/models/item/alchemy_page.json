@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "runecraft:items/alchemy_page"
+        "layer0": "runecraft:item/alchemy_page"
     }
 }

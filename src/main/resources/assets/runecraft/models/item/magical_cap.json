@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "runecraft:items/magical_cap"
+        "layer0": "runecraft:item/magical_cap"
     }
 }

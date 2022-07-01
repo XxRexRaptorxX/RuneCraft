@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "runecraft:items/holy_wand"
+        "layer0": "runecraft:item/holy_wand"
     }
 }

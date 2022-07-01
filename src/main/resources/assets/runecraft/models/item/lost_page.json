@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "runecraft:items/lost_page"
+        "layer0": "runecraft:item/lost_page"
     }
 }

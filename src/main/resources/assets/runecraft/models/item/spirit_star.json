@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "runecraft:items/spirit_star"
+        "layer0": "runecraft:item/spirit_star"
     }
 }

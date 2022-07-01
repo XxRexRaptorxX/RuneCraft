@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "runecraft:items/ritual_dagger"
+    "layer0": "runecraft:item/ritual_dagger"
   }
 }

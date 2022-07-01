@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "runecraft:items/scepter_changing"
+        "layer0": "runecraft:item/scepter_changing"
     }
 }

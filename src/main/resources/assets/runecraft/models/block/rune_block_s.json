@@ -2,8 +2,8 @@
     "parent": "block/block",
     "__comment": "Designed by RexRaptor with Cubik Studio - https://cubik.studio",
     "textures": {
-        "particle": "runecraft:items/rune_s",
-        "texture":  "runecraft:items/rune_s"
+        "particle": "runecraft:item/rune_s",
+        "texture":  "runecraft:item/rune_s"
     },
     "elements": [
         {
