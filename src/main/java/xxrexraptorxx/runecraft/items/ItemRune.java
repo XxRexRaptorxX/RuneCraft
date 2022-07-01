@@ -2,7 +2,10 @@ package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -45,7 +48,8 @@ public class ItemRune extends Item {
         ItemStack stack = new ItemStack(item);
         BlockPos pos = event.getClickedPos().above();
 
-        if(!level.isClientSide) {
+        if(!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
+            level.playSound((Player) null, pos, SoundEvents.SOUL_SAND_PLACE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
             level.setBlock(pos, RuneHelper.getRuneBlockFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
         }
         stack.shrink(1);
