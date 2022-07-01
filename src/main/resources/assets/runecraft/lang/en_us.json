@@ -1,5 +1,7 @@
 {
     "itemGroup.runecraft_tab": "RuneCraft",
+
+    "patchouli.book_of_rune_magic.intro": "This book explains everything you need to know about runes, their uses and abilities. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "You have not enough experience levels!",
     "message.runecraft.page_required_xp": "Required XP levels: ",
     "message.runecraft.wrong_block": "Use it on an altar...",
