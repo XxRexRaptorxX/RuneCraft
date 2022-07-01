@@ -87,9 +87,9 @@ public class Events {
 
         if(!world.isClientSide) {
             if (ForgeRegistries.BLOCKS.getKey(block).toString().contains("runecraft:rune_stone")) {
-                if(block != ModBlocks.RUNE_STONE.get()) {
-                    world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
+                world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
+                if(block != ModBlocks.RUNE_STONE.get()) {   //test if a runestone is not empty
                     //Area effect
                     if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
                             block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
@@ -106,7 +106,6 @@ public class Events {
                 }
 
                 if (ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_")) {
-
                     //Set the rune
                     if (block == ModBlocks.RUNE_STONE.get()) {                                          //test if the rune stone is already active (& prevents an error)
                         event.getItemStack().shrink(1);                                       // > rune stone is empty
