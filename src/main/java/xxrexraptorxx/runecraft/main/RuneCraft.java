@@ -21,9 +21,8 @@ public class RuneCraft {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public RuneCraft() {
-
-        ModSetup.setup();
         Config.init();
+        ModSetup.setup();
         ModBlocks.init();
         ModItems.init();
 

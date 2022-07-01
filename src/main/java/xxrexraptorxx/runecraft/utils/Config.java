@@ -26,7 +26,7 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
-    public static ForgeConfigSpec.IntValue PORTABLE_RUNE_STONE_DURABILITY;
+    //public static ForgeConfigSpec.IntValue PORTABLE_RUNE_STONE_DURABILITY;                            deprecated
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_DURATION;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_RADIUS;
     public static ForgeConfigSpec.IntValue PORTABLE_SPELL_AMPLIFIER;
@@ -98,7 +98,7 @@ public class Config {
         builder.pop();
 
         builder.comment("Portable Rune Stones").push(CATEGORY_PORTABLE_RUNESTONES);
-        PORTABLE_RUNE_STONE_DURABILITY = builder.comment("The durability of portable rune stones").defineInRange("portable_runestone_durability", 200, 1, 1000);
+        //PORTABLE_RUNE_STONE_DURABILITY = builder.comment("The durability of portable rune stones").defineInRange("portable_runestone_durability", 200, 1, 1000);
         ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT = builder.comment("Activate if the effects from the portable rune stones are public").define("activate_runestone_public_effect", true);
         PORTABLE_SPELL_DURATION = builder.comment("The duration of the portable rune stone effects").defineInRange("portable_spell_duration", 200, 10, 1000);
         PORTABLE_SPELL_AMPLIFIER = builder.comment("The amplifier of the portable rune stone effects").defineInRange("portable_spell_amplifier", 0, 0, 5);

@@ -34,7 +34,7 @@ public class ItemPortableRuneStone extends Item {
                 .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
-                .defaultDurability(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
+                .defaultDurability(200) //(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
         );
 
     }
