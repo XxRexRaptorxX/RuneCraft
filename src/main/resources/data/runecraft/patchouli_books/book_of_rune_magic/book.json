@@ -3,7 +3,7 @@
   "landing_text": "This book explains everything you need to know about runes, their uses and abilities. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
   "version": 2,
   "book_texture": "patchouli:textures/gui/book_gray.png",
-  "model": "patchouli:book_gray",
+  "model": "runecraft:book_of_rune_magic",
   "show_progress": false,
   "creative_tab": "runecraft_tab"
 }
