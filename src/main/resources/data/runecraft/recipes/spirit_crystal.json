@@ -7,7 +7,7 @@
       "data": 32767
     },
     {
-      "item": "minecraft:emerald"
+      "tag": "forge:gems/emerald"
     },
     {
       "item": "runecraft:rune_dust"
