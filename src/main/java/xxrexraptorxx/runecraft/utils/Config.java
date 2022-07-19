@@ -13,18 +13,20 @@ public class Config {
     public static final String CATEGORY_PORTABLE_RUNESTONES = "portable_runestones";
     public static final String CATEGORY_PAGES = "pages";
     public static final String CATEGORY_WANDS = "wands";
+    public static final String CATEGORY_WORLD = "world";
 
     public static ForgeConfigSpec SERVER_CONFIG;
     public static ForgeConfigSpec CLIENT_CONFIG;
+    public static ForgeConfigSpec COMMON_CONFIG;
 
     public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
     public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
 
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_ASH_GEN;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_VISIBLE_RUNE_TYPE;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_DESCRIPTION;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_JEI_DESCRIPTION;
     public static ForgeConfigSpec.IntValue CHARGING_COST;
+    public static ForgeConfigSpec.IntValue ASH_GEN_RARITY;
     public static ForgeConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
@@ -59,9 +61,11 @@ public class Config {
     public static void init() {
         initServer();
         initClient();
+        initCommon();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, SERVER_CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_CONFIG);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_CONFIG);
     }
 
 
@@ -83,8 +87,6 @@ public class Config {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
-        PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
-        ACTIVATE_ASH_GEN = builder.comment("Activate the generation of ash blocks in the nether").define("ash_generation", true);
         CHARGING_COST = builder.comment("The amount of experience levels that you need to create the magical book").defineInRange("charging_cost", 15, 1, 30);
         CAN_SPAWN_ENDERDRAGON = builder.comment("Activate that the banned ritual can spawn an ender dragon").define("can_spawn_enderdragon", false);
         SOUL_COST = builder.comment("The amount of experience levels that you need to use a soul on the altar").defineInRange("soul_cost", 1, 0, 50);
@@ -127,6 +129,20 @@ public class Config {
         builder.pop();
 
         SERVER_CONFIG = builder.build();
+    }
+
+    public static void initCommon() {
+        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+
+        builder.comment("General").push(CATEGORY_GENERAL);
+        PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
+        builder.pop();
+
+        builder.comment("World").push(CATEGORY_WORLD);
+        ASH_GEN_RARITY = builder.comment("The rarity of Ash blocks in the nether (veins per chunk) [0 = disabled]").defineInRange("ash_gen_rarity", 15, 0, 100);
+        builder.pop();
+
+        COMMON_CONFIG = builder.build();
     }
 
 }
