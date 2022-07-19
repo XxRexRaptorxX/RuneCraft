@@ -7,6 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.main.References;
+import xxrexraptorxx.runecraft.utils.Config;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> QUICKSAND_PLACED = PLACED_FEATURES.register("ash_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.ASH.getHolder().get(),
-                    commonOrePlacement(0, // Rarity
+                    commonOrePlacement(Config.ASH_GEN_RARITY.get(), // Rarity
                             HeightRangePlacement.uniform(VerticalAnchor.absolute(10), VerticalAnchor.absolute(64)))));
 
 
