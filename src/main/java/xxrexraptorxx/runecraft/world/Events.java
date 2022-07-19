@@ -90,10 +90,10 @@ public class Events {
 
     @SubscribeEvent
     public static void changeRuneStoneType(PlayerInteractEvent.RightClickBlock event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         Item item = event.getItemStack().getItem();
         BlockPos pos = event.getPos();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         Block block = world.getBlockState(pos).getBlock();
 
         if(!world.isClientSide) {
@@ -147,9 +147,9 @@ public class Events {
     @SubscribeEvent
     public static void onInteractWithMagicalBook(PlayerInteractEvent.RightClickBlock event) {
         Item item = event.getItemStack().getItem();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockPos pos = event.getPos();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         Random random = new Random();
 
         /** MAGICAL BOOK **/
@@ -217,9 +217,9 @@ public class Events {
     @SubscribeEvent
     public static void onInteractWithPages (PlayerInteractEvent.RightClickBlock event) {
         Item item = event.getItemStack().getItem();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockPos pos = event.getPos();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         Random random = new Random();
 
         /** PAGES **/
@@ -320,8 +320,8 @@ public class Events {
     public static void onInteractWithWands (PlayerInteractEvent.RightClickBlock event) {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        Level world = event.getWorld();
-        Player player = event.getPlayer();
+        Level world = event.getLevel();
+        Player player = event.getEntity();
         BlockPos pos = event.getPos();
 
         if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("_wand")) {
@@ -361,8 +361,8 @@ public class Events {
     public static void onInteractWithPortableRuneStones (PlayerInteractEvent.RightClickBlock event) {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
-        Level world = event.getWorld();
-        Player player = event.getPlayer();
+        Level world = event.getLevel();
+        Player player = event.getEntity();
         BlockPos pos = event.getPos();
 
         if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("portable_rune_stone")) {
@@ -401,9 +401,9 @@ public class Events {
     @SubscribeEvent
     public static void onInteractWithSoul (PlayerInteractEvent.RightClickBlock event) {
         ItemStack stack = event.getItemStack();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockPos pos = event.getPos();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         Random random = new Random();
 
         if (stack.getItem() == ModItems.SOUL.get()) {
@@ -517,7 +517,7 @@ public class Events {
 
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
 
        // if (player instanceof ServerPlayer) {
        //     if (player.getLastDamageSource().equals(SOUL_REAPER)) {     //TODO test server side
@@ -540,7 +540,7 @@ public class Events {
      */
     @SubscribeEvent
     public static void SupporterRewards(PlayerEvent.PlayerLoggedInEvent event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         Level world = player.getLevel();
 
         if (Config.PATREON_REWARDS.get()) {
