@@ -1,21 +1,15 @@
 package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.CreativeTab;
-import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 public class ItemMagicalBook extends Item {
 
@@ -24,7 +18,8 @@ public class ItemMagicalBook extends Item {
                 .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.RARE)
                 .stacksTo(1)
-                .durability(16)
+                .durability(15)
+                .fireResistant()
         );
 
     }
@@ -36,13 +31,13 @@ public class ItemMagicalBook extends Item {
 
 
     @Override
-    public boolean hasContainerItem(ItemStack stack) {
+    public boolean hasCraftingRemainingItem(ItemStack stack) {
         return true;
     }
 
 
     @Override
-    public ItemStack getContainerItem(ItemStack stack) {
+    public ItemStack getCraftingRemainingItem(ItemStack stack) {
         if (stack.getMaxDamage() == stack.getDamageValue()) {
             return new ItemStack(Items.AIR);
         } else {
