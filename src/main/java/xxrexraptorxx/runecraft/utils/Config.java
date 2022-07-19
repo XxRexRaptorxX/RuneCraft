@@ -26,7 +26,7 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_DESCRIPTION;
     public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_JEI_DESCRIPTION;
     public static ForgeConfigSpec.IntValue CHARGING_COST;
-    public static ForgeConfigSpec.IntValue ASH_GEN_RARITY;
+    //public static ForgeConfigSpec.IntValue ASH_GEN_RARITY;
     public static ForgeConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
 
     public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
@@ -136,10 +136,6 @@ public class Config {
 
         builder.comment("General").push(CATEGORY_GENERAL);
         PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);
-        builder.pop();
-
-        builder.comment("World").push(CATEGORY_WORLD);
-        ASH_GEN_RARITY = builder.comment("The rarity of Ash blocks in the nether (veins per chunk) [0 = disabled]").defineInRange("ash_gen_rarity", 15, 0, 100);
         builder.pop();
 
         COMMON_CONFIG = builder.build();

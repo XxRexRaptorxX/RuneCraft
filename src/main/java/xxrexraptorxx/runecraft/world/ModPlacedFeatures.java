@@ -18,7 +18,7 @@ public class ModPlacedFeatures {
 
     public static final RegistryObject<PlacedFeature> QUICKSAND_PLACED = PLACED_FEATURES.register("ash_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.ASH.getHolder().get(),
-                    commonOrePlacement(Config.ASH_GEN_RARITY.get(), // Rarity
+                    commonOrePlacement(15, // Rarity
                             HeightRangePlacement.uniform(VerticalAnchor.absolute(10), VerticalAnchor.absolute(64)))));
 
 
