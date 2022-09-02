@@ -33,7 +33,7 @@
     "message.runecraft.defensive_wand_jei_desc": "Right Click: Generates a cobblestone capsule around the user and gives it damage resistance. Shift + Right Click: Destroys the capsule.",
     "message.runecraft.thunder_wand_jei_desc": "Right Click: Changes the weather to sunshine. Shift + Right Click: Changes the weather to rain. Left Click: Sends a lightning bolt to the creature.",
     "message.runecraft.creature_wand_jei_desc": "Right Click: Spawns random monsters.",
-    "message.runecraft.destruction_wand_jei_desc": "Right Click: Spawns primed TNT. Left Click: Destroys the selected block instant.",
+    "message.runecraft.destruction_wand_jei_desc": "Right Click: Destroys the selected block instant. Right Click + Shift: Spawns primed TNT. ",
     "message.runecraft.changing_wand_jei_desc": "Right Click: Switches between the block states of the selected block.",
     "message.runecraft.maelstrom_wand_jei_desc": "Right Click: Releases a ring of wither spells. Left Click: Gives creatures a wither effect.",
     "message.runecraft.storm_wand_jei_desc": "Left Click: Pushes creatures far back.",

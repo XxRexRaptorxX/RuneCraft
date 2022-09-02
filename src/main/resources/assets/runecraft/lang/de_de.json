@@ -33,7 +33,7 @@
     "message.runecraft.defensive_wand_jei_desc": "Rechts Click: Generiert eine Bruchstein Kabsel um den Benutzer und gibt ihn Resistenz. Shift + Rechts Click: Zerstört die Kapsel.",
     "message.runecraft.thunder_wand_jei_desc": "Rechts Click: Das Wetter wird Sonnig. Shift + Rechts Click: Das Wetter wird regnerisch. Links Click: Lässt die Kreatur vom Blitz treffen.",
     "message.runecraft.creature_wand_jei_desc": "Rechts Click: Spawnt zufällig einige Monster.",
-    "message.runecraft.destruction_wand_jei_desc": "Rechts Click: Spawnt ein gezündetes TNT. Links Click: Zerstört den ausgewählten Block sofort.",
+    "message.runecraft.destruction_wand_jei_desc": "Rechts Click: Zerstört den ausgewählten Block sofort. Rechts Click + Shift: Spawnt ein gezündetes TNT. ",
     "message.runecraft.changing_wand_jei_desc": "Rechts Click: Wechselt zwischen den Blockstates des ausgewählten Blocks.",
     "message.runecraft.maelstrom_wand_jei_desc": "Rechts Click: Setzt einen Ring aus Wither Zauber frei. Links Click: Withert die Kreatur.",
     "message.runecraft.storm_wand_jei_desc": "Links Click: Stößt Kreaturen weit zurück.",
