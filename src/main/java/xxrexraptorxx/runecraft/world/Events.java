@@ -437,8 +437,6 @@ public class Events {
 
                             //rewards
                             try {
-                                System.err.println(stack.getTag().getString("owner"));
-
                                 ItemStack egg = new ItemStack(ForgeSpawnEggItem.fromEntityType(EntityType.byString(stack.getTag().getString("owner")).get()));
                                 ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, egg);
                                 world.addFreshEntity(reward);
