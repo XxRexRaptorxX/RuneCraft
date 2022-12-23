@@ -9,13 +9,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import xxrexraptorxx.runecraft.utils.CreativeTab;
 
 public class ItemMagicalBook extends Item {
 
     public ItemMagicalBook() {
         super(new Properties()
-                .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.RARE)
                 .stacksTo(1)
                 .durability(15)

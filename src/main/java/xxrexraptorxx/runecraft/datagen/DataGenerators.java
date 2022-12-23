@@ -14,9 +14,9 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper helper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new TagsBlock(generator, helper));
+        //generator.addProvider(event.includeServer(), new TagsBlock(generator, helper)); TODO
 
-        generator.addProvider(event.includeClient(), new Items(generator, helper));
+        //generator.addProvider(event.includeClient(), new Items(generator, helper));
 
     }
 }

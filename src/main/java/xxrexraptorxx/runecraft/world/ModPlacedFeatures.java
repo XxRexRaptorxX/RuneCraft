@@ -1,5 +1,5 @@
 package xxrexraptorxx.runecraft.world;
-
+/**
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -37,4 +37,4 @@ public class ModPlacedFeatures {
     public static void register(IEventBus eventBus) {
         PLACED_FEATURES.register(eventBus);
     }
-}
+}**/

@@ -1,5 +1,5 @@
 package xxrexraptorxx.runecraft.world;
-
+/**
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import net.minecraft.core.Registry;
@@ -30,4 +30,4 @@ public class ModConfiguredFeatures {
     public static void register(IEventBus eventBus) {
         CONFIGURED_FEATURES.register(eventBus);
     }
-}
+}**/

@@ -20,7 +20,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
-import xxrexraptorxx.runecraft.utils.CreativeTab;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import javax.annotation.Nullable;
@@ -31,7 +30,6 @@ public class ItemPortableRuneStone extends Item {
 
     public ItemPortableRuneStone() {
         super(new Properties()
-                .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
                 .defaultDurability(200) //(Config.PORTABLE_RUNE_STONE_DURABILITY.get())

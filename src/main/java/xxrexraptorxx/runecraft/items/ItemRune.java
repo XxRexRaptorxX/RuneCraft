@@ -16,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.utils.Config;
-import xxrexraptorxx.runecraft.utils.CreativeTab;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import javax.annotation.Nullable;
@@ -26,7 +25,6 @@ public class ItemRune extends Item {
 
     public ItemRune() {
         super(new Properties()
-                .tab(CreativeTab.MOD_TAB)
                 .stacksTo(16)
         );
     }

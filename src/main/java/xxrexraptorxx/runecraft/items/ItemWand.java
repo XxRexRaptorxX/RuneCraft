@@ -5,14 +5,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Position;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -21,7 +20,6 @@ import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -32,11 +30,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
-import xxrexraptorxx.runecraft.utils.CreativeTab;
 
 import javax.annotation.Nullable;
 import java.util.Collection;
@@ -46,7 +44,6 @@ public class ItemWand extends Item {
 
     public ItemWand() {
         super(new Properties()
-                .tab(CreativeTab.MOD_TAB)
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
                 .defaultDurability(200)
@@ -669,7 +666,7 @@ public class ItemWand extends Item {
             Block block = pStateClicked.getBlock();
             StateDefinition<Block, BlockState> statedefinition = block.getStateDefinition();
             Collection<Property<?>> collection = statedefinition.getProperties();
-            String s = Registry.BLOCK.getKey(block).toString();
+            String s = ForgeRegistries.BLOCKS.getKey(block).toString();
             if (collection.isEmpty()) {
                 return false;
             } else {

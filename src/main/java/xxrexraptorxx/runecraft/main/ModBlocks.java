@@ -3,13 +3,11 @@ package xxrexraptorxx.runecraft.main;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.blocks.*;
-import xxrexraptorxx.runecraft.utils.CreativeTab;
 
 public class ModBlocks {
 
@@ -24,22 +22,22 @@ public class ModBlocks {
 
     //BLOCKS
     public static final RegistryObject<BlockAltar> ALTAR_BLOCK = BLOCKS.register("altar", BlockAltar::new);
-    public static final RegistryObject<Item> ALTAR_BLOCKITEM = ITEMS.register("altar", () -> new BlockItem(ALTAR_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> ALTAR_BLOCKITEM = ITEMS.register("altar", () -> new BlockItem(ALTAR_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneScriber> RUNE_SCRIBER_BLOCK = BLOCKS.register("rune_scriber", BlockRuneScriber::new);
-    public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("rune_scriber", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> RUNE_SCRIBER_BLOCKITEM = ITEMS.register("rune_scriber", () -> new BlockItem(RUNE_SCRIBER_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockAsh> ASH_BLOCK = BLOCKS.register("ash_block", BlockAsh::new);
-    public static final RegistryObject<Item> ASH_BLOCKITEM = ITEMS.register("ash_block", () -> new BlockItem(ASH_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> ASH_BLOCKITEM = ITEMS.register("ash_block", () -> new BlockItem(ASH_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneDust> RUNE_DUST_BLOCK = BLOCKS.register("rune_dust_block", BlockRuneDust::new);
-    public static final RegistryObject<Item> RUNE_DUST_BLOCKITEM = ITEMS.register("rune_dust_block", () -> new BlockItem(RUNE_DUST_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> RUNE_DUST_BLOCKITEM = ITEMS.register("rune_dust_block", () -> new BlockItem(RUNE_DUST_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuin> RUIN_BLOCK = BLOCKS.register("ruin_block", BlockRuin::new);
-    public static final RegistryObject<Item> RUIN_BLOCKITEM = ITEMS.register("ruin_block", () -> new BlockItem(RUIN_BLOCK.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> RUIN_BLOCKITEM = ITEMS.register("ruin_block", () -> new BlockItem(RUIN_BLOCK.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE = BLOCKS.register("rune_stone", BlockRuneStone::new);
-    public static final RegistryObject<Item> RUNE_STONE_BLOCKITEM = ITEMS.register("rune_stone", () -> new BlockItem(RUNE_STONE.get(), new Item.Properties().tab(CreativeTab.MOD_TAB)));
+    public static final RegistryObject<Item> RUNE_STONE_BLOCKITEM = ITEMS.register("rune_stone", () -> new BlockItem(RUNE_STONE.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockRuneStone> RUNE_STONE_A = BLOCKS.register("rune_stone_a", BlockRuneStone::new);
     public static final RegistryObject<Item> RUNE_STONE_A_BLOCKITEM = ITEMS.register("rune_stone_a", () -> new BlockItem(RUNE_STONE_A.get(), new Item.Properties()));
