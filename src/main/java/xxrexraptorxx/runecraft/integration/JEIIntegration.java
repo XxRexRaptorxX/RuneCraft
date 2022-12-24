@@ -1,5 +1,5 @@
 package xxrexraptorxx.runecraft.integration;
-/**
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -85,4 +85,4 @@ public class JEIIntegration implements IModPlugin {
         registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.basic_wand_jei_desc"));
 
     }
-}**/
+}
