@@ -31,8 +31,6 @@ public class RuneCraft {
         ModBlocks.init();
         ModItems.init();
 
-        //ModConfiguredFeatures.register(modbus);   TODO!
-        //ModPlacedFeatures.register(modbus);
     }
 
 

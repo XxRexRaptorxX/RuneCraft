@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "minecraft:basalt_deltas",
-  "features": "runecraft:ash_placed",
+  "features": "runecraft:ash_gen",
   "step": "underground_ores"
 }

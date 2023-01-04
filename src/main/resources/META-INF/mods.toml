@@ -14,8 +14,7 @@ logoFile="logo.png"
 #credits=""
 authors="XxRexRaptorxX (RexRaptor)"
 description='''
-This magical mod adds everything related to runes to the game!
-'''
+This magical mod adds everything related to runes to the game!'''
 
 [[dependencies.runecraft]]
     modId="forge"
