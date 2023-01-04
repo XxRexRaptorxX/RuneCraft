@@ -18,7 +18,7 @@ public class ModBlockTags extends BlockTagsProvider {
 
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(   ModBlocks.ALTAR_BLOCK.get(),
                         ModBlocks.RUIN_BLOCK.get(),
