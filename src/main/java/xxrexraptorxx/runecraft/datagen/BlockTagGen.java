@@ -10,9 +10,9 @@ import xxrexraptorxx.runecraft.main.References;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModBlockTags extends BlockTagsProvider {
+public class BlockTagGen extends BlockTagsProvider {
 
-    public ModBlockTags(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
+    public BlockTagGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
         super(packOutput, lookupProvider, References.MODID, helper);
     }
 

@@ -21,9 +21,9 @@ public class DataGenerators {
         ExistingFileHelper helper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeClient(), new ModItemModels(packOutput, helper));
+        generator.addProvider(event.includeClient(), new ItemModelGen(packOutput, helper));
 
-        ModBlockTags blockTags = new ModBlockTags(packOutput, lookupProvider, event.getExistingFileHelper());
+        BlockTagGen blockTags = new BlockTagGen(packOutput, lookupProvider, event.getExistingFileHelper());
         generator.addProvider(event.includeServer(), blockTags);
 
     }

@@ -9,9 +9,9 @@ import xxrexraptorxx.runecraft.main.ModBlocks;
 import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 
-public class ModItemModels extends ItemModelProvider {
+public class ItemModelGen extends ItemModelProvider {
 
-    public ModItemModels(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+    public ItemModelGen(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
         super(packOutput, References.MODID, existingFileHelper);
     }
 
