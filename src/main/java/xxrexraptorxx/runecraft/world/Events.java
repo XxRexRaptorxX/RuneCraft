@@ -480,7 +480,7 @@ public class Events {
 
     /** Soul stuff **/
 
-    public static final DamageSource SOUL_REAPER = new DamageSource(References.MODID + ".soul_reaper");
+    //public static final DamageSource SOUL_REAPER = new DamageSource(References.MODID + ".soul_reaper"); TODO
 
 
     @SubscribeEvent

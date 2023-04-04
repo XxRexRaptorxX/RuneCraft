@@ -205,7 +205,7 @@ public class ItemWand extends Item {
                         cloud9.setRadius(3F);
                         cloud9.setParticle(ParticleTypes.LARGE_SMOKE);
                         cloud9.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        player.getPlayer().hurt(DamageSource.MAGIC, 2.0F);
+                        player.getPlayer().hurt(level.damageSources().magic(), 2.0F);
                         level.addFreshEntity(cloud9);
                     }
 
@@ -495,12 +495,12 @@ public class ItemWand extends Item {
                     Player entityIn = (Player) entity;
 
                     entityIn.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 1));
-                    entityIn.hurt(DamageSource.GENERIC, 1.0F);
+                    entityIn.hurt(level.damageSources().generic(), 1.0F);
                 }
                 if (entity instanceof LivingEntity) {
                     LivingEntity entityIn = (LivingEntity) entity;
                     entityIn.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 1));
-                    entityIn.hurt(DamageSource.GENERIC, 1.0F);
+                    entityIn.hurt(level.damageSources().generic(), 1.0F);
                 }
 
             /** CURSE **/
@@ -510,15 +510,15 @@ public class ItemWand extends Item {
 
                     entityIn.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
                     entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 0));
-                    entityIn.hurt(DamageSource.MAGIC, 4.0F);
-                    player.hurt(DamageSource.MAGIC, 1.0F);
+                    entityIn.hurt(level.damageSources().magic(), 4.0F);
+                    player.hurt(level.damageSources().magic(), 1.0F);
                 }
                 if (entity instanceof LivingEntity) {
                     LivingEntity entityIn = (LivingEntity) entity;
                     entityIn.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
                     entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 0));
-                    entityIn.hurt(DamageSource.MAGIC, 4.0F);
-                    player.hurt(DamageSource.MAGIC, 1.0F);
+                    entityIn.hurt(level.damageSources().magic(), 4.0F);
+                    player.hurt(level.damageSources().magic(), 1.0F);
                 }
 
             /** HOLY **/
@@ -564,12 +564,12 @@ public class ItemWand extends Item {
                     Player entityIn = (Player) entity;
 
                     entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                    entityIn.hurt(DamageSource.MAGIC, 1.0F);
+                    entityIn.hurt(level.damageSources().magic(), 1.0F);
                 }
                 if (entity instanceof LivingEntity) {
                     LivingEntity entityIn = (LivingEntity) entity;
                     entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                    entityIn.hurt(DamageSource.MAGIC, 1.0F);
+                    entityIn.hurt(level.damageSources().magic(), 1.0F);
                 }
 
             /** THUNDER **/

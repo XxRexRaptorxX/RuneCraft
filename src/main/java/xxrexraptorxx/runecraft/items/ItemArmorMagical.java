@@ -12,10 +12,10 @@ import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.main.ModItems;
 
 public class ItemArmorMagical extends ArmorItem {
-    public ItemArmorMagical(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
-        super(pMaterial, pSlot, pProperties);
-    }
 
+    public ItemArmorMagical(ArmorMaterial material, Type type, Properties properties) {
+        super(material, type, properties);
+    }
 
     @Override
     public boolean isRepairable(ItemStack stack) {

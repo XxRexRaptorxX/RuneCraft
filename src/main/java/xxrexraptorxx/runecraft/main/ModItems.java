@@ -111,10 +111,10 @@ public class ModItems {
     public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Y = ITEMS.register("portable_rune_stone_y", ItemPortableRuneStone::new);
     public static final RegistryObject<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Z = ITEMS.register("portable_rune_stone_z", ItemPortableRuneStone::new);
 
-    public static final RegistryObject<ArmorItem> MAGICAL_CAP = ITEMS.register("magical_cap", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.HEAD, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MAGICAL_ROBE = ITEMS.register("magical_robe", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.CHEST, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MAGICAL_PANTS = ITEMS.register("magical_pants", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.LEGS, new Item.Properties()));
-    public static final RegistryObject<ArmorItem> MAGICAL_BOOTS = ITEMS.register("magical_boots", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, EquipmentSlot.FEET, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> MAGICAL_CAP = ITEMS.register("magical_cap", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> MAGICAL_ROBE = ITEMS.register("magical_robe", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> MAGICAL_PANTS = ITEMS.register("magical_pants", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> MAGICAL_BOOTS = ITEMS.register("magical_boots", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<SwordItem> RITUAL_DAGGER = ITEMS.register("ritual_dagger", () -> new SwordItem(Tiers.GOLD, 3, -1.0f, new Item.Properties()));
 

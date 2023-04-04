@@ -111,13 +111,13 @@ public class BlockRuneStone extends Block {
 		//special blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && ForgeRegistries.BLOCKS.getKey(this).toString().length() == 24) {
 			if (this == ModBlocks.RUNE_STONE_DMG.get()) {
-				entityIn.hurt(DamageSource.MAGIC, 4.0F);
+				entityIn.hurt(level.damageSources().magic(), 4.0F);
 
 			} else if (this == ModBlocks.RUNE_STONE_FRE.get()) {
 				entityIn.setSecondsOnFire(20);
 
 			} else if (this == ModBlocks.RUNE_STONE_HRD.get()) {
-				entityIn.hurt(DamageSource.MAGIC, 2.0F);
+				entityIn.hurt(level.damageSources().magic(), 2.0F);
 
 			} else if (this == ModBlocks.RUNE_STONE_PTL.get()) {
 				if (entityIn.isPassenger()) {
