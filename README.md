@@ -9,7 +9,7 @@
 ## 🗃️ Dependencies
 
 
-   - **Patchouli** *[optional]*
+   - **Patchouli**
       - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
      
 
