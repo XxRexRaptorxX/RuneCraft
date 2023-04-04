@@ -44,7 +44,7 @@ Right-click with a rune on a Rune Stone to change it's type!
 All rights reserved.
 
 [cf_mod]: https://curseforge.com/minecraft/mc-mods/rune-craft
-[mr_mod]: https://modrinth.com/mod/runecraft/versions
+[mr_mod]: https://modrinth.com/mod/runecraft
 
 [cf_patchouli]: https://www.curseforge.com/minecraft/mc-mods/patchouli
 [mr_patchouli]: https://modrinth.com/mods/patchouli
