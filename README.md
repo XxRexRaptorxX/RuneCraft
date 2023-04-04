@@ -11,7 +11,10 @@
 
    - **Patchouli**
       - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
-     
+   - **Just Enough Items (JEI)** *[optional]*
+        - [CurseForge][cf_jei] | [Modrinth][mr_jei]
+   - **Just Enough Effect Descriptions (JEED)** *[optional]*
+     - [CurseForge][cf_jeed] | [Modrinth][mr_jeed]
 
 ## 📖 Description
 
@@ -41,9 +44,13 @@ Right-click with a rune on a Rune Stone to change it's type!
 All rights reserved.
 
 [cf_mod]: https://curseforge.com/minecraft/mc-mods/rune-craft
-
 [mr_mod]: https://modrinth.com/mod/runecraft/versions
 
 [cf_patchouli]: https://www.curseforge.com/minecraft/mc-mods/patchouli
-
 [mr_patchouli]: https://modrinth.com/mods/patchouli
+
+[cf_jei]: https://www.curseforge.com/minecraft/mc-mods/jei
+[mr_jei]: https://modrinth.com/mod/jei
+
+[cf_jeed]: https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed
+[mr_jeed]: https://modrinth.com/mod/just-enough-effect-descriptions-jeed
