@@ -1,0 +1,31 @@
+{
+  "name": "Одежда рунного мага",
+  "icon": "runecraft:magical_robe",
+  "category": "runecraft:misc",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Одежда рунного мага делается из $(item)Ткани$(), нося полный комплект дарует владельцу $(thing)ПрыгучестьII$() и $(thing)Огнестойкость$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_cloth",
+      "recipe2": "runecraft:magical_robe"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/rune_mage_clothing.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/rune_mage.png"
+      ],
+      "border": true
+    }
+  ]
+}

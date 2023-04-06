@@ -1,0 +1,21 @@
+{
+  "name": "Ритуал для жезла",
+  "icon": "runecraft:wand_page",
+  "category": "runecraft:rituals",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:wand_page",
+      "title": "Ритуал для жезла",
+      "text": "$(l)$(n)Требования:$() $(br)$(li)$(thing)Алтарь $(li)Опыт $(li)Ночное время $()$(br2)$(l)$(n)Эффект:$() $(br2)Позволяет призвать $(item)Простой жезл$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/wand_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}

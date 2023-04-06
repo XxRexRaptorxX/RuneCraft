@@ -1,0 +1,41 @@
+{
+  "name": "Магический гримуар",
+  "icon": "runecraft:magical_book",
+  "category": "runecraft:rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Существует различные ритуалы, которых можно проводить на $(item)Алтаре$(), они делают всякого-рода вещи, например, создание предметов, существ или эффектов! $(br2)Первый важный $(thing)Ритуал$(), который требуется выполнить, — это создание $(item)Магического гримуара$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/altar.png"
+      ],
+      "border": true,
+      "text": "В случае с этим $(thing)Ритуалом$(), просто щёлкните $(item)Книгой$() по $(item)Алтарю$() во время $(thing)Полнолуния$() и достаточного количества $(thing)Опыта$() и появится $(item)Магический гримуар$()!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:magical_page",
+      "recipe2": "runecraft:rune_scriber_page_spell",
+      "text": "С $(item)Магическим гримуаром$() можно создавать $(item)Страницы$(), которые нужны для большинства других $(thing)Ритуалов$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_wand",
+      "recipe2": "runecraft:rune_scriber_page_orb"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_enchant",
+      "recipe2": "runecraft:rune_scriber_page_alchemy"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_page_curse",
+      "text": "Также есть другие $(item)Страницы$(), но их труднее получить. $(br2)$(li) $(item)Потерянную страницу$() можно найти в $(thing)Лесных особняках$() $(br)$(li)$(item)Запрещённую страницу$() можно найти в $(thing)городах Энда$()."
+    }
+  ]
+}
