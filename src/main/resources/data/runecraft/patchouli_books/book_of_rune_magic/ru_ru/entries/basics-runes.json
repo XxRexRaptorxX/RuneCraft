@@ -1,0 +1,34 @@
+{
+  "name": "Руны",
+  "icon": "runecraft:rune_q",
+  "category": "runecraft:basics",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Суть в том, что руны — это основа всего, есть одна для каждой буквы, + парочка лишних! Для того, чтобы приступить нужна $(br2)$(item)Руническая пыль$(), следует учитывать, что она делается из Пепла и $(item)Незерских наростов$(). $(item)Пепел$() можно найти в виде блоков в Незере в базальтовых дельтах либо убивая $(thing)Ифритов$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_dust",
+      "recipe2": "runecraft:rune_m",
+      "text": "Теперь все $(item)Руны$() алфавита можно создать из пыли."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/runic_alphabet.png"
+      ],
+      "title": "Рунический алфавит",
+      "border": false
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/rune_effects.png"
+      ],
+      "text": "Вы также можете расположить руны на земле — у них есть свойство маркировать всех живых существ, что прикасаются к ним, даже сквозь заграждения!",
+      "border": true
+    }
+  ]
+}

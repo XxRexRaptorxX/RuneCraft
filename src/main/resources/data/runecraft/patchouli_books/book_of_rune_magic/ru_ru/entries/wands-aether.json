@@ -1,0 +1,24 @@
+{
+  "name": "Жезл эфира",
+  "icon": "runecraft:aether_wand",
+  "category": "runecraft:wands",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:aether_wand",
+      "text": "$(l)$(n)Эффекты$() $(br2)$(l)Щелчок левой кнопкой мыши:$() $(br)Позволяет летать. $(br2)$(l)Щелчок левой кнопкой мыши:$() $(br)Позволяет существам отлетать."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/aether_wand.png"
+      ],
+      "border": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_wand_aether"
+    }
+  ]
+}
