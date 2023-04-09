@@ -1,0 +1,20 @@
+{
+  "name": "Простой жезл",
+  "icon": "runecraft:basic_wand",
+  "category": "runecraft:wands",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:basic_wand",
+      "text": "Можно получить через $(thing)Ритуал для жезла$() на $(item)Алтаре.$() $(br2)$(n)$(l)Эффекты$() $(br2)$(l)Щелчок правой кнопкой мыши:$() $(br)Выпустить заклинание «Кольцо слабости»."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/basic_wand.png"
+      ],
+      "border": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Алхимический ритуал",
+  "icon": "runecraft:alchemy_page",
+  "category": "runecraft:rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "runecraft:alchemy_page",
+      "title": "Алхимический ритуал",
+      "text": "$(l)$(n)Требования:$() $(br)$(li)$(thing)Алтарь $(li)Опыт $(li)Ночное время $()$(br2)$(l)$(n)Эффект:$() $(br2)Позволяет призывать случайное сильное $(item)Зелье$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "runecraft:textures/extra/alchemy_ritual.png"
+      ],
+      "border": true
+    }
+  ]
+}
