@@ -40,7 +40,7 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(Items.BLAZE_ROD));
         treasures.add(new ItemStack(Items.DIAMOND_SWORD));
         treasures.add(new ItemStack(Items.DRAGON_BREATH));
-        treasures.add(new ItemStack(Items.BUNDLE));
+        treasures.add(new ItemStack(Items.NETHERITE_SCRAP));
         treasures.add(new ItemStack(Items.ENCHANTED_BOOK));
         treasures.add(new ItemStack(Items.GOLDEN_APPLE));
         treasures.add(new ItemStack(Items.ENDER_EYE));
@@ -51,6 +51,7 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(Items.PRISMARINE_CRYSTALS));
         treasures.add(new ItemStack(ModItems.SPIRIT_STAR.get()));
         treasures.add(new ItemStack(ModItems.SPIRIT_CRYSTAL.get()));
+        treasures.add(new ItemStack(Items.ECHO_SHARD));
 
         registry.addIngredientInfo(treasures, VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.treasure_ritual_drops_jei_desc"));
 

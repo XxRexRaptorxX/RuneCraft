@@ -52,7 +52,7 @@ public class AltarHelper {
 		case 11:
 			return new ItemStack(Items.DRAGON_BREATH);
 		case 12:
-			return new ItemStack(Items.BUNDLE);
+			return new ItemStack(Items.NETHERITE_SCRAP);
 		case 13:
 			return new ItemStack(Items.HEART_OF_THE_SEA);
 		case 14:
@@ -67,6 +67,8 @@ public class AltarHelper {
 			return new ItemStack(Items.GOLDEN_APPLE);
 		case 19:
 			return new ItemStack(Items.ENCHANTED_BOOK);
+		case 20:
+			return new ItemStack(Items.ECHO_SHARD);
 		default:
 			return new ItemStack(Items.ENDER_EYE);
 		}
