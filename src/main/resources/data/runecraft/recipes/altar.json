@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
   
-    "XOX",
+    "---",
     " X ",
     "III"
   ],
@@ -16,6 +16,9 @@
     },
     "I": {
       "item": "minecraft:chiseled_deepslate"
+    },
+    "-": {
+      "item": "minecraft:polished_deepslate_slab"
     }
   },
   
