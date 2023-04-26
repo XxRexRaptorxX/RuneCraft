@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
   
-    "XXX",
-    "IOI",
+    "---",
+    "XOX",
     "###"
   ],
     
@@ -14,11 +14,11 @@
     "O": {
       "item": "minecraft:enchanting_table"
     },
-    "I": {
-      "item": "runecraft:rune_dust"
-    },
     "#": {
       "item": "minecraft:chiseled_deepslate"
+    },
+    "-": {
+      "item": "minecraft:polished_deepslate_slab"
     }
   },
   

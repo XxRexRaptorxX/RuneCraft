@@ -1,22 +1,27 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-  
-    " O ",
-    "OXO",
-    " O "
-  ],
-  
-  "key": {
-    "O": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/ash"
+    },
+    {
+      "tag": "forge:dusts/glowstone"
+    },
+    {
+      "tag": "forge:dusts/ash"
+    },
+    {
       "item": "minecraft:nether_wart"
     },
-    "X": {
-      "tag": "forge:dusts/ash"
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "minecraft:nether_wart"
     }
-  },   
-  
+  ],
   "result": {
-    "item": "runecraft:rune_dust"
+    "item": "runecraft:rune_dust",
+    "count": 1
   }
 }
