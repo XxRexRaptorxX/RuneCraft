@@ -53,7 +53,7 @@ public class BlockRuneStone extends Block {
 	public BlockRuneStone() {
 		super(Properties.of(Material.STONE)
 				.requiresCorrectToolForDrops()
-				.strength(5.0F, 7.0F)
+				.strength(7.0F, 7.0F)
 				.sound(SoundType.STONE)
 				.color(MaterialColor.DEEPSLATE)
 				.noOcclusion()
