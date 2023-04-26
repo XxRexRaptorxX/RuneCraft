@@ -5,7 +5,7 @@
       "tag": "forge:dusts/ash"
     },
     {
-      "tag": "forge:dusts/glowstone"
+      "item": "minecraft:nether_wart"
     },
     {
       "tag": "forge:dusts/ash"
@@ -14,7 +14,7 @@
       "item": "minecraft:nether_wart"
     },
     {
-      "item": "minecraft:nether_wart"
+      "tag": "forge:dusts/glowstone"
     },
     {
       "item": "minecraft:nether_wart"

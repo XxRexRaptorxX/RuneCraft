@@ -10,7 +10,7 @@
   
   "key": {
     "X": {
-      "item": "minecraft:obsidian"
+      "item": "minecraft:polished_deepslate"
     },
     "O": {
       "tag": "forge:dusts/ash"
