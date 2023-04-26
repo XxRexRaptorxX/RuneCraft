@@ -36,3 +36,10 @@ This magical mod adds everything related to runes to the game!'''
     versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.runecraft]]
+    modId="bettercombat"
+    mandatory=false
+    versionRange="[1.6.2+1.19.4,)"
+    ordering="NONE"
+    side="BOTH"
