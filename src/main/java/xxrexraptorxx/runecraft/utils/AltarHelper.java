@@ -237,7 +237,7 @@ public class AltarHelper {
     	cloud.setRadius(3);
     	cloud.setWaitTime(10);
 		
-		switch (rand.nextInt(11)) {
+		switch (rand.nextInt(13)) {
 		case 0:
 	    	Vindicator vindicator = new Vindicator(EntityType.VINDICATOR, world);
 	    	vindicator.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
@@ -306,6 +306,13 @@ public class AltarHelper {
 			husk.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 			world.addFreshEntity(cloud);
 			world.addFreshEntity(husk);
+			break;
+
+		case 10:
+			Ghast ghast = new Ghast(EntityType.GHAST, world);
+			ghast.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+			world.addFreshEntity(cloud);
+			world.addFreshEntity(ghast);
 			break;
 	    	
 		default:
