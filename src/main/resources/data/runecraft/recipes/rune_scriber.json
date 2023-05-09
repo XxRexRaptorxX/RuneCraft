@@ -12,7 +12,7 @@
       "item": "runecraft:rune_stone"
     },
     "O": {
-      "item": "minecraft:enchanting_table"
+      "item": "runecraft:altar"
     },
     "#": {
       "item": "minecraft:chiseled_deepslate"

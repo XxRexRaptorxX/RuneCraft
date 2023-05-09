@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "portable_runestone",
+  "group": "rune_stone",
   "pattern": [
-  
+
     "XOX",
     "O#O",
     "XOX"
   ],
-  
+
   "key": {
+    "X": {
+      "item": "minecraft:polished_deepslate"
+    },
     "O": {
       "tag": "forge:dusts/ash"
     },
-    "X": {
-      "item": "minecraft:obsidian"
-    },
     "#": {
       "item": "runecraft:spirit_star"
-    }  
-  }, 
-  
+    }
+  },
+
   "result": {
     "item": "runecraft:portable_rune_stone"
   }
