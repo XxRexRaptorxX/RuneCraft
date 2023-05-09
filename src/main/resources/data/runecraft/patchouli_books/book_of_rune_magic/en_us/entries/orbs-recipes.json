@@ -1,5 +1,5 @@
 {
-  "name": "Recipes",
+  "name": "Regular Orbs",
   "icon": "runecraft:orb",
   "category": "runecraft:orbs",
   "sortnum": 0,
@@ -67,6 +67,16 @@
       "type": "patchouli:crafting",
       "recipe": "runecraft:rune_scriber_orb_moss",
       "recipe2": "runecraft:rune_scriber_orb_ice"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_fire_charge",
+      "recipe2": "runecraft:rune_scriber_orb_magma_cream"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:rune_scriber_orb_sculk",
+      "recipe2": "runecraft:rune_scriber_orb_xp_bottle"
     }
   ]
 }

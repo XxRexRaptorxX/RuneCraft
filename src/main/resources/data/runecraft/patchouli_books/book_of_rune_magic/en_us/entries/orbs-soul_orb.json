@@ -1,0 +1,26 @@
+{
+  "name": "Soul Orbs",
+  "icon": "runecraft:soul_orb",
+  "category": "runecraft:orbs",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Another type of $(item)Orbs$() are the $(item)Soul Orbs$(). $(br2)They are made by imprisoning $(item)Souls$() in them, so you can then craft $(item)Spawn Eggs$() out of them."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:soul_orb"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:spawn_egg_blaze",
+      "recipe2": "runecraft:spawn_egg_husk"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "runecraft:spawn_egg_mule",
+      "recipe2": "runecraft:spawn_egg_creeper"
+    }
+  ]
+}
