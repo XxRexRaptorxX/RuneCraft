@@ -260,7 +260,7 @@ public class Events {
                                 world.addFreshEntity(reward);
 
                             } else if (item == ModItems.ORB_PAGE.get()) {
-                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.ORB.get()));
+                                ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.ORB.get(), 10));
                                 world.addFreshEntity(reward);
 
                             } else if (item == ModItems.LOST_PAGE.get()) {
