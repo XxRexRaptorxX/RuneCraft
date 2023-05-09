@@ -1,0 +1,34 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "group": "spawn_eggs",
+  "pattern": [
+
+    " 2 ",
+    "1#3",
+    " 4 "
+  ],
+
+  "key": {
+    "#": {
+      "item": "runecraft:soul_orb"
+    },
+    "1": {
+      "item": "runecraft:rune_m"
+    },
+    "2": {
+      "item": "runecraft:rune_g"
+    },
+    "3": {
+      "item": "runecraft:rune_m"
+    },
+    "4": {
+      "item": "runecraft:rune_a"
+    }
+  },
+  
+  
+  "result": {
+    "item": "minecraft:magma_cube_spawn_egg"
+  }
+}

@@ -46,6 +46,7 @@ public class ModItems {
     public static final RegistryObject<ItemPage> LOST_PAGE = ITEMS.register("lost_page", ItemPage::new);
     public static final RegistryObject<ItemPage> BANNED_PAGE = ITEMS.register("banned_page", ItemPage::new);
     public static final RegistryObject<ItemRelict> ORB = ITEMS.register("orb", ItemRelict::new);
+    public static final RegistryObject<ItemRelict> SOUL_ORB = ITEMS.register("soul_orb", ItemRelict::new);
     public static final RegistryObject<ItemRelict> SPIRIT_STAR = ITEMS.register("spirit_star", ItemRelict::new);
     public static final RegistryObject<ItemRelict> SPIRIT_CRYSTAL = ITEMS.register("spirit_crystal", ItemRelict::new);
     public static final RegistryObject<ItemBasic> ASH = ITEMS.register("ash", ItemBasic::new);

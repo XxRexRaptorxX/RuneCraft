@@ -68,6 +68,7 @@ public class RuneCraft {
                     output.accept(ModItems.LOST_PAGE.get());
                     output.accept(ModItems.BANNED_PAGE.get());
                     output.accept(ModItems.ORB.get());
+                    output.accept(ModItems.SOUL_ORB.get());
                     output.accept(ModItems.SPIRIT_CRYSTAL.get());
                     output.accept(ModItems.SPIRIT_STAR.get());
                     output.accept(ModItems.SOUL.get());

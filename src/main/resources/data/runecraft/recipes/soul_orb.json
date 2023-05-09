@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+
+    {
+      "item": "runecraft:magical_book",
+      "data": 32767
+    },
+    {
+      "item": "runecraft:soul"
+    },
+    {
+      "item": "runecraft:orb"
+    }
+ 
+  ],
+  "result": {
+    "item": "runecraft:soul_orb"
+  }
+}

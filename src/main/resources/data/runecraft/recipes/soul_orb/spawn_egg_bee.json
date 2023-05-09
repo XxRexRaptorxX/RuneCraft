@@ -1,0 +1,28 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "group": "spawn_eggs",
+  "pattern": [
+
+    " 2 ",
+    "1#2",
+    "   "
+  ],
+
+  "key": {
+    "#": {
+      "item": "runecraft:soul_orb"
+    },
+    "1": {
+      "item": "runecraft:rune_b"
+    },
+    "2": {
+      "item": "runecraft:rune_e"
+    }
+  },
+  
+  
+  "result": {
+    "item": "minecraft:bee_spawn_egg"
+  }
+}
