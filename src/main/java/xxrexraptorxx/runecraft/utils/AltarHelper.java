@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -345,18 +346,18 @@ public class AltarHelper {
 					world.addFreshEntity(cloud);
 					world.addFreshEntity(dragon);
 				} else {
-					Ghast ghast = new Ghast(EntityType.GHAST, world);
-					ghast.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+					Warden warden = new Warden(EntityType.WARDEN, world);
+					warden.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 					world.addFreshEntity(cloud);
-					world.addFreshEntity(ghast);
+					world.addFreshEntity(warden);
 				}
 				break;
 
 			default:
-				Ghast ghast = new Ghast(EntityType.GHAST, world);
-				ghast.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+				Warden warden = new Warden(EntityType.WARDEN, world);
+				warden.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 				world.addFreshEntity(cloud);
-				world.addFreshEntity(ghast);
+				world.addFreshEntity(warden);
 				break;
 		}
 	}
