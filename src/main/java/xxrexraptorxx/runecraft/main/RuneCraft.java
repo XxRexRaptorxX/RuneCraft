@@ -20,7 +20,7 @@ import xxrexraptorxx.runecraft.utils.Config;
 public class RuneCraft {
 
     public static final Logger LOGGER = LogManager.getLogger();
-    private static final ResourceLocation CREATIVE_TAB = new ResourceLocation(References.MODID, "tab");
+    private static final ResourceLocation CREATIVE_TAB = new ResourceLocation(References.MODID, "main_tab");
 
 
     public RuneCraft() {

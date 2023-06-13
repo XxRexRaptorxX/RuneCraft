@@ -5,5 +5,5 @@
   "book_texture": "patchouli:textures/gui/book_gray.png",
   "model": "runecraft:book_of_rune_magic",
   "show_progress": false,
-  "creative_tab": "runecraft_tab"
+  "creative_tab": "runecraft:main_tab"
 }
