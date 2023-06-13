@@ -10,8 +10,8 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:blank_portable_rune_stone",
-      "recipe2": "runecraft:portable_rune_stone_n"
+      "recipe": "runecraft:rune_stones/blank_portable_rune_stone",
+      "recipe2": "runecraft:rune_stones/portable_rune_stone_n"
     }
   ]
 }

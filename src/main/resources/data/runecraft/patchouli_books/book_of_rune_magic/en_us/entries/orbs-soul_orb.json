@@ -14,13 +14,13 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:spawn_egg_blaze",
-      "recipe2": "runecraft:spawn_egg_husk"
+      "recipe": "runecraft:soul_orb/spawn_egg_blaze",
+      "recipe2": "runecraft:soul_orb/spawn_egg_husk"
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:spawn_egg_mule",
-      "recipe2": "runecraft:spawn_egg_creeper"
+      "recipe": "runecraft:soul_orb/spawn_egg_mule",
+      "recipe2": "runecraft:soul_orb/spawn_egg_creeper"
     }
   ]
 }

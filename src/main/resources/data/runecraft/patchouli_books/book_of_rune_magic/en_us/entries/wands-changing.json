@@ -18,7 +18,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:rune_scriber_wand_changing"
+      "recipe": "runecraft:wands/rune_scriber_wand_changing"
     }
   ]
 }

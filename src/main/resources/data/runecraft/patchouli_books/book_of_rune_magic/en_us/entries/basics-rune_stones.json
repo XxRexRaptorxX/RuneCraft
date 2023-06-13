@@ -10,7 +10,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:blank_rune_stone",
+      "recipe": "runecraft:rune_stones/blank_rune_stone",
       "text": "The tricky part of the recipe is the $(item)Spirit Crystal$(), it can only be traded from a $(thing)Wandering Trader$() or get it from an $(thing)Evoker$() at this point ."
     },
     {

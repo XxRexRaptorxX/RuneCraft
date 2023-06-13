@@ -10,7 +10,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "runecraft:rune_scriber_orb_cloth",
+      "recipe": "runecraft:orb/rune_scriber_orb_cloth",
       "recipe2": "runecraft:magical_robe"
     },
     {

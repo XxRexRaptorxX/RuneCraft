@@ -11,7 +11,7 @@
     {
       "type": "patchouli:crafting",
       "recipe": "runecraft:rune_dust",
-      "recipe2": "runecraft:rune_m",
+      "recipe2": "runecraft:runes/rune_m",
       "text": "All the $(item)Runes$() of the alphabet can now be crafted from the dust."
     },
     {
