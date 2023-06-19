@@ -3,16 +3,13 @@ package xxrexraptorxx.runecraft.items;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Position;
-import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -31,8 +28,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.registries.ForgeRegistries;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 
@@ -417,27 +414,27 @@ public class ItemWand extends Item {
                             level.setBlock(blockPos.offset(0, 1, -1), Blocks.AIR.defaultBlockState(), 11);
 
                     } else {
-                        if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, -1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, 2, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
 
-                        if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(-1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, 0, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, 0, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
 
-                        if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(-1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, 1, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE_PLANTS) || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
+                        if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
                             level.setBlock(blockPos.offset(0, 1, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
                     }
 
@@ -481,7 +478,7 @@ public class ItemWand extends Item {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         Item item = stack.getItem();
-        Level level = player.level;
+        Level level = player.level();
         Random random = new Random();
 
         if(item == ModItems.AETHER_WAND.get() || item == ModItems.CURSE_WAND.get() || item == ModItems.HOLY_WAND.get() || item == ModItems.STORM_WAND.get() ||
@@ -587,7 +584,7 @@ public class ItemWand extends Item {
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
-                player.level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 stack.shrink(1);
             }
         }
@@ -631,7 +628,7 @@ public class ItemWand extends Item {
     public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
         Random random = new Random();
         Player player = (Player) entity;
-        Level level = entity.level;
+        Level level = entity.level();
 
         /** AETHER **/
         if(stack.getItem() == ModItems.AETHER_WAND.get()) {
@@ -681,7 +678,7 @@ public class ItemWand extends Item {
                     BlockState blockstate = cycleState(pStateClicked, property, player.isSecondaryUseActive());
                     pAccessor.setBlock(pPos, blockstate, 18);
 
-                    if (player.level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+                    if (player.level().isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
 
                 } else {
                     property = getRelative(collection, property, player.isSecondaryUseActive());

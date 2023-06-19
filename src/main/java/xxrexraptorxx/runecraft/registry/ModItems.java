@@ -1,6 +1,5 @@
-package xxrexraptorxx.runecraft.main;
+package xxrexraptorxx.runecraft.registry;
 
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
@@ -10,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.items.*;
+import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.utils.ArmorMaterials;
 
 public class ModItems {

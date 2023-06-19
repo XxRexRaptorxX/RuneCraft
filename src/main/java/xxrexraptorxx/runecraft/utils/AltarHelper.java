@@ -17,7 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.registry.ModItems;
 
 import java.util.ArrayList;
 import java.util.Random;

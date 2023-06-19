@@ -6,10 +6,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.phys.AABB;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -20,10 +18,11 @@ public class BlockAsh extends FallingBlock {
 
 
 	public BlockAsh() {
-		super(Properties.of(Material.SAND)
+		super(Properties.of()
 				.strength(0.2F, 0.0F)
 				.sound(SoundType.SAND)
-				.color(MaterialColor.COLOR_BLACK)
+				.mapColor(MapColor.COLOR_BLACK)
+				.instrument(NoteBlockInstrument.SNARE)
 		);
 	}
 

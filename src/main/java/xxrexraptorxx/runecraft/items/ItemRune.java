@@ -41,7 +41,7 @@ public class ItemRune extends Item {
     @Override
     public InteractionResult useOn(UseOnContext event) {
         Player player = event.getPlayer();
-        Level level = player.getLevel();
+        Level level = player.level();
         Item item = event.getItemInHand().getItem();
         ItemStack stack = new ItemStack(item);
         BlockPos pos = event.getClickedPos().above();

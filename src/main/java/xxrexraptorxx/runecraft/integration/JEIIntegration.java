@@ -9,8 +9,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 
 import java.util.ArrayList;

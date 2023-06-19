@@ -12,7 +12,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
@@ -40,10 +39,10 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.VersionChecker;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.main.ModItems;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.main.RuneCraft;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -231,7 +230,7 @@ public class Events {
 
                 if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
 
-                    if (player.level.isDay() == false) {
+                    if (player.level().isDay() == false) {
 
                         //Ambient
                         world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
@@ -412,7 +411,7 @@ public class Events {
 
                 if (player.experienceLevel >= Config.SOUL_COST.get()) {
 
-                    if (player.level.isDay() == false) {
+                    if (player.level().isDay() == false) {
 
                         //Ambient
                         world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
@@ -487,7 +486,7 @@ public class Events {
     public static void onEntityDeath(LivingDeathEvent event) {
         Entity attacker = event.getSource().getEntity();
         Entity victim = event.getEntity();
-        Level world = event.getEntity().getLevel();
+        Level world = event.getEntity().level();
         BlockPos pos = event.getEntity().getOnPos();
 
         //Attacker
@@ -539,7 +538,7 @@ public class Events {
     @SubscribeEvent
     public static void SupporterRewards(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
-        Level world = player.getLevel();
+        Level level = player.level();
 
         if (Config.PATREON_REWARDS.get()) {
 
@@ -565,7 +564,7 @@ public class Events {
                             ownerNBT.putString("SkullOwner", player.getName().getString());
                             reward.setTag(ownerNBT);
 
-                            player.getLevel().playSound((Player) null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
+                            level.playSound((Player) null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
                             player.addItem(reward);
                             player.addItem(certificate);
                         }
@@ -589,6 +588,7 @@ public class Events {
             }
         }
     }
+
 
     /**
      * Tests if a player is a supporter

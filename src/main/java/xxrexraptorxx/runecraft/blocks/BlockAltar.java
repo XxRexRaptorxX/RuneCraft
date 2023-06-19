@@ -7,8 +7,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 
 import java.util.Random;
 
@@ -16,11 +16,12 @@ import java.util.Random;
 public class BlockAltar extends Block {
 
 	public BlockAltar() {
-		super(Properties.of(Material.METAL)
+		super(Properties.of()
 				.requiresCorrectToolForDrops()
 				.strength(5.0F, 7.0F)
 				.sound(SoundType.STONE)
-				.color(MaterialColor.COLOR_BLACK)
+				.mapColor(MapColor.COLOR_BLACK)
+				.instrument(NoteBlockInstrument.WITHER_SKELETON)
 				.noOcclusion()
 				.lightLevel(value -> 7)
 		);

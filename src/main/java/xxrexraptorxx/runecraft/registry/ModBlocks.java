@@ -1,4 +1,4 @@
-package xxrexraptorxx.runecraft.main;
+package xxrexraptorxx.runecraft.registry;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -8,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.blocks.*;
+import xxrexraptorxx.runecraft.main.References;
 
 public class ModBlocks {
 

@@ -6,8 +6,8 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.main.ModItems;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.main.RuneCraft;
 
 import java.util.Random;

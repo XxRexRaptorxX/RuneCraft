@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "xxrexraptorxx.runecraft.utils.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mixins.runecraft.refmap.json",
+  "mixins": [
+    "LootTableAccessor"
+  ],
+
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.5"
+}

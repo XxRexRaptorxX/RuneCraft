@@ -5,7 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import xxrexraptorxx.runecraft.main.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.main.References;
 
 import java.util.concurrent.CompletableFuture;

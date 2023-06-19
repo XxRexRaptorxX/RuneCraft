@@ -12,9 +12,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import javax.annotation.Nullable;
@@ -26,11 +27,12 @@ import java.util.Random;
 public class BlockRuin extends Block {
 
 	public BlockRuin() {
-		super(Properties.of(Material.STONE)
+		super(Properties.of()
 				.requiresCorrectToolForDrops()
 				.strength(1.8F, 7.0F)
 				.sound(SoundType.STONE)
-				.color(MaterialColor.DEEPSLATE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASEDRUM)
 		);
 	}
 
@@ -86,9 +88,8 @@ public class BlockRuin extends Block {
 		}
 	}
 
-
 	@Override
-	public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
+	public List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
 		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
 		drops.add(new ItemStack(RuneHelper.getRandomRune()));
 		drops.add(new ItemStack(RuneHelper.getRandomRune()));

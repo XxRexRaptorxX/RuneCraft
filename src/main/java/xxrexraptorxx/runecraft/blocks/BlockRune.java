@@ -3,9 +3,6 @@ package xxrexraptorxx.runecraft.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -24,14 +21,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
-import xxrexraptorxx.runecraft.main.ModBlocks;
-import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import javax.annotation.Nullable;
@@ -43,12 +38,13 @@ public class BlockRune extends FallingBlock {
 
 
     public BlockRune() {
-        super(Properties.of(Material.SAND)
+        super(Properties.of()
                 .strength(0.2F, 0.0F)
                 .sound(SoundType.SAND)
-                .color(MaterialColor.COLOR_RED)
+                .mapColor(MapColor.COLOR_RED)
                 .noCollission()
                 .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
         );
     }
 

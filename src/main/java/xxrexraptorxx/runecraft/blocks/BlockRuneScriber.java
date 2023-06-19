@@ -7,8 +7,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -17,10 +17,11 @@ import java.util.List;
 public class BlockRuneScriber extends Block {
 
 	public BlockRuneScriber() {
-		super(Properties.of(Material.STONE)
+		super(Properties.of()
 				.strength(3.5F)
 				.sound(SoundType.STONE)
-				.color(MaterialColor.COLOR_BLACK)
+				.mapColor(MapColor.COLOR_BLACK)
+				.instrument(NoteBlockInstrument.BASS)
 		);
 	}
 

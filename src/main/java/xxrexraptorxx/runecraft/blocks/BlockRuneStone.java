@@ -9,7 +9,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
@@ -30,12 +29,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.registries.ForgeRegistries;
-import xxrexraptorxx.runecraft.main.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
@@ -51,11 +50,12 @@ public class BlockRuneStone extends Block {
 
 
 	public BlockRuneStone() {
-		super(Properties.of(Material.STONE)
+		super(Properties.of()
 				.requiresCorrectToolForDrops()
 				.strength(7.0F, 7.0F)
 				.sound(SoundType.STONE)
-				.color(MaterialColor.DEEPSLATE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
 				.noOcclusion()
 		);
 		this.registerDefaultState(this.defaultBlockState().setValue(POWERED, Boolean.valueOf(false)));
