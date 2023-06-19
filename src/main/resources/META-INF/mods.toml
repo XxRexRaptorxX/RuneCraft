@@ -44,3 +44,9 @@ versionRange="[1.7.0+1.20,)"
 ordering="NONE"
 side="BOTH"
 
+[[dependencies.${mod_id}]]
+modId="jeed"
+mandatory=false
+versionRange="[2.1.0,)"
+ordering="NONE"
+side="BOTH"
