@@ -1,7 +1,7 @@
 {
     "_comment": "translated by shenyx110",
 
-    "itemGroup.runecraft_tab": "符文术",
+    "itemGroup.runecraft.main_tab": "符文术",
 
     "patchouli.book_of_rune_magic.intro": "这本书解释了你需要了解关于符文的一切，包括它们的用途和能力。$(br2)$(br2)$(br2)$(br2)$(7)作者：XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "你没有足够的经验等级!",

@@ -16,7 +16,7 @@ public class CreativeModeTabs {
 
 
     public static final RegistryObject<CreativeModeTab> MAIN_TAB = CREATIVE_MODE_TABS.register(References.MODID, () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup." + References.MODID + "_tab"))
+            .title(Component.translatable("itemGroup." + References.MODID + ".main_tab"))
             .icon(() -> ModItems.RUNE_V.get().getDefaultInstance())
             .displayItems((params, output) -> {
                 output.accept(ModItems.BASIC_WAND.get());

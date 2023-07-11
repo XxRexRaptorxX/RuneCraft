@@ -1,7 +1,7 @@
 {
 	"_comment": "translated by PasteKBrain",
 	
-	"itemGroup.runecraft_tab": "RuneCraft",
+	"itemGroup.runecraft.main_tab": "RuneCraft",
 
 	"patchouli.book_of_rune_magic.intro": "Ce livre vous fournit toutes les informations nécessaires sur les runes, leurs utilisations et leurs effets. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
 	"message.runecraft.not_enough_levels": "Vous n'avez pas suffisamment d'expérience!",

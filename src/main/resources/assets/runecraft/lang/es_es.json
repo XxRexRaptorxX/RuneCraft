@@ -1,7 +1,7 @@
 {
     "_comment": "translated by ragcloud",
 
-    "itemGroup.runecraft_tab": "RuneCraft",
+    "itemGroup.runecraft.main_tab": "RuneCraft",
 
     "patchouli.book_of_rune_magic.intro": "Este libro explica todo lo que debes aber sobre las runas, sus usos y habilidades. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "¡No tienes suficientes niveles de experiencia!",
