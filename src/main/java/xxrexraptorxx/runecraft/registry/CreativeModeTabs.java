@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xxrexraptorxx.runecraft.main.References;
 
@@ -18,6 +19,7 @@ public class CreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> MAIN_TAB = CREATIVE_MODE_TABS.register(References.MODID, () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup." + References.MODID + ".main_tab"))
             .icon(() -> ModItems.RUNE_V.get().getDefaultInstance())
+            .withTabsBefore(net.minecraft.world.item.CreativeModeTabs.SPAWN_EGGS)
             .displayItems((params, output) -> {
                 output.accept(ModItems.BASIC_WAND.get());
                 output.accept(ModItems.AETHER_WAND.get());

@@ -4,7 +4,7 @@
     "textures": {
         "particle": "runecraft:block/rune_stone_top",
         "top_texture": "runecraft:block/rune_stone_top",
-        "side_texture": "runecraft:block/rune_stone_e"
+        "side_texture": "runecraft:block/rune_stone_e_"
     },
     "elements": [
         {
