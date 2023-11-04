@@ -3,8 +3,8 @@
     "__comment": "Designed by RexRaptor with Cubik Studio - https://cubik.studio",
     "render_type": "cutout_mipped",
     "textures": {
-        "particle": "runecraft:item/rune_e",
-        "texture":  "runecraft:item/rune_e"
+        "particle": "runecraft:item/rune_e_",
+        "texture":  "runecraft:item/rune_e_"
     },
     "elements": [
         {
