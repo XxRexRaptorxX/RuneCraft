@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:dusts/ash"
+    "#forge:dusts/ash",
     "#forge:dusts/rune"
   ]
 }
