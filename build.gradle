@@ -169,6 +169,9 @@ dependencies {
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${mc_version}-${patchouli_version}-FORGE")
     //JEED
     runtimeOnly fg.deobf("curse.maven:jeed-532286:${jeed_version}")
+    //Supplementaries & dependency
+    runtimeOnly fg.deobf("curse.maven:moonlight-499980:${moonlight_version}")
+    runtimeOnly fg.deobf("curse.maven:supplementaries-412082:${supplementaries_version}")
 }
 
 // MixinGradle Settings

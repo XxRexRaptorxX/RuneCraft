@@ -1,0 +1,8 @@
+{
+  "target_block": {
+    "block": "runecraft:altar",
+    "predicate_type": "minecraft:block_match"
+  },
+  "target_structures": "#runecraft:altar",
+  "map_color": "0x2c292f"
+}

@@ -1,0 +1,9 @@
+{
+  "structure": "runecraft:altar_2",
+  "color": "0x9530ce",
+  "mapName": "Altar Map",
+  "villagerLevel": 1,
+  "minPrice": 7,
+  "maxPrice": 13,
+  "mapMarker": "runecraft:altar"
+}
