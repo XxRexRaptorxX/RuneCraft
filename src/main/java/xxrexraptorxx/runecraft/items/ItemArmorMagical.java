@@ -3,9 +3,11 @@ package xxrexraptorxx.runecraft.items;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.registry.ModItems;
@@ -22,20 +24,21 @@ public class ItemArmorMagical extends ArmorItem {
 
     }
 
+
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (!world.isClientSide && player.getInventory().getArmor(3) != ItemStack.EMPTY && player.getInventory().getArmor(3).getItem() == ModItems.MAGICAL_CAP.get()
-                && player.getInventory().getArmor(2) != ItemStack.EMPTY && player.getInventory().getArmor(2).getItem() == ModItems.MAGICAL_ROBE.get()
-                && player.getInventory().getArmor(1) != ItemStack.EMPTY && player.getInventory().getArmor(1).getItem() == ModItems.MAGICAL_PANTS.get()
-                && player.getInventory().getArmor(0) != ItemStack.EMPTY && player.getInventory().getArmor(0).getItem() == ModItems.MAGICAL_BOOTS.get()) {
-            this.effectPlayer(player, MobEffects.FIRE_RESISTANCE, 0);
-            this.effectPlayer(player, MobEffects.JUMP, 1);
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if(!level.isClientSide() && entity instanceof Player) {
+
+            Player player = (Player) entity;
+            Item helmet = player.getInventory().getArmor(3).getItem();
+            Item chestplate = player.getInventory().getArmor(2).getItem();
+            Item leggings = player.getInventory().getArmor(1).getItem();
+            Item boots = player.getInventory().getArmor(0).getItem();
+
+            if (helmet == ModItems.MAGICAL_CAP.get() && chestplate == ModItems.MAGICAL_ROBE.get() && leggings == ModItems.MAGICAL_PANTS.get() && boots == ModItems.MAGICAL_BOOTS.get()) {
+                player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 30, 0, false, false, true));
+                player.addEffect(new MobEffectInstance(MobEffects.JUMP, 30, 1, false, false, true));
+            }
         }
-    }
-
-
-    private void effectPlayer(Player player, MobEffect effect, int amplifier) {
-        if (player.getEffect(effect) == null || player.getEffect(effect).getDuration() <= 70)
-            player.addEffect(new MobEffectInstance(effect, 70, amplifier, true, true));
     }
 }
