@@ -20,6 +20,7 @@ config="mixins.${mod_id}.json"
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
+mandatory=true
 type="required"
 versionRange="${forge_version_range}"
 ordering="NONE"
@@ -27,6 +28,7 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="minecraft"
+mandatory=true
 type="required"
 versionRange="${mc_version_range}"
 ordering="NONE"
@@ -34,6 +36,7 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="patchouli"
+mandatory=false
 type="optional"
 reason="Is needed for the in-game description book, because the mod is quite complex."
 versionRange="[1.20,)"
@@ -42,6 +45,7 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="bettercombat"
+mandatory=false
 type="optional"
 versionRange="[1.7.0+1.20,)"
 ordering="NONE"
@@ -49,6 +53,7 @@ side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="jeed"
+mandatory=false
 type="optional"
 versionRange="[1.20-2.1.4,)"
 ordering="NONE"
