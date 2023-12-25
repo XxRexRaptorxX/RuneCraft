@@ -1,11 +1,9 @@
 package xxrexraptorxx.runecraft.utils;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-@Mod.EventBusSubscriber
 public class Config {
 
     public static final String CATEGORY_GENERAL = "general";
@@ -15,48 +13,47 @@ public class Config {
     public static final String CATEGORY_WANDS = "wands";
     public static final String CATEGORY_WORLD = "world";
 
-    public static ForgeConfigSpec SERVER_CONFIG;
-    public static ForgeConfigSpec CLIENT_CONFIG;
-    public static ForgeConfigSpec COMMON_CONFIG;
+    public static ModConfigSpec SERVER_CONFIG;
+    public static ModConfigSpec CLIENT_CONFIG;
+    public static ModConfigSpec COMMON_CONFIG;
 
-    public static ForgeConfigSpec.BooleanValue UPDATE_CHECKER;
-    public static ForgeConfigSpec.BooleanValue PATREON_REWARDS;
+    public static ModConfigSpec.BooleanValue UPDATE_CHECKER;
+    public static ModConfigSpec.BooleanValue PATREON_REWARDS;
 
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_VISIBLE_RUNE_TYPE;
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_DESCRIPTION;
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_RUNESTONE_JEI_DESCRIPTION;
-    public static ForgeConfigSpec.IntValue CHARGING_COST;
-    //public static ForgeConfigSpec.IntValue ASH_GEN_RARITY;
-    public static ForgeConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
+    public static ModConfigSpec.BooleanValue ACTIVATE_VISIBLE_RUNE_TYPE;
+    public static ModConfigSpec.BooleanValue ACTIVATE_RUNESTONE_DESCRIPTION;
+    public static ModConfigSpec.BooleanValue ACTIVATE_RUNESTONE_JEI_DESCRIPTION;
+    public static ModConfigSpec.IntValue CHARGING_COST;
+    public static ModConfigSpec.BooleanValue CAN_SPAWN_ENDERDRAGON;
 
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
-    //public static ForgeConfigSpec.IntValue PORTABLE_RUNE_STONE_DURABILITY;                            deprecated
-    public static ForgeConfigSpec.IntValue PORTABLE_SPELL_DURATION;
-    public static ForgeConfigSpec.IntValue PORTABLE_SPELL_RADIUS;
-    public static ForgeConfigSpec.IntValue PORTABLE_SPELL_AMPLIFIER;
-    public static ForgeConfigSpec.IntValue PORTABLE_SPELL_COOLDOWN;
-    public static ForgeConfigSpec.IntValue WAND_COOLDOWN;
-    public static ForgeConfigSpec.BooleanValue PORTABLE_RUNE_STONE_XP_REPAIR;
-    public static ForgeConfigSpec.BooleanValue WAND_XP_REPAIR;
+    public static ModConfigSpec.BooleanValue ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT;
+    //public static ModConfigSpec.IntValue PORTABLE_RUNE_STONE_DURABILITY;                            deprecated
+    public static ModConfigSpec.IntValue PORTABLE_SPELL_DURATION;
+    public static ModConfigSpec.IntValue PORTABLE_SPELL_RADIUS;
+    public static ModConfigSpec.IntValue PORTABLE_SPELL_AMPLIFIER;
+    public static ModConfigSpec.IntValue PORTABLE_SPELL_COOLDOWN;
+    public static ModConfigSpec.IntValue WAND_COOLDOWN;
+    public static ModConfigSpec.BooleanValue PORTABLE_RUNE_STONE_XP_REPAIR;
+    public static ModConfigSpec.BooleanValue WAND_XP_REPAIR;
 
 
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED;
-    public static ForgeConfigSpec.BooleanValue ACTIVATE_REDSTONE_EFFECT;
-    public static ForgeConfigSpec.IntValue SPELL_DURATION;
-    public static ForgeConfigSpec.IntValue SPELL_AMPLIFIER;
-    public static ForgeConfigSpec.IntValue AREA_SPELL_DURATION;
-    public static ForgeConfigSpec.IntValue AREA_SPELL_RADIUS;
-    public static ForgeConfigSpec.IntValue AREA_SPELL_AMPLIFIER;
+    public static ModConfigSpec.BooleanValue ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED;
+    public static ModConfigSpec.BooleanValue ACTIVATE_REDSTONE_EFFECT;
+    public static ModConfigSpec.IntValue SPELL_DURATION;
+    public static ModConfigSpec.IntValue SPELL_AMPLIFIER;
+    public static ModConfigSpec.IntValue AREA_SPELL_DURATION;
+    public static ModConfigSpec.IntValue AREA_SPELL_RADIUS;
+    public static ModConfigSpec.IntValue AREA_SPELL_AMPLIFIER;
 
-    public static ForgeConfigSpec.IntValue ORB_PAGE_COST;
-    public static ForgeConfigSpec.IntValue WAND_PAGE_COST;
-    public static ForgeConfigSpec.IntValue SPELL_PAGE_COST;
-    public static ForgeConfigSpec.IntValue ALCHEMY_PAGE_COST;
-    public static ForgeConfigSpec.IntValue CURSE_PAGE_COST;
-    public static ForgeConfigSpec.IntValue ENCHANTING_PAGE_COST;
-    public static ForgeConfigSpec.IntValue LOST_PAGE_COST;
-    public static ForgeConfigSpec.IntValue BANNED_PAGE_COST;
-    public static ForgeConfigSpec.IntValue SOUL_COST;
+    public static ModConfigSpec.IntValue ORB_PAGE_COST;
+    public static ModConfigSpec.IntValue WAND_PAGE_COST;
+    public static ModConfigSpec.IntValue SPELL_PAGE_COST;
+    public static ModConfigSpec.IntValue ALCHEMY_PAGE_COST;
+    public static ModConfigSpec.IntValue CURSE_PAGE_COST;
+    public static ModConfigSpec.IntValue ENCHANTING_PAGE_COST;
+    public static ModConfigSpec.IntValue LOST_PAGE_COST;
+    public static ModConfigSpec.IntValue BANNED_PAGE_COST;
+    public static ModConfigSpec.IntValue SOUL_COST;
 
     public static void init() {
         initServer();
@@ -70,7 +67,7 @@ public class Config {
 
 
     public static void initClient() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         UPDATE_CHECKER = builder.comment("Activate the Update-Checker").define("update-checker", true);
@@ -84,7 +81,7 @@ public class Config {
 
 
     public static void initServer() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         CHARGING_COST = builder.comment("The amount of experience levels that you need to create the magical book").defineInRange("charging_cost", 15, 1, 30);
@@ -132,7 +129,7 @@ public class Config {
     }
 
     public static void initCommon() {
-        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
         builder.comment("General").push(CATEGORY_GENERAL);
         PATREON_REWARDS = builder.comment("Enables ingame rewards on first spawn for Patreons").define("patreon_rewards", true);

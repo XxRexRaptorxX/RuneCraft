@@ -4,6 +4,7 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Position;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,7 +28,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
@@ -663,7 +663,7 @@ public class ItemWand extends Item {
             Block block = pStateClicked.getBlock();
             StateDefinition<Block, BlockState> statedefinition = block.getStateDefinition();
             Collection<Property<?>> collection = statedefinition.getProperties();
-            String s = ForgeRegistries.BLOCKS.getKey(block).toString();
+            String s = BuiltInRegistries.BLOCK.getKey(block).toString();
             if (collection.isEmpty()) {
                 return false;
             } else {

@@ -2,12 +2,13 @@ package xxrexraptorxx.runecraft.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
+import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
-import xxrexraptorxx.runecraft.main.References;
 
 public class ItemModelGen extends ItemModelProvider {
 
@@ -92,17 +93,17 @@ public class ItemModelGen extends ItemModelProvider {
 
 
 
-    private void itemGenerated(RegistryObject item) {                                                                                                           //path different from the convention
+    private void itemGenerated(DeferredItem item) {                                                                                                           //path different from the convention
         singleTexture(item.getId().getPath(), new ResourceLocation("item/generated"),"layer0", new ResourceLocation(References.MODID, "items/" + item.getId().toString().substring(References.MODID.length() + 1)));
     }
 
 
-    private void itemHandheld(RegistryObject item) {                                                                                                            //path different from the convention
+    private void itemHandheld(DeferredItem item) {                                                                                                            //path different from the convention
         singleTexture(item.getId().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(References.MODID, "items/" + item.getId().toString().substring(References.MODID.length() + 1)));
     }
 
 
-    private void itemBlock(RegistryObject item) {
+    private void itemBlock(DeferredBlock item) {
         withExistingParent(item.getId().getPath(), new ResourceLocation(References.MODID, "block/" + item.getId().toString().substring(References.MODID.length() + 1)));
     }
 

@@ -2,6 +2,7 @@ package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +17,6 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
@@ -46,10 +46,10 @@ public class ItemPortableRuneStone extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(ForgeRegistries.ITEMS.getKey(this).toString().substring(30))));
+            list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
         }
         if(Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal((ChatFormatting.GRAY + "Contains: " + ForgeRegistries.MOB_EFFECTS.getKey(RuneHelper.getEffect(ForgeRegistries.ITEMS.getKey(this).toString().substring(30))).toString().substring(10).replace("_", " "))));
+            list.add(Component.literal((ChatFormatting.GRAY + "Contains: " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))).toString().substring(10).replace("_", " "))));
         }
         if(this == ModItems.PORTABLE_RUNE_STONE.get()) {
             list.add(Component.literal((ChatFormatting.GRAY + "Empty")));
@@ -82,9 +82,9 @@ public class ItemPortableRuneStone extends Item {
                     cloud.setParticle(ParticleTypes.ENCHANT);
 
                     if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
-                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(ForgeRegistries.ITEMS.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
                     } else {
-                        player.addEffect(new MobEffectInstance(RuneHelper.getEffect(ForgeRegistries.ITEMS.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                        player.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
                     }
                     level.addFreshEntity(cloud);
                 }

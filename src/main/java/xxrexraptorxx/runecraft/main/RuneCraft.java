@@ -1,10 +1,10 @@
 package xxrexraptorxx.runecraft.main;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +25,7 @@ public class RuneCraft {
 
 
     public RuneCraft() {
-        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+        IEventBus forgeBus = NeoForge.EVENT_BUS;
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modBus.addListener(this::setup);
@@ -38,8 +38,8 @@ public class RuneCraft {
 
 
     private void setup(final @NotNull FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
-        MinecraftForge.EVENT_BUS.addListener(LootTableInjection::onEntityLootLoad);
+        NeoForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
+        NeoForge.EVENT_BUS.addListener(LootTableInjection::onEntityLootLoad);
     }
 
 }

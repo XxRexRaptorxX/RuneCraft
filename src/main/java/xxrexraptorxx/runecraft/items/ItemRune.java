@@ -3,6 +3,7 @@ package xxrexraptorxx.runecraft.items;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -14,7 +15,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
@@ -33,7 +33,7 @@ public class ItemRune extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
         if(Config.ACTIVATE_VISIBLE_RUNE_TYPE.get()) {
-            list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(ForgeRegistries.ITEMS.getKey(this).toString().substring(15))));
+            list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(15))));
         }
     }
 
@@ -48,7 +48,7 @@ public class ItemRune extends Item {
 
         if(!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
             level.playSound((Player) null, pos, SoundEvents.SOUL_SAND_PLACE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-            level.setBlock(pos, RuneHelper.getRuneBlockFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
+            level.setBlock(pos, RuneHelper.getRuneBlockFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
         }
         stack.shrink(1);
 

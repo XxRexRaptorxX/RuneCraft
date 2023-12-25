@@ -6,11 +6,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.util.Lazy;
-import xxrexraptorxx.runecraft.registry.ModItems;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.jarjar.nio.util.Lazy;
 import xxrexraptorxx.runecraft.main.References;
+import xxrexraptorxx.runecraft.registry.ModItems;
 
 import java.util.EnumMap;
 import java.util.function.Supplier;

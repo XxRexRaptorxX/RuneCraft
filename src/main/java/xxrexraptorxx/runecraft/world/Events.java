@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
@@ -23,22 +24,22 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.BasicItemListing;
-import net.minecraftforge.common.ForgeSpawnEggItem;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.VersionChecker;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.Event;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.VersionChecker;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.BasicItemListing;
+import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.main.RuneCraft;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
@@ -96,16 +97,16 @@ public class Events {
         Block block = world.getBlockState(pos).getBlock();
 
         if(!world.isClientSide) {
-            if (ForgeRegistries.BLOCKS.getKey(block).toString().contains("runecraft:rune_stone")) {
+            if (BuiltInRegistries.BLOCK.getKey(block).toString().contains("runecraft:rune_stone")) {
                 world.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
 
                 if(block != ModBlocks.RUNE_STONE.get()) {   //test if a runestone is not empty
                     //Area effect
-                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
+                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !BuiltInRegistries.ITEM.getKey(item).toString().contains("runecraft:rune_") && block != ModBlocks.RUNE_STONE.get() &&
                             block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
 
                         AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(ForgeRegistries.BLOCKS.getKey(block).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(block).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
                         cloud.setDuration(Config.AREA_SPELL_DURATION.get());
                         cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
                         cloud.setFixedColor(0x616161);
@@ -115,18 +116,18 @@ public class Events {
                     }
                 }
 
-                if (ForgeRegistries.ITEMS.getKey(item).toString().contains("runecraft:rune_")) {
+                if (BuiltInRegistries.ITEM.getKey(item).toString().contains("runecraft:rune_")) {
                     //Set the rune
                     if (block == ModBlocks.RUNE_STONE.get()) {                                          //test if the rune stone is already active (& prevents an error)
                         event.getItemStack().shrink(1);                                       // > rune stone is empty
-                        world.setBlock(pos, RuneHelper.getRuneStoneFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState(), 2);
+                        world.setBlock(pos, RuneHelper.getRuneStoneFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState(), 2);
 
                     } else {                                                                                                                  // > rune stone is active
-                        if (!ForgeRegistries.BLOCKS.getKey(block).toString().substring(21).equals(ForgeRegistries.ITEMS.getKey(item).toString().substring(15))) {      //test that the item and blockstate is NOT the same type
-                            ItemEntity drop = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(block).toString().substring(21))));
+                        if (!BuiltInRegistries.BLOCK.getKey(block).toString().substring(21).equals(BuiltInRegistries.ITEM.getKey(item).toString().substring(15))) {      //test that the item and blockstate is NOT the same type
+                            ItemEntity drop = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(block).toString().substring(21))));
                             world.addFreshEntity(drop);
                             event.getItemStack().shrink(1);
-                            world.setBlock(pos, RuneHelper.getRuneStoneFromType(ForgeRegistries.ITEMS.getKey(item).toString().substring(15)).defaultBlockState(), 2);
+                            world.setBlock(pos, RuneHelper.getRuneStoneFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState(), 2);
                         }
                     }
                 }
@@ -323,7 +324,7 @@ public class Events {
         Player player = event.getEntity();
         BlockPos pos = event.getPos();
 
-        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("_wand")) {
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID) && BuiltInRegistries.ITEM.getKey(item).toString().contains("_wand")) {
             if (Config.WAND_XP_REPAIR.get() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
@@ -364,7 +365,7 @@ public class Events {
         Player player = event.getEntity();
         BlockPos pos = event.getPos();
 
-        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && ForgeRegistries.ITEMS.getKey(item).toString().contains(References.MODID) && ForgeRegistries.ITEMS.getKey(item).toString().contains("portable_rune_stone")) {
+        if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID) && BuiltInRegistries.ITEM.getKey(item).toString().contains("portable_rune_stone")) {
             if (Config.PORTABLE_RUNE_STONE_XP_REPAIR.get() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
@@ -436,7 +437,7 @@ public class Events {
 
                             //rewards
                             try {
-                                ItemStack egg = new ItemStack(ForgeSpawnEggItem.fromEntityType(EntityType.byString(stack.getTag().getString("owner")).get()));
+                                ItemStack egg = new ItemStack(SpawnEggItem.byId(EntityType.byString(stack.getTag().getString("owner")).get()));
                                 ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, egg);
                                 world.addFreshEntity(reward);
 

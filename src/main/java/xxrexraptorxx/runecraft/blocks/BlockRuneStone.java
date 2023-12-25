@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -33,7 +34,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -96,20 +96,20 @@ public class BlockRuneStone extends Block {
 	@Override
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
 		//base blocks
-		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && ForgeRegistries.BLOCKS.getKey(this).toString().length() == 22) {
+		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
 			if(entityIn instanceof Player) {
 				Player player = (Player) entityIn;
-				player.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(ForgeRegistries.BLOCKS.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+				player.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
 			}
 
 			if(entityIn instanceof LivingEntity) {
 				LivingEntity entity = (LivingEntity) entityIn;
-				entity.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(ForgeRegistries.BLOCKS.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+				entity.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
 			}
 		}
 
 		//special blocks
-		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && ForgeRegistries.BLOCKS.getKey(this).toString().length() == 24) {
+		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 24) {
 			if (this == ModBlocks.RUNE_STONE_DMG.get()) {
 				entityIn.hurt(level.damageSources().magic(), 4.0F);
 
@@ -155,7 +155,7 @@ public class BlockRuneStone extends Block {
 			world.addFreshEntity(drop);
 
 			if (this != ModBlocks.RUNE_STONE.get()) {
-				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(this).toString().substring(21))));
+				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
 				world.addFreshEntity(extraDrop);
 			}
 		}
@@ -182,7 +182,7 @@ public class BlockRuneStone extends Block {
 			world.addFreshEntity(drop);
 
 			if (this != ModBlocks.RUNE_STONE.get()) {
-				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(this).toString().substring(21))));
+				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
 				world.addFreshEntity(extraDrop);
 			}
 		}
@@ -210,11 +210,11 @@ public class BlockRuneStone extends Block {
 					level.playSound((Player)null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
 
 					if(this != ModBlocks.RUNE_STONE.get() && this != ModBlocks.RUNE_STONE_DMG.get() && this != ModBlocks.RUNE_STONE_FRE.get() &&
-							this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && ForgeRegistries.BLOCKS.getKey(this).toString().contains("rune_stone_")) {
+							this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && BuiltInRegistries.BLOCK.getKey(this).toString().contains("rune_stone_")) {
 
 						level.setBlock(pos, state.cycle(POWERED), 2);
 						AreaEffectCloud cloud = new AreaEffectCloud(level, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-						cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(ForgeRegistries.BLOCKS.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
+						cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
 						cloud.setDuration(Config.AREA_SPELL_DURATION.get());
 						cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
 						cloud.setFixedColor(0x616161);

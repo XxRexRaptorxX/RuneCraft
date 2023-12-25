@@ -3,6 +3,7 @@ package xxrexraptorxx.runecraft.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -26,7 +27,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.registries.ForgeRegistries;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
 import javax.annotation.Nullable;
@@ -74,7 +74,7 @@ public class BlockRune extends FallingBlock {
         world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
         if(!world.isClientSide) {
-            ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(ForgeRegistries.BLOCKS.getKey(this).toString().substring(21))));
+            ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
             world.addFreshEntity(drop);
         }
     }
