@@ -1,5 +1,6 @@
 package xxrexraptorxx.runecraft.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -115,4 +116,9 @@ public class BlockRune extends FallingBlock {
         return defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite());
     }
 
+
+    @Override
+    protected MapCodec<? extends FallingBlock> codec() {
+        return null;
+    }
 }

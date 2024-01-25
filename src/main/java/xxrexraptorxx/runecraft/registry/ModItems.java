@@ -4,7 +4,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xxrexraptorxx.runecraft.items.*;
@@ -16,8 +16,8 @@ public class ModItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(References.MODID);
 
 
-    public static void init() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    public static void init(IEventBus eventbus) {
+        ITEMS.register(eventbus);
     }
 
     public static final DeferredItem<ItemWand> BASIC_WAND = ITEMS.register("basic_wand", ItemWand::new);

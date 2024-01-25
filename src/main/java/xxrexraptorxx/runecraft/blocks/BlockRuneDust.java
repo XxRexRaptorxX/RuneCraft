@@ -1,5 +1,6 @@
 package xxrexraptorxx.runecraft.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -15,5 +16,11 @@ public class BlockRuneDust extends FallingBlock {
 				.mapColor(MapColor.NETHER)
 				.instrument(NoteBlockInstrument.SNARE)
 		);
+	}
+
+
+	@Override
+	protected MapCodec<? extends FallingBlock> codec() {
+		return null;
 	}
 }
