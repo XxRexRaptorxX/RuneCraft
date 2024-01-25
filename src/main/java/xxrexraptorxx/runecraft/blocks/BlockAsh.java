@@ -1,5 +1,6 @@
 package xxrexraptorxx.runecraft.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -32,4 +33,9 @@ public class BlockAsh extends FallingBlock {
 		return CUSTOM_COLLISION_AABB;
 	}
 
+
+	@Override
+	protected MapCodec<? extends FallingBlock> codec() {
+		return null;
+	}
 }
