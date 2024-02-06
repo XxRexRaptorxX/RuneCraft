@@ -16,7 +16,7 @@ authors="${mod_authors}"
 description='''This magical mod adds everything related to runes to the game!'''
 
 [[mixins]]
-config="mixins.${mod_id}.json"
+config="${mod_id}.mixins.json"
 
 [[dependencies.${mod_id}]]
 modId="neoforge"
