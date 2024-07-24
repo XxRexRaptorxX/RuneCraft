@@ -22,7 +22,6 @@ import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
@@ -32,7 +31,7 @@ public class ItemPortableRuneStone extends Item {
         super(new Properties()
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
-                .defaultDurability(200) //(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
+                .durability(200) //(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
         );
 
     }
@@ -44,12 +43,12 @@ public class ItemPortableRuneStone extends Item {
 
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
         if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
             list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
         }
         if(Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal((ChatFormatting.GRAY + "Contains: " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))).toString().substring(10).replace("_", " "))));
+            list.add(Component.literal((ChatFormatting.GRAY + "Contains: " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))));
         }
         if(this == ModItems.PORTABLE_RUNE_STONE.get()) {
             list.add(Component.literal((ChatFormatting.GRAY + "Empty")));
@@ -78,7 +77,7 @@ public class ItemPortableRuneStone extends Item {
                     cloud.setDuration(10);
                     cloud.setRadius(Config.PORTABLE_SPELL_RADIUS.get());
                     cloud.setWaitTime(2);
-                    cloud.setFixedColor(0x616161);
+                    //cloud.setsetFixedColor(0x616161);
                     cloud.setParticle(ParticleTypes.ENCHANT);
 
                     if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {

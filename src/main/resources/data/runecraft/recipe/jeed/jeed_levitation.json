@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ],
+  "type": "jeed:effect_provider",
+  "effect": "minecraft:levitation",
+
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_f"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_f"
+    },
+    {
+      "item": "runecraft:aether_wand"
+    }
+  ]
+}

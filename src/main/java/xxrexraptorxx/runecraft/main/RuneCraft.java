@@ -1,6 +1,7 @@
 package xxrexraptorxx.runecraft.main;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -23,14 +24,14 @@ public class RuneCraft {
     public static final Logger LOGGER = LogManager.getLogger();
 
 
-    public RuneCraft(IEventBus eventBus) {
+    public RuneCraft(IEventBus eventBus, ModContainer container) {
 
         eventBus.addListener(this::setup);
 
-        Config.init();
         ModBlocks.init(eventBus);
         ModItems.init(eventBus);
         CreativeModeTabs.init(eventBus);
+        Config.init(container);
     }
 
 

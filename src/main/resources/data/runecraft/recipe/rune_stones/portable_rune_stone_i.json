@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "portable_runes",
+  "pattern": [
+  
+    "XIX",
+    "XOX",
+    "X#X" 
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_dust"
+    },
+    "O": {
+      "item": "runecraft:portable_rune_stone"
+    },
+    "I": {
+      "item": "runecraft:rune_i"
+    },
+    "#": {
+      "item": "runecraft:spirit_crystal"
+    }
+  },
+  
+  "result": {
+    "id": "runecraft:portable_rune_stone_i"
+  }
+}

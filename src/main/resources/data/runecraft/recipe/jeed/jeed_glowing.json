@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ],
+  "type": "jeed:effect_provider",
+  "effect": "minecraft:glowing",
+
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_w"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_w"
+    }
+  ]
+}

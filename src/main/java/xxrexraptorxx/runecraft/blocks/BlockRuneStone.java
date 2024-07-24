@@ -16,6 +16,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -71,7 +72,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> list, TooltipFlag pFlag) {
+	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
 		list.add(Component.translatable("message.runecraft.rune_stone_desc").withStyle(ChatFormatting.GRAY));
 	}
 
@@ -114,7 +115,7 @@ public class BlockRuneStone extends Block {
 				entityIn.hurt(level.damageSources().magic(), 4.0F);
 
 			} else if (this == ModBlocks.RUNE_STONE_FRE.get()) {
-				entityIn.setSecondsOnFire(20);
+				entityIn.setRemainingFireTicks(20);
 
 			} else if (this == ModBlocks.RUNE_STONE_HRD.get()) {
 				entityIn.hurt(level.damageSources().magic(), 2.0F);
@@ -217,7 +218,7 @@ public class BlockRuneStone extends Block {
 						cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
 						cloud.setDuration(Config.AREA_SPELL_DURATION.get());
 						cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
-						cloud.setFixedColor(0x616161);
+						//cloud.setFixedColor(0x616161);
 						cloud.setWaitTime(10);
 						cloud.setParticle(ParticleTypes.ENCHANT);
 						level.addFreshEntity(cloud);

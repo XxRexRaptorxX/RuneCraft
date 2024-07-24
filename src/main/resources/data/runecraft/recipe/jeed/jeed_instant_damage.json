@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ],
+  "type": "jeed:effect_provider",
+  "effect": "minecraft:invisibility",
+
+  "providers": [
+    {
+      "item": "runecraft:curse_wand"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "minecraft:enchanted_book"
+    },
+    "1": {
+      "item": "runecraft:rune_b"
+    },
+    "2": {
+      "item": "runecraft:rune_i"
+    },
+    "3": {
+      "item": "runecraft:rune_n"
+    },
+    "4": {
+      "item": "runecraft:rune_d"
+    }
+  },
+
+  "result": {
+    "id": "minecraft:enchanted_book",
+  "nbt": {
+    "StoredEnchantments": [
+      {
+        "id": "binding_curse",
+        "lvl": 1
+      }
+    ]
+  }
+}
+}

@@ -1,0 +1,35 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "spawn_eggs",
+  "pattern": [
+
+    " 2 ",
+    "1#3",
+    " 4 "
+  ],
+
+  "key": {
+    "#": {
+      "item": "runecraft:soul_orb"
+    },
+    "1": {
+      "item": "runecraft:rune_s"
+    },
+    "2": {
+      "item": "runecraft:rune_t"
+    },
+    "3": {
+      "item": "runecraft:rune_r"
+    },
+    "4": {
+      "item": "runecraft:rune_i"
+    }
+  },
+  
+  
+  "result": {
+    "id": "minecraft:strider_spawn_egg"
+  }
+}

@@ -29,7 +29,7 @@ public class ItemPage extends Item {
 
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flags) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
         list.add(Component.literal("Required Xp levels: " + AltarHelper.getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
     }
 }

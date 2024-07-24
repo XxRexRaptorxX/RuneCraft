@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:orb"
+    },
+    "1": {
+      "item": "runecraft:rune_i"
+    },
+    "2": {
+      "item": "runecraft:rune_r"
+    },
+    "3": {
+      "item": "runecraft:rune_o"
+    },
+    "4": {
+      "item": "runecraft:rune_n"
+    }
+  },
+  
+  "result": {
+    "id": "minecraft:iron_ingot"
+  }
+}

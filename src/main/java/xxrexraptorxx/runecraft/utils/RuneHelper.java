@@ -1,14 +1,15 @@
 package xxrexraptorxx.runecraft.utils;
 
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import xxrexraptorxx.runecraft.main.RuneCraft;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
-import xxrexraptorxx.runecraft.main.RuneCraft;
 
 import java.util.Random;
 
@@ -356,7 +357,7 @@ public class RuneHelper {
 	}
 	
 	
-	public static MobEffect getEffect(String type) {
+	public static Holder<MobEffect> getEffect(String type) {
     	switch (type) {
 		case "a":
 			return MobEffects.MOVEMENT_SPEED;

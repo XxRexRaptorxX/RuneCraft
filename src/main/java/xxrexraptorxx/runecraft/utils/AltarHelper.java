@@ -1,6 +1,7 @@
 package xxrexraptorxx.runecraft.utils;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -78,9 +79,12 @@ public class AltarHelper {
 
 	public static ItemStack getRandomPotion() {
 		Random rand = new Random();
-		ItemStack potion = new ItemStack (Items.POTION).setHoverName(Component.translatable("item.runecraft.potion"));
-		ItemStack splash_potion = new ItemStack (Items.SPLASH_POTION).setHoverName(Component.translatable("item.runecraft.splash_potion"));
-		ItemStack lingering_potion = new ItemStack (Items.LINGERING_POTION).setHoverName(Component.translatable("item.runecraft.lingering_potion"));
+		ItemStack potion = new ItemStack(Items.POTION);
+			potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.potion"));
+		ItemStack splash_potion = new ItemStack (Items.SPLASH_POTION);
+			splash_potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.splash_potion"));
+		ItemStack lingering_potion = new ItemStack (Items.LINGERING_POTION);
+			lingering_potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.lingering_potion"));
 		ArrayList<MobEffectInstance> effects = new ArrayList<MobEffectInstance>();
 
 

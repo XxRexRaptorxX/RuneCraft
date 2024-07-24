@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "rune_stone",
+  "pattern": [
+
+    "XOX",
+    "O#O",
+    "XOX"
+  ],
+
+  "key": {
+    "X": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "O": {
+      "tag": "c:dusts/ash"
+    },
+    "#": {
+      "item": "runecraft:spirit_star"
+    }
+  },
+
+  "result": {
+    "id": "runecraft:portable_rune_stone"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "minecraft:enchanted_book"
+    },
+    "1": {
+      "item": "runecraft:rune_f"
+    },
+    "2": {
+      "item": "runecraft:rune_a"
+    },
+    "3": {
+      "item": "runecraft:rune_l"
+    },
+    "4": {
+      "item": "runecraft:rune_l"
+    }
+  },
+
+  "result": {
+    "id": "minecraft:enchanted_book",
+  "nbt": {
+    "StoredEnchantments": [
+      {
+        "id": "feather_falling",
+        "lvl": 1
+      }
+    ]
+  }
+}
+}

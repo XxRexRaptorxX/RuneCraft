@@ -93,18 +93,20 @@ public class ItemModelGen extends ItemModelProvider {
 
 
 
-    private void itemGenerated(DeferredItem item) {                                                                                                           //path different from the convention
-        singleTexture(item.getId().getPath(), new ResourceLocation("item/generated"),"layer0", new ResourceLocation(References.MODID, "items/" + item.getId().toString().substring(References.MODID.length() + 1)));
+    private void itemGenerated(DeferredItem item) {
+        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/generated"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
     }
 
-
-    private void itemHandheld(DeferredItem item) {                                                                                                            //path different from the convention
-        singleTexture(item.getId().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(References.MODID, "items/" + item.getId().toString().substring(References.MODID.length() + 1)));
+    private void itemGenerated(DeferredBlock item) {
+        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/generated"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
     }
 
+    private void itemHandheld(DeferredItem item) {
+        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/handheld"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
+    }
 
     private void itemBlock(DeferredBlock item) {
-        withExistingParent(item.getId().getPath(), new ResourceLocation(References.MODID, "block/" + item.getId().toString().substring(References.MODID.length() + 1)));
+        withExistingParent(item.getId().getPath(), modLoc( "block/" + item.getId().getPath()));
     }
 
 }

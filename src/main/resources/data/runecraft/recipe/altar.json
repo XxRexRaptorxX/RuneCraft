@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  
+    "---",
+    " X ",
+    "III"
+  ],
+    
+  "key": {
+    "X": {
+      "item": "runecraft:rune_stone"
+    },
+    "I": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "-": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  
+  "result": {
+    "id": "runecraft:altar"
+  }
+}

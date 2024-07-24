@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+  
+    " 2 ",
+    "1X3",
+    " 4 "
+  ],
+    
+  "key": {
+    "X": {
+      "item": "minecraft:enchanted_book"
+    },
+    "1": {
+      "item": "runecraft:rune_b"
+    },
+    "2": {
+      "item": "runecraft:rune_l"
+    },
+    "3": {
+      "item": "runecraft:rune_p"
+    },
+    "4": {
+      "item": "runecraft:rune_t"
+    }
+  },
+
+  "result": {
+    "id": "minecraft:enchanted_book",
+  "nbt": {
+    "StoredEnchantments": [
+      {
+        "id": "blast_protection",
+        "lvl": 1
+      }
+    ]
+  }
+}
+}

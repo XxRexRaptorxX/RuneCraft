@@ -2,10 +2,12 @@ package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Position;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -19,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.component.DebugStickState;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -43,7 +46,7 @@ public class ItemWand extends Item {
         super(new Properties()
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
-                .defaultDurability(200)
+                .durability(200)
         );
     }
 
@@ -553,7 +556,7 @@ public class ItemWand extends Item {
 
             /** NETHER **/
             } else if (item == ModItems.NETHER_WAND.get()) {
-                entity.setSecondsOnFire(10);
+                entity.setRemainingFireTicks(10);
 
             /** MAELSTROM **/
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
@@ -656,39 +659,46 @@ public class ItemWand extends Item {
 
 
     /** CHANGING WAND **/
-    private boolean handleInteraction(Player player, BlockState pStateClicked, LevelAccessor pAccessor, BlockPos pPos, boolean pShouldCycleState, ItemStack pDebugStack) {
-        if (!player.canUseGameMasterBlocks()) {
+    private boolean handleInteraction(Player p_150803_, BlockState p_150804_, LevelAccessor p_150805_, BlockPos p_150806_, boolean p_150807_, ItemStack p_150808_) {
+        if (!p_150803_.canUseGameMasterBlocks()) {
             return false;
         } else {
-            Block block = pStateClicked.getBlock();
-            StateDefinition<Block, BlockState> statedefinition = block.getStateDefinition();
+            Holder<Block> holder = p_150804_.getBlockHolder();
+            StateDefinition<Block, BlockState> statedefinition = ((Block)holder.value()).getStateDefinition();
             Collection<Property<?>> collection = statedefinition.getProperties();
-            String s = BuiltInRegistries.BLOCK.getKey(block).toString();
             if (collection.isEmpty()) {
+                message(p_150803_, Component.translatable(this.getDescriptionId() + ".empty", new Object[]{holder.getRegisteredName()}));
                 return false;
             } else {
-                CompoundTag compoundtag = pDebugStack.getOrCreateTagElement("DebugProperty");
-                String s1 = compoundtag.getString(s);
-                Property<?> property = statedefinition.getProperty(s1);
-                if (pShouldCycleState) {
-                    if (property == null) {
-                        property = collection.iterator().next();
+                DebugStickState debugstickstate = (DebugStickState)p_150808_.get(DataComponents.DEBUG_STICK_STATE);
+                if (debugstickstate == null) {
+                    return false;
+                } else {
+                    Property<?> property = (Property)debugstickstate.properties().get(holder);
+                    if (p_150807_) {
+                        if (property == null) {
+                            property = (Property)collection.iterator().next();
+                        }
+
+                        BlockState blockstate = cycleState(p_150804_, property, p_150803_.isSecondaryUseActive());
+                        p_150805_.setBlock(p_150806_, blockstate, 18);
+                        if (p_150803_.level().isClientSide) p_150803_.awardStat(Stats.ITEM_USED.get(this));
+
+                        message(p_150803_, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
+                    } else {
+                        property = (Property)getRelative(collection, property, p_150803_.isSecondaryUseActive());
+                        p_150808_.set(DataComponents.DEBUG_STICK_STATE, debugstickstate.withProperty(holder, property));
+                        message(p_150803_, Component.translatable(this.getDescriptionId() + ".select", new Object[]{property.getName(), getNameHelper(p_150804_, property)}));
                     }
 
-                    BlockState blockstate = cycleState(pStateClicked, property, player.isSecondaryUseActive());
-                    pAccessor.setBlock(pPos, blockstate, 18);
-
-                    if (player.level().isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
-
-                } else {
-                    property = getRelative(collection, property, player.isSecondaryUseActive());
-                    String s2 = property.getName();
-                    compoundtag.putString(s, s2);
+                    return true;
                 }
-
-                return true;
             }
         }
+    }
+
+    private static void message(Player p_40957_, Component p_40958_) {
+        ((ServerPlayer)p_40957_).sendSystemMessage(p_40958_, true);
     }
 
 

@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ],
+  "type": "jeed:effect_provider",
+  "effect": "minecraft:slowness",
+
+  "providers": [
+    {
+      "item": "runecraft:rune_stone_h"
+    },
+    {
+      "item": "runecraft:portable_rune_stone_h"
+    }
+  ]
+}

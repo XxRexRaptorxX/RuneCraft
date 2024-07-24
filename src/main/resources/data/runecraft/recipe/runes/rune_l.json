@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "runes",
+  "pattern": [
+  
+    "# #",
+    "#  ",
+    "# #" 
+  ],
+    
+  "key": {
+    "#": {
+      "item": "runecraft:rune_dust"
+    }
+  },
+  
+  "result": {
+    "id": "runecraft:rune_l"
+  }
+}

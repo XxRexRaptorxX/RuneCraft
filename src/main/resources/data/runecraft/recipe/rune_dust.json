@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/ash"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "tag": "c:dusts/ash"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "tag": "c:dusts/glowstone"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    }
+  ],
+  "result": {
+    "id": "runecraft:rune_dust",
+    "count": 1
+  }
+}

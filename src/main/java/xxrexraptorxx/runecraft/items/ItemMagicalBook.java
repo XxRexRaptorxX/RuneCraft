@@ -55,7 +55,7 @@ public class ItemMagicalBook extends Item {
             cloud.setDuration(10);
             cloud.setRadius(1);
             cloud.setWaitTime(1);
-            cloud.setFixedColor(0x616161);
+            //cloud.setFixedColor(0x616161);
             cloud.setParticle(ParticleTypes.ENCHANT);
             level.addFreshEntity(cloud);
         }
