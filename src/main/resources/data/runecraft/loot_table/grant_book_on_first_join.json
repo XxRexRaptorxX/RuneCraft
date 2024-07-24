@@ -1,7 +1,7 @@
 {
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
+      "type": "neoforge:mod_loaded",
       "modid": "patchouli"
     }
   ],
@@ -15,8 +15,10 @@
           "name": "patchouli:guide_book",
           "functions": [
             {
-              "function": "set_nbt",
-              "tag": "{\"patchouli:book\": \"runecraft:book_of_rune_magic\"}"
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": "{\"patchouli:book\": \"runecraft:book_of_rune_magic\"}"
+              }
             }
           ]
         }
