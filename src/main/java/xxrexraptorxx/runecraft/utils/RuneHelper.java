@@ -1,11 +1,9 @@
 package xxrexraptorxx.runecraft.utils;
 
 import net.minecraft.core.Holder;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import xxrexraptorxx.runecraft.main.RuneCraft;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
@@ -14,27 +12,6 @@ import xxrexraptorxx.runecraft.registry.ModItems;
 import java.util.Random;
 
 public class RuneHelper {
-	
-	public static ItemStack createRune(ItemStack stack, RuneType type) {
-		CompoundTag tag = stack.getOrCreateTagElement("Type");
-
-		tag.put(type.getName(), tag);
-
-		stack.setTag(tag);
-		return stack;
-	}
-	
-	
-	public static String getRegistryNameFromTag(ItemStack stack) {
-		if(stack.hasTag()) {
-			if(stack.getTag().equals("Type")) {
-				return stack.getTag().getString("Type");
-			}
-		}
-		RuneCraft.LOGGER.error("Invalid ItemStack without Runetype tag");
-		return "a";
-	}
-
 
 	public static Item getRuneFromType(String type) {
 		switch(type) {

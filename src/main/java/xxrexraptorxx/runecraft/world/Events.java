@@ -29,13 +29,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.component.ResolvableProfile;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.VersionChecker;
@@ -58,6 +58,7 @@ import xxrexraptorxx.runecraft.utils.RuneHelper;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -388,7 +389,7 @@ public class Events {
 
                             } else if (item == ModItems.ENCHANTING_PAGE.get()) {
                                 ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                                book.setHoverName(Component.translatable("item.runecraft.enchanting_book"));
+                                book.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.enchanting_book"));
 
                                 ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, book);
                                 world.addFreshEntity(reward);
@@ -512,13 +513,13 @@ public class Events {
         Player player = event.getEntity();
         Random random = new Random();
 
-        if (stack.getItem() == ModItems.SOUL.get()) {
+        if (stack.getItem() == ModItems.SOUL.get() && stack.has(DataComponents.CUSTOM_DATA)) {
 
             if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
                 if (player.experienceLevel >= Config.SOUL_COST.get()) {
 
-                    if (player.level().isDay() == false) {
+                    if (!player.level().isDay()) {
 
                         //Ambient
                         world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
@@ -543,7 +544,7 @@ public class Events {
 
                             //rewards
                             try {
-                                ItemStack egg = new ItemStack(SpawnEggItem.byId(EntityType.byString(stack.getTag().getString("owner")).get()));
+                                ItemStack egg = new ItemStack(Objects.requireNonNull(SpawnEggItem.byId(EntityType.byString(Objects.requireNonNull(stack.get(DataComponents.CUSTOM_DATA)).copyTag().getString("owner")).get())));
                                 ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, egg);
                                 world.addFreshEntity(reward);
 
@@ -552,7 +553,7 @@ public class Events {
                                 world.addFreshEntity(reward);
 
                                 RuneCraft.LOGGER.error(e);
-                                RuneCraft.LOGGER.error("Entity Type: " + stack.getTag().getString("owner"));
+                                RuneCraft.LOGGER.error("Entity Type: " + stack.get(DataComponents.CUSTOM_DATA).copyTag().getString("owner"));
 
                             }
 
@@ -563,8 +564,8 @@ public class Events {
                                 world.addFreshEntity(vex);
                             }
 
-                            event.setUseBlock(Event.Result.DENY);
-                            event.setUseItem(Event.Result.DENY);
+                            event.setUseBlock(TriState.FALSE);
+                            event.setUseItem(TriState.FALSE);
                             event.setCanceled(true);
                         }
 
@@ -607,8 +608,8 @@ public class Events {
                 ItemStack stack = new ItemStack(ModItems.SOUL.get());
 
                 tag.putString("owner", victim.getType().toString().substring(7).replace(".", ":"));
-                stack.setTag(tag);
-                stack.setHoverName(Component.translatable(victim.getDisplayName().getString()).append(" ").append(Component.translatable("item.runecraft.soul")));
+                stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+                stack.set(DataComponents.CUSTOM_NAME, Component.translatable(victim.getDisplayName().getString()).append(" ").append(Component.translatable("item.runecraft.soul")));
 
                 ((Player) attacker).addItem(stack);
 

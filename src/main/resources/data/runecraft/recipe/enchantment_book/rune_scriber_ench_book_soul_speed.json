@@ -27,14 +27,11 @@
   },
 
     "result": {
-      "item": "minecraft:enchanted_book",
-    "nbt": {
-      "StoredEnchantments": [
-        {
-          "id": "soul_speed",
-          "lvl": 1
-        }
-      ]
+      "id": "minecraft:enchanted_book",
+      "components": {
+          "minecraft:stored_enchantments": {
+              "soul_speed": 1
+         }
+      }
     }
-  }
 }

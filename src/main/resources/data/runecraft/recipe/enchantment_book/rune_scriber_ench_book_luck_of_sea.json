@@ -27,14 +27,11 @@
   },
 
     "result": {
-      "item": "minecraft:enchanted_book",
-    "nbt": {
-      "StoredEnchantments": [
-        {
-          "id": "luck_of_the_sea",
-          "lvl": 1
-        }
-      ]
+      "id": "minecraft:enchanted_book",
+      "components": {
+          "minecraft:stored_enchantments": {
+              "luck_of_the_sea": 1
+         }
+      }
     }
-  }
 }

@@ -28,13 +28,10 @@
 
   "result": {
     "id": "minecraft:enchanted_book",
-  "nbt": {
-    "StoredEnchantments": [
-      {
-        "id": "channeling",
-        "lvl": 1
-      }
-    ]
+  "components": {
+     "minecraft:stored_enchantments": {
+            "channeling": 1
+     }
   }
 }
 }

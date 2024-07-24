@@ -15,12 +15,11 @@ import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class AltarHelper {
@@ -77,119 +76,108 @@ public class AltarHelper {
 	}
 
 
+
+
+
 	public static ItemStack getRandomPotion() {
 		Random rand = new Random();
-		ItemStack potion = new ItemStack(Items.POTION);
-			potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.potion"));
-		ItemStack splash_potion = new ItemStack (Items.SPLASH_POTION);
-			splash_potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.splash_potion"));
-		ItemStack lingering_potion = new ItemStack (Items.LINGERING_POTION);
-			lingering_potion.set(DataComponents.CUSTOM_NAME, Component.translatable("item.runecraft.lingering_potion"));
-		ArrayList<MobEffectInstance> effects = new ArrayList<MobEffectInstance>();
+		String POTION_KEY = "item.runecraft.potion";
+		String SPLASH_POTION_KEY = "item.runecraft.splash_potion";
+		String LINGERING_POTION_KEY = "item.runecraft.lingering_potion";
 
-
-		switch (rand.nextInt(25)) {
+		switch (rand.nextInt(20)) {
 			case 0:
-				effects.add(new MobEffectInstance(MobEffects.REGENERATION, 1000, 1));
-				effects.add(new MobEffectInstance(MobEffects.ABSORPTION, 1000, 1));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.REGENERATION, 1000, 1),
+						new MobEffectInstance(MobEffects.ABSORPTION, 1000, 1));
 			case 1:
-				effects.add(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 2));
-				effects.add(new MobEffectInstance(MobEffects.DIG_SPEED, 1000, 2));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 2),
+						new MobEffectInstance(MobEffects.DIG_SPEED, 1000, 2));
 			case 2:
-				effects.add(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000, 2));
-				effects.add(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 2));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000, 2),
+						new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 2));
 			case 3:
-				effects.add(new MobEffectInstance(MobEffects.LEVITATION, 300));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.LEVITATION, 300));
 			case 4:
-				effects.add(new MobEffectInstance(MobEffects.CONDUIT_POWER, 1000));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.CONDUIT_POWER, 1000));
 			case 5:
-				effects.add(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 1000));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 1000));
 			case 6:
-				effects.add(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 1000));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 1000));
 			case 7:
-				effects.add(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000));
-				effects.add(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1000));
-				effects.add(new MobEffectInstance(MobEffects.HEALTH_BOOST, 1000, 1));
-				PotionUtils.setCustomEffects(potion, effects);
-				return potion;
+				return createPotion(Items.POTION, POTION_KEY,
+						new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000),
+						new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1000),
+						new MobEffectInstance(MobEffects.HEALTH_BOOST, 1000, 1));
 			case 8:
-				effects.add(new MobEffectInstance(MobEffects.HARM, 1000, 2));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.HARM, 1000, 2));
 			case 9:
-				effects.add(new MobEffectInstance(MobEffects.LEVITATION, 600));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.LEVITATION, 600));
 			case 10:
-				effects.add(new MobEffectInstance(MobEffects.WITHER, 1000, 2));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.WITHER, 1000, 2));
 			case 11:
-				effects.add(new MobEffectInstance(MobEffects.CONFUSION, 1000));
-				effects.add(new MobEffectInstance(MobEffects.BLINDNESS, 1000));
-				effects.add(new MobEffectInstance(MobEffects.POISON, 1000));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.CONFUSION, 1000),
+						new MobEffectInstance(MobEffects.BLINDNESS, 1000),
+						new MobEffectInstance(MobEffects.POISON, 1000));
 			case 12:
-				effects.add(new MobEffectInstance(MobEffects.REGENERATION, 1000, 1));
-				effects.add(new MobEffectInstance(MobEffects.LUCK, 1000, 3));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.REGENERATION, 1000, 1),
+						new MobEffectInstance(MobEffects.LUCK, 1000, 3));
 			case 13:
-				effects.add(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000));
-				PotionUtils.setCustomEffects(splash_potion, effects);
-				return splash_potion;
+				return createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY,
+						new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000));
 			case 14:
-				effects.add(new MobEffectInstance(MobEffects.HARM, 1000, 2));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.HARM, 1000, 2));
 			case 15:
-				effects.add(new MobEffectInstance(MobEffects.LEVITATION, 600));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.LEVITATION, 600));
 			case 16:
-				effects.add(new MobEffectInstance(MobEffects.WITHER, 1000, 2));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.WITHER, 1000, 2));
 			case 17:
-				effects.add(new MobEffectInstance(MobEffects.CONFUSION, 1000));
-				effects.add(new MobEffectInstance(MobEffects.BLINDNESS, 1000));
-				effects.add(new MobEffectInstance(MobEffects.POISON, 1000));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.CONFUSION, 1000),
+						new MobEffectInstance(MobEffects.BLINDNESS, 1000),
+						new MobEffectInstance(MobEffects.POISON, 1000));
 			case 18:
-				effects.add(new MobEffectInstance(MobEffects.REGENERATION, 1000, 1));
-				effects.add(new MobEffectInstance(MobEffects.LUCK, 1000, 3));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.REGENERATION, 1000, 1),
+						new MobEffectInstance(MobEffects.LUCK, 1000, 3));
 			case 19:
-				effects.add(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
-			case 20:
-				effects.add(new MobEffectInstance(MobEffects.BLINDNESS, 1000));
-				PotionUtils.setCustomEffects(lingering_potion, effects);
-				return lingering_potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000));
 			default:
-				PotionUtils.setPotion(potion, Potions.AWKWARD);
-				return potion;
+				return createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY,
+						new MobEffectInstance(MobEffects.BLINDNESS, 1000));
 		}
 	}
-	
+
+
+	private static ItemStack createPotion(Item item, String nameKey, MobEffectInstance... effects) {
+		ItemStack potion = new ItemStack(item);
+
+		potion.set(DataComponents.CUSTOM_NAME, Component.translatable(nameKey));
+		PotionContents potionContents = new PotionContents(Potions.WATER);
+
+		for (MobEffectInstance effect : effects) {
+			potionContents = potionContents.withEffectAdded(effect);
+		}
+
+		potion.set(DataComponents.POTION_CONTENTS, potionContents);
+		return potion;
+	}
+
 	
 	public static void getRandomSpell(Level world, BlockPos pos) {
 		Random rand = new Random();
@@ -197,7 +185,7 @@ public class AltarHelper {
     	AreaEffectCloud cloud = new AreaEffectCloud(world, pos.getX() + 0.5F , pos.getY() + 0.5F, pos.getZ() + 0.5F);
     	cloud.setDuration(500);
     	cloud.setRadius(3);
-    	cloud.setFixedColor(0x616161);
+    	//cloud.setFixedColor(0x616161);
     	cloud.setWaitTime(10);
     	cloud.setParticle(ParticleTypes.ENCHANT);
 		

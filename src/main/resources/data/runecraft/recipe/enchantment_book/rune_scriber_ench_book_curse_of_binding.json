@@ -28,13 +28,10 @@
 
   "result": {
     "id": "minecraft:enchanted_book",
-  "nbt": {
-    "StoredEnchantments": [
-      {
-        "id": "binding_curse",
-        "lvl": 1
-      }
-    ]
+  "components": {
+     "minecraft:stored_enchantments": {
+            "binding_curse": 1
+     }
   }
 }
 }

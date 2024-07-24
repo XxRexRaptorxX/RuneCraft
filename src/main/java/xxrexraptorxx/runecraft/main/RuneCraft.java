@@ -3,20 +3,17 @@ package xxrexraptorxx.runecraft.main;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.NotNull;
 import xxrexraptorxx.runecraft.registry.CreativeModeTabs;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
+import xxrexraptorxx.runecraft.registry.ModLootModifiers;
 import xxrexraptorxx.runecraft.utils.Config;
-import xxrexraptorxx.runecraft.world.LootTableInjection;
 
 /**
  * @author XxRexRaptorxX (RexRaptor)
- * @projectPage https://www.curseforge.com/minecraft/mc-mods/rune-craft
+ * @projectPage <a href="https://www.curseforge.com/minecraft/mc-mods/rune-craft">...</a>
  **/
 @Mod(References.MODID)
 public class RuneCraft {
@@ -26,18 +23,11 @@ public class RuneCraft {
 
     public RuneCraft(IEventBus eventBus, ModContainer container) {
 
-        eventBus.addListener(this::setup);
-
         ModBlocks.init(eventBus);
         ModItems.init(eventBus);
         CreativeModeTabs.init(eventBus);
+        ModLootModifiers.init(eventBus);
         Config.init(container);
-    }
-
-
-    private void setup(final @NotNull FMLCommonSetupEvent event) {
-        NeoForge.EVENT_BUS.addListener(LootTableInjection::onChestLootLoad);
-        NeoForge.EVENT_BUS.addListener(LootTableInjection::onEntityLootLoad);
     }
 
 }

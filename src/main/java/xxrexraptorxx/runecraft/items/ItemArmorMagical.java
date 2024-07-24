@@ -1,5 +1,6 @@
 package xxrexraptorxx.runecraft.items;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -13,7 +14,7 @@ import xxrexraptorxx.runecraft.registry.ModItems;
 
 public class ItemArmorMagical extends ArmorItem {
 
-    public ItemArmorMagical(ArmorMaterial material, Type type, Properties properties) {
+    public ItemArmorMagical(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
     }
 
@@ -26,9 +27,8 @@ public class ItemArmorMagical extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if(!level.isClientSide() && entity instanceof Player) {
+        if(!level.isClientSide() && entity instanceof Player player) {
 
-            Player player = (Player) entity;
             Item helmet = player.getInventory().getArmor(3).getItem();
             Item chestplate = player.getInventory().getArmor(2).getItem();
             Item leggings = player.getInventory().getArmor(1).getItem();

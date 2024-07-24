@@ -27,14 +27,11 @@
   },
 
     "result": {
-      "item": "minecraft:enchanted_book",
-    "nbt": {
-      "StoredEnchantments": [
-        {
-          "id": "projectile_protection",
-          "lvl": 1
-        }
-      ]
+      "id": "minecraft:enchanted_book",
+      "components": {
+          "minecraft:stored_enchantments": {
+              "projectile_protection": 1
+         }
+      }
     }
-  }
 }

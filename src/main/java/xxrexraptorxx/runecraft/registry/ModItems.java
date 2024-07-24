@@ -9,7 +9,6 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xxrexraptorxx.runecraft.items.*;
 import xxrexraptorxx.runecraft.main.References;
-import xxrexraptorxx.runecraft.utils.ArmorMaterials;
 
 public class ModItems {
 
@@ -111,11 +110,10 @@ public class ModItems {
     public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Y = ITEMS.register("portable_rune_stone_y", ItemPortableRuneStone::new);
     public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Z = ITEMS.register("portable_rune_stone_z", ItemPortableRuneStone::new);
 
-    public static final DeferredItem<ArmorItem> MAGICAL_CAP = ITEMS.register("magical_cap", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final DeferredItem<ArmorItem> MAGICAL_ROBE = ITEMS.register("magical_robe", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-    public static final DeferredItem<ArmorItem> MAGICAL_PANTS = ITEMS.register("magical_pants", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-    public static final DeferredItem<ArmorItem> MAGICAL_BOOTS = ITEMS.register("magical_boots", () -> new ItemArmorMagical(ArmorMaterials.MAGICAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> MAGICAL_CAP = ITEMS.register("magical_cap", () -> new ItemArmorMagical(ModArmorMaterials.MAGICAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> MAGICAL_ROBE = ITEMS.register("magical_robe", () -> new ItemArmorMagical(ModArmorMaterials.MAGICAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> MAGICAL_PANTS = ITEMS.register("magical_pants", () -> new ItemArmorMagical(ModArmorMaterials.MAGICAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final DeferredItem<ArmorItem> MAGICAL_BOOTS = ITEMS.register("magical_boots", () -> new ItemArmorMagical(ModArmorMaterials.MAGICAL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-    public static final DeferredItem<SwordItem> RITUAL_DAGGER = ITEMS.register("ritual_dagger", () -> new SwordItem(Tiers.GOLD, 3, -1.0f, new Item.Properties()));
-
+    public static final DeferredItem<SwordItem> RITUAL_DAGGER = ITEMS.register("ritual_dagger", () -> new SwordItem(Tiers.GOLD, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.GOLD,3, -1.5f))));
 }

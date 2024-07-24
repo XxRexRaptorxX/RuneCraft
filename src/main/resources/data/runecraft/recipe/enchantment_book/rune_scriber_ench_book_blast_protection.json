@@ -28,13 +28,10 @@
 
   "result": {
     "id": "minecraft:enchanted_book",
-  "nbt": {
-    "StoredEnchantments": [
-      {
-        "id": "blast_protection",
-        "lvl": 1
-      }
-    ]
+  "components": {
+     "minecraft:stored_enchantments": {
+            "blast_protection": 1
+     }
   }
 }
 }

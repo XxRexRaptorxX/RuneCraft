@@ -28,13 +28,10 @@
 
   "result": {
     "id": "minecraft:enchanted_book",
-  "nbt": {
-    "StoredEnchantments": [
-      {
-        "id": "feather_falling",
-        "lvl": 1
-      }
-    ]
+  "components": {
+     "minecraft:stored_enchantments": {
+            "feather_falling": 1
+     }
   }
 }
 }
