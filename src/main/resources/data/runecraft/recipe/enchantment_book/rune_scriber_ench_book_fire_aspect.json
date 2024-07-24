@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "fire_aspect": 1
+              "minecraft:fire_aspect": 1
          }
       }
     }

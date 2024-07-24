@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "lure": 1
+              "minecraft:lure": 1
          }
       }
     }

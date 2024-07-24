@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "projectile_protection": 1
+              "minecraft:projectile_protection": 1
          }
       }
     }

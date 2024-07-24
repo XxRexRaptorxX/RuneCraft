@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "silk_touch": 1
+              "minecraft:silk_touch": 1
          }
       }
     }

@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "impaling": 1
+              "minecraft:impaling": 1
          }
       }
     }

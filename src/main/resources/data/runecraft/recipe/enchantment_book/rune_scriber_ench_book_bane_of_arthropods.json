@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "bane_of_anthropods": 1
+            "minecraft:bane_of_arthropods": 1
      }
   }
 }

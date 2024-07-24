@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "vanishing_curse": 1
+            "minecraft:vanishing_curse": 1
      }
   }
 }

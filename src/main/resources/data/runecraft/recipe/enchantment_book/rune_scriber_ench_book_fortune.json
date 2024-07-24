@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "fortune": 1
+              "minecraft:fortune": 1
          }
       }
     }

@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "fire_protection": 1
+              "minecraft:fire_protection": 1
          }
       }
     }

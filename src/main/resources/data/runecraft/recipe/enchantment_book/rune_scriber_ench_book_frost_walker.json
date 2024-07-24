@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "frost_walker": 1
+              "minecraft:frost_walker": 1
          }
       }
     }

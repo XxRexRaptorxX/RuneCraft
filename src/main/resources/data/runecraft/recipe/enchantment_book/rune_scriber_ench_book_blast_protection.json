@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "blast_protection": 1
+            "minecraft:blast_protection": 1
      }
   }
 }

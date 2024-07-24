@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "binding_curse": 1
+            "minecraft:binding_curse": 1
      }
   }
 }

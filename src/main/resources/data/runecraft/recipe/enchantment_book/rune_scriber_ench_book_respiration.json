@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "respiration": 1
+              "minecraft:respiration": 1
          }
       }
     }

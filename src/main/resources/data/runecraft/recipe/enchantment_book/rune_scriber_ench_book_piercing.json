@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "piercing": 1
+              "minecraft:piercing": 1
          }
       }
     }

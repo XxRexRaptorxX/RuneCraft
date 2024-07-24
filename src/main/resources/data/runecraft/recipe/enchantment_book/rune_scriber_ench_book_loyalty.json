@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "loyality": 1
+              "minecraft:loyalty": 1
          }
       }
     }

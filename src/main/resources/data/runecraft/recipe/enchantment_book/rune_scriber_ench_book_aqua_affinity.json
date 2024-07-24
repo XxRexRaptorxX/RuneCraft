@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "aqua_affinity": 1
+            "minecraft:aqua_affinity": 1
       }
   }
 }

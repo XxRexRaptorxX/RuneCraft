@@ -30,7 +30,7 @@
     "id": "minecraft:enchanted_book",
   "components": {
      "minecraft:stored_enchantments": {
-            "channeling": 1
+            "minecraft:channeling": 1
      }
   }
 }

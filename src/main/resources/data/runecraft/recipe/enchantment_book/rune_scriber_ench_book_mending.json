@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "mending": 1
+              "minecraft:mending": 1
          }
       }
     }

@@ -30,7 +30,7 @@
       "id": "minecraft:enchanted_book",
       "components": {
           "minecraft:stored_enchantments": {
-              "unbreaking": 1
+              "minecraft:unbreaking": 1
          }
       }
     }
