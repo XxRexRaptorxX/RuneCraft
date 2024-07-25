@@ -632,7 +632,6 @@ public class Events {
 
 
     /** Wandering Trader **/
-
     @SubscribeEvent
     public static void addTrades(WandererTradesEvent event) {
         event.getGenericTrades().add(new BasicItemListing(5, new ItemStack(ModItems.SPIRIT_CRYSTAL.get(), 1), 3, 10));

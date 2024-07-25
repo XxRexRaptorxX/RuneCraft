@@ -106,6 +106,10 @@ public class BlockTagGen extends BlockTagsProvider {
                 .add(   ModBlocks.ALTAR_BLOCK.get()
                 );
 
+        tag(BlockTags.INFINIBURN_OVERWORLD)
+                .add(   ModBlocks.ALTAR_BLOCK.get()
+                );
+
         tag(BlockTags.SOUL_FIRE_BASE_BLOCKS)
                 .add(   ModBlocks.ALTAR_BLOCK.get(),
                         ModBlocks.RUIN_BLOCK.get(),
