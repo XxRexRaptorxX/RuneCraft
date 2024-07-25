@@ -4,17 +4,16 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": [
-        "minecraft:entities/evoker"
-        ]
+      "loot_table_id": "minecraft:entities/blaze"
       },
     {
       "condition": "minecraft:random_chance",
-      "chance": 0.7
+      "chance": 0.3
     }
   ],
 
 
-  "item": "runecraft:spirit_crystal",
-  "count": 1
+  "item": "runecraft:ash",
+  "min_count": 1,
+  "max_count": 3
 }

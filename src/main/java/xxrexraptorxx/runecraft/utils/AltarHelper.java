@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.breeze.Breeze;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -70,6 +71,10 @@ public class AltarHelper {
 			return new ItemStack(Items.ENCHANTED_BOOK);
 		case 20:
 			return new ItemStack(Items.ECHO_SHARD);
+		case 21:
+			return new ItemStack(Items.OMINOUS_TRIAL_KEY);
+		case 22:
+			return new ItemStack(Items.HEAVY_CORE);
 		default:
 			return new ItemStack(Items.ENDER_EYE);
 		}
@@ -407,6 +412,13 @@ public class AltarHelper {
 				husk.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 				world.addFreshEntity(cloud);
 				world.addFreshEntity(husk);
+				break;
+
+			case 5:
+				Breeze breeze = new Breeze(EntityType.BREEZE, world);
+				breeze.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
+				world.addFreshEntity(cloud);
+				world.addFreshEntity(breeze);
 				break;
 
 			default:

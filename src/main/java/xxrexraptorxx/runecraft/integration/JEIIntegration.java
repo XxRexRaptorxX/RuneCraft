@@ -52,6 +52,8 @@ public class JEIIntegration implements IModPlugin {
         treasures.add(new ItemStack(ModItems.SPIRIT_STAR.get()));
         treasures.add(new ItemStack(ModItems.SPIRIT_CRYSTAL.get()));
         treasures.add(new ItemStack(Items.ECHO_SHARD));
+        treasures.add(new ItemStack(Items.OMINOUS_TRIAL_KEY));
+        treasures.add(new ItemStack(Items.HEAVY_CORE));
 
         registry.addIngredientInfo(treasures, VanillaTypes.ITEM_STACK, Component.translatable("message.runecraft.treasure_ritual_drops_jei_desc"));
 

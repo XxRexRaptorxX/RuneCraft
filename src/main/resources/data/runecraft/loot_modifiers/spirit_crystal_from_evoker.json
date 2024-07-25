@@ -4,15 +4,15 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": "minecraft:chests/end_city_treasure"
+      "loot_table_id": "minecraft:entities/evoker"
       },
     {
       "condition": "minecraft:random_chance",
-      "chance": 0.2
+      "chance": 0.7
     }
   ],
 
 
-  "item": "runecraft:banned_page",
+  "item": "runecraft:spirit_crystal",
   "count": 1
 }

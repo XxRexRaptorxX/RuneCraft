@@ -4,11 +4,7 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": [
-        "minecraft:chests/ancient_city",
-        "minecraft:chests/stronghold_library",
-        "minecraft:chests/woodland_mansion"
-        ]
+      "loot_table_id": "minecraft:chests/ancient_city"
       },
     {
       "condition": "minecraft:random_chance",
@@ -17,6 +13,6 @@
   ],
 
 
-  "item": "runecraft:orb_page",
+  "item": "runecraft:alchemy_page",
   "count": 1
 }

@@ -4,7 +4,7 @@
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
-      "loot_table_id": "minecraft:chests/end_city_treasure"
+      "loot_table_id": "minecraft:chests/woodland_mansion"
       },
     {
       "condition": "minecraft:random_chance",
@@ -13,6 +13,6 @@
   ],
 
 
-  "item": "runecraft:banned_page",
+  "item": "runecraft:orb_page",
   "count": 1
 }

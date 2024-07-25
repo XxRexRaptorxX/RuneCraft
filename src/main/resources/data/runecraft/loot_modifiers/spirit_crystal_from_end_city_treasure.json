@@ -13,6 +13,7 @@
   ],
 
 
-  "item": "runecraft:banned_page",
-  "count": 1
+  "item": "runecraft:spirit_crystal",
+  "minCount": 1,
+  "maxCount": 3
 }

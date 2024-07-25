@@ -15,10 +15,8 @@
           "name": "patchouli:guide_book",
           "functions": [
             {
-              "function": "minecraft:set_components",
-              "components": {
-                "minecraft:custom_data": "{\"patchouli:book\": \"runecraft:book_of_rune_magic\"}"
-              }
+              "function": "patchouli:booK",
+              "tag": "runecraft:book_of_rune_magic"
             }
           ]
         }
