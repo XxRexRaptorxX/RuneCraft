@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "runecraft:ruin_block",
     "runecraft:rune_stone",
@@ -32,7 +31,6 @@
     "runecraft:rune_stone_dmg",
     "runecraft:rune_stone_fre",
     "runecraft:rune_stone_hrd",
-    "runecraft:rune_stone_ptl",
-    "runecraft:ruin_block"
+    "runecraft:rune_stone_ptl"
   ]
 }

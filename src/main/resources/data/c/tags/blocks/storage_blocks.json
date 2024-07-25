@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:storage_blocks/ash",
-    "#forge:storage_blocks/rune_dust"
+    "#c:storage_blocks/ash",
+    "#c:storage_blocks/rune_dust"
   ]
 }

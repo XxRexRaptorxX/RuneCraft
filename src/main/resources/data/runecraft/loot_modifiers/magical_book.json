@@ -1,0 +1,23 @@
+{
+  "type": "runecraft:add_item",
+  
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": [
+        "minecraft:chests/ancient_city",
+        "minecraft:chests/stronghold_library",
+        "minecraft:chests/woodland_mansion",
+        "minecraft:chests/end_city_treasure"
+      ]
+      },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.2
+    }
+  ],
+
+
+  "item": "runecraft:magical_book",
+  "count": 1
+}

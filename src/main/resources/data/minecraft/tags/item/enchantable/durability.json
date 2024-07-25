@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values":
+  [
+    "runecraft:ritual_dagger",
+    "runecraft:basic_wand",
+    "runecraft:aether_wand",
+    "runecraft:nether_wand",
+    "runecraft:curse_wand",
+    "runecraft:holy_wand",
+    "runecraft:storm_wand",
+    "runecraft:maelstrom_wand",
+    "runecraft:escape_wand",
+    "runecraft:defensive_wand",
+    "runecraft:thunder_wand",
+    "runecraft:creature_wand",
+    "runecraft:changing_wand",
+    "runecraft:destruction_wand"
+  ]
+}
