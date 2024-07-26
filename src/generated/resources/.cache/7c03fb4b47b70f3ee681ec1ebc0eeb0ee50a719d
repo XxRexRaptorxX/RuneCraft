@@ -1,4 +1,5 @@
-// 1.21	2024-07-25T22:52:43.7771411	Tags for minecraft:block mod id runecraft
+// 1.21	2024-07-26T00:59:18.4175275	Tags for minecraft:block mod id runecraft
+2eec26d44ac47f67a50e48f20e8dec27630c55bf data/minecraft/tags/block/infiniburn_overworld.json
 defb11b5fc75f1315a1b0551aa5d697656e5ea07 data/minecraft/tags/block/mineable/pickaxe.json
 b3a185809a8df38ad723266372d3d2fc7c26e084 data/minecraft/tags/block/mineable/shovel.json
 1eeefc2a47ae1febc003f9dc77ff6538d2f4a213 data/minecraft/tags/block/needs_iron_tool.json

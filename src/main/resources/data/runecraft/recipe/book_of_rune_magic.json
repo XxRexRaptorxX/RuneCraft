@@ -25,7 +25,7 @@
   
   "result": {
     "id": "patchouli:guide_book",
-    "nbt": {
+    "components": {
       "patchouli:book": "runecraft:book_of_rune_magic"
     }
   }
