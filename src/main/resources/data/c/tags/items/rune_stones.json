@@ -1,0 +1,35 @@
+{
+  "replace": false,
+  "values":
+  [
+    "#c:portable_rune_stones",
+
+    "runecraft:rune_stone",
+    "runecraft:rune_stone_a",
+    "runecraft:rune_stone_b",
+    "runecraft:rune_stone_c",
+    "runecraft:rune_stone_d",
+    "runecraft:rune_stone_e",
+    "runecraft:rune_stone_f",
+    "runecraft:rune_stone_g",
+    "runecraft:rune_stone_h",
+    "runecraft:rune_stone_i",
+    "runecraft:rune_stone_j",
+    "runecraft:rune_stone_k",
+    "runecraft:rune_stone_l",
+    "runecraft:rune_stone_m",
+    "runecraft:rune_stone_n",
+    "runecraft:rune_stone_o",
+    "runecraft:rune_stone_p",
+    "runecraft:rune_stone_q",
+    "runecraft:rune_stone_r",
+    "runecraft:rune_stone_s",
+    "runecraft:rune_stone_t",
+    "runecraft:rune_stone_u",
+    "runecraft:rune_stone_v",
+    "runecraft:rune_stone_w",
+    "runecraft:rune_stone_x",
+    "runecraft:rune_stone_y",
+    "runecraft:rune_stone_z"
+  ]
+}
