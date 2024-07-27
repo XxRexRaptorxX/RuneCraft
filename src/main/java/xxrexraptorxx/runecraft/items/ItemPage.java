@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class ItemPage extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.literal("Required Xp levels: " + AltarHelper.getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
+        if (this != ModItems.MAGICAL_PAGE.get())
+            list.add(Component.literal("Required Xp levels: " + AltarHelper.getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
     }
 }
