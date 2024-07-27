@@ -8,6 +8,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
@@ -441,6 +442,23 @@ public class AltarHelper {
 		if(item == ModItems.ENCHANTING_PAGE.get()) return Config.ENCHANTING_PAGE_COST.get();
 		if(item == ModItems.ALCHEMY_PAGE.get()) return Config.ALCHEMY_PAGE_COST.get();
 		else return 0;
+	}
+
+
+	public static void spawnRandomGhosts(Level world, BlockPos pos) {
+		Random random = new Random();
+		int chance = random.nextInt(100);
+
+		if (chance > 80) {
+			Vex vex = new Vex(EntityType.VEX, world);
+			vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
+			world.addFreshEntity(vex);
+
+		} else if (chance == 1) {
+			Allay allay = new Allay(EntityType.ALLAY, world);
+			allay.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
+			world.addFreshEntity(allay);
+		}
 	}
 
 }

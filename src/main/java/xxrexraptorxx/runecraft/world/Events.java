@@ -22,9 +22,7 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -292,12 +290,7 @@ public class Events {
                             ItemEntity reward = new ItemEntity(world, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.MAGICAL_BOOK.get()));
                             world.addFreshEntity(reward);
 
-                            //Spawn random vex's
-                            if (random.nextInt(3) == 1) {
-                                Vex vex = new Vex(EntityType.VEX, world);
-                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                world.addFreshEntity(vex);
-                            }
+                            AltarHelper.spawnRandomGhosts(world, pos);
 
                             event.setUseBlock(TriState.FALSE);
                             event.setUseItem(TriState.FALSE);
@@ -338,7 +331,7 @@ public class Events {
 
                 if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
 
-                    if (player.level().isDay() == false) {
+                    if (!player.level().isDay()) {
 
                         //Ambient
                         world.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, world.random.nextFloat() * 0.15F + 0.8F);
@@ -395,20 +388,7 @@ public class Events {
                                 world.addFreshEntity(reward);
                             }
 
-                            //Spawn random ghosts
-                            Random random = new Random();
-                            int chance = random.nextInt(100);
-
-                            if (chance > 66) {
-                                Vex vex = new Vex(EntityType.VEX, world);
-                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                world.addFreshEntity(vex);
-
-                            } else if (chance == 1) {
-                                    Allay allay = new Allay(EntityType.ALLAY, world);
-                                    allay.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                    world.addFreshEntity(allay);
-                            }
+                            AltarHelper.spawnRandomGhosts(world, pos);
 
                             event.setUseBlock(TriState.FALSE);
                             event.setUseItem(TriState.FALSE);
@@ -416,8 +396,9 @@ public class Events {
                         }
 
 
-                    } else { //TODO BUGGY makes no sense!
-                        //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
+                    } else {
+                        if (world.isClientSide)
+                            player.displayClientMessage(Component.translatable("message.runecraft.not_night", new Object[]{10}), true);
                     }
                 } else {
                     if (world.isClientSide)
@@ -519,7 +500,6 @@ public class Events {
         Level world = event.getLevel();
         BlockPos pos = event.getPos();
         Player player = event.getEntity();
-        Random random = new Random();
 
         if (stack.getItem() == ModItems.SOUL.get() && stack.has(DataComponents.CUSTOM_DATA)) {
 
@@ -562,15 +542,9 @@ public class Events {
 
                                 RuneCraft.LOGGER.error(e);
                                 RuneCraft.LOGGER.error("Entity Type: " + stack.get(DataComponents.CUSTOM_DATA).copyTag().getString("owner"));
-
                             }
 
-                            //Spawn random vex's
-                            if (random.nextInt(3) == 1) {
-                                Vex vex = new Vex(EntityType.VEX, world);
-                                vex.setPos(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F);
-                                world.addFreshEntity(vex);
-                            }
+                            AltarHelper.spawnRandomGhosts(world, pos);
 
                             event.setUseBlock(TriState.FALSE);
                             event.setUseItem(TriState.FALSE);
@@ -578,8 +552,9 @@ public class Events {
                         }
 
 
-                    } else { //TODO BUGGY makes no sense!
-                        //if(world.isClientSide) player.sendMessage(new TranslatableComponent("message.runecraft.not_night", new Object[]{10}), UUID.randomUUID());
+                    } else {
+                        if(world.isClientSide)
+                            player.displayClientMessage(Component.translatable("message.runecraft.not_night", new Object[]{10}), true);
                     }
                 } else {
                     if (world.isClientSide)
@@ -596,7 +571,6 @@ public class Events {
     /** Soul stuff **/
 
     //public static final DamageSource SOUL_REAPER = new DamageSource(References.MODID + ".soul_reaper"); TODO
-
 
     @SubscribeEvent
     public static void onEntityDeath(LivingDeathEvent event) {
