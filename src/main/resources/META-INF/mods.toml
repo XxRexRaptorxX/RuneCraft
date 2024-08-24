@@ -31,7 +31,7 @@ description='''This magical mod adds everything related to runes to the game!'''
 
 [[dependencies.runecraft]]
     modId="patchouli"
-    mandatory=false
+    mandatory=true
     versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
