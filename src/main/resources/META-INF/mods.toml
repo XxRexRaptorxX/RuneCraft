@@ -13,9 +13,7 @@ displayURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft"
 logoFile="logo.png"
 #credits=""
 authors="XxRexRaptorxX (RexRaptor)"
-description='''
-This magical mod adds everything related to runes to the game!
-'''
+description='''This magical mod adds everything related to runes to the game!'''
 
 [[dependencies.runecraft]]
     modId="forge"
