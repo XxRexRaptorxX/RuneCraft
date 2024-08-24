@@ -44,8 +44,8 @@ public class ItemRune extends Item {
     public InteractionResult useOn(UseOnContext event) {
         Player player = event.getPlayer();
         Level level = player.getLevel();
-        Item item = event.getItemInHand().getItem();
-        ItemStack stack = new ItemStack(item);
+        ItemStack stack = event.getItemInHand();
+        Item item = stack.getItem();
         BlockPos pos = event.getClickedPos().above();
 
         if(!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
