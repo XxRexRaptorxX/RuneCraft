@@ -21,7 +21,6 @@ public class ItemArmorMagical extends ArmorItem {
     @Override
     public boolean isRepairable(ItemStack stack) {
         return stack.getItem() == ModItems.CLOTH.get();
-
     }
 
 
