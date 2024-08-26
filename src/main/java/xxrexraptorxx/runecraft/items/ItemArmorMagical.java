@@ -18,10 +18,23 @@ public class ItemArmorMagical extends ArmorItem {
         super(material, type, properties);
     }
 
+
     @Override
     public boolean isRepairable(ItemStack stack) {
         return stack.getItem() == ModItems.CLOTH.get();
 
+    }
+
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
+    }
+
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
     }
 
 
