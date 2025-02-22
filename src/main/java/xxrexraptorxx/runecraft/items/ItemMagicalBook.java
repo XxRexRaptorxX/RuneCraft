@@ -12,8 +12,8 @@ import net.minecraft.world.level.Level;
 
 public class ItemMagicalBook extends Item {
 
-    public ItemMagicalBook() {
-        super(new Properties()
+    public ItemMagicalBook(Properties properties) {
+        super(properties
                 .rarity(Rarity.RARE)
                 .stacksTo(1)
                 .durability(15)
@@ -29,13 +29,7 @@ public class ItemMagicalBook extends Item {
 
 
     @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) {
-        return true;
-    }
-
-
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack stack) {
+    public ItemStack getCraftingRemainder(ItemStack stack) {
         if (stack.getMaxDamage() == stack.getDamageValue()) {
             return new ItemStack(Items.AIR);
         } else {

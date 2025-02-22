@@ -22,8 +22,8 @@ import java.util.List;
 
 public class ItemRune extends Item {
 
-    public ItemRune() {
-        super(new Properties()
+    public ItemRune(Properties properties) {
+        super(properties
                 .stacksTo(16)
         );
     }

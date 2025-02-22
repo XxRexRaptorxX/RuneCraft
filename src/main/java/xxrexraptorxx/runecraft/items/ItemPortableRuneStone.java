@@ -27,8 +27,8 @@ import java.util.Random;
 
 public class ItemPortableRuneStone extends Item {
 
-    public ItemPortableRuneStone() {
-        super(new Properties()
+    public ItemPortableRuneStone(Properties properties) {
+        super(properties
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
                 .durability(200) //(Config.PORTABLE_RUNE_STONE_DURABILITY.get())
@@ -89,7 +89,7 @@ public class ItemPortableRuneStone extends Item {
                 }
 
                 //item stuff
-                player.getCooldowns().addCooldown(this, Config.PORTABLE_SPELL_COOLDOWN.get());
+                player.getCooldowns().addCooldown(stack, Config.PORTABLE_SPELL_COOLDOWN.get());
                 stack.setDamageValue(stack.getDamageValue() + 1);
 
                 if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));

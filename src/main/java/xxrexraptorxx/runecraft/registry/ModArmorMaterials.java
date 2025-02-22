@@ -1,39 +1,44 @@
 package xxrexraptorxx.runecraft.registry;
 
 import net.minecraft.Util;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.EquipmentAssets;
 import xxrexraptorxx.runecraft.main.References;
 
 import java.util.EnumMap;
-import java.util.List;
 
 public class ModArmorMaterials {
 
-    private static final DeferredRegister<ArmorMaterial> MATERIAL = DeferredRegister.create(BuiltInRegistries.ARMOR_MATERIAL, References.MODID);
+    public static final TagKey<Item> REPAIR_MATERIALS_MAGICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "repair_materials_magical"));
 
-
-    public static void init(IEventBus bus) {
-        MATERIAL.register(bus);
-    }
-
-
-    public static final Holder<ArmorMaterial> MAGICAL = MATERIAL.register("magical", () -> new ArmorMaterial(
-            Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
-                map.put(ArmorItem.Type.BOOTS, 1);
-                map.put(ArmorItem.Type.LEGGINGS, 2);
-                map.put(ArmorItem.Type.CHESTPLATE, 2);
-                map.put(ArmorItem.Type.HELMET, 1);
+    public static final net.minecraft.world.item.equipment.ArmorMaterial BEDROCK_ARMOR_MATERIAL = new net.minecraft.world.item.equipment.ArmorMaterial(
+            // The durability multiplier of the armor material.
+            // ArmorType have different unit durabilities that the multiplier is applied to:
+            // - HELMET: 11
+            // - CHESTPLATE: 16
+            // - LEGGINGS: 15
+            // - BOOTS: 13
+            // - BODY: 16
+            50,
+            Util.make(new EnumMap<>(ArmorType.class), map -> {
+                map.put(ArmorType.BOOTS, 1);
+                map.put(ArmorType.LEGGINGS, 2);
+                map.put(ArmorType.CHESTPLATE, 2);
+                map.put(ArmorType.HELMET, 2);
+                map.put(ArmorType.BODY, 2);
             }),
-            30, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(ModItems.CLOTH), List.of(
-                    new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(References.MODID, "magical"))), 0.0F, 0));
-
+            30,
+            SoundEvents.ARMOR_EQUIP_LEATHER,
+            0.0F,
+            0.0F,
+            REPAIR_MATERIALS_MAGICAL,
+            ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(References.MODID, "magical"))
+    );
 
 }

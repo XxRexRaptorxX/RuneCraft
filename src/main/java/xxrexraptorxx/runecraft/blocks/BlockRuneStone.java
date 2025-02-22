@@ -33,6 +33,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
@@ -66,7 +67,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return CUSTOM_COLLISION_AABB;
 	}
 
@@ -78,7 +79,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void animateTick(BlockState pState, Level world, BlockPos pos, RandomSource random) {
+	public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
 		Random rand = new Random();
 
 		double d0 = (double)((float)pos.getX() + rand.nextFloat());
@@ -136,7 +137,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
+	public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
 		Random rand = new Random();
 
 		double d0 = (double) ((float) pos.getX() + rand.nextFloat());
@@ -145,19 +146,19 @@ public class BlockRuneStone extends Block {
 		double d3 = 0.0D;
 		double d4 = 0.0D;
 		double d5 = 0.0D;
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
-		if (!world.isClientSide) {
-			world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+		if (!level.isClientSide) {
+			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
-			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
-			world.addFreshEntity(drop);
+			ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
+			level.addFreshEntity(drop);
 
 			if (this != ModBlocks.RUNE_STONE.get()) {
-				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
-				world.addFreshEntity(extraDrop);
+				ItemEntity extraDrop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
+				level.addFreshEntity(extraDrop);
 			}
 		}
 	}
@@ -199,7 +200,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+	protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
 		if (!level.isClientSide && Config.ACTIVATE_REDSTONE_EFFECT.get()) {
 			boolean flag = state.getValue(POWERED);
 
@@ -248,7 +249,6 @@ public class BlockRuneStone extends Block {
 		if (state.getValue(POWERED) && !level.hasNeighborSignal(pos)) {
 			level.setBlock(pos, state.cycle(POWERED), 2);
 		}
-
 	}
 
 }

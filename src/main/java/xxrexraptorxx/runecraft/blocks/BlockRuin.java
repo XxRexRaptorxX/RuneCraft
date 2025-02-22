@@ -2,6 +2,7 @@ package xxrexraptorxx.runecraft.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
@@ -38,7 +38,7 @@ public class BlockRuin extends Block {
 
 
 	@Override
-	public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
+	public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
 		Random rand = new Random();
 
 		double d0 = (double)((float)pos.getX() + rand.nextFloat());
@@ -47,19 +47,19 @@ public class BlockRuin extends Block {
 		double d3 = 0.0D;
 		double d4 = 0.0D;
 		double d5 = 0.0D;
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
 
-		if(!world.isClientSide) {
-			world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+		if(!level.isClientSide) {
+			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
-			ItemEntity drop1 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
-			ItemEntity drop2 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
-			ItemEntity drop3 = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
-			world.addFreshEntity(drop1);
-			world.addFreshEntity(drop2);
-			world.addFreshEntity(drop3);
+			ItemEntity drop1 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop2 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			ItemEntity drop3 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
+			level.addFreshEntity(drop1);
+			level.addFreshEntity(drop2);
+			level.addFreshEntity(drop3);
 		}
 	}
 

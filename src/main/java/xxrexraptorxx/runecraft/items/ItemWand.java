@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -46,8 +47,8 @@ import java.util.Random;
 
 public class ItemWand extends Item {
 
-    public ItemWand() {
-        super(new Properties()
+    public ItemWand(Properties properties) {
+        super(properties
                 .rarity(Rarity.EPIC)
                 .stacksTo(1)
                 .durability(200)
@@ -74,7 +75,7 @@ public class ItemWand extends Item {
                 /** BASIC **/
                 if (item == ModItems.BASIC_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
@@ -137,7 +138,7 @@ public class ItemWand extends Item {
                     /** CURSE **/
                 } else if (item == ModItems.CURSE_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
@@ -216,7 +217,7 @@ public class ItemWand extends Item {
                     /** HOLY **/
                 } else if (item == ModItems.HOLY_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
@@ -254,7 +255,7 @@ public class ItemWand extends Item {
                     /** MAELSTROM **/
                 } else if (item == ModItems.MAELSTROM_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.getPlayer().getX() + 7.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ());
@@ -323,7 +324,7 @@ public class ItemWand extends Item {
                     /** ESCAPE **/
                 } else if (item == ModItems.ESCAPE_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         player.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
@@ -363,7 +364,7 @@ public class ItemWand extends Item {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
                     if (player.getPlayer().isShiftKeyDown())
-                        player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                        player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         if (player.getPlayer().isShiftKeyDown()) {
@@ -376,7 +377,7 @@ public class ItemWand extends Item {
                     /** THUNDER **/
                 } else if (item == ModItems.THUNDER_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     if (!level.isClientSide) {
                         if (player.getPlayer().isShiftKeyDown()) {
@@ -392,7 +393,7 @@ public class ItemWand extends Item {
                     BlockPos blockPos = player.getPlayer().blockPosition();
 
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
                     player.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 0));
 
 
@@ -460,7 +461,7 @@ public class ItemWand extends Item {
                     /** CREATURE **/
                 } else if (item == ModItems.CREATURE_WAND.get()) {
                     level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(this, Config.WAND_COOLDOWN.get());
+                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
 
                     AltarHelper.getRandomWeakMob(level, player.getClickedPos());
                     AltarHelper.getRandomWeakMob(level, player.getClickedPos());
@@ -579,14 +580,14 @@ public class ItemWand extends Item {
             /** THUNDER **/
             } else if (item == ModItems.THUNDER_WAND.get()) {
                 if(!level.isClientSide) {
-                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
+                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                     lightningbolt.moveTo(entity.getX(), entity.getY(), entity.getZ());
                     level.addFreshEntity(lightningbolt);
                 }
             }
 
 
-            if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(this, 150);
+            if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(stack, 150);
             if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
             stack.setDamageValue(stack.getDamageValue() + 1);
 
@@ -603,9 +604,9 @@ public class ItemWand extends Item {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         /** STORM **/  //TODO: rework
         if(stack.getItem() == ModItems.STORM_WAND.get() && !stack.isEnchanted()) {
-            Registry<Enchantment> enchantmentsRegistry = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT);
+            Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
 
-            stack.enchant(enchantmentsRegistry.getHolderOrThrow(Enchantments.KNOCKBACK), 5);
+            stack.enchant(enchantmentsRegistry.getOrThrow(Enchantments.KNOCKBACK), 5);
             stack.set(DataComponents.ENCHANTMENTS, stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY));
         }
     }
@@ -634,8 +635,9 @@ public class ItemWand extends Item {
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
    **/
+
     @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
+    public boolean onEntitySwing(ItemStack stack, LivingEntity entity, InteractionHand hand) {
         Random random = new Random();
         Player player = (Player) entity;
         Level level = entity.level();
@@ -666,18 +668,18 @@ public class ItemWand extends Item {
 
 
     /** CHANGING WAND **/
-    private boolean handleInteraction(Player p_150803_, BlockState p_150804_, LevelAccessor p_150805_, BlockPos p_150806_, boolean p_150807_, ItemStack p_150808_) {
-        if (!p_150803_.canUseGameMasterBlocks()) {
+    private boolean handleInteraction(Player player, BlockState state, LevelAccessor level, BlockPos pos, boolean p_150807_, ItemStack stack) {
+        if (!player.canUseGameMasterBlocks()) {
             return false;
         } else {
-            Holder<Block> holder = p_150804_.getBlockHolder();
+            Holder<Block> holder = state.getBlockHolder();
             StateDefinition<Block, BlockState> statedefinition = ((Block)holder.value()).getStateDefinition();
             Collection<Property<?>> collection = statedefinition.getProperties();
             if (collection.isEmpty()) {
-                message(p_150803_, Component.translatable(this.getDescriptionId() + ".empty", new Object[]{holder.getRegisteredName()}));
+                message(player, Component.translatable(this.getDescriptionId() + ".empty", new Object[]{holder.getRegisteredName()}));
                 return false;
             } else {
-                DebugStickState debugstickstate = (DebugStickState)p_150808_.get(DataComponents.DEBUG_STICK_STATE);
+                DebugStickState debugstickstate = (DebugStickState)stack.get(DataComponents.DEBUG_STICK_STATE);
                 if (debugstickstate == null) {
                     return false;
                 } else {
@@ -687,15 +689,15 @@ public class ItemWand extends Item {
                             property = (Property)collection.iterator().next();
                         }
 
-                        BlockState blockstate = cycleState(p_150804_, property, p_150803_.isSecondaryUseActive());
-                        p_150805_.setBlock(p_150806_, blockstate, 18);
-                        if (p_150803_.level().isClientSide) p_150803_.awardStat(Stats.ITEM_USED.get(this));
+                        BlockState blockstate = cycleState(state, property, player.isSecondaryUseActive());
+                        level.setBlock(pos, blockstate, 18);
+                        if (player.level().isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
 
-                        message(p_150803_, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
+                        message(player, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
                     } else {
-                        property = (Property)getRelative(collection, property, p_150803_.isSecondaryUseActive());
-                        p_150808_.set(DataComponents.DEBUG_STICK_STATE, debugstickstate.withProperty(holder, property));
-                        message(p_150803_, Component.translatable(this.getDescriptionId() + ".select", new Object[]{property.getName(), getNameHelper(p_150804_, property)}));
+                        property = (Property)getRelative(collection, property, player.isSecondaryUseActive());
+                        stack.set(DataComponents.DEBUG_STICK_STATE, debugstickstate.withProperty(holder, property));
+                        message(player, Component.translatable(this.getDescriptionId() + ".select", new Object[]{property.getName(), getNameHelper(state, property)}));
                     }
 
                     return true;
@@ -704,23 +706,23 @@ public class ItemWand extends Item {
         }
     }
 
-    private static void message(Player p_40957_, Component p_40958_) {
-        ((ServerPlayer)p_40957_).sendSystemMessage(p_40958_, true);
+    private static void message(Player player, Component component) {
+        ((ServerPlayer)player).sendSystemMessage(component, true);
     }
 
 
-    private static <T extends Comparable<T>> BlockState cycleState(BlockState pState, Property<T> pProperty, boolean pBackwards) {
-        return pState.setValue(pProperty, getRelative(pProperty.getPossibleValues(), pState.getValue(pProperty), pBackwards));
+    private static <T extends Comparable<T>> BlockState cycleState(BlockState state, Property<T> property, boolean backwards) {
+        return state.setValue(property, getRelative(property.getPossibleValues(), state.getValue(property), backwards));
     }
 
 
-    private static <T> T getRelative(Iterable<T> pAllowedValues, @Nullable T pCurrentValue, boolean pBackwards) {
-        return (T)(pBackwards ? Util.findPreviousInIterable(pAllowedValues, pCurrentValue) : Util.findNextInIterable(pAllowedValues, pCurrentValue));
+    private static <T> T getRelative(Iterable<T> allowedValues, @Nullable T currentValue, boolean backwards) {
+        return (T)(backwards ? Util.findPreviousInIterable(allowedValues, currentValue) : Util.findNextInIterable(allowedValues, currentValue));
     }
 
 
-    private static <T extends Comparable<T>> String getNameHelper(BlockState pState, Property<T> pProperty) {
-        return pProperty.getName(pState.getValue(pProperty));
+    private static <T extends Comparable<T>> String getNameHelper(BlockState state, Property<T> property) {
+        return property.getName(state.getValue(property));
     }
 
 }

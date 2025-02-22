@@ -1,24 +1,26 @@
 package xxrexraptorxx.runecraft.datagen;
 
-import net.minecraft.data.PackOutput;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ItemModelOutput;
+import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
-public class ItemModelGen extends ItemModelProvider {
+import java.util.function.BiConsumer;
 
-    public ItemModelGen(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
-        super(packOutput, References.MODID, existingFileHelper);
+public class ItemModelGen extends ItemModelGenerators {
+
+    public ItemModelGen(ItemModelOutput itemModelOutput, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+        super(itemModelOutput, modelOutput);
     }
 
-    @Override
-    protected void registerModels() {
 
+    @Override
+    public void run() {
         itemBlock(ModBlocks.ASH_BLOCK);
         itemBlock(ModBlocks.ALTAR_BLOCK);
         itemBlock(ModBlocks.RUIN_BLOCK);

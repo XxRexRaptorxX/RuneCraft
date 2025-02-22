@@ -6,8 +6,8 @@ import net.minecraft.world.item.Rarity;
 
 public class ItemRelict extends Item {
 
-    public ItemRelict() {
-        super(new Properties()
+    public ItemRelict(Properties properties) {
+        super(properties
             .rarity(Rarity.RARE)
         );
 

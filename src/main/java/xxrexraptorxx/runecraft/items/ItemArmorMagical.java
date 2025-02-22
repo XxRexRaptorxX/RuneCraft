@@ -1,34 +1,20 @@
 package xxrexraptorxx.runecraft.items;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
 public class ItemArmorMagical extends ArmorItem {
 
-    public ItemArmorMagical(Holder<ArmorMaterial> material, Type type, Properties properties) {
-        super(material, type, properties);
-    }
-
-
-    @Override
-    public boolean isRepairable(ItemStack stack) {
-        return stack.getItem() == ModItems.CLOTH.get();
-
-    }
-
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
+    public ItemArmorMagical(net.minecraft.world.item.equipment.ArmorMaterial material, ArmorType armorType, Item.Properties properties) {
+        super(material, armorType, properties);
     }
 
 

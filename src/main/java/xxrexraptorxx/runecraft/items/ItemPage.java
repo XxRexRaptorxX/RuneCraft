@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ItemPage extends Item {
 
-    public ItemPage() {
-        super(new Properties()
+    public ItemPage(Properties properties) {
+        super(properties
                 .rarity(Rarity.RARE)
                 .stacksTo(16)
         );

@@ -9,6 +9,9 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockRuneDust extends FallingBlock {
 
+	public static final MapCodec<BlockRuneDust> CODEC = simpleCodec(BlockRuneDust::new);
+
+
 	public BlockRuneDust() {
 		super(Properties.of()
 				.strength(0.2F, 0.0F)
@@ -21,6 +24,6 @@ public class BlockRuneDust extends FallingBlock {
 
 	@Override
 	protected MapCodec<? extends FallingBlock> codec() {
-		return null;
+		return codec();
 	}
 }
