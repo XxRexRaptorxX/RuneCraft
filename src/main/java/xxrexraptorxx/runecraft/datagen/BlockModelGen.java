@@ -18,6 +18,8 @@ public class BlockModelGen extends BlockModelGenerators {
 
     @Override
     public void run() {
-        createTrivialCube(ModBlocks..get());
+        createTrivialCube(ModBlocks.RUNE_DUST_BLOCK.get());
+        createTrivialCube(ModBlocks.ASH_BLOCK.get());
+        createMultiface(ModBlocks.RUIN_BLOCK.get());
     }
 }

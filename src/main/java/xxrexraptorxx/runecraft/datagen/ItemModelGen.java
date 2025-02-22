@@ -3,11 +3,8 @@ package xxrexraptorxx.runecraft.datagen;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.model.ModelInstance;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
-import xxrexraptorxx.runecraft.main.References;
-import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
 import java.util.function.BiConsumer;
@@ -21,94 +18,102 @@ public class ItemModelGen extends ItemModelGenerators {
 
     @Override
     public void run() {
-        itemBlock(ModBlocks.ASH_BLOCK);
-        itemBlock(ModBlocks.ALTAR_BLOCK);
-        itemBlock(ModBlocks.RUIN_BLOCK);
-        itemBlock(ModBlocks.RUNE_DUST_BLOCK);
-        itemBlock(ModBlocks.RUNE_SCRIBER_BLOCK);
-        itemBlock(ModBlocks.RUNE_STONE);
-        itemBlock(ModBlocks.RUNE_STONE_A);
-        itemBlock(ModBlocks.RUNE_STONE_B);
-        itemBlock(ModBlocks.RUNE_STONE_C);
-        itemBlock(ModBlocks.RUNE_STONE_D);
-        itemBlock(ModBlocks.RUNE_STONE_E);
-        itemBlock(ModBlocks.RUNE_STONE_F);
-        itemBlock(ModBlocks.RUNE_STONE_G);
-        itemBlock(ModBlocks.RUNE_STONE_H);
-        itemBlock(ModBlocks.RUNE_STONE_I);
-        itemBlock(ModBlocks.RUNE_STONE_J);
-        itemBlock(ModBlocks.RUNE_STONE_K);
-        itemBlock(ModBlocks.RUNE_STONE_L);
-        itemBlock(ModBlocks.RUNE_STONE_M);
-        itemBlock(ModBlocks.RUNE_STONE_N);
-        itemBlock(ModBlocks.RUNE_STONE_O);
-        itemBlock(ModBlocks.RUNE_STONE_P);
-        itemBlock(ModBlocks.RUNE_STONE_Q);
-        itemBlock(ModBlocks.RUNE_STONE_R);
-        itemBlock(ModBlocks.RUNE_STONE_S);
-        itemBlock(ModBlocks.RUNE_STONE_T);
-        itemBlock(ModBlocks.RUNE_STONE_U);
-        itemBlock(ModBlocks.RUNE_STONE_V);
-        itemBlock(ModBlocks.RUNE_STONE_W);
-        itemBlock(ModBlocks.RUNE_STONE_X);
-        itemBlock(ModBlocks.RUNE_STONE_Y);
-        itemBlock(ModBlocks.RUNE_STONE_Z);
-        itemBlock(ModBlocks.RUNE_STONE_DMG);
-        itemBlock(ModBlocks.RUNE_STONE_FRE);
-        //itemBlock(ModBlocks.RUNE_STONE_GHS);
-        itemBlock(ModBlocks.RUNE_STONE_HRD);
-        itemBlock(ModBlocks.RUNE_STONE_PTL);
+        this.generateFlatItem(ModItems.BASIC_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.AETHER_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.NETHER_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.CURSE_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.HOLY_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.STORM_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.MAELSTROM_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.ESCAPE_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.DEFENSIVE_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.THUNDER_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.CREATURE_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.CHANGING_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.DESTRUCTION_WAND.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.MAGICAL_BOOK.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MAGICAL_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.SPELL_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ENCHANTING_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.WAND_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ORB_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ALCHEMY_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.CURSE_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.LOST_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.BANNED_PAGE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ORB.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.SOUL_ORB.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.SPIRIT_STAR.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.SPIRIT_CRYSTAL.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.ASH.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_DUST.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.CLOTH.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.SOUL.get(), ModelTemplates.FLAT_ITEM);
 
-        itemBlock(ModBlocks.RUNE_BLOCK_A);
-        itemBlock(ModBlocks.RUNE_BLOCK_B);
-        itemBlock(ModBlocks.RUNE_BLOCK_C);
-        itemBlock(ModBlocks.RUNE_BLOCK_D);
-        itemBlock(ModBlocks.RUNE_BLOCK_E);
-        itemBlock(ModBlocks.RUNE_BLOCK_F);
-        itemBlock(ModBlocks.RUNE_BLOCK_G);
-        itemBlock(ModBlocks.RUNE_BLOCK_H);
-        itemBlock(ModBlocks.RUNE_BLOCK_I);
-        itemBlock(ModBlocks.RUNE_BLOCK_J);
-        itemBlock(ModBlocks.RUNE_BLOCK_K);
-        itemBlock(ModBlocks.RUNE_BLOCK_L);
-        itemBlock(ModBlocks.RUNE_BLOCK_M);
-        itemBlock(ModBlocks.RUNE_BLOCK_N);
-        itemBlock(ModBlocks.RUNE_BLOCK_O);
-        itemBlock(ModBlocks.RUNE_BLOCK_P);
-        itemBlock(ModBlocks.RUNE_BLOCK_Q);
-        itemBlock(ModBlocks.RUNE_BLOCK_R);
-        itemBlock(ModBlocks.RUNE_BLOCK_S);
-        itemBlock(ModBlocks.RUNE_BLOCK_T);
-        itemBlock(ModBlocks.RUNE_BLOCK_U);
-        itemBlock(ModBlocks.RUNE_BLOCK_V);
-        itemBlock(ModBlocks.RUNE_BLOCK_W);
-        itemBlock(ModBlocks.RUNE_BLOCK_X);
-        itemBlock(ModBlocks.RUNE_BLOCK_Y);
-        itemBlock(ModBlocks.RUNE_BLOCK_Z);
-        itemBlock(ModBlocks.RUNE_BLOCK_DMG);
-        itemBlock(ModBlocks.RUNE_BLOCK_FRE);
-        itemBlock(ModBlocks.RUNE_BLOCK_HRD);
-        itemBlock(ModBlocks.RUNE_BLOCK_PTL);
+        this.generateFlatItem(ModItems.RUNE_A.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_B.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_C.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_D.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_E.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_F.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_G.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_H.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_I.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_J.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_K.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_L.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_M.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_N.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_O.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_P.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_Q.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_R.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_S.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_T.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_U.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_V.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_W.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_X.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_Y.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_Z.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_DMG.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_FRE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_HRD.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RUNE_PTL.get(), ModelTemplates.FLAT_ITEM);
 
-        itemHandheld(ModItems.RITUAL_DAGGER);
-    }
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_A.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_B.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_C.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_D.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_E.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_F.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_G.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_H.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_I.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_J.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_K.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_L.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_M.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_N.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_O.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_P.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_Q.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_R.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_S.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_T.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_U.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_V.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_W.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_X.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_Y.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_Z.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
-
-
-    private void itemGenerated(DeferredItem item) {
-        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/generated"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
-    }
-
-    private void itemGenerated(DeferredBlock item) {
-        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/generated"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
-    }
-
-    private void itemHandheld(DeferredItem item) {
-        singleTexture(item.getId().getPath(), ResourceLocation.withDefaultNamespace("item/handheld"),"layer0", ResourceLocation.fromNamespaceAndPath(References.MODID, "item/" + item.getId().getPath()));
-    }
-
-    private void itemBlock(DeferredBlock item) {
-        withExistingParent(item.getId().getPath(), modLoc( "block/" + item.getId().getPath()));
+        this.generateFlatItem(ModItems.MAGICAL_CAP.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MAGICAL_ROBE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MAGICAL_PANTS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.MAGICAL_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.RITUAL_DAGGER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     }
 
 }
