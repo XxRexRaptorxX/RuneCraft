@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_z"
-    },
-    "2": {
-      "item": "runecraft:rune_m"
-    },
-    "3": {
-      "item": "runecraft:rune_h"
-    },
-    "4": {
-      "item": "runecraft:rune_o"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_z",
+    "2":  "runecraft:rune_m",
+    "3":  "runecraft:rune_h",
+    "4":  "runecraft:rune_o"
   },
-  
   
   "result": {
     "id": "minecraft:zombie_horse_spawn_egg"

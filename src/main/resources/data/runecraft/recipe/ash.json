@@ -7,9 +7,7 @@
   ],
   
   "key": {
-    "#": {
-      "item": "runecraft:ash_block"
-    }
+    "#":  "runecraft:ash_block"
   },
   
   "result": {

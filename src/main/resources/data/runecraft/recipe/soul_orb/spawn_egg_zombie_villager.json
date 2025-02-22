@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_z"
-    },
-    "2": {
-      "item": "runecraft:rune_v"
-    },
-    "3": {
-      "item": "runecraft:rune_i"
-    },
-    "4": {
-      "item": "runecraft:rune_l"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_z",
+    "2":  "runecraft:rune_v",
+    "3":  "runecraft:rune_i",
+    "4":  "runecraft:rune_l"
   },
-  
   
   "result": {
     "id": "minecraft:zombie_villager_spawn_egg"

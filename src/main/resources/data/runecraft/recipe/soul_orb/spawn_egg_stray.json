@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_s"
-    },
-    "2": {
-      "item": "runecraft:rune_t"
-    },
-    "3": {
-      "item": "runecraft:rune_r"
-    },
-    "4": {
-      "item": "runecraft:rune_y"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_s",
+    "2":  "runecraft:rune_t",
+    "3":  "runecraft:rune_r",
+    "4":  "runecraft:rune_y"
   },
-  
   
   "result": {
     "id": "minecraft:stray_spawn_egg"

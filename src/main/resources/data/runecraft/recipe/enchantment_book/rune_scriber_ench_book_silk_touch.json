@@ -9,21 +9,11 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:magical_book"
-    },
-    "1": {
-      "item": "runecraft:rune_s"
-    },
-    "2": {
-      "item": "runecraft:rune_i"
-    },
-    "3": {
-      "item": "runecraft:rune_l"
-    },
-    "4": {
-      "item": "runecraft:rune_k"
-    }
+    "X":  "runecraft:magical_book",
+    "1":  "runecraft:rune_s",
+    "2":  "runecraft:rune_i",
+    "3":  "runecraft:rune_l",
+    "4":  "runecraft:rune_k"
   },
 
     "result": {

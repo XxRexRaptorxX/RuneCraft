@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_s"
-    },
-    "2": {
-      "item": "runecraft:rune_n"
-    },
-    "3": {
-      "item": "runecraft:rune_o"
-    },
-    "4": {
-      "item": "runecraft:rune_w"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_s",
+    "2":  "runecraft:rune_n",
+    "3":  "runecraft:rune_o",
+    "4":  "runecraft:rune_w"
   },
-
 
   "result": {
     "id": "minecraft:snow_golem_spawn_egg"

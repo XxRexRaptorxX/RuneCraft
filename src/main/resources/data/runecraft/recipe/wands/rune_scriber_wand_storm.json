@@ -9,24 +9,12 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:basic_wand"
-    },
-    "1": {
-      "item": "runecraft:rune_s"
-    },
-    "2": {
-      "item": "runecraft:rune_t"
-    },
-    "3": {
-      "item": "runecraft:rune_o"
-    },
-    "4": {
-      "item": "runecraft:rune_r"
-    },
-    "5": {
-      "item": "runecraft:rune_m"
-    }
+    "X":  "runecraft:basic_wand",
+    "1":  "runecraft:rune_s",
+    "2":  "runecraft:rune_t",
+    "3":  "runecraft:rune_o",
+    "4":  "runecraft:rune_r",
+    "5":  "runecraft:rune_m"
   },
   
   "result": {

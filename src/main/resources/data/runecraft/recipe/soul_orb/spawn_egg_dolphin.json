@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_d"
-    },
-    "2": {
-      "item": "runecraft:rune_l"
-    },
-    "3": {
-      "item": "runecraft:rune_p"
-    },
-    "4": {
-      "item": "runecraft:rune_h"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_d",
+    "2":  "runecraft:rune_l",
+    "3":  "runecraft:rune_p",
+    "4":  "runecraft:rune_h"
   },
-  
   
   "result": {
     "id": "minecraft:dolphin_spawn_egg"

@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_p"
-    },
-    "2": {
-      "item": "runecraft:rune_l"
-    },
-    "3": {
-      "item": "runecraft:rune_g"
-    },
-    "4": {
-      "item": "runecraft:rune_r"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_p",
+    "2":  "runecraft:rune_l",
+    "3":  "runecraft:rune_g",
+    "4":  "runecraft:rune_r"
   },
-  
   
   "result": {
     "id": "minecraft:pillager_spawn_egg"

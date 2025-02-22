@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_f"
-    },
-    "2": {
-      "item": "runecraft:rune_i"
-    },
-    "3": {
-      "item": "runecraft:rune_s"
-    },
-    "4": {
-      "item": "runecraft:rune_h"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_f",
+    "2":  "runecraft:rune_i",
+    "3":  "runecraft:rune_s",
+    "4":  "runecraft:rune_h"
   },
-  
   
   "result": {
     "id": "minecraft:pufferfish_spawn_egg"

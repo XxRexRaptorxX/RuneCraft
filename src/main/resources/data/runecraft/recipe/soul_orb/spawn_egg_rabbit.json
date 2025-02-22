@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_r"
-    },
-    "2": {
-      "item": "runecraft:rune_b"
-    },
-    "3": {
-      "item": "runecraft:rune_i"
-    },
-    "4": {
-      "item": "runecraft:rune_t"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_r",
+    "2":  "runecraft:rune_b",
+    "3":  "runecraft:rune_i",
+    "4":  "runecraft:rune_t"
   },
-  
   
   "result": {
     "id": "minecraft:rabbit_spawn_egg"

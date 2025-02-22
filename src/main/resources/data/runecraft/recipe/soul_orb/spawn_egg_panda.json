@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_p"
-    },
-    "2": {
-      "item": "runecraft:rune_n"
-    },
-    "3": {
-      "item": "runecraft:rune_d"
-    },
-    "4": {
-      "item": "runecraft:rune_a"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_p",
+    "2":  "runecraft:rune_n",
+    "3":  "runecraft:rune_d",
+    "4":  "runecraft:rune_a"
   },
-  
   
   "result": {
     "id": "minecraft:panda_spawn_egg"

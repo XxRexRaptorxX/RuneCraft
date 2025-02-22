@@ -4,13 +4,8 @@
   "group": "spirit_star",
   "ingredients": [
   
-    {
-      "item": "runecraft:magical_book",
-      "data": 32767
-    },
-    {
-      "item": "runecraft:portable_rune_stone"
-    }
+     "runecraft:magical_book",
+     "runecraft:portable_rune_stone"
  
   ],
   "result": {

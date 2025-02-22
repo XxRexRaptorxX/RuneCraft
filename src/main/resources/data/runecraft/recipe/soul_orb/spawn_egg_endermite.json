@@ -11,24 +11,13 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_m"
-    },
-    "2": {
-      "item": "runecraft:rune_i"
-    },
-    "3": {
-      "item": "runecraft:rune_t"
-    },
-    "4": {
-      "item": "runecraft:rune_e"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_m",
+    "2":  "runecraft:rune_i",
+    "3":  "runecraft:rune_t",
+    "4":  "runecraft:rune_e"
   },
 
-  
   "result": {
     "id": "minecraft:endermite_spawn_egg"
   }

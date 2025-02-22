@@ -3,9 +3,7 @@
   "category": "misc",
   "ingredients": [
   
-    {
-      "item": "runecraft:rune_dust_block"
-    }
+     "runecraft:rune_dust_block"
  
   ],
   "result": {

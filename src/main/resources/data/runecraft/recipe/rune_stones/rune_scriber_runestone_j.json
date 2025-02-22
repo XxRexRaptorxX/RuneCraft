@@ -9,12 +9,8 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:rune_stone"
-    },
-    "1": {
-      "item": "runecraft:rune_j"
-    }
+    "X":  "runecraft:rune_stone",
+    "1":  "runecraft:rune_j"
   },
   
   "result": {

@@ -10,18 +10,10 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:rune_dust"
-    },
-    "O": {
-      "item": "runecraft:portable_rune_stone"
-    },
-    "I": {
-      "item": "runecraft:rune_p"
-    },
-    "#": {
-      "item": "runecraft:spirit_crystal"
-    }
+    "X":  "runecraft:rune_dust",
+    "O":  "runecraft:portable_rune_stone",
+    "I":  "runecraft:rune_p",
+    "#":  "runecraft:spirit_crystal"
   },
   
   "result": {

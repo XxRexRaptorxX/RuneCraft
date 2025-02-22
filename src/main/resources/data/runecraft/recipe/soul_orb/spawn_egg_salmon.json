@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_s"
-    },
-    "2": {
-      "item": "runecraft:rune_l"
-    },
-    "3": {
-      "item": "runecraft:rune_m"
-    },
-    "4": {
-      "item": "runecraft:rune_n"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_s",
+    "2":  "runecraft:rune_l",
+    "3":  "runecraft:rune_m",
+    "4":  "runecraft:rune_n"
   },
-  
   
   "result": {
     "id": "minecraft:salmon_spawn_egg"

@@ -2,14 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "pattern": [
+
     "##",
     "##"
   ],
+
   "key": {
-    "#": {
-      "item": "runecraft:ash"
-    }
+    "#":  "runecraft:ash"
   },
+
   "result": {
     "id": "runecraft:ash_block"
   }

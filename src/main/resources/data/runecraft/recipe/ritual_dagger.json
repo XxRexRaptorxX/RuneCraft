@@ -9,15 +9,9 @@
   ],
     
   "key": {
-    "O": {
-      "item": "minecraft:iron_ingot"
-    },
-    "#": {
-      "item": "runecraft:spirit_crystal"
-    },
-    "X": {
-      "item": "minecraft:stick"
-    }
+    "O":  "minecraft:iron_ingot",
+    "#":  "runecraft:spirit_crystal",
+    "X":  "minecraft:stick"
   },
   
   "result": {

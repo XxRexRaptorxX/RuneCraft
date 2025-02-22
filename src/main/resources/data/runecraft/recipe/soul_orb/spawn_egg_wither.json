@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_w"
-    },
-    "2": {
-      "item": "runecraft:rune_t"
-    },
-    "3": {
-      "item": "runecraft:rune_h"
-    },
-    "4": {
-      "item": "runecraft:rune_r"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_w",
+    "2":  "runecraft:rune_t",
+    "3":  "runecraft:rune_h",
+    "4":  "runecraft:rune_r"
   },
-  
   
   "result": {
     "id": "minecraft:wither_spawn_egg"

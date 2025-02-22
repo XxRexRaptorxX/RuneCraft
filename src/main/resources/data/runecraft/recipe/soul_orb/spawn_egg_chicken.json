@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_c"
-    },
-    "2": {
-      "item": "runecraft:rune_h"
-    },
-    "3": {
-      "item": "runecraft:rune_i"
-    },
-    "4": {
-      "item": "runecraft:rune_k"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_c",
+    "2":  "runecraft:rune_h",
+    "3":  "runecraft:rune_i",
+    "4":  "runecraft:rune_k"
   },
-  
   
   "result": {
     "id": "minecraft:chicken_spawn_egg"

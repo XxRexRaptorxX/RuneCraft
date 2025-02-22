@@ -15,12 +15,8 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:rune_dust"
-    },
-    "O": {
-      "item": "minecraft:book"
-    }
+    "X":  "runecraft:rune_dust",
+    "O":  "minecraft:book"
   },
   
   "result": {

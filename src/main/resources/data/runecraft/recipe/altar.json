@@ -9,15 +9,9 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:rune_stone"
-    },
-    "I": {
-      "item": "minecraft:chiseled_deepslate"
-    },
-    "-": {
-      "item": "minecraft:polished_deepslate_slab"
-    }
+    "X":  "runecraft:rune_stone",
+    "I":  "minecraft:chiseled_deepslate",
+    "-":  "minecraft:polished_deepslate_slab"
   },
   
   "result": {

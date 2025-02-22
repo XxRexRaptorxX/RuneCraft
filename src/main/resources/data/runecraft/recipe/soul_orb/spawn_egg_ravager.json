@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_r"
-    },
-    "2": {
-      "item": "runecraft:rune_v"
-    },
-    "3": {
-      "item": "runecraft:rune_g"
-    },
-    "4": {
-      "item": "runecraft:rune_r"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_r",
+    "2":  "runecraft:rune_v",
+    "3":  "runecraft:rune_g",
+    "4":  "runecraft:rune_r"
   },
-  
   
   "result": {
     "id": "minecraft:ravager_spawn_egg"

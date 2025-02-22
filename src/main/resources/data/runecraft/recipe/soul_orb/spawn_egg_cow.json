@@ -11,20 +11,11 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_c"
-    },
-    "2": {
-      "item": "runecraft:rune_o"
-    },
-    "3": {
-      "item": "runecraft:rune_w"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_c",
+    "2":  "runecraft:rune_o",
+    "3":  "runecraft:rune_w"
   },
-  
   
   "result": {
     "id": "minecraft:cow_spawn_egg"

@@ -3,12 +3,10 @@
   "category": "equipment",
   "ingredients": [
   
-    {
-      "item": "runecraft:magical_book",
-      "data": 32767
-    }
+     "runecraft:magical_book"
  
   ],
+
   "result": {
     "id": "runecraft:magical_page"
   }

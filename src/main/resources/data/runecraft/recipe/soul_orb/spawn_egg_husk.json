@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_h"
-    },
-    "2": {
-      "item": "runecraft:rune_u"
-    },
-    "3": {
-      "item": "runecraft:rune_s"
-    },
-    "4": {
-      "item": "runecraft:rune_k"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_h",
+    "2":  "runecraft:rune_u",
+    "3":  "runecraft:rune_s",
+    "4":  "runecraft:rune_k"
   },
-  
   
   "result": {
     "id": "minecraft:husk_spawn_egg"

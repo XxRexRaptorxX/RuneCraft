@@ -3,21 +3,13 @@
   "category": "misc",
   "ingredients": [
   
-    {
-      "item": "runecraft:magical_book",
-      "data": 32767
-    },
-    {
-      "tag": "c:gems/amethyst"
-    },
-    {
-      "item": "runecraft:rune_dust"
-    },
-    {
-      "item": "runecraft:rune_dust"
-    }
+     "runecraft:magical_book",
+     "#c:gems/amethyst",
+     "runecraft:rune_dust",
+     "runecraft:rune_dust"
  
   ],
+
   "result": {
     "id": "runecraft:spirit_crystal"
   }

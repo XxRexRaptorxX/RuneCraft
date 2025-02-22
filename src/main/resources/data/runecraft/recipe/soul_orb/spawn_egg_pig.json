@@ -11,20 +11,11 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_p"
-    },
-    "2": {
-      "item": "runecraft:rune_i"
-    },
-    "3": {
-      "item": "runecraft:rune_g"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_p",
+    "2":  "runecraft:rune_i",
+    "3":  "runecraft:rune_g"
   },
-  
   
   "result": {
     "id": "minecraft:pig_spawn_egg"

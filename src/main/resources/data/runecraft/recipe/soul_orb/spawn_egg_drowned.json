@@ -11,26 +11,13 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_d"
-    },
-    "2": {
-      "item": "runecraft:rune_r"
-    },
-    "3": {
-      "item": "runecraft:rune_o"
-    },
-    "4": {
-      "item": "runecraft:rune_w"
-    },
-    "5": {
-      "item": "runecraft:rune_n"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_d",
+    "2":  "runecraft:rune_r",
+    "3":  "runecraft:rune_o",
+    "4":  "runecraft:rune_w",
+    "5":  "runecraft:rune_n"
   },
-  
   
   "result": {
     "id": "minecraft:drowned_spawn_egg"

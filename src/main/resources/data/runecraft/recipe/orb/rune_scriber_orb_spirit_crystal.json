@@ -9,21 +9,11 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:orb"
-    },
-    "1": {
-      "item": "runecraft:rune_e"
-    },
-    "2": {
-      "item": "runecraft:rune_n"
-    },
-    "3": {
-      "item": "runecraft:rune_c"
-    },
-    "4": {
-      "item": "runecraft:rune_h"
-    }
+    "X":  "runecraft:orb",
+    "1":  "runecraft:rune_e",
+    "2":  "runecraft:rune_n",
+    "3":  "runecraft:rune_c",
+    "4":  "runecraft:rune_h"
   },
   
   "result": {

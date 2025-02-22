@@ -11,23 +11,12 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_w"
-    },
-    "2": {
-      "item": "runecraft:rune_o"
-    },
-    "3": {
-      "item": "runecraft:rune_l"
-    },
-    "4": {
-      "item": "runecraft:rune_f"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_w",
+    "2":  "runecraft:rune_o",
+    "3":  "runecraft:rune_l",
+    "4":  "runecraft:rune_f"
   },
-  
   
   "result": {
     "id": "minecraft:wolf_spawn_egg"

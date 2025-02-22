@@ -11,17 +11,10 @@
   ],
 
   "key": {
-    "#": {
-      "item": "runecraft:soul_orb"
-    },
-    "1": {
-      "item": "runecraft:rune_b"
-    },
-    "2": {
-      "item": "runecraft:rune_e"
-    }
+    "#":  "runecraft:soul_orb",
+    "1":  "runecraft:rune_b",
+    "2":  "runecraft:rune_e"
   },
-  
   
   "result": {
     "id": "minecraft:bee_spawn_egg"

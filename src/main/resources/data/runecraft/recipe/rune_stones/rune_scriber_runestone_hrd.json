@@ -9,18 +9,10 @@
   ],
 
   "key": {
-    "X": {
-      "item": "runecraft:rune_stone"
-    },
-    "1": {
-      "item": "runecraft:rune_h"
-    },
-    "2": {
-      "item": "runecraft:rune_r"
-    },
-    "3": {
-      "item": "runecraft:rune_d"
-    }
+    "X":  "runecraft:rune_stone",
+    "1":  "runecraft:rune_h",
+    "2":  "runecraft:rune_r",
+    "3":  "runecraft:rune_d"
   },
 
   "result": {

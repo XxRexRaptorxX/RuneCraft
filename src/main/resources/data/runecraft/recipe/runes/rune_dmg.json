@@ -10,9 +10,7 @@
   ],
     
   "key": {
-    "#": {
-      "item": "runecraft:rune_dust"
-    }
+    "#":  "runecraft:rune_dust"
   },
   
   "result": {

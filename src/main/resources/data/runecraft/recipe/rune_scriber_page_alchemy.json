@@ -9,21 +9,11 @@
   ],
     
   "key": {
-    "X": {
-      "item": "runecraft:magical_page"
-    },
-    "1": {
-      "item": "runecraft:rune_a"
-    },
-    "2": {
-      "item": "runecraft:rune_l"
-    },
-    "3": {
-      "item": "runecraft:rune_c"
-    },
-    "4": {
-      "item": "runecraft:rune_h"
-    }
+    "X":  "runecraft:magical_page",
+    "1":  "runecraft:rune_a",
+    "2":  "runecraft:rune_l",
+    "3":  "runecraft:rune_c",
+    "4":  "runecraft:rune_h"
   },
   
   "result": {

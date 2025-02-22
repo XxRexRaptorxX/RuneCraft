@@ -9,9 +9,7 @@
   ],
   
   "key": {
-    "#": {
-      "item": "runecraft:cloth"
-    }
+    "#":  "runecraft:cloth"
   },
   
   "result": {

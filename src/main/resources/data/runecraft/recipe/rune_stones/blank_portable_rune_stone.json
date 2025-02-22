@@ -10,15 +10,9 @@
   ],
 
   "key": {
-    "X": {
-      "item": "minecraft:polished_deepslate"
-    },
-    "O": {
-      "tag": "c:dusts/ash"
-    },
-    "#": {
-      "item": "runecraft:spirit_star"
-    }
+    "X":  "minecraft:polished_deepslate",
+    "O": "#c:dusts/ash",
+    "#":  "runecraft:spirit_star"
   },
 
   "result": {
