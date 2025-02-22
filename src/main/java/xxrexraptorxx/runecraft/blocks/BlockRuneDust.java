@@ -2,9 +2,6 @@ package xxrexraptorxx.runecraft.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.FallingBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 
 
 public class BlockRuneDust extends FallingBlock {
@@ -12,13 +9,8 @@ public class BlockRuneDust extends FallingBlock {
 	public static final MapCodec<BlockRuneDust> CODEC = simpleCodec(BlockRuneDust::new);
 
 
-	public BlockRuneDust() {
-		super(Properties.of()
-				.strength(0.2F, 0.0F)
-				.sound(SoundType.SOUL_SAND)
-				.mapColor(MapColor.NETHER)
-				.instrument(NoteBlockInstrument.SNARE)
-		);
+	public BlockRuneDust(Properties properties) {
+		super(properties);
 	}
 
 

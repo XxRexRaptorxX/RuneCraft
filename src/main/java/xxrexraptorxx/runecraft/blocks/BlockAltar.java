@@ -5,26 +5,15 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 
 import java.util.Random;
 
 
 public class BlockAltar extends Block {
 
-	public BlockAltar() {
-		super(Properties.of()
-				.requiresCorrectToolForDrops()
-				.strength(5.0F, 7.0F)
-				.sound(SoundType.STONE)
-				.mapColor(MapColor.COLOR_BLACK)
-				.instrument(NoteBlockInstrument.WITHER_SKELETON)
-				.noOcclusion()
-				.lightLevel(value -> 7)
-		);
+	public BlockAltar(Properties properties) {
+		super(properties);
 	}
 
 

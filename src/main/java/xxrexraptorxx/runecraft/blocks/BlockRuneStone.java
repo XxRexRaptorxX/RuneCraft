@@ -25,14 +25,11 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -51,15 +48,8 @@ public class BlockRuneStone extends Block {
 	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0625D, 0.0625D, 0.0625D, 15.9375D, 15.9375D, 15.9375D);
 
 
-	public BlockRuneStone() {
-		super(Properties.of()
-				.requiresCorrectToolForDrops()
-				.strength(7.0F, 7.0F)
-				.sound(SoundType.STONE)
-				.mapColor(MapColor.DEEPSLATE)
-				.instrument(NoteBlockInstrument.BASS)
-				.noOcclusion()
-		);
+	public BlockRuneStone(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.defaultBlockState().setValue(POWERED, Boolean.valueOf(false)));
 	}
 

@@ -10,11 +10,8 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootParams;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
 
@@ -26,14 +23,8 @@ import java.util.Random;
 
 public class BlockRuin extends Block {
 
-	public BlockRuin() {
-		super(Properties.of()
-				.requiresCorrectToolForDrops()
-				.strength(1.8F, 7.0F)
-				.sound(SoundType.STONE)
-				.mapColor(MapColor.DEEPSLATE)
-				.instrument(NoteBlockInstrument.BASEDRUM)
-		);
+	public BlockRuin(Properties properties) {
+		super(properties);
 	}
 
 

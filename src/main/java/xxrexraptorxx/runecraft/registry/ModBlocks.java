@@ -6,7 +6,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -24,141 +27,597 @@ public class ModBlocks {
     }
 
 
-    //BLOCKS
-    public static final DeferredBlock<BlockAltar> ALTAR_BLOCK = BLOCKS.register("altar", BlockAltar::new);
-
-    public static final DeferredBlock<BlockRuneScriber> RUNE_SCRIBER_BLOCK = BLOCKS.register("rune_scriber", BlockRuneScriber::new);
-
-    public static final DeferredBlock<BlockAsh> ASH_BLOCK = BLOCKS.register("ash_block", BlockAsh::new);
-
-    public static final DeferredBlock<BlockRuneDust> RUNE_DUST_BLOCK = BLOCKS.register("rune_dust_block", BlockRuneDust::new);
-
-    public static final DeferredBlock<BlockRuin> RUIN_BLOCK = BLOCKS.register("ruin_block", BlockRuin::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE = BLOCKS.register("rune_stone", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_A = BLOCKS.register("rune_stone_a", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_B = BLOCKS.register("rune_stone_b", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_C = BLOCKS.register("rune_stone_c", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_D = BLOCKS.register("rune_stone_d", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_E = BLOCKS.register("rune_stone_e", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_F = BLOCKS.register("rune_stone_f", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_G = BLOCKS.register("rune_stone_g", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_H = BLOCKS.register("rune_stone_h", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_I = BLOCKS.register("rune_stone_i", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_J = BLOCKS.register("rune_stone_j", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_K = BLOCKS.register("rune_stone_k", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_L = BLOCKS.register("rune_stone_l", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_M = BLOCKS.register("rune_stone_m", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_N = BLOCKS.register("rune_stone_n", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_O = BLOCKS.register("rune_stone_o", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_P = BLOCKS.register("rune_stone_p", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Q = BLOCKS.register("rune_stone_q", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_R = BLOCKS.register("rune_stone_r", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_S = BLOCKS.register("rune_stone_s", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_T = BLOCKS.register("rune_stone_t", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_U = BLOCKS.register("rune_stone_u", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_V = BLOCKS.register("rune_stone_v", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_W = BLOCKS.register("rune_stone_w", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_X = BLOCKS.register("rune_stone_x", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Y = BLOCKS.register("rune_stone_y", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Z = BLOCKS.register("rune_stone_z", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_DMG = BLOCKS.register("rune_stone_dmg", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_HRD = BLOCKS.register("rune_stone_hrd", BlockRuneStone::new);
-
-    //public static final DeferredBlock<BlockRuneStone> RUNE_STONE_GHS = BLOCKS.register("rune_stone_ghs", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_FRE = BLOCKS.register("rune_stone_fre", BlockRuneStone::new);
-
-    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_PTL = BLOCKS.register("rune_stone_ptl", BlockRuneStone::new);
-
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_A = BLOCKS.register("rune_block_a", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_B = BLOCKS.register("rune_block_b", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_C = BLOCKS.register("rune_block_c", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_D = BLOCKS.register("rune_block_d", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_E = BLOCKS.register("rune_block_e", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_F = BLOCKS.register("rune_block_f", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_G = BLOCKS.register("rune_block_g", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_H = BLOCKS.register("rune_block_h", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_I = BLOCKS.register("rune_block_i", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_J = BLOCKS.register("rune_block_j", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_K = BLOCKS.register("rune_block_k", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_L = BLOCKS.register("rune_block_l", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_M = BLOCKS.register("rune_block_m", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_N = BLOCKS.register("rune_block_n", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_O = BLOCKS.register("rune_block_o", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_P = BLOCKS.register("rune_block_p", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Q = BLOCKS.register("rune_block_q", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_R = BLOCKS.register("rune_block_r", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_S = BLOCKS.register("rune_block_s", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_T = BLOCKS.register("rune_block_t", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_U = BLOCKS.register("rune_block_u", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_V = BLOCKS.register("rune_block_v", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_W = BLOCKS.register("rune_block_w", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_X = BLOCKS.register("rune_block_x", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Y = BLOCKS.register("rune_block_y", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Z = BLOCKS.register("rune_block_z", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_DMG = BLOCKS.register("rune_block_dmg", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_FRE = BLOCKS.register("rune_block_fre", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_HRD = BLOCKS.register("rune_block_hrd", BlockRune::new);
-
-    public static final DeferredBlock<BlockRune> RUNE_BLOCK_PTL = BLOCKS.register("rune_block_ptl", BlockRune::new);
+    public static final DeferredBlock<BlockAltar> ALTAR_BLOCK = registerBlock("altar", properties -> new BlockAltar(properties
+                .requiresCorrectToolForDrops()
+                .strength(5.0F, 7.0F)
+                .sound(SoundType.STONE)
+                .mapColor(MapColor.COLOR_BLACK)
+                .instrument(NoteBlockInstrument.WITHER_SKELETON)
+                .noOcclusion()
+                .lightLevel(value -> 7)
+    ));
+
+    public static final DeferredBlock<BlockRuneScriber> RUNE_SCRIBER_BLOCK = registerBlock("rune_scriber", properties -> new BlockRuneScriber(properties
+                .strength(3.5F)
+                .sound(SoundType.STONE)
+                .mapColor(MapColor.COLOR_BLACK)
+                .instrument(NoteBlockInstrument.BASS)
+    ));
+
+    public static final DeferredBlock<BlockAsh> ASH_BLOCK = registerBlock("ash_block", properties -> new BlockAsh(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_BLACK)
+                .instrument(NoteBlockInstrument.SNARE)
+    ));
+
+    public static final DeferredBlock<BlockRuneDust> RUNE_DUST_BLOCK = registerBlock("rune_dust_block", properties -> new BlockRuneDust(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SOUL_SAND)
+                .mapColor(MapColor.NETHER)
+                .instrument(NoteBlockInstrument.SNARE)
+    ));
+
+    public static final DeferredBlock<BlockRuin> RUIN_BLOCK = registerBlock("ruin_block", properties -> new BlockRuin(properties
+                .requiresCorrectToolForDrops()
+                .strength(1.8F, 7.0F)
+                .sound(SoundType.STONE)
+                .mapColor(MapColor.DEEPSLATE)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE = registerBlock("rune_stone", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_A = registerBlock("rune_stone_a", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_B = registerBlock("rune_stone_b", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_C = registerBlock("rune_stone_c", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_D = registerBlock("rune_stone_d", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_E = registerBlock("rune_stone_e", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_F = registerBlock("rune_stone_f", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_G = registerBlock("rune_stone_g", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_H = registerBlock("rune_stone_h", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_I = registerBlock("rune_stone_i", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_J = registerBlock("rune_stone_j", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_K = registerBlock("rune_stone_k", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_L = registerBlock("rune_stone_l", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_M = registerBlock("rune_stone_m", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_N = registerBlock("rune_stone_n", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_O = registerBlock("rune_stone_o", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_P = registerBlock("rune_stone_p", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Q = registerBlock("rune_stone_q", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_R = registerBlock("rune_stone_r", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_S = registerBlock("rune_stone_s", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_T = registerBlock("rune_stone_t", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_U = registerBlock("rune_stone_u", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_V = registerBlock("rune_stone_v", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_W = registerBlock("rune_stone_w", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_X = registerBlock("rune_stone_x", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Y = registerBlock("rune_stone_y", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_Z = registerBlock("rune_stone_z", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_DMG = registerBlock("rune_stone_dmg", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_HRD = registerBlock("rune_stone_hrd", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    //public static final DeferredBlock<BlockRuneStone> RUNE_STONE_GHS = registerBlock()("rune_stone_ghs", BlockRuneStone:properties -> new
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_FRE = registerBlock("rune_stone_fre", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+				.strength(7.0F, 7.0F)
+				.sound(SoundType.STONE)
+				.mapColor(MapColor.DEEPSLATE)
+				.instrument(NoteBlockInstrument.BASS)
+				.noOcclusion()
+    ));
+
+    public static final DeferredBlock<BlockRuneStone> RUNE_STONE_PTL = registerBlock("rune_stone_ptl", properties -> new BlockRuneStone(properties
+                .requiresCorrectToolForDrops()
+                .strength(7.0F, 7.0F)
+                .sound(SoundType.STONE)
+                .mapColor(MapColor.DEEPSLATE)
+                .instrument(NoteBlockInstrument.BASS)
+                .noOcclusion()
+    ));
+
+
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_A = registerBlock("rune_block_a", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_B = registerBlock("rune_block_b", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_C = registerBlock("rune_block_c", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_D = registerBlock("rune_block_d", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_E = registerBlock("rune_block_e", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_F = registerBlock("rune_block_f", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_G = registerBlock("rune_block_g", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_H = registerBlock("rune_block_h", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_I = registerBlock("rune_block_i", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_J = registerBlock("rune_block_j", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_K = registerBlock("rune_block_k", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_L = registerBlock("rune_block_l", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_M = registerBlock("rune_block_m", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_N = registerBlock("rune_block_n", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_O = registerBlock("rune_block_o", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_P = registerBlock("rune_block_p", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Q = registerBlock("rune_block_q", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_R = registerBlock("rune_block_r", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_S = registerBlock("rune_block_s", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_T = registerBlock("rune_block_t", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_U = registerBlock("rune_block_u", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_V = registerBlock("rune_block_v", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_W = registerBlock("rune_block_w", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_X = registerBlock("rune_block_x", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Y = registerBlock("rune_block_y", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_Z = registerBlock("rune_block_z", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_DMG = registerBlock("rune_block_dmg", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_FRE = registerBlock("rune_block_fre", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_HRD = registerBlock("rune_block_hrd", properties -> new BlockRune(properties
+                .strength(0.2F, 0.0F)
+                .sound(SoundType.SAND)
+                .mapColor(MapColor.COLOR_RED)
+                .noCollission()
+                .noOcclusion()
+                .instrument(NoteBlockInstrument.FLUTE)
+    ));
+
+    public static final DeferredBlock<BlockRune> RUNE_BLOCK_PTL = registerBlock("rune_block_ptl", properties -> new BlockRune(properties
+            .strength(0.2F, 0.0F)
+            .sound(SoundType.SAND)
+            .mapColor(MapColor.COLOR_RED)
+            .noCollission()
+            .noOcclusion()
+            .instrument(NoteBlockInstrument.FLUTE)
+    ));
 
 
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockCreator) {

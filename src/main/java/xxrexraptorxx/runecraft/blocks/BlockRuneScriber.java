@@ -6,22 +6,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 
 import java.util.List;
 
 
 public class BlockRuneScriber extends Block {
 
-	public BlockRuneScriber() {
-		super(Properties.of()
-				.strength(3.5F)
-				.sound(SoundType.STONE)
-				.mapColor(MapColor.COLOR_BLACK)
-				.instrument(NoteBlockInstrument.BASS)
-		);
+	public BlockRuneScriber(Properties properties) {
+		super(properties);
 	}
 
 	//Note: I'm too stupid to port runescriber functions
