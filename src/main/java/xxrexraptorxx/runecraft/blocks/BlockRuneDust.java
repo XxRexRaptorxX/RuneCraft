@@ -16,6 +16,6 @@ public class BlockRuneDust extends FallingBlock {
 
 	@Override
 	protected MapCodec<? extends FallingBlock> codec() {
-		return codec();
+		return CODEC;
 	}
 }

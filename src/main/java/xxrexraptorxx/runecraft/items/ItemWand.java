@@ -113,17 +113,17 @@ public class ItemWand extends Item {
                 if (level.getBlockState(clickedPos.offset(0, 1, -1)).isAir())
                     level.setBlock(clickedPos.offset(0, 1, -1), Blocks.FIRE.defaultBlockState(), 11);
 
-                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 100, 1, null, level, clickedPos.getCenter());
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 100, 1, level, clickedPos.getCenter());
 
             /* MAELSTROM */
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
                 effectInstances.add(new MobEffectInstance(MobEffects.WITHER, 200, 1));
                 SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.SMOKE, 10, 3, effectInstances, level, pos);
-                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 10, 4, null, level, pos);
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 10, 4, level, pos);
 
             /* ESCAPE */
             } else if (item == ModItems.ESCAPE_WAND.get()) {
-                SpellHelper.spawnSpellEffect(SpellShapes.STACKED, ParticleTypes.LARGE_SMOKE, 500, 15, null, level, pos);
+                SpellHelper.spawnSpellEffect(SpellShapes.STACKED, ParticleTypes.LARGE_SMOKE, 500, 15, level, pos);
                 event.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
                 event.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 1));
 
@@ -261,8 +261,8 @@ public class ItemWand extends Item {
 
         /* STORM */
         } else if (item == ModItems.STORM_WAND.get()) {
-            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, null, level, player.position());
-            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, null, level, player.position());
+            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, level, player.position());
+            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, level, player.position());
             //player.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(20);
 
         /* NETHER */
@@ -368,6 +368,7 @@ public class ItemWand extends Item {
     private boolean handleInteraction(Player player, BlockState state, LevelAccessor level, BlockPos pos, boolean p_150807_, ItemStack stack) {
         if (!player.canUseGameMasterBlocks()) {
             return false;
+
         } else {
             Holder<Block> holder = state.getBlockHolder();
             StateDefinition<Block, BlockState> statedefinition = ((Block)holder.value()).getStateDefinition();
@@ -375,10 +376,12 @@ public class ItemWand extends Item {
             if (collection.isEmpty()) {
                 message(player, Component.translatable(this.getDescriptionId() + ".empty", new Object[]{holder.getRegisteredName()}));
                 return false;
+
             } else {
                 DebugStickState debugstickstate = (DebugStickState)stack.get(DataComponents.DEBUG_STICK_STATE);
                 if (debugstickstate == null) {
                     return false;
+
                 } else {
                     Property<?> property = (Property)debugstickstate.properties().get(holder);
                     if (p_150807_) {
@@ -391,6 +394,7 @@ public class ItemWand extends Item {
                         if (player.level().isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
 
                         message(player, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
+
                     } else {
                         property = (Property)getRelative(collection, property, player.isSecondaryUseActive());
                         stack.set(DataComponents.DEBUG_STICK_STATE, debugstickstate.withProperty(holder, property));

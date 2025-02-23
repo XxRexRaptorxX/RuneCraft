@@ -16,7 +16,6 @@ public class BlockRuneScriber extends Block {
 		super(properties);
 	}
 
-	//Note: I'm too stupid to port runescriber functions
 	@Override
 	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
 		list.add(Component.literal(ChatFormatting.RED + "Work in progress..."));

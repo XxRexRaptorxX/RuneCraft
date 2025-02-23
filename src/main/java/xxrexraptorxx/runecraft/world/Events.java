@@ -43,6 +43,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
+import xxrexraptorxx.runecraft.items.ItemPage;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.main.RuneCraft;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
@@ -295,7 +296,7 @@ public class Events {
         if (item == Items.BOOK) {
             if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
+                if (player.experienceLevel >= ItemPage.getPageXpRequirement(item)) {
 
                     if (world.getMoonPhase() == 0) {
                         //ambient
@@ -362,7 +363,7 @@ public class Events {
 
             if (world.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
 
-                if (player.experienceLevel >= AltarHelper.getPageXpRequirement(item)) {
+                if (player.experienceLevel >= ItemPage.getPageXpRequirement(item)) {
 
                     if (!player.level().isDay()) {
 
@@ -385,7 +386,7 @@ public class Events {
 
                             //item stuff
                             event.getItemStack().shrink(1);
-                            player.onEnchantmentPerformed(null, AltarHelper.getPageXpRequirement(item));
+                            player.onEnchantmentPerformed(null, ItemPage.getPageXpRequirement(item));
 
                             //rewards
                             if (item == ModItems.WAND_PAGE.get()) {

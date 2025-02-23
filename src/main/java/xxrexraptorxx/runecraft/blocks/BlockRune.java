@@ -32,6 +32,7 @@ import java.util.Random;
 
 public class BlockRune extends FallingBlock {
 
+    public static final MapCodec<BlockRune> CODEC = simpleCodec(BlockRune::new);
     protected static final VoxelShape CUSTOM_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.00D, 16.0D);
 
 
@@ -52,7 +53,7 @@ public class BlockRune extends FallingBlock {
 
 
     @Override
-    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
+    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         Random rand = new Random();
         double d0 = (double) ((float) pos.getX() + rand.nextFloat());
         double d1 = (double) ((float) pos.getY() + 0.8F);
@@ -73,20 +74,20 @@ public class BlockRune extends FallingBlock {
 
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return CUSTOM_SHAPE;
     }
 
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.empty();
     }
 
 
     @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        return canSupportCenter(pLevel, pPos.below(), Direction.DOWN);
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return canSupportCenter(level, pos.below(), Direction.DOWN);
     }
 
 
@@ -109,6 +110,6 @@ public class BlockRune extends FallingBlock {
 
     @Override
     protected MapCodec<? extends FallingBlock> codec() {
-        return null;
+        return CODEC;
     }
 }

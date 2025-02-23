@@ -55,7 +55,14 @@ public class SpellHelper {
     }
 
 
-    public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
+    public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, MobEffectInstance effect, Level level, Position pos) {
+        ArrayList<MobEffectInstance> effectInstances = new ArrayList<>();
+        effectInstances.add(effect);
+
+        spawnSpellEffect(shape, particleType, duration, radius, effectInstances, level, pos);
+    }
+
+        public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
         Level level = entity.level();
 
         if (!level.isClientSide) {
@@ -68,6 +75,11 @@ public class SpellHelper {
                 if (damageAmount < 0) entityIn.hurt(level.damageSources().magic(), damageAmount);
             }
         }
+    }
+
+
+    public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, Level level, Position pos) {
+        spawnSpellEffect(shape, particleType, duration, radius, (MobEffectInstance) null, level, pos);
     }
 
 }

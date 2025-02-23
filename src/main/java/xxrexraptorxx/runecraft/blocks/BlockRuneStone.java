@@ -33,6 +33,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -55,7 +56,6 @@ public class BlockRuneStone extends Block {
 
 	//Properties
 
-
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return CUSTOM_COLLISION_AABB;
@@ -64,7 +64,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-		list.add(Component.translatable("message.runecraft.rune_stone_desc").withStyle(ChatFormatting.GRAY));
+		list.add(Component.translatable("message." + References.MODID + ".rune_stone_desc").withStyle(ChatFormatting.GRAY));
 	}
 
 
@@ -116,6 +116,7 @@ public class BlockRuneStone extends Block {
 					entityIn.stopRiding();
 				}
 				level.playSound((Player)null, pos, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.BLOCKS, 1.0F, level.random.nextFloat() * 0.15F + 0.F);
+
 				if(entityIn.isCrouching()) {
 					entityIn.teleportTo(pos.getX(), pos.getY() - 10, pos.getZ());
 				} else {
@@ -222,15 +223,15 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(POWERED);
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(POWERED);
 	}
 
 
 	@Override
 	@Nullable
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(pContext.getLevel().hasNeighborSignal(pContext.getClickedPos())));
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.defaultBlockState().setValue(POWERED, Boolean.valueOf(context.getLevel().hasNeighborSignal(context.getClickedPos())));
 	}
 
 

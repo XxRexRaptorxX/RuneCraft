@@ -18,7 +18,7 @@ public class BlockAltar extends Block {
 
 
 	@Override
-	public void animateTick(BlockState pState, Level world, BlockPos pos, RandomSource random) {
+	public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
 		Random rand = new Random();
 
 		double d0 = (double)((float)pos.getX() + rand.nextFloat());
