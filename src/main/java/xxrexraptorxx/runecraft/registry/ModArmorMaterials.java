@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAssets;
 import xxrexraptorxx.runecraft.main.References;
@@ -17,7 +18,7 @@ public class ModArmorMaterials {
 
     public static final TagKey<Item> REPAIR_MATERIALS_MAGICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "repair_materials_magical"));
 
-    public static final net.minecraft.world.item.equipment.ArmorMaterial BEDROCK_ARMOR_MATERIAL = new net.minecraft.world.item.equipment.ArmorMaterial(
+    public static final ArmorMaterial MAGICAL_ARMOR_MATERIAL = new ArmorMaterial(
             // The durability multiplier of the armor material.
             // ArmorType have different unit durabilities that the multiplier is applied to:
             // - HELMET: 11
@@ -25,7 +26,7 @@ public class ModArmorMaterials {
             // - LEGGINGS: 15
             // - BOOTS: 13
             // - BODY: 16
-            50,
+            20,
             Util.make(new EnumMap<>(ArmorType.class), map -> {
                 map.put(ArmorType.BOOTS, 1);
                 map.put(ArmorType.LEGGINGS, 2);

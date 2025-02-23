@@ -136,7 +136,7 @@ dependencies {
     //compileOnly "me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}"
     //compileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-neoforge:${rei_version}"
     //JEED
-    runtimeOnly ("curse.maven:jeed-532286:${jeed_version}")
+    //runtimeOnly ("curse.maven:jeed-532286:${jeed_version}")
     //JADE
     runtimeOnly ("curse.maven:jade-324717:${jade_version}")
     //Moonlight Lib
@@ -144,7 +144,7 @@ dependencies {
     //Supplementaries
     //runtimeOnly ("curse.maven:supplementaries-412082:${supplementaries_version}")
     //Patchouli
-    runtimeOnly ("vazkii.patchouli:Patchouli:${patchouli_version}")
+    //runtimeOnly ("vazkii.patchouli:Patchouli:${patchouli_version}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

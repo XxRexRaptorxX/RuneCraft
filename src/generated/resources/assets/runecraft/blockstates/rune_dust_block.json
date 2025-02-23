@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "runecraft:block/rune_dust_block"
+    }
+  }
+}

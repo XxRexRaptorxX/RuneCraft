@@ -5,7 +5,10 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import xxrexraptorxx.runecraft.registry.*;
+import xxrexraptorxx.runecraft.registry.CreativeModeTabs;
+import xxrexraptorxx.runecraft.registry.ModBlocks;
+import xxrexraptorxx.runecraft.registry.ModItems;
+import xxrexraptorxx.runecraft.registry.ModLootModifiers;
 import xxrexraptorxx.runecraft.utils.Config;
 
 /**
@@ -22,7 +25,6 @@ public class RuneCraft {
 
         ModBlocks.init(eventBus);
         ModItems.init(eventBus);
-        ModArmorMaterials.init(eventBus);
         CreativeModeTabs.init(eventBus);
         ModLootModifiers.init(eventBus);
         Config.init(container);

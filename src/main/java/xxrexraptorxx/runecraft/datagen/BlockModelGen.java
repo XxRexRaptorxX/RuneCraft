@@ -20,6 +20,5 @@ public class BlockModelGen extends BlockModelGenerators {
     public void run() {
         createTrivialCube(ModBlocks.RUNE_DUST_BLOCK.get());
         createTrivialCube(ModBlocks.ASH_BLOCK.get());
-        createMultiface(ModBlocks.RUIN_BLOCK.get());
     }
 }
