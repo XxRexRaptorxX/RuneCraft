@@ -6,5 +6,6 @@ public enum ParticleShapeTypes {
     BLOCK_AMBIENT,
     BLOCK_AMBIENT_TOP,
     BLOCK_EVENT,
+    PENTERGRAM
 
 }

@@ -120,6 +120,68 @@ public class SpellHelper {
             level.addParticle(particleTypes, d0, d1, d2, 0.0D, 0.0D, 0.0D);
             level.addParticle(particleTypes, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
             level.addParticle(particleTypes, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+
+        } else if (type == ParticleShapeTypes.PENTERGRAM) {
+            // Calculate the center position above the block
+            double centerX = pos.getX() + 0.5;
+            double centerY = pos.getY() + 0.5;
+            double centerZ = pos.getZ() + 0.5;
+
+            // Define radii for the circles
+            double innerRadius = 2.5; // Circle that touches the star tips (for a 5x5 block area)
+            double outerRadius = innerRadius + 0.5; // Outer circle is 0.5 blocks larger
+
+            int points = 5;
+            int resolution = 80; // Resolution for drawing the pentagram lines
+
+            // Calculate angles for each star tip (rotated -90 degrees to have one tip pointing up)
+            double[] angles = new double[points];
+            for (int i = 0; i < points; i++) {
+                angles[i] = Math.toRadians(72 * i - 90);
+            }
+
+            // Spawn pentagram lines by connecting every second point
+            for (int i = 0; i < points; i++) {
+                int nextIndex = (i + 2) % points; // Connect current point to the one two steps ahead
+                double x1 = centerX + Math.cos(angles[i]) * innerRadius;
+                double z1 = centerZ + Math.sin(angles[i]) * innerRadius;
+                double x2 = centerX + Math.cos(angles[nextIndex]) * innerRadius;
+                double z2 = centerZ + Math.sin(angles[nextIndex]) * innerRadius;
+
+                // Interpolate along the line for a high-resolution effect
+                for (int j = 0; j < resolution; j++) {
+                    double t = (double) j / resolution;
+                    double px = x1 + (x2 - x1) * t;
+                    double pz = z1 + (z2 - z1) * t;
+                    level.addParticle(particleTypes, px, centerY, pz, 0.0D, 0.0D, 0.0D);
+                }
+            }
+
+            // Spawn particles along the inner circle (touching the star tips)
+            int circleResolution = 100;
+            for (int i = 0; i < circleResolution; i++) {
+                double theta = 2 * Math.PI * i / circleResolution;
+                double px = centerX + Math.cos(theta) * innerRadius;
+                double pz = centerZ + Math.sin(theta) * innerRadius;
+                level.addParticle(particleTypes, px, centerY, pz, 0.0D, 0.0D, 0.0D);
+            }
+
+            // Spawn particles along the outer circle (0.5 blocks larger)
+            for (int i = 0; i < circleResolution; i++) {
+                double theta = 2 * Math.PI * i / circleResolution;
+                double px = centerX + Math.cos(theta) * outerRadius;
+                double pz = centerZ + Math.sin(theta) * outerRadius;
+                level.addParticle(particleTypes, px, centerY, pz, 0.0D, 0.0D, 0.0D);
+            }
+
+            // Spawn a fire particle at each star tip between the two circles
+            // The particle is positioned halfway between the inner and outer circles
+            double fireRadius = innerRadius + 0.25;
+            for (int i = 0; i < points; i++) {
+                double px = centerX + Math.cos(angles[i]) * fireRadius;
+                double pz = centerZ + Math.sin(angles[i]) * fireRadius;
+                level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, px, centerY + 0.5F, pz, 0.0D, 0.0D, 0.0D);
+            }
         }
     }
 
