@@ -10,6 +10,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -64,8 +66,9 @@ public class SpellHelper {
         spawnSpellEffect(shape, particleType, duration, radius, effectInstances, level, pos);
     }
 
-        public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
-        Level level = entity.level();
+
+    public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
+    Level level = entity.level();
 
         if (!level.isClientSide) {
             if (entity instanceof Player entityIn) {
@@ -85,13 +88,31 @@ public class SpellHelper {
     }
 
 
-    public static void spawnParticleEffects(Level level, BlockPos pos) {
-        for (int i = 0; i < 2; i++) {
-            level.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
-            level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+    public static void spawnParticleEffects(ParticleShapeTypes type, ParticleOptions particleTypes, Level level, BlockPos pos) {
+        if (type == ParticleShapeTypes.ITEM) {
+            for (int i = 0; i < 2; i++) {
+                level.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                level.addParticle(particleTypes, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                level.addParticle(particleTypes, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() - 0.1F, 0.0D, 0.0D, 0.0D);
+                level.addParticle(particleTypes, pos.getX() - 0.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
+                level.addParticle(particleTypes, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
+            }
+
+        } else if (type == ParticleShapeTypes.RUNESTONE) {
+            double d0 = (double)((float)pos.getX() + level.random.nextFloat());
+            double d1 = (double)((float)pos.getY() + 2.0F);
+            double d2 = (double)((float)pos.getZ() + level.random.nextFloat());
+
+            level.addParticle(particleTypes, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+
+        } else if (type == ParticleShapeTypes.RUNESTONE_CLUSTERED) {
+            double d0 = (double) ((float) pos.getX() + level.random.nextFloat());
+            double d1 = (double) ((float) pos.getY() + 0.8F);
+            double d2 = (double) ((float) pos.getZ() + level.random.nextFloat());
+
+            level.addParticle(particleTypes, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            level.addParticle(particleTypes, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
+            level.addParticle(particleTypes, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
         }
     }
 

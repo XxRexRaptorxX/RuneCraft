@@ -26,9 +26,10 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
+import xxrexraptorxx.runecraft.utils.SpellHelper;
+import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class BlockRune extends FallingBlock {
 
@@ -53,21 +54,12 @@ public class BlockRune extends FallingBlock {
 
 
     @Override
-    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-        Random rand = new Random();
-        double d0 = (double) ((float) pos.getX() + rand.nextFloat());
-        double d1 = (double) ((float) pos.getY() + 0.8F);
-        double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
-        double d3 = 0.0D;
-        double d4 = 0.0D;
-        double d5 = 0.0D;
-        world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-        world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+        SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
 
-        if(!world.isClientSide) {
-            ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
-            world.addFreshEntity(drop);
+        if(!level.isClientSide) {
+            ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY() + 0.8F, pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
+            level.addFreshEntity(drop);
         }
     }
 

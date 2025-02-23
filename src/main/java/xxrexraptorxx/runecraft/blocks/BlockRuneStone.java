@@ -11,9 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -37,10 +35,12 @@ import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
+import xxrexraptorxx.runecraft.utils.SpellHelper;
+import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 
 public class BlockRuneStone extends Block {
@@ -69,17 +69,8 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
-		Random rand = new Random();
-
-		double d0 = (double)((float)pos.getX() + rand.nextFloat());
-		double d1 = (double)((float)pos.getY() + 2.0F);
-		double d2 = (double)((float)pos.getZ() + rand.nextFloat());
-		double d3 = 0.0D;
-		double d4 = 0.0D;
-		double d5 = 0.0D;
-
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
 	}
 
 
@@ -89,15 +80,7 @@ public class BlockRuneStone extends Block {
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
 		//base blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
-			if(entityIn instanceof Player) {
-				Player player = (Player) entityIn;
-				player.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-			}
-
-			if(entityIn instanceof LivingEntity) {
-				LivingEntity entity = (LivingEntity) entityIn;
-				entity.addEffect(new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-			}
+			SpellHelper.addPlayerEffects(entityIn, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), 0);
 		}
 
 		//special blocks
@@ -129,17 +112,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
-		Random rand = new Random();
-
-		double d0 = (double) ((float) pos.getX() + rand.nextFloat());
-		double d1 = (double) ((float) pos.getY() + 0.8F);
-		double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
-		double d3 = 0.0D;
-		double d4 = 0.0D;
-		double d5 = 0.0D;
-		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		level.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		level.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
 
 		if (!level.isClientSide) {
 			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
@@ -156,27 +129,16 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-		Random rand = new Random();
+	public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
 
-		double d0 = (double) ((float) pos.getX() + rand.nextFloat());
-		double d1 = (double) ((float) pos.getY() + 0.8F);
-		double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
-		double d3 = 0.0D;
-		double d4 = 0.0D;
-		double d5 = 0.0D;
-
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0 - 0.3F, d1, d2, 0.0D, 0.0D, 0.0D);
-		world.addParticle(ParticleTypes.ENCHANT, d0, d1, d2 + 0.3F, 0.0D, 0.0D, 0.0D);
-
-		if(!world.isClientSide) {
-			ItemEntity drop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
-			world.addFreshEntity(drop);
+		if(!level.isClientSide) {
+			ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
+			level.addFreshEntity(drop);
 
 			if (this != ModBlocks.RUNE_STONE.get()) {
-				ItemEntity extraDrop = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
-				world.addFreshEntity(extraDrop);
+				ItemEntity extraDrop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
+				level.addFreshEntity(extraDrop);
 			}
 		}
 	}
@@ -206,18 +168,11 @@ public class BlockRuneStone extends Block {
 							this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && BuiltInRegistries.BLOCK.getKey(this).toString().contains("rune_stone_")) {
 
 						level.setBlock(pos, state.cycle(POWERED), 2);
-						AreaEffectCloud cloud = new AreaEffectCloud(level, pos.getX(), pos.getY() + 0.5F, pos.getZ());
-						cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()));
-						cloud.setDuration(Config.AREA_SPELL_DURATION.get());
-						cloud.setRadius(Config.AREA_SPELL_RADIUS.get());
-						//cloud.setFixedColor(0x616161);
-						cloud.setWaitTime(10);
-						cloud.setParticle(ParticleTypes.ENCHANT);
-						level.addFreshEntity(cloud);
+						SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, Config.AREA_SPELL_DURATION.get(), Config.AREA_SPELL_RADIUS.get(),
+								new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), level, pos.getCenter());
 					}
 				}
 			}
-
 		}
 	}
 

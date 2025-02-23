@@ -41,7 +41,7 @@ import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.SpellHelper;
-import xxrexraptorxx.runecraft.utils.SpellShapes;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;

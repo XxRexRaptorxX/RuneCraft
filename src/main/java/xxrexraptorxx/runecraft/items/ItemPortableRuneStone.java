@@ -9,7 +9,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +20,8 @@ import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
+import xxrexraptorxx.runecraft.utils.SpellHelper;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import java.util.List;
 import java.util.Random;
@@ -68,24 +69,18 @@ public class ItemPortableRuneStone extends Item {
 
             //test if used on a alter (to enable xp repair without using the wand effect)
             if (!level.getBlockState(context.getClickedPos()).getBlock().equals(ModBlocks.ALTAR_BLOCK.get())) {
-
                 level.playSound((Player) null, player.position().x(), player.position().y(), player.position().z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
                 //effect
                 if (!level.isClientSide) {
-                    AreaEffectCloud cloud = new AreaEffectCloud(level, player.position().x, player.position().y + 0.5F, player.position().z);
-                    cloud.setDuration(10);
-                    cloud.setRadius(Config.PORTABLE_SPELL_RADIUS.get());
-                    cloud.setWaitTime(2);
-                    //cloud.setsetFixedColor(0x616161);
-                    cloud.setParticle(ParticleTypes.ENCHANT);
-
                     if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
-                        cloud.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+
+                        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 10, Config.PORTABLE_SPELL_RADIUS.get(),
+                            new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()), level, player.position());
+
                     } else {
                         player.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
                     }
-                    level.addFreshEntity(cloud);
                 }
 
                 //item stuff

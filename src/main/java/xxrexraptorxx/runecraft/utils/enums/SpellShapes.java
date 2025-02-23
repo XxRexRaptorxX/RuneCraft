@@ -1,4 +1,4 @@
-package xxrexraptorxx.runecraft.utils;
+package xxrexraptorxx.runecraft.utils.enums;
 
 public enum SpellShapes {
 

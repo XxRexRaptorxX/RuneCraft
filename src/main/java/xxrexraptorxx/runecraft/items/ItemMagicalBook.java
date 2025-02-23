@@ -2,13 +2,15 @@ package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import xxrexraptorxx.runecraft.utils.SpellHelper;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 public class ItemMagicalBook extends Item {
 
@@ -19,7 +21,6 @@ public class ItemMagicalBook extends Item {
                 .durability(15)
                 .fireResistant()
         );
-
     }
 
     @Override
@@ -32,6 +33,7 @@ public class ItemMagicalBook extends Item {
     public ItemStack getCraftingRemainder(ItemStack stack) {
         if (stack.getMaxDamage() == stack.getDamageValue()) {
             return new ItemStack(Items.AIR);
+
         } else {
             ItemStack newItemStack = stack.copy();
             newItemStack.setDamageValue(stack.getDamageValue() + 1);
@@ -41,18 +43,11 @@ public class ItemMagicalBook extends Item {
 
 
     @Override
-    public InteractionResult useOn(UseOnContext player) {
-        Level level = player.getLevel();
+    public InteractionResult useOn(UseOnContext context) {
+        Level level = context.getLevel();
+        Player player = context.getPlayer();
 
-        if (!level.isClientSide) {
-            AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
-            cloud.setDuration(10);
-            cloud.setRadius(1);
-            cloud.setWaitTime(1);
-            //cloud.setFixedColor(0x616161);
-            cloud.setParticle(ParticleTypes.ENCHANT);
-            level.addFreshEntity(cloud);
-        }
+        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 10, 1, level, player.position());
         return InteractionResult.SUCCESS;
     }
 

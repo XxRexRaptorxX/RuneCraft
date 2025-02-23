@@ -23,6 +23,7 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.main.References;
+import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
