@@ -4,6 +4,7 @@ public enum ParticleShapeTypes {
 
     ITEM_USED,
     BLOCK_AMBIENT,
-    BLOCK_EVENT
+    BLOCK_AMBIENT_TOP,
+    BLOCK_EVENT,
 
 }
