@@ -5,7 +5,7 @@
 
 	"patchouli.book_of_rune_magic.intro": "Ce livre vous fournit toutes les informations nécessaires sur les runes, leurs utilisations et leurs effets. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
 	"message.runecraft.not_enough_levels": "Vous n'avez pas suffisamment d'expérience!",
-	"message.runecraft.page_required_xp": "Niveau d'XP requis: ",
+	"message.runecraft.required_xp": "Niveau d'XP requis:",
 	"message.runecraft.wrong_block": "Utilisez-le sur un Autel...",
 	"message.runecraft.not_full_moon": "Pleine lune requise...",
 	"message.runecraft.magical_book_jei_desc": "Pour obtenir le Grimoire Magique, utilisez un Livre sur un Autel à la pleine lune avec suffisamment d'expérience.",
@@ -40,6 +40,8 @@
 	"message.runecraft.maelstrom_wand_jei_desc": "Clic-Droit: Projette un sort de Cercle de Flétrissement. Clic-Gauche: Donne une effet de Flétrissement à la créature ciblée.",
 	"message.runecraft.storm_wand_jei_desc": "Clic-Gauche: Repousse les créatures.",
 	"message.runecraft.soul_jei_desc": "Obtenue en tuant des créatures avec une Dague Rituelle. Utilisez-les sur un Autel pour créer des Œufs d'apparition. ",
+	"message.runecraft.empty": "Empty",
+	"message.runecraft.contains": "Contains:",
 
 	"item.runecraft.rune_a": "Rune",
 	"item.runecraft.rune_b": "Rune",

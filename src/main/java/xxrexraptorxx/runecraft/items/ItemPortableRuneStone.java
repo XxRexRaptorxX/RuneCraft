@@ -16,6 +16,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
@@ -49,10 +50,10 @@ public class ItemPortableRuneStone extends Item {
             list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
         }
         if(Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal((ChatFormatting.GRAY + "Contains: " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))));
+            list.add(Component.translatable("message." + References.MODID + ".contains").append(Component.literal(" " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))).withStyle(ChatFormatting.GRAY));
         }
         if(this == ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal((ChatFormatting.GRAY + "Empty")));
+            list.add(Component.translatable("message." + References.MODID + ".empty").withStyle(ChatFormatting.GRAY));
         }
     }
 

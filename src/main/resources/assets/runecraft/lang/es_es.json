@@ -5,7 +5,7 @@
 
     "patchouli.book_of_rune_magic.intro": "Este libro explica todo lo que debes aber sobre las runas, sus usos y habilidades. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "¡No tienes suficientes niveles de experiencia!",
-    "message.runecraft.page_required_xp": "Niveles de XP necesarios: ",
+    "message.runecraft.required_xp": "Niveles de XP necesarios:",
     "message.runecraft.wrong_block": "Usalo en un altar...",
     "message.runecraft.not_full_moon": "No es luna llena...",
     "message.runecraft.magical_book_jei_desc": "Para obtener el libro magico, usa un libro normal y suficiente XP en luna llena en el altar.",
@@ -40,6 +40,8 @@
     "message.runecraft.maelstrom_wand_jei_desc": "Click Derecho: Librea un anillo de hechisos de wither. Click izquierdo: Les da el efecto wither a las criaturas.",
     "message.runecraft.storm_wand_jei_desc": "Click izquierdo: Empuja bastante a las criaturas.",
     "message.runecraft.soul_jei_desc": "Se obtienen matando criaturas con una Daga de Ritual. Usalas en el Altar para crear generadores de criaturas. ",
+    "message.runecraft.empty": "Empty",
+    "message.runecraft.contains": "Contains:",
 
     "item.runecraft.rune_a": "Runa",
     "item.runecraft.rune_b": "Runa",

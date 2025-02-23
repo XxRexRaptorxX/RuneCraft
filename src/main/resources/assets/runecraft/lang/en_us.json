@@ -3,7 +3,7 @@
 
     "patchouli.book_of_rune_magic.intro": "This book explains everything you need to know about runes, their uses and abilities. $(br2)$(br2)$(br2)$(br2)$(7)by XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "You have not enough experience levels!",
-    "message.runecraft.page_required_xp": "Required XP levels: ",
+    "message.runecraft.required_xp": "Required XP levels:",
     "message.runecraft.wrong_block": "Use it on an altar...",
     "message.runecraft.not_full_moon": "Not full moon...",
     "message.runecraft.magical_book_jei_desc": "To get the Magical Book, use a normal Book and enough XP on fullmoon on the Altar.",
@@ -38,6 +38,8 @@
     "message.runecraft.maelstrom_wand_jei_desc": "Right Click: Releases a ring of wither spells. Left Click: Gives creatures a wither effect.",
     "message.runecraft.storm_wand_jei_desc": "Left Click: Pushes creatures far back.",
     "message.runecraft.soul_jei_desc": "Obtained from creatures killed with a Ritual Dagger. Use them at the altar to create spawn eggs from them. ",
+    "message.runecraft.empty": "Empty",
+    "message.runecraft.contains": "Contains:",
 
     "item.runecraft.rune_a": "Rune",
     "item.runecraft.rune_b": "Rune",

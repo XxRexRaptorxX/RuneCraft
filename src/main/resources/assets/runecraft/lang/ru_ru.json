@@ -5,7 +5,7 @@
 
     "patchouli.book_of_rune_magic.intro": "Эта книга объясняет всё, что необходимо знать о рунах, их применения и способности. $(br2)$(br2)$(br2)$(br2)$(7)Автор — XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "Мало уровней опыта!",
-    "message.runecraft.page_required_xp": "Требуется уровней опыта: ",
+    "message.runecraft.required_xp": "Требуется уровней опыта:",
     "message.runecraft.wrong_block": "Воспользуйтесь по Алтарю...",
     "message.runecraft.not_full_moon": "Нет полнолуния...",
     "message.runecraft.magical_book_jei_desc": "Для получения Магического гримуара, воспользуйтесь обычной книгой и достаточным количеством опыта в Полнолунии по Алтарю.",
@@ -40,6 +40,8 @@
     "message.runecraft.maelstrom_wand_jei_desc": "Щелчок правой кнопкой мыши: Выпускает заклинание «Кольцо иссушения». Щелчок левой кнопкой мыши: Наделяет существо эффектом иссушения.",
     "message.runecraft.storm_wand_jei_desc": "Щелчок левой кнопкой мыши: Отталкивает существ.",
     "message.runecraft.soul_jei_desc": "Добывается из убитого существа при помощи Ритуального кинжала. Воспользуйтесь ею по Алтарю для создания Яиц призыва.",
+    "message.runecraft.empty": "Empty",
+    "message.runecraft.contains": "Contains:",
 
     "item.runecraft.rune_a": "Руна",
     "item.runecraft.rune_b": "Руна",

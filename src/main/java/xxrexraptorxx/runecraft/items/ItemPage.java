@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 
@@ -30,7 +31,7 @@ public class ItemPage extends Item {
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
         if (this != ModItems.MAGICAL_PAGE.get())
-            list.add(Component.literal("Required Xp levels: " + getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY));
+            list.add(Component.translatable("message." + References.MODID + "required_xp").append(Component.literal(" " + getPageXpRequirement(this)).withStyle(ChatFormatting.GRAY)));
     }
 
 

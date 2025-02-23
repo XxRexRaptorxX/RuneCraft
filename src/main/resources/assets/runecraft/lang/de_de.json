@@ -5,7 +5,7 @@
     "message.runecraft.not_enough_levels": "Du hast nicht genügend Erfahrungslevel!",
     "message.runecraft.wrong_block": "Benutze es an einem Altar...",
     "message.runecraft.not_full_moon": "Kein Vollmond...",
-    "message.runecraft.page_required_xp": "Erforderte Xp Level: ",
+    "message.runecraft.required_xp": "Erforderte Xp Level:",
     "message.runecraft.magical_book_jei_desc": "Um das Magische Buch zu erlangen ist es nötig mit einem normalem Buch und genügend XP während Vollmond den Altar zu benutzen.",
     "message.runecraft.ruin_block_jei_desc": "Kann in Runen Tempeln gefunden werden.",
     "message.runecraft.empty_runestone": "Füge eine Rune ein...",
@@ -38,6 +38,8 @@
     "message.runecraft.maelstrom_wand_jei_desc": "Rechts Click: Setzt einen Ring aus Wither Zauber frei. Links Click: Withert die Kreatur.",
     "message.runecraft.storm_wand_jei_desc": "Links Click: Stößt Kreaturen weit zurück.",
     "message.runecraft.soul_jei_desc": "Erhält man aus Kreaturen die mit einem Ritual Dolch erledigt wurden. Verwende sie am Altar um aus ihnen Spawn-Eier zu erschaffen.",
+    "message.runecraft.empty": "Leer",
+    "message.runecraft.contains": "Enthält:",
 
     "item.runecraft.rune_a": "Rune",
     "item.runecraft.rune_b": "Rune",

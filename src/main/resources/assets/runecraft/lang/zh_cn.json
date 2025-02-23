@@ -5,7 +5,7 @@
 
     "patchouli.book_of_rune_magic.intro": "这本书解释了你需要了解关于符文的一切，包括它们的用途和能力。$(br2)$(br2)$(br2)$(br2)$(7)作者：XxRexRaptorxX$()",
     "message.runecraft.not_enough_levels": "你没有足够的经验等级!",
-    "message.runecraft.page_required_xp": "所需经验等级：",
+    "message.runecraft.required_xp": "所需经验等级",
     "message.runecraft.wrong_block": "在祭坛上使用它...",
     "message.runecraft.not_full_moon": "不是满月...",
     "message.runecraft.magical_book_jei_desc": "要得到魔法书，请在祭坛上使用普通书和足够的经验等级在满月时进行儀式。",
@@ -40,6 +40,8 @@
     "message.runecraft.maelstrom_wand_jei_desc": "右键点击：释放凋零魔法环。左键点击：使生物凋零。",
     "message.runecraft.storm_wand_jei_desc": "左键点击：将生物击退很远。",
     "message.runecraft.soul_jei_desc": "从使用降妖宝刀杀死的生物中获取。在祭坛上使用它们来制造生成蛋。",
+    "message.runecraft.empty": "Empty",
+    "message.runecraft.contains": "Contains:",
 
     "item.runecraft.rune_a": "符文A",
     "item.runecraft.rune_b": "符文B",
