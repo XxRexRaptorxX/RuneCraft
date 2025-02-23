@@ -40,9 +40,6 @@ public class SpellHelper {
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 1.0F, pos.z()));
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 1.5F, pos.z()));
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 2.0F, pos.z()));
-
-            } else if (shape == SpellShapes.LINE) {
-                //TODO
             }
 
             for (AreaEffectCloud cloud : areaEffectClouds) {

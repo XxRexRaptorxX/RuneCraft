@@ -4,7 +4,6 @@ public enum SpellShapes {
 
     RING,
     SINGLE,
-    LINE,
     STACKED
 
 }
