@@ -70,7 +70,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 	}
 
 
@@ -112,7 +112,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
 		if (!level.isClientSide) {
 			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
@@ -130,7 +130,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
 		if(!level.isClientSide) {
 			ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));

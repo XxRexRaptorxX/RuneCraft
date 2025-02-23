@@ -31,7 +31,7 @@ public class BlockRuin extends Block {
 
 	@Override
 	public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
 		if(!level.isClientSide) {
 			level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
@@ -48,7 +48,7 @@ public class BlockRuin extends Block {
 
 	@Override
 	public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.RUNESTONE_CLUSTERED, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
 		if(!level.isClientSide) {
 			ItemEntity drop1 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));

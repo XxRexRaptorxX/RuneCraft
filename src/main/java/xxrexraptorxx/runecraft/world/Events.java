@@ -300,7 +300,7 @@ public class Events {
                     if (level.getMoonPhase() == 0) {
                         //ambient
                         level.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM, ParticleTypes.HAPPY_VILLAGER, level, pos);
+                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
 
                         //Spawn a lightning bolt
                         if (!level.isClientSide) {
@@ -361,7 +361,7 @@ public class Events {
 
                         //Ambient
                         level.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM, ParticleTypes.HAPPY_VILLAGER, level, pos);
+                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
@@ -445,7 +445,7 @@ public class Events {
 
                     //Ambient
                     level.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.F);
-                    SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM, ParticleTypes.HAPPY_VILLAGER, level, pos);
+                    SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
 
                     //Item stuff
                     player.onEnchantmentPerformed(null, 1);
@@ -479,7 +479,7 @@ public class Events {
 
                     //Ambient
                     level.playSound((Player) null, pos, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-                    SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM, ParticleTypes.HAPPY_VILLAGER, level, pos);
+                    SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
 
                     //Item stuff
                     player.onEnchantmentPerformed(null, 1);
@@ -516,7 +516,7 @@ public class Events {
 
                         //Ambient
                         level.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM, ParticleTypes.HAPPY_VILLAGER, level, pos);
+                        SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);

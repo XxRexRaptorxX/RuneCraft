@@ -40,6 +40,9 @@ public class SpellHelper {
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 1.0F, pos.z()));
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 1.5F, pos.z()));
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x(), pos.y() + 2.0F, pos.z()));
+
+            } else if (shape == SpellShapes.LINE) {
+                //TODO
             }
 
             for (AreaEffectCloud cloud : areaEffectClouds) {
@@ -89,7 +92,7 @@ public class SpellHelper {
 
 
     public static void spawnParticleEffects(ParticleShapeTypes type, ParticleOptions particleTypes, Level level, BlockPos pos) {
-        if (type == ParticleShapeTypes.ITEM) {
+        if (type == ParticleShapeTypes.ITEM_USED) {
             for (int i = 0; i < 2; i++) {
                 level.addParticle(ParticleTypes.LAVA, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
                 level.addParticle(particleTypes, pos.getX() + 1.1F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.0D, 0.0D, 0.0D);
@@ -98,14 +101,14 @@ public class SpellHelper {
                 level.addParticle(particleTypes, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
             }
 
-        } else if (type == ParticleShapeTypes.RUNESTONE) {
+        } else if (type == ParticleShapeTypes.BLOCK_AMBIENT) {
             double d0 = (double)((float)pos.getX() + level.random.nextFloat());
             double d1 = (double)((float)pos.getY() + 2.0F);
             double d2 = (double)((float)pos.getZ() + level.random.nextFloat());
 
             level.addParticle(particleTypes, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 
-        } else if (type == ParticleShapeTypes.RUNESTONE_CLUSTERED) {
+        } else if (type == ParticleShapeTypes.BLOCK_EVENT) {
             double d0 = (double) ((float) pos.getX() + level.random.nextFloat());
             double d1 = (double) ((float) pos.getY() + 0.8F);
             double d2 = (double) ((float) pos.getZ() + level.random.nextFloat());
