@@ -13,7 +13,7 @@ displayURL="https://www.curseforge.com/minecraft/mc-mods/rune-craft"
 logoFile="logo.png"
 #credits=""
 authors="${mod_authors}"
-description='''This magical mod adds everything related to runes to the game!'''
+description='''This magic mod adds everything related to runes to the game! \nBlocks emmiting effects, wands, items with custom effects, spells, curses, catch mob souls to spawn them, useful functions and muuuch more!'''
 
 [[dependencies.${mod_id}]]
 modId="neoforge"

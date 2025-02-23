@@ -4,7 +4,7 @@
 
 # Rune Craft for Minecraft
 
-![Logo](https://i.imgur.com/72CvB8w.png)
+![Logo](https://github.com/XxRexRaptorxX/RuneCraft/blob/main/src/main/resources/logo.png?raw=true)
 
 ## 🗃️ Dependencies
 
