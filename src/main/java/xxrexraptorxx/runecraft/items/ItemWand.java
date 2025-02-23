@@ -40,8 +40,11 @@ import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
 import xxrexraptorxx.runecraft.utils.Config;
+import xxrexraptorxx.runecraft.utils.SpellHelper;
+import xxrexraptorxx.runecraft.utils.SpellShapes;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
@@ -57,428 +60,179 @@ public class ItemWand extends Item {
 
 
     @Override
-    public InteractionResult useOn(UseOnContext player) {
-        Level level = player.getLevel();
-        Item item = player.getItemInHand().getItem();
-        ItemStack stack = player.getItemInHand();
-        Position pos = player.getPlayer().position();
+    public InteractionResult useOn(UseOnContext event) {
+        Level level = event.getLevel();
+        Player player = event.getPlayer();
+        Item item = event.getItemInHand().getItem();
+        ItemStack stack = event.getItemInHand();
+        Position pos = event.getPlayer().position();
+        BlockPos clickedPos = event.getClickedPos();
         Random random = new Random();
 
         //test if used on a alter (to enable xp repair without using the wand effect)
-        if (!level.getBlockState(player.getClickedPos()).getBlock().equals(ModBlocks.ALTAR_BLOCK.get())) {
+        if (!level.getBlockState(event.getClickedPos()).getBlock().equals(ModBlocks.ALTAR_BLOCK.get())) {
 
-            //test if the item is a wand
-            if (item == ModItems.CURSE_WAND.get() || item == ModItems.HOLY_WAND.get() || item == ModItems.BASIC_WAND.get() ||
-                    item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get() || item == ModItems.ESCAPE_WAND.get() || item == ModItems.DESTRUCTION_WAND.get() ||
-                    item == ModItems.THUNDER_WAND.get() || item == ModItems.DEFENSIVE_WAND.get() || item == ModItems.CHANGING_WAND.get() || item == ModItems.CREATURE_WAND.get()) {
+            ArrayList<MobEffectInstance> effectInstances = new ArrayList<>();
+            level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
-                /** BASIC **/
-                if (item == ModItems.BASIC_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
+            if (item != ModItems.CHANGING_WAND.get() || item != ModItems.DESTRUCTION_WAND.get()) {
+                player.getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
+            }
 
-                    if (!level.isClientSide) {
-                        AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
-                        cloud1.setDuration(20);
-                        cloud1.setRadius(3F);
-                        cloud1.setParticle(ParticleTypes.FIREWORK);
-                        cloud1.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud1);
-
-                        AreaEffectCloud cloud2 = new AreaEffectCloud(level, pos.x() - 7.0F, pos.y() + 0.5F, pos.z());
-                        cloud2.setDuration(20);
-                        cloud2.setRadius(3F);
-                        cloud2.setParticle(ParticleTypes.FIREWORK);
-                        cloud2.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud2);
-
-                        AreaEffectCloud cloud3 = new AreaEffectCloud(level, pos.x(), pos.y() + 0.5F, pos.z() + 7.0F);
-                        cloud3.setDuration(20);
-                        cloud3.setRadius(3F);
-                        cloud3.setParticle(ParticleTypes.FIREWORK);
-                        cloud3.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud3);
-
-                        AreaEffectCloud cloud4 = new AreaEffectCloud(level, pos.x(), pos.y() + 0.5F, pos.z() - 7.0F);
-                        cloud4.setDuration(20);
-                        cloud4.setRadius(3F);
-                        cloud4.setParticle(ParticleTypes.FIREWORK);
-                        cloud4.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud4);
-
-                        AreaEffectCloud cloud5 = new AreaEffectCloud(level, pos.x() + 4.0F, pos.y() + 0.5F, pos.z() + 5.0F);
-                        cloud5.setDuration(20);
-                        cloud5.setRadius(3F);
-                        cloud5.setParticle(ParticleTypes.FIREWORK);
-                        cloud5.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud5);
-
-                        AreaEffectCloud cloud6 = new AreaEffectCloud(level, pos.x() - 4.0F, pos.y() + 0.5F, pos.z() - 5.0F);
-                        cloud6.setDuration(20);
-                        cloud6.setRadius(3F);
-                        cloud6.setParticle(ParticleTypes.FIREWORK);
-                        cloud6.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud6);
-
-                        AreaEffectCloud cloud7 = new AreaEffectCloud(level, pos.x() - 4.0F, pos.y() + 0.5F, pos.z() + 4.0F);
-                        cloud7.setDuration(20);
-                        cloud7.setRadius(3F);
-                        cloud7.setParticle(ParticleTypes.FIREWORK);
-                        cloud7.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud7);
-
-                        AreaEffectCloud cloud8 = new AreaEffectCloud(level, pos.x() + 5.0F, pos.y() + 0.5F, pos.z() - 5.0F);
-                        cloud8.setDuration(20);
-                        cloud8.setRadius(3F);
-                        cloud8.setParticle(ParticleTypes.FIREWORK);
-                        cloud8.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
-                        level.addFreshEntity(cloud8);
-                    }
-
-                    /** CURSE **/
-                } else if (item == ModItems.CURSE_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        AreaEffectCloud cloud1 = new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z());
-                        cloud1.setDuration(20);
-                        cloud1.setRadius(3F);
-                        cloud1.setParticle(ParticleTypes.SMOKE);
-                        cloud1.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud1.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud1);
-
-                        AreaEffectCloud cloud2 = new AreaEffectCloud(level, pos.x() - 7.0F, pos.y() + 0.5F, pos.z());
-                        cloud2.setDuration(20);
-                        cloud2.setRadius(3F);
-                        cloud2.setParticle(ParticleTypes.SMOKE);
-                        cloud2.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud2.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud2);
-
-                        AreaEffectCloud cloud3 = new AreaEffectCloud(level, pos.x(), pos.y() + 0.5F, pos.z() + 7.0F);
-                        cloud3.setDuration(20);
-                        cloud3.setRadius(3F);
-                        cloud3.setParticle(ParticleTypes.SMOKE);
-                        cloud3.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud3.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud3);
-
-                        AreaEffectCloud cloud4 = new AreaEffectCloud(level, pos.x(), pos.y() + 0.5F, pos.z() - 7.0F);
-                        cloud4.setDuration(20);
-                        cloud4.setRadius(3F);
-                        cloud4.setParticle(ParticleTypes.SMOKE);
-                        cloud4.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud4.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud4);
-
-                        AreaEffectCloud cloud5 = new AreaEffectCloud(level, pos.x() + 4.0F, pos.y() + 0.5F, pos.z() + 5.0F);
-                        cloud5.setDuration(20);
-                        cloud5.setRadius(3F);
-                        cloud5.setParticle(ParticleTypes.SMOKE);
-                        cloud5.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud5.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud5);
-
-                        AreaEffectCloud cloud6 = new AreaEffectCloud(level, pos.x() - 4.0F, pos.y() + 0.5F, pos.z() - 5.0F);
-                        cloud6.setDuration(20);
-                        cloud6.setRadius(3F);
-                        cloud6.setParticle(ParticleTypes.SMOKE);
-                        cloud6.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud6.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud6);
-
-                        AreaEffectCloud cloud7 = new AreaEffectCloud(level, pos.x() - 4.0F, pos.y() + 0.5F, pos.z() + 4.0F);
-                        cloud7.setDuration(20);
-                        cloud7.setRadius(3F);
-                        cloud7.setParticle(ParticleTypes.SMOKE);
-                        cloud7.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud7.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud7);
-
-                        AreaEffectCloud cloud8 = new AreaEffectCloud(level, pos.x() + 5.0F, pos.y() + 0.5F, pos.z() - 5.0F);
-                        cloud8.setDuration(20);
-                        cloud8.setRadius(3F);
-                        cloud8.setParticle(ParticleTypes.SMOKE);
-                        cloud8.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        cloud8.addEffect(new MobEffectInstance(MobEffects.HARM, 10, 0));
-                        level.addFreshEntity(cloud8);
-                        //special cloud
-                        AreaEffectCloud cloud9 = new AreaEffectCloud(level, pos.x() + 5.0F, pos.y() + 0.5F, pos.z() - 5.0F);
-                        cloud9.setDuration(20);
-                        cloud9.setRadius(3F);
-                        cloud9.setParticle(ParticleTypes.LARGE_SMOKE);
-                        cloud9.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                        player.getPlayer().hurt(level.damageSources().magic(), 2.0F);
-                        level.addFreshEntity(cloud9);
-                    }
-
-                    /** HOLY **/
-                } else if (item == ModItems.HOLY_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        AreaEffectCloud cloud = new AreaEffectCloud(level, player.getPlayer().position().x, player.getPlayer().position().y + 0.5F, player.getPlayer().position().z);
-                        cloud.setDuration(10);
-                        cloud.setRadius(2.0F);
-                        cloud.setParticle(ParticleTypes.HEART);
-                        cloud.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 1));
-                        level.addFreshEntity(cloud);
-                    }
-
-                    /** NETHER **/
-                } else if (item == ModItems.NETHER_WAND.get()) {
-                    BlockPos blockPos = player.getClickedPos();
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-
-                    if (level.getBlockState(blockPos.above()).isAir())
-                        level.setBlock(blockPos.above(), Blocks.FIRE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir())
-                        level.setBlock(blockPos.offset(1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir())
-                        level.setBlock(blockPos.offset(0, 1, 1), Blocks.FIRE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir())
-                        level.setBlock(blockPos.offset(-1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir())
-                        level.setBlock(blockPos.offset(0, 1, -1), Blocks.FIRE.defaultBlockState(), 11);
-
-                    if (!level.isClientSide) {
-                        AreaEffectCloud cloud = new AreaEffectCloud(level, blockPos.getX() + 0.5F, blockPos.getY(), blockPos.getZ() + 0.5F);
-                        cloud.setDuration(100);
-                        cloud.setRadius(1.0F);
-                        cloud.setParticle(ParticleTypes.LAVA);
-                        level.addFreshEntity(cloud);
-                    }
-
-                    /** MAELSTROM **/
-                } else if (item == ModItems.MAELSTROM_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.getPlayer().getX() + 7.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ());
-                        cloud1.setDuration(20);
-                        cloud1.setRadius(3F);
-                        cloud1.setParticle(ParticleTypes.SMOKE);
-                        cloud1.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud1);
-
-                        AreaEffectCloud cloud2 = new AreaEffectCloud(level, player.getPlayer().getX() - 7.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ());
-                        cloud2.setDuration(20);
-                        cloud2.setRadius(3F);
-                        cloud2.setParticle(ParticleTypes.SMOKE);
-                        cloud2.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud2);
-
-                        AreaEffectCloud cloud3 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() + 7.0F);
-                        cloud3.setDuration(20);
-                        cloud3.setRadius(3F);
-                        cloud3.setParticle(ParticleTypes.SMOKE);
-                        cloud3.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud3);
-
-                        AreaEffectCloud cloud4 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() - 7.0F);
-                        cloud4.setDuration(20);
-                        cloud4.setRadius(3F);
-                        cloud4.setParticle(ParticleTypes.SMOKE);
-                        cloud4.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud4);
-
-                        AreaEffectCloud cloud5 = new AreaEffectCloud(level, player.getPlayer().getX() + 4.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() + 5.0);
-                        cloud5.setDuration(20);
-                        cloud5.setRadius(3F);
-                        cloud5.setParticle(ParticleTypes.SMOKE);
-                        cloud5.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud5);
-
-                        AreaEffectCloud cloud6 = new AreaEffectCloud(level, player.getPlayer().getX() - 4.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() - 5.0);
-                        cloud6.setDuration(20);
-                        cloud6.setRadius(3F);
-                        cloud6.setParticle(ParticleTypes.SMOKE);
-                        cloud6.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud6);
-
-                        AreaEffectCloud cloud7 = new AreaEffectCloud(level, player.getPlayer().getX() - 4.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() + 4.0);
-                        cloud7.setDuration(20);
-                        cloud7.setRadius(3F);
-                        cloud7.setParticle(ParticleTypes.SMOKE);
-                        cloud7.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud7);
-
-                        AreaEffectCloud cloud8 = new AreaEffectCloud(level, player.getPlayer().getX() + 5.0F, player.getPlayer().getY() + 0.5F, player.getPlayer().getZ() - 5.0);
-                        cloud8.setDuration(20);
-                        cloud8.setRadius(3F);
-                        cloud8.setParticle(ParticleTypes.SMOKE);
-                        cloud8.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 1));
-                        level.addFreshEntity(cloud8);
-
-                        AreaEffectCloud cloud9 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY(), player.getPlayer().getZ());
-                        cloud9.setDuration(10);
-                        cloud9.setRadius(4.0F);
-                        cloud9.setParticle(ParticleTypes.LAVA);
-                        level.addFreshEntity(cloud9);
-                    }
-
-                    /** ESCAPE **/
-                } else if (item == ModItems.ESCAPE_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        player.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
-                        player.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 1));
-
-                        AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 0.5, player.getPlayer().getZ());
-                        cloud1.setDuration(500);
-                        cloud1.setRadius(15F);
-                        cloud1.setWaitTime(0);
-                        cloud1.setParticle(ParticleTypes.LARGE_SMOKE);
-                        level.addFreshEntity(cloud1);
-
-                        AreaEffectCloud cloud2 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 1.0F, player.getPlayer().getZ());
-                        cloud2.setDuration(500);
-                        cloud2.setRadius(12F);
-                        cloud2.setWaitTime(0);
-                        cloud2.setParticle(ParticleTypes.LARGE_SMOKE);
-                        level.addFreshEntity(cloud2);
-
-                        AreaEffectCloud cloud3 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 1.5F, player.getPlayer().getZ());
-                        cloud3.setDuration(500);
-                        cloud3.setRadius(10F);
-                        cloud3.setWaitTime(0);
-                        cloud3.setParticle(ParticleTypes.LARGE_SMOKE);
-                        level.addFreshEntity(cloud3);
-
-                        AreaEffectCloud cloud4 = new AreaEffectCloud(level, player.getPlayer().getX(), player.getPlayer().getY() + 2.0F, player.getPlayer().getZ());
-                        cloud4.setDuration(500);
-                        cloud4.setRadius(5F);
-                        cloud4.setWaitTime(0);
-                        cloud4.setParticle(ParticleTypes.LARGE_SMOKE);
-                        level.addFreshEntity(cloud4);
-                    }
-
-                    /** DESTRUCTION **/
-                } else if (item == ModItems.DESTRUCTION_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-
-                    if (player.getPlayer().isShiftKeyDown())
-                        player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        if (player.getPlayer().isShiftKeyDown()) {
-                            level.addFreshEntity(new PrimedTnt(level, player.getClickedPos().getX(), player.getClickedPos().getY(), player.getClickedPos().getZ(), player.getPlayer()));
-                        } else {
-                            level.setBlock(player.getClickedPos(), Blocks.AIR.defaultBlockState(), 11);
-                        }
-                    }
-
-                    /** THUNDER **/
-                } else if (item == ModItems.THUNDER_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    if (!level.isClientSide) {
-                        if (player.getPlayer().isShiftKeyDown()) {
-                            level.getLevelData().setRaining(true);
-                            level.setThunderLevel(1);
-                        } else {
-                            level.getLevelData().setRaining(false);
-                        }
-                    }
-
-                    /** DEFENSIVE **/
-                } else if (item == ModItems.DEFENSIVE_WAND.get()) {
-                    BlockPos blockPos = player.getPlayer().blockPosition();
-
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-                    player.getPlayer().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 0));
+            /* BASIC */
+            if (item == ModItems.BASIC_WAND.get()) {
+                effectInstances.add(new MobEffectInstance(MobEffects.WEAKNESS, 150, 0));
+                SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.FIREWORK, 20, 3, effectInstances, level, pos);
 
 
-                    if (player.getPlayer().isShiftKeyDown()) {
-                        if (level.getBlockState(blockPos.offset(0, -1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, -1, 0), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 2, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, 2, 0), Blocks.AIR.defaultBlockState(), 11);
+            /* CURSE */
+            } else if (item == ModItems.CURSE_WAND.get()) {
+                effectInstances.add(new MobEffectInstance(MobEffects.UNLUCK, 1000, 0));
+                effectInstances.add(new MobEffectInstance(MobEffects.HARM, 10, 0));
+                SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.SMOKE, 20, 3, effectInstances, level, pos);
 
-                        if (level.getBlockState(blockPos.offset(1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(1, 0, 0), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(-1, 0, 0), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, 1)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, 0, 1), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, -1)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, 0, -1), Blocks.AIR.defaultBlockState(), 11);
+                effectInstances.removeLast();
+                event.getPlayer().hurt(level.damageSources().magic(), 2.0F);
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LARGE_SMOKE, 20, 3, effectInstances, level, pos);
 
-                        if (level.getBlockState(blockPos.offset(1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(1, 1, 0), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(-1, 1, 0), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, 1)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, 1, 1), Blocks.AIR.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, -1)) == Blocks.COBBLESTONE.defaultBlockState())
-                            level.setBlock(blockPos.offset(0, 1, -1), Blocks.AIR.defaultBlockState(), 11);
+            /* HOLY */
+            } else if (item == ModItems.HOLY_WAND.get()) {
+                effectInstances.add(new MobEffectInstance(MobEffects.REGENERATION, 200, 1));
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.HEART, 10, 2, effectInstances, level, pos);
 
+            /* NETHER */
+            } else if (item == ModItems.NETHER_WAND.get()) {
+                if (level.getBlockState(clickedPos.above()).isAir())
+                    level.setBlock(clickedPos.above(), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(1, 1, 0)).isAir())
+                    level.setBlock(clickedPos.offset(1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(0, 1, 1)).isAir())
+                    level.setBlock(clickedPos.offset(0, 1, 1), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(-1, 1, 0)).isAir())
+                    level.setBlock(clickedPos.offset(-1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(0, 1, -1)).isAir())
+                    level.setBlock(clickedPos.offset(0, 1, -1), Blocks.FIRE.defaultBlockState(), 11);
+
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 100, 1, null, level, clickedPos.getCenter());
+
+            /* MAELSTROM */
+            } else if (item == ModItems.MAELSTROM_WAND.get()) {
+                effectInstances.add(new MobEffectInstance(MobEffects.WITHER, 200, 1));
+                SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.SMOKE, 10, 3, effectInstances, level, pos);
+                SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 10, 4, null, level, pos);
+
+            /* ESCAPE */
+            } else if (item == ModItems.ESCAPE_WAND.get()) {
+                SpellHelper.spawnSpellEffect(SpellShapes.STACKED, ParticleTypes.LARGE_SMOKE, 500, 15, null, level, pos);
+                event.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
+                event.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 1));
+
+
+            /* DESTRUCTION */
+            } else if (item == ModItems.DESTRUCTION_WAND.get()) {
+                if (player.isShiftKeyDown())
+                    player.getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
+
+                if (!level.isClientSide) {
+                    if (event.getPlayer().isShiftKeyDown()) {
+                        level.addFreshEntity(new PrimedTnt(level, clickedPos.getX(), clickedPos.getY(), clickedPos.getZ(), event.getPlayer()));
                     } else {
-                        if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, -1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, 2, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-
-                        if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(-1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, 0, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, 0, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-
-                        if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(-1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, 1, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                        if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
-                            level.setBlock(blockPos.offset(0, 1, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                        level.destroyBlock(event.getClickedPos(), false);
                     }
-
-                    /** CHANGING **/
-                } else if (item == ModItems.CHANGING_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-
-                    if (!level.isClientSide && player != null) {
-                        BlockPos blockpos = player.getClickedPos();
-                        if (!this.handleInteraction(player.getPlayer(), level.getBlockState(blockpos), level, blockpos, true, player.getItemInHand())) {
-                            return InteractionResult.FAIL;
-                        }
-                    }
-
-
-                    /** CREATURE **/
-                } else if (item == ModItems.CREATURE_WAND.get()) {
-                    level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    player.getPlayer().getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
-
-                    AltarHelper.getRandomWeakMob(level, player.getClickedPos());
-                    AltarHelper.getRandomWeakMob(level, player.getClickedPos());
-                    AltarHelper.getRandomWeakMob(level, player.getClickedPos());
                 }
 
-                //item stuff
-                stack.setDamageValue(stack.getDamageValue() + 1);
+            /* THUNDER */
+            } else if (item == ModItems.THUNDER_WAND.get()) {
 
-                if (stack.getDamageValue() == stack.getMaxDamage()) {
-                    level.playSound((Player) null, player.getPlayer().getX(), player.getPlayer().getY(), player.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                    stack.shrink(1);
+                if (!level.isClientSide) {
+                    if (player.isShiftKeyDown()) {
+                        level.getLevelData().setRaining(true);
+                        level.setThunderLevel(1);
+                    } else {
+                        level.getLevelData().setRaining(false);
+                    }
                 }
+
+            /* DEFENSIVE */
+            } else if (item == ModItems.DEFENSIVE_WAND.get()) {
+                BlockPos blockPos = event.getPlayer().blockPosition();
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 0));
+
+                if (player.isShiftKeyDown()) {
+                    if (level.getBlockState(blockPos.offset(0, -1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, -1, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 2, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, 2, 0), false);
+
+                    if (level.getBlockState(blockPos.offset(1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(1, 0, 0), false);
+                    if (level.getBlockState(blockPos.offset(-1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(-1, 0, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 0, 1)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, 0, 1), false);
+                    if (level.getBlockState(blockPos.offset(0, 0, -1)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, 0, -1), false);
+
+                    if (level.getBlockState(blockPos.offset(1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(1, 1, 0), false);
+                    if (level.getBlockState(blockPos.offset(-1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(-1, 1, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 1, 1)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, 1, 1), false);
+                    if (level.getBlockState(blockPos.offset(0, 1, -1)) == Blocks.COBBLESTONE.defaultBlockState())
+                        level.destroyBlock(blockPos.offset(0, 1, -1), false);
+
+                } else {
+                    if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, -1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, 2, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(-1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, 0, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, 0, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+
+                    if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(-1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, 1, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                    if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
+                        level.setBlock(blockPos.offset(0, 1, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
+                }
+
+           /* CHANGING */
+            } else if (item == ModItems.CHANGING_WAND.get()) {
+                if (!level.isClientSide) {
+                    if (!this.handleInteraction(player, level.getBlockState(clickedPos), level, clickedPos, true, event.getItemInHand())) {
+                        return InteractionResult.FAIL;
+                    }
+                }
+
+            /* CREATURE */
+            } else if (item == ModItems.CREATURE_WAND.get()) {
+                AltarHelper.getRandomWeakMob(level, clickedPos);
+                AltarHelper.getRandomWeakMob(level, clickedPos);
+                AltarHelper.getRandomWeakMob(level, clickedPos);
+            }
+
+
+            //general stuff
+            stack.setDamageValue(stack.getDamageValue() + 1);
+
+            if (stack.getDamageValue() == stack.getMaxDamage()) {
+                level.playSound((Player) null, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                stack.shrink(1);
             }
         }
 
-        if(level.isClientSide) player.getPlayer().awardStat(Stats.ITEM_USED.get(this));
+        if(level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 
@@ -489,120 +243,63 @@ public class ItemWand extends Item {
         Level level = player.level();
         Random random = new Random();
 
-        if(item == ModItems.AETHER_WAND.get() || item == ModItems.CURSE_WAND.get() || item == ModItems.HOLY_WAND.get() || item == ModItems.STORM_WAND.get() ||
-                item == ModItems.MAELSTROM_WAND.get() || item == ModItems.NETHER_WAND.get() || item == ModItems.THUNDER_WAND.get()) {
+        level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
-            level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        /* AETHER */
+        if (item == ModItems.AETHER_WAND.get()) {
+            SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.LEVITATION, 100, 1), 1);
 
-            /** AETHER **/
-            if (item == ModItems.AETHER_WAND.get()) {
-                if (entity instanceof Player) {
-                    Player entityIn = (Player) entity;
+        /* CURSE */
+        } else if (item == ModItems.CURSE_WAND.get()) {
+            SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.UNLUCK, 10000, 0), 2);
+            SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.WITHER, 100, 0), 2);
+            player.hurt(level.damageSources().magic(), 2.0F);
 
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 1));
-                    entityIn.hurt(level.damageSources().generic(), 1.0F);
-                }
-                if (entity instanceof LivingEntity) {
-                    LivingEntity entityIn = (LivingEntity) entity;
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 100, 1));
-                    entityIn.hurt(level.damageSources().generic(), 1.0F);
-                }
+        /* HOLY */
+        } else if (item == ModItems.HOLY_WAND.get()) {
+            SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 0);
 
-            /** CURSE **/
-            } else if (item == ModItems.CURSE_WAND.get()) {
-                if (entity instanceof Player) {
-                    Player entityIn = (Player) entity;
+        /* STORM */
+        } else if (item == ModItems.STORM_WAND.get()) {
+            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, null, level, player.position());
+            SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, null, level, player.position());
+            //player.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(20);
 
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 0));
-                    entityIn.hurt(level.damageSources().magic(), 4.0F);
-                    player.hurt(level.damageSources().magic(), 1.0F);
-                }
-                if (entity instanceof LivingEntity) {
-                    LivingEntity entityIn = (LivingEntity) entity;
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.UNLUCK, 10000, 0));
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 0));
-                    entityIn.hurt(level.damageSources().magic(), 4.0F);
-                    player.hurt(level.damageSources().magic(), 1.0F);
-                }
+        /* NETHER */
+        } else if (item == ModItems.NETHER_WAND.get()) {
+            entity.setRemainingFireTicks(10);
 
-            /** HOLY **/
-            } else if (item == ModItems.HOLY_WAND.get()) {
-                if (entity instanceof Player) {
-                    Player entityIn = (Player) entity;
+        /* MAELSTROM */
+        } else if (item == ModItems.MAELSTROM_WAND.get()) {
+            SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.WITHER, 200, 0), 1.0F);
 
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
-                }
-                if (entity instanceof LivingEntity) {
-                    LivingEntity entityIn = (LivingEntity) entity;
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 0));
-                }
-
-            /** STORM **/
-            } else if (item == ModItems.STORM_WAND.get()) {
-                if (!level.isClientSide) {
-                    AreaEffectCloud cloud1 = new AreaEffectCloud(level, player.position().x, player.position().y + 0.5F, player.position().z);
-                    cloud1.setRadius(2.0F);
-                    cloud1.setDuration(3);
-                    cloud1.setWaitTime(0);
-                    cloud1.setParticle(ParticleTypes.SMOKE);
-                    level.addFreshEntity(cloud1);
-
-                    AreaEffectCloud cloud2 = new AreaEffectCloud(level, player.position().x, player.position().y + 0.5F, player.position().z);
-                    cloud2.setRadius(2.0F);
-                    cloud2.setDuration(3);
-                    cloud2.setWaitTime(0);
-                    cloud2.setParticle(ParticleTypes.SMOKE);
-                    level.addFreshEntity(cloud2);
-
-                    //player.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(20);
-                }
-
-
-            /** NETHER **/
-            } else if (item == ModItems.NETHER_WAND.get()) {
-                entity.setRemainingFireTicks(10);
-
-            /** MAELSTROM **/
-            } else if (item == ModItems.MAELSTROM_WAND.get()) {
-                if (entity instanceof Player) {
-                    Player entityIn = (Player) entity;
-
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                    entityIn.hurt(level.damageSources().magic(), 1.0F);
-                }
-                if (entity instanceof LivingEntity) {
-                    LivingEntity entityIn = (LivingEntity) entity;
-                    entityIn.addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0));
-                    entityIn.hurt(level.damageSources().magic(), 1.0F);
-                }
-
-            /** THUNDER **/
-            } else if (item == ModItems.THUNDER_WAND.get()) {
-                if(!level.isClientSide) {
-                    LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                    lightningbolt.moveTo(entity.getX(), entity.getY(), entity.getZ());
-                    level.addFreshEntity(lightningbolt);
-                }
-            }
-
-
-            if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(stack, 150);
-            if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
-            stack.setDamageValue(stack.getDamageValue() + 1);
-
-            if (stack.getDamageValue() == stack.getMaxDamage()) {
-                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                stack.shrink(1);
+        /* THUNDER */
+        } else if (item == ModItems.THUNDER_WAND.get()) {
+            if(!level.isClientSide) {
+                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
+                lightningbolt.moveTo(entity.getX(), entity.getY(), entity.getZ());
+                level.addFreshEntity(lightningbolt);
             }
         }
+
+
+        //general stuff
+        if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(stack, 150);
+        if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+
+        stack.setDamageValue(stack.getDamageValue() + 1);
+        if (stack.getDamageValue() == stack.getMaxDamage()) {
+            level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+            stack.shrink(1);
+        }
+
         return false;
     }
 
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        /** STORM **/  //TODO: rework
+        /* STORM */  //TODO: rework
         if(stack.getItem() == ModItems.STORM_WAND.get() && !stack.isEnchanted()) {
             Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
 
@@ -610,6 +307,7 @@ public class ItemWand extends Item {
             stack.set(DataComponents.ENCHANTMENTS, stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY));
         }
     }
+
 
     /*      TODO: Buggy, using onEntitySwing meanwhile
     @Override
@@ -636,13 +334,14 @@ public class ItemWand extends Item {
     }
    **/
 
+
     @Override
     public boolean onEntitySwing(ItemStack stack, LivingEntity entity, InteractionHand hand) {
         Random random = new Random();
         Player player = (Player) entity;
         Level level = entity.level();
 
-        /** AETHER **/
+        /* AETHER */
         if(stack.getItem() == ModItems.AETHER_WAND.get()) {
             level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
             entity.setDeltaMovement(entity.getDeltaMovement().x, 0.5D, entity.getDeltaMovement().z);
@@ -655,19 +354,17 @@ public class ItemWand extends Item {
                 stack.setDamageValue(stack.getDamageValue() + 1);
             }
 
-               if (stack.getDamageValue() == stack.getMaxDamage()) {
-                   level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                   stack.shrink(1);
-               }
-
+            if (stack.getDamageValue() == stack.getMaxDamage()) {
+                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                stack.shrink(1);
+            }
         }
 
         return true;
     }
 
 
-
-    /** CHANGING WAND **/
+    /* CHANGING WAND */
     private boolean handleInteraction(Player player, BlockState state, LevelAccessor level, BlockPos pos, boolean p_150807_, ItemStack stack) {
         if (!player.canUseGameMasterBlocks()) {
             return false;
