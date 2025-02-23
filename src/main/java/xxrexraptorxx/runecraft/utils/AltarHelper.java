@@ -96,7 +96,11 @@ public class AltarHelper {
 			EntityType.PILLAGER,
 			EntityType.HUSK,
 			EntityType.GHAST,
-			EntityType.WITCH
+			EntityType.WITCH,
+			EntityType.BLAZE,
+			EntityType.BOGGED,
+			EntityType.PIGLIN_BRUTE,
+			EntityType.BREEZE
 	);
 
 	public static final List<MobEffectInstance> EFFECT_REWARDS = List.of(
