@@ -27,7 +27,7 @@ public class JEIIntegration implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registry) {
         IIngredientManager ingredientManager = registry.getIngredientManager();
 
-        registry.addIngredientInfo(AltarHelper.TREASURE_REWARDS, VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".treasure_ritual_drops_jei_desc"));
+        registry.addIngredientInfo(AltarHelper.getAltarTreasureItems(), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".treasure_ritual_drops_jei_desc"));
 
         registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".magical_book_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModBlocks.RUIN_BLOCK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".ruin_block_jei_desc"));

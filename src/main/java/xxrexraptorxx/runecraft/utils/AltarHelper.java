@@ -3,7 +3,9 @@ package xxrexraptorxx.runecraft.utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -21,40 +23,15 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.main.References;
-import xxrexraptorxx.runecraft.registry.ModItems;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class AltarHelper {
 
-	public static List<ItemStack> TREASURE_REWARDS = Arrays.asList(
-        new ItemStack(Items.DIAMOND),
-        new ItemStack(Items.ELYTRA),
-        new ItemStack(Items.NETHER_STAR),
-        new ItemStack(Items.TOTEM_OF_UNDYING),
-        new ItemStack(Items.EXPERIENCE_BOTTLE),
-        new ItemStack(Items.END_CRYSTAL),
-        new ItemStack(Items.GHAST_TEAR),
-        new ItemStack(Items.BLAZE_ROD),
-        new ItemStack(Items.DIAMOND_SWORD),
-        new ItemStack(Items.DRAGON_BREATH),
-        new ItemStack(Items.NETHERITE_SCRAP),
-        new ItemStack(Items.ENCHANTED_BOOK),
-        new ItemStack(Items.GOLDEN_APPLE),
-        new ItemStack(Items.ENDER_EYE),
-        new ItemStack(Items.EMERALD),
-        new ItemStack(Items.AMETHYST_CLUSTER),
-        new ItemStack(Items.HEART_OF_THE_SEA),
-        new ItemStack(Items.ENDER_PEARL),
-        new ItemStack(Items.PRISMARINE_CRYSTALS),
-        new ItemStack(ModItems.SPIRIT_STAR.get()),
-        new ItemStack(ModItems.SPIRIT_CRYSTAL.get()),
-        new ItemStack(Items.ECHO_SHARD),
-        new ItemStack(Items.OMINOUS_TRIAL_KEY),
-        new ItemStack(Items.HEAVY_CORE)
-	);
+	private static Random random = new Random();
 
 	public static final String POTION_KEY = "item." + References.MODID + ".potion";
 	public static final String SPLASH_POTION_KEY = "item." + References.MODID + ".splash_potion";
@@ -121,27 +98,35 @@ public class AltarHelper {
 	);
 
 
+	public static List<ItemStack> getAltarTreasureItems() {
+		List<ItemStack> itemsList = new ArrayList<>();
+
+		for (String itemKey : Config.ALTAR_TREASURES.get()) {
+			Item item = BuiltInRegistries.ITEM.getValue(ResourceLocation.bySeparator(itemKey, ResourceLocation.NAMESPACE_SEPARATOR));
+
+			itemsList.add(new ItemStack(item));
+		}
+		return itemsList;
+	}
+
+
 	public static ItemStack getRandomTreasure() {
-		Random rand = new Random();
-		return TREASURE_REWARDS.get(rand.nextInt(TREASURE_REWARDS.size()));
+		return getAltarTreasureItems().get(random.nextInt(getAltarTreasureItems().size()));
 	}
 
 
 	public static ItemStack getRandomPotion() {
-		Random rand = new Random();
-		return POTION_REWARDS.get(rand.nextInt(POTION_REWARDS.size()));
+		return POTION_REWARDS.get(random.nextInt(POTION_REWARDS.size()));
 	}
 
 
 	public static void getRandomSpell(Level level, BlockPos pos) {
-		Random rand = new Random();
-		SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 500, 3, EFFECT_REWARDS.get(rand.nextInt(EFFECT_REWARDS.size())), level, pos.getCenter());
+		SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 500, 3, EFFECT_REWARDS.get(random.nextInt(EFFECT_REWARDS.size())), level, pos.getCenter());
 	}
 
 
 	public static void getRandomCurse(Level level, BlockPos pos) {
-		Random rand = new Random();
-		EntityType<?> randomType = CURSE_REWARDS.get(rand.nextInt(CURSE_REWARDS.size()));
+		EntityType<?> randomType = CURSE_REWARDS.get(random.nextInt(CURSE_REWARDS.size()));
 
 		SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 500, 3, new MobEffectInstance(MobEffects.UNLUCK, 5000, 0), level, pos.getCenter());
 		Mob entity = (Mob) randomType.create(level, EntitySpawnReason.MOB_SUMMONED);
@@ -154,8 +139,7 @@ public class AltarHelper {
 
 
 	public static void getRandomWeakMob(Level level, BlockPos pos) {
-		Random rand = new Random();
-		EntityType<?> randomType = MONSTER_SPAWNS.get(rand.nextInt(MONSTER_SPAWNS.size()));
+		EntityType<?> randomType = MONSTER_SPAWNS.get(random.nextInt(MONSTER_SPAWNS.size()));
 
 		SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 500, 3, new MobEffectInstance(MobEffects.UNLUCK, 5000, 0), level, pos.getCenter());
 		Mob entity = (Mob) randomType.create(level, EntitySpawnReason.MOB_SUMMONED);
@@ -183,10 +167,9 @@ public class AltarHelper {
 
 
 	public static void getRandomBann(Level level, BlockPos pos) {
-		Random rand = new Random();
 		SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LARGE_SMOKE, 500, 15, new MobEffectInstance(MobEffects.UNLUCK, 5000, 0), level, pos.getCenter());
 
-		switch (rand.nextInt(7)) {
+		switch (random.nextInt(7)) {
 			case 0:
 			case 1:
 			case 2:

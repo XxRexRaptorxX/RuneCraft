@@ -1,8 +1,14 @@
 package xxrexraptorxx.runecraft.utils;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.Items;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import xxrexraptorxx.runecraft.main.References;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Config {
 
@@ -10,6 +16,7 @@ public class Config {
     public static final String CATEGORY_RUNESTONES = "runestones";
     public static final String CATEGORY_PORTABLE_RUNESTONES = "portable_runestones";
     public static final String CATEGORY_PAGES = "pages";
+    public static final String CATEGORY_ALTAR = "altar";
     public static final String CATEGORY_WANDS = "wands";
     public static final String CATEGORY_WORLD = "world";
 
@@ -54,6 +61,7 @@ public class Config {
     public static ModConfigSpec.IntValue LOST_PAGE_COST;
     public static ModConfigSpec.IntValue BANNED_PAGE_COST;
     public static ModConfigSpec.IntValue SOUL_COST;
+    public static ModConfigSpec.ConfigValue<ArrayList<String>> ALTAR_TREASURES;
 
     public static void init(ModContainer container) {
         initServer();
@@ -86,7 +94,36 @@ public class Config {
         builder.comment("General").push(CATEGORY_GENERAL);
         CHARGING_COST = builder.comment("The amount of experience levels that you need to create the magical book").defineInRange("charging_cost", 15, 1, 30);
         CAN_SPAWN_ENDERDRAGON = builder.comment("Activate that the banned ritual can spawn an ender dragon").define("can_spawn_enderdragon", false);
+        builder.pop();
+
+        builder.comment("Altar").push(CATEGORY_ALTAR);
         SOUL_COST = builder.comment("The amount of experience levels that you need to use a soul on the altar").defineInRange("soul_cost", 1, 0, 50);
+        ALTAR_TREASURES = builder.comment("A list of all the items that can spawn on an altar during a treasure ritual [modid:item]").define("altar_treasures", new ArrayList<>(Arrays.asList(
+                BuiltInRegistries.ITEM.getKey(Items.DIAMOND).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ELYTRA).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.NETHER_STAR).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.TOTEM_OF_UNDYING).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.EXPERIENCE_BOTTLE).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.END_CRYSTAL).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.GHAST_TEAR).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.BLAZE_ROD).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.DIAMOND_SWORD).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.DRAGON_BREATH).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.NETHERITE_SCRAP).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_BOOK).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.GOLDEN_APPLE).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_GOLDEN_APPLE).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ENDER_EYE).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.EMERALD).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.AMETHYST_CLUSTER).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.HEART_OF_THE_SEA).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.PRISMARINE_CRYSTALS).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.ECHO_SHARD).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.OMINOUS_TRIAL_KEY).toString(),
+                BuiltInRegistries.ITEM.getKey(Items.HEAVY_CORE).toString(),
+                References.MODID + ":spirit_star", References.MODID + ":spirit_crystal"
+        )));
         builder.pop();
 
         builder.comment("Rune Stones").push(CATEGORY_RUNESTONES);
