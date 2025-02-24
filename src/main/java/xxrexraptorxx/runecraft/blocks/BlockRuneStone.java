@@ -70,7 +70,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_LARGE, ParticleTypes.ENCHANT, level, pos);
 	}
 
 

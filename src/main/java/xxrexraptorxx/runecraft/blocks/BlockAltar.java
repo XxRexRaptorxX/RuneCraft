@@ -19,6 +19,8 @@ public class BlockAltar extends Block {
 
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_TOP, ParticleTypes.SMOKE, level, pos);
+		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_LARGE, ParticleTypes.ENCHANT, level, pos.above());
+		if (level.getGameTime() % 2 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.SMOKE, level, pos);
+		if (level.getGameTime() % 100 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.LAVA, level, pos.below());
 	}
 }

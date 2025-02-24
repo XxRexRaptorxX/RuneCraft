@@ -98,14 +98,14 @@ public class SpellHelper {
                 level.addParticle(particleTypes, pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 1.1F, 0.0D, 0.0D, 0.0D);
             }
 
-        } else if (type == ParticleShapeTypes.BLOCK_AMBIENT) {
+        } else if (type == ParticleShapeTypes.BLOCK_AMBIENT_LARGE) {
             double d0 = (double) pos.getX() + 0.5F + (level.random.nextFloat() * 3.0F - 1.5F);
-            double d1 = (double) pos.getY() + 1.0F + (level.random.nextFloat() * 1.5F);
+            double d1 = (double) pos.getY() + 0.5F + (level.random.nextFloat() * 1.5F);
             double d2 = (double) pos.getZ() + 0.5F + (level.random.nextFloat() * 3.0F - 1.5F);
 
             level.addParticle(particleTypes, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 
-        } else if (type == ParticleShapeTypes.BLOCK_AMBIENT_TOP) {
+        } else if (type == ParticleShapeTypes.BLOCK_AMBIENT) {
             double d0 = (double) ((float) pos.getX() + level.random.nextFloat());
             double d1 = (double) ((float) pos.getY() + 1.1F);
             double d2 = (double) ((float) pos.getZ() + level.random.nextFloat());

@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Position;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
@@ -579,14 +580,15 @@ public class Events {
     public static void onEntityDeath(LivingDeathEvent event) {
         Entity attacker = event.getSource().getEntity();
         Entity victim = event.getEntity();
-        Level level = event.getEntity().level();
-        BlockPos pos = event.getEntity().getOnPos();
+        Level level = victim.level();
+        Position pos = victim.position();
+        BlockPos blockPos = victim.getOnPos();
 
         //Attacker
         if (attacker instanceof ServerPlayer) {
             if (((ServerPlayer) attacker).getMainHandItem().getItem().equals(ModItems.RITUAL_DAGGER.get())) {
 
-                //TODO: give soul hunter and soul
+                //TODO: give soul hunter and soulless effect
 
                 //give the player a soul item with the entity name and the entity id as tag
                 CompoundTag tag = new CompoundTag();
@@ -599,8 +601,9 @@ public class Events {
                 ((Player) attacker).addItem(stack);
 
                 //Ambient
-                level.playSound((Player) null, pos, SoundEvents.ILLUSIONER_CAST_SPELL, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 1.0F);
-                SpellHelper.spawnParticleEffects(ParticleShapeTypes.PENTERGRAM, ParticleTypes.ENCHANT, level, pos);
+                level.playSound((Player) null, blockPos, SoundEvents.ILLUSIONER_CAST_SPELL, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 1.0F);
+                level.addParticle(ParticleTypes.SOUL, pos.x(), pos.y() + 0.3F, pos.z(), 0.0D, 0.0D, 0.0D);
+                SpellHelper.spawnParticleEffects(ParticleShapeTypes.PENTERGRAM, ParticleTypes.ENCHANT, level, blockPos);
             }
         }
     }
@@ -613,7 +616,7 @@ public class Events {
        // if (player instanceof ServerPlayer) {
        //     if (player.getLastDamageSource().equals(SOUL_REAPER)) {     //TODO test server side
 
-                //TODO: give soulless
+                //TODO: give soulless effect
     }
 
 

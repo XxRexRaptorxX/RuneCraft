@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -82,6 +83,14 @@ public class BlockRune extends FallingBlock {
         return canSupportCenter(level, pos.below(), Direction.DOWN);
     }
 
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (level.getGameTime() % 10 == 0) {
+            SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.CRIMSON_SPORE, level, pos.below());
+            SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.SMOKE, level, pos.below());
+        }
+    }
 
 
     //Facing
