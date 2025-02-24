@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "runecraft:item/ruin_block"
+    "model": "runecraft:block/ruin_block"
   }
 }

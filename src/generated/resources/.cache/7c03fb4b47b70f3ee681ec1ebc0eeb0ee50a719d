@@ -1,4 +1,5 @@
-// 1.21.4	2025-02-23T01:09:11.6267159	Tags for minecraft:block mod id runecraft
+// 1.21.4	2025-02-24T18:24:53.0353978	Tags for minecraft:block mod id runecraft
+d9e808e3e0687580bdbf4168654f56ed917b01fd data/minecraft/tags/block/beacon_base_blocks.json
 2eec26d44ac47f67a50e48f20e8dec27630c55bf data/minecraft/tags/block/infiniburn_overworld.json
 defb11b5fc75f1315a1b0551aa5d697656e5ea07 data/minecraft/tags/block/mineable/pickaxe.json
 b3a185809a8df38ad723266372d3d2fc7c26e084 data/minecraft/tags/block/mineable/shovel.json

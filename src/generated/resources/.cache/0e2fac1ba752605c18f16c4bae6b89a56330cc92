@@ -1,6 +1,5 @@
-// 1.21.4	2025-02-23T01:09:11.6287099	Model Definitions - runecraft
+// 1.21.4	2025-02-24T18:24:53.0363954	Model Definitions - runecraft
 a51a81d9f334db464be9ca2222aaf0e5c8a5a8b2 assets/runecraft/blockstates/ash_block.json
-badb6588ee6be8d37ee8ab5681256e1d97f58e3c assets/runecraft/blockstates/ruin_block.json
 058a8599458638b2cf8877e7a9220682e539b3b6 assets/runecraft/blockstates/rune_dust_block.json
 c7a967ff7f73bb6e556ccb71a2c730b3dea0df61 assets/runecraft/items/aether_wand.json
 e46662a87c3d34de669cfdee8e82a55a355ab473 assets/runecraft/items/alchemy_page.json
@@ -35,7 +34,6 @@ f19c7c2e777f76e271e3bdd0ab9453e9063b3fc0 assets/runecraft/items/portable_rune_st
 bcbbddd14a2389dd715a75ce5e3f5c6b3c4d7b64 assets/runecraft/items/portable_rune_stone_b.json
 2b0cc7d38119a1986cf20ff998b74683b8354c03 assets/runecraft/items/portable_rune_stone_c.json
 5132dfd0287737cd5d37127d61049c53ac6f3aaa assets/runecraft/items/portable_rune_stone_d.json
-269bb77724d79a85abb2cd402b2cf70e431d8454 assets/runecraft/items/portable_rune_stone_e.json
 332e03efd6b8910a50e696fe2456ebb94fbeb509 assets/runecraft/items/portable_rune_stone_f.json
 c3f8941c8247b7bd96f0f1b3e708388e79d67d40 assets/runecraft/items/portable_rune_stone_g.json
 c2b8db39ef7625e1c38aea470160857e00f909eb assets/runecraft/items/portable_rune_stone_h.json
@@ -58,7 +56,7 @@ f6beafc82a2281973d8e715680b33f558469bd75 assets/runecraft/items/portable_rune_st
 bc5959f96bf95752f4820cd081d161cee0596eac assets/runecraft/items/portable_rune_stone_y.json
 183c29e64c8d30a82f73c37da550bebe77b029be assets/runecraft/items/portable_rune_stone_z.json
 1758fa72440677fc6b3987ed12cadc8ffb69f930 assets/runecraft/items/ritual_dagger.json
-edba495d8ea59cf96db7822861eb8c7d127a293b assets/runecraft/items/ruin_block.json
+e01d3f6c9a30997a4c9b5381d7901f8f72861e8c assets/runecraft/items/ruin_block.json
 a816a22a48b71df8a85bdcd043c2c2f977639a12 assets/runecraft/items/rune_a.json
 3e2963278599f385473c585090c1d087326dda34 assets/runecraft/items/rune_b.json
 0e9408d3a917f253769bd401d8cf50c8ac18b4a3 assets/runecraft/items/rune_block_a.json
@@ -96,7 +94,6 @@ a99fc29fccef8784a7b4a0b72445b6b93fc15586 assets/runecraft/items/rune_c.json
 c2c944f8933f6557a743dcf6c925d4ceeb5a5924 assets/runecraft/items/rune_dmg.json
 83e39af9564f4b45980a3e56162d58382c895954 assets/runecraft/items/rune_dust.json
 7ce25ab0f6370603204049abfa923f22bb6585ef assets/runecraft/items/rune_dust_block.json
-dc48003893d1c4af2bb12f4078a9bbaca625801a assets/runecraft/items/rune_e.json
 8b8593df0804a69709cf8ffb4fe3d857ca461d37 assets/runecraft/items/rune_f.json
 dd11b05887b44306725acc9a68ac51cfdcd2f65b assets/runecraft/items/rune_fre.json
 8bc4cdcfc899eb249b2fde10fa8f2b03ed89adff assets/runecraft/items/rune_g.json
@@ -194,7 +191,6 @@ bf82ee13490ecd14be9e7d6f3151253fe195cc8c assets/runecraft/models/item/portable_r
 d90ada4b222379fed6b96e4fe1995940f289a7e0 assets/runecraft/models/item/portable_rune_stone_b.json
 ac637c10631fecf675cae99c888c072d515328c2 assets/runecraft/models/item/portable_rune_stone_c.json
 45ff8ce58976dc7a398bd0184dd00dd94d94edc4 assets/runecraft/models/item/portable_rune_stone_d.json
-7c5aaa75a1861fdf2b10d38775a8d54fc2d06c4a assets/runecraft/models/item/portable_rune_stone_e.json
 e2ae44c6db3539e764f248b371774f8806b8d54e assets/runecraft/models/item/portable_rune_stone_f.json
 8ebb3bfa4be91d5a50fe32c20e0a899bfebeb23f assets/runecraft/models/item/portable_rune_stone_g.json
 5300b09639f76455aa786a2c613d3871667cf626 assets/runecraft/models/item/portable_rune_stone_h.json
@@ -217,14 +213,12 @@ cc6a2a3e0caa974904d6005e34556b184cee20b4 assets/runecraft/models/item/portable_r
 1a4ffbcc1896dcd64454068dce67f69f0a525024 assets/runecraft/models/item/portable_rune_stone_y.json
 a8184e2b9d3ca7a7c26f2f151550181faa68a462 assets/runecraft/models/item/portable_rune_stone_z.json
 746dde04f2c61329f3e408bdaa67b424774d9e26 assets/runecraft/models/item/ritual_dagger.json
-42494b4e79b3d3ce883bedf712e362530c0d6464 assets/runecraft/models/item/ruin_block.json
 5635ec6361085513f3532ed7f2902895a5e29368 assets/runecraft/models/item/rune_a.json
 f1f549deda2c0d9396b9b5143968938b76d41b85 assets/runecraft/models/item/rune_b.json
 515bee76b12f7f7c916f7254c60aef55abb1c5ca assets/runecraft/models/item/rune_c.json
 9854dd6914f75611c37c274965b807acfa32039f assets/runecraft/models/item/rune_d.json
 3e3bd550312adf0cd527c9f56dd36acaa948cf89 assets/runecraft/models/item/rune_dmg.json
 71be6937dd28e734304e0ce149784e9f190589f9 assets/runecraft/models/item/rune_dust.json
-d19f854ee06e50a9aca9bb3bbc6001b55b363c07 assets/runecraft/models/item/rune_e.json
 4e76f14001508e6f9faf8eed440a4889774b37f6 assets/runecraft/models/item/rune_f.json
 4cbbfa77d2fac96e9371758f7e9da4ba5fc01f86 assets/runecraft/models/item/rune_fre.json
 4cd97fa8637f513dc1c93f0bb0be88f2d47fb82f assets/runecraft/models/item/rune_g.json
