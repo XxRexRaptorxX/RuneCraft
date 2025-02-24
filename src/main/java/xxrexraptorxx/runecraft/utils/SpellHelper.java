@@ -84,7 +84,7 @@ public class SpellHelper {
 
 
     public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, Level level, Position pos) {
-        spawnSpellEffect(shape, particleType, duration, radius, (MobEffectInstance) null, level, pos);
+        spawnSpellEffect(shape, particleType, duration, radius, (ArrayList<MobEffectInstance>) null, level, pos);
     }
 
 
