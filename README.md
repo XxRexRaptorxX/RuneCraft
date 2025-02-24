@@ -16,12 +16,18 @@
    - **Just Enough Effect Descriptions (JEED)** *[optional]*
      - [CurseForge][cf_jeed] | [Modrinth][mr_jeed]
 
+-----
+
 ## 📖 Description
 
-This magic mod adds everything related to runes to the game, blocks emitting effects, wands, item with custom effects, spells, curses, souls, useful functions a manual and progression system!
+#### This mod focuses on rune magic!
+#### You can use runes to put them on rune stones to make them spread effects. 
+#### Or write them on different items to turn orbs into valuable resources, soul orbs into spawn eggs, write rituals & spells on magical pages, or make wands and other powerful things with them.
+#### With this magical pages you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
 
- -----
+-----
 
+### Content:
 - currently 30 blocks with specialeffects!
 - items with custom effects!
 - wands, spells, curses and much more!
