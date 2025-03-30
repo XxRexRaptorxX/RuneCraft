@@ -6,6 +6,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -30,5 +31,11 @@ public class BlockAsh extends FallingBlock {
 	@Override
 	protected MapCodec<? extends FallingBlock> codec() {
 		return CODEC;
+	}
+
+
+	@Override
+	public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+		return defaultMapColor().calculateARGBColor(MapColor.Brightness.NORMAL);
 	}
 }

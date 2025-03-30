@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.main.References;
@@ -24,8 +25,8 @@ import xxrexraptorxx.runecraft.utils.RuneHelper;
 import xxrexraptorxx.runecraft.utils.SpellHelper;
 import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
-import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class ItemPortableRuneStone extends Item {
 
@@ -45,15 +46,15 @@ public class ItemPortableRuneStone extends Item {
 
 
     @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
         if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
+            list.accept(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
         }
         if(Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.translatable("message." + References.MODID + ".contains").append(Component.literal(" " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))).withStyle(ChatFormatting.GRAY));
+            list.accept(Component.translatable("message." + References.MODID + ".contains").append(Component.literal(" " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))).withStyle(ChatFormatting.GRAY));
         }
         if(this == ModItems.PORTABLE_RUNE_STONE.get()) {
-            list.add(Component.translatable("message." + References.MODID + ".empty").withStyle(ChatFormatting.GRAY));
+            list.accept(Component.translatable("message." + References.MODID + ".empty").withStyle(ChatFormatting.GRAY));
         }
     }
 

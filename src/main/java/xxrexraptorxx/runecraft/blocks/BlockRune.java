@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -44,11 +46,11 @@ public class BlockRune extends FallingBlock {
 
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
         if(!level.isClientSide) {
-            if(entityIn instanceof LivingEntity) {
-                LivingEntity entity = (LivingEntity) entityIn;
-                entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 10));
+            if(entity instanceof LivingEntity) {
+                LivingEntity entityIn = (LivingEntity) entity;
+                entityIn.addEffect(new MobEffectInstance(MobEffects.GLOWING, 10));
             }
         }
     }
@@ -93,10 +95,16 @@ public class BlockRune extends FallingBlock {
     }
 
 
+    @Override
+    public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return defaultMapColor().calculateARGBColor(MapColor.Brightness.NORMAL);
+    }
+
+
     //Facing
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.HORIZONTAL_FACING);
 
     }

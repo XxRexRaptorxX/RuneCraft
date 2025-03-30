@@ -1,22 +1,19 @@
 package xxrexraptorxx.runecraft.blocks;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
@@ -31,7 +28,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.utils.Config;
 import xxrexraptorxx.runecraft.utils.RuneHelper;
@@ -40,7 +36,6 @@ import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 
 public class BlockRuneStone extends Block {
@@ -63,12 +58,6 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-		list.add(Component.translatable("message." + References.MODID + ".rune_stone_desc").withStyle(ChatFormatting.GRAY));
-	}
-
-
-	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_LARGE, ParticleTypes.ENCHANT, level, pos);
 	}
@@ -77,33 +66,33 @@ public class BlockRuneStone extends Block {
 	//Interactions
 
 	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn) {
+	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
 		//base blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
-			SpellHelper.addPlayerEffects(entityIn, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), 0);
+			SpellHelper.addPlayerEffects(entity, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), 0);
 		}
 
 		//special blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 24) {
 			if (this == ModBlocks.RUNE_STONE_DMG.get()) {
-				entityIn.hurt(level.damageSources().magic(), 4.0F);
+				entity.hurt(level.damageSources().magic(), 4.0F);
 
 			} else if (this == ModBlocks.RUNE_STONE_FRE.get()) {
-				entityIn.setRemainingFireTicks(20);
+				entity.setRemainingFireTicks(20);
 
 			} else if (this == ModBlocks.RUNE_STONE_HRD.get()) {
-				entityIn.hurt(level.damageSources().magic(), 2.0F);
+				entity.hurt(level.damageSources().magic(), 2.0F);
 
 			} else if (this == ModBlocks.RUNE_STONE_PTL.get()) {
-				if (entityIn.isPassenger()) {
-					entityIn.stopRiding();
+				if (entity.isPassenger()) {
+					entity.stopRiding();
 				}
 				level.playSound((Player)null, pos, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.BLOCKS, 1.0F, level.random.nextFloat() * 0.15F + 0.F);
 
-				if(entityIn.isCrouching()) {
-					entityIn.teleportTo(pos.getX(), pos.getY() - 10, pos.getZ());
+				if(entity.isCrouching()) {
+					entity.teleportTo(pos.getX(), pos.getY() - 10, pos.getZ());
 				} else {
-					entityIn.teleportTo(pos.getX(), pos.getY() + 10, pos.getZ());
+					entity.teleportTo(pos.getX(), pos.getY() + 10, pos.getZ());
 				}
 			}
 		}
@@ -153,7 +142,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
+	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
 		if (!level.isClientSide && Config.ACTIVATE_REDSTONE_EFFECT.get()) {
 			boolean flag = state.getValue(POWERED);
 
@@ -178,7 +167,7 @@ public class BlockRuneStone extends Block {
 
 
 	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(POWERED);
 	}
 

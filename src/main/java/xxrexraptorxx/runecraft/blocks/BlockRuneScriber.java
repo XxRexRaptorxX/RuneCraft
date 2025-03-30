@@ -1,31 +1,19 @@
 package xxrexraptorxx.runecraft.blocks;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import xxrexraptorxx.runecraft.utils.SpellHelper;
 import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 
-import java.util.List;
-
 
 public class BlockRuneScriber extends Block {
 
 	public BlockRuneScriber(Properties properties) {
 		super(properties);
-	}
-
-	@Override
-	public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-		list.add(Component.literal(ChatFormatting.RED + "Work in progress..."));
 	}
 
 

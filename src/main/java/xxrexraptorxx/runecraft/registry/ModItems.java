@@ -3,9 +3,7 @@ package xxrexraptorxx.runecraft.registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
@@ -114,12 +112,12 @@ public class ModItems {
     public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Y = ITEMS.register("portable_rune_stone_y", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_y"))));
     public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Z = ITEMS.register("portable_rune_stone_z", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_z"))));
 
-    public static final DeferredItem<ArmorItem> MAGICAL_CAP = ITEMS.registerItem("magical_cap", props -> new ItemArmorMagical(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.HELMET, props));
-    public static final DeferredItem<ArmorItem> MAGICAL_ROBE = ITEMS.registerItem("magical_robe", props -> new ItemArmorMagical(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.CHESTPLATE, props));
-    public static final DeferredItem<ArmorItem> MAGICAL_PANTS = ITEMS.registerItem("magical_pants", props -> new ItemArmorMagical(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.LEGGINGS, props));
-    public static final DeferredItem<ArmorItem> MAGICAL_BOOTS = ITEMS.registerItem("magical_boots", props -> new ItemArmorMagical(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.BOOTS, props));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_CAP = ITEMS.registerItem("magical_cap", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.HELMET)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_ROBE = ITEMS.registerItem("magical_robe", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_PANTS = ITEMS.registerItem("magical_pants", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_BOOTS = ITEMS.registerItem("magical_boots", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
-    public static final DeferredItem<SwordItem> RITUAL_DAGGER = ITEMS.registerItem("ritual_dagger", props -> new SwordItem(ToolMaterial.GOLD, 3, -1.5f, props));
+    public static final DeferredItem<Item> RITUAL_DAGGER = ITEMS.registerItem("ritual_dagger", props -> new Item(props.sword(ToolMaterial.GOLD, 3, -1.5f)));
 
 
     public static ResourceKey<Item> itemId(String name) {

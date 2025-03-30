@@ -6,11 +6,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class ItemPage extends Item {
 
@@ -29,9 +30,9 @@ public class ItemPage extends Item {
 
 
     @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
         if (this != ModItems.MAGICAL_PAGE.get())
-            list.add(Component.translatable("message." + References.MODID + ".required_xp").withStyle(ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
+            list.accept(Component.translatable("message." + References.MODID + ".required_xp").withStyle(ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
     }
 
 

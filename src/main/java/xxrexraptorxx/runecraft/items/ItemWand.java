@@ -9,6 +9,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -88,7 +89,7 @@ public class ItemWand extends Item {
             /* CURSE */
             } else if (item == ModItems.CURSE_WAND.get()) {
                 effectInstances.add(new MobEffectInstance(MobEffects.UNLUCK, 1000, 0));
-                effectInstances.add(new MobEffectInstance(MobEffects.HARM, 10, 0));
+                effectInstances.add(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 10, 0));
                 SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.SMOKE, 20, 3, effectInstances, level, pos);
 
                 effectInstances.removeLast();
@@ -125,7 +126,7 @@ public class ItemWand extends Item {
             } else if (item == ModItems.ESCAPE_WAND.get()) {
                 SpellHelper.spawnSpellEffect(SpellShapes.STACKED, ParticleTypes.LARGE_SMOKE, 500, 15, level, pos);
                 event.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
-                event.getPlayer().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 1));
+                event.getPlayer().addEffect(new MobEffectInstance(MobEffects.SPEED, 1000, 1));
 
 
             /* DESTRUCTION */
@@ -156,7 +157,7 @@ public class ItemWand extends Item {
             /* DEFENSIVE */
             } else if (item == ModItems.DEFENSIVE_WAND.get()) {
                 BlockPos blockPos = event.getPlayer().blockPosition();
-                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 0));
 
                 if (player.isShiftKeyDown()) {
                     if (level.getBlockState(blockPos.offset(0, -1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
@@ -277,7 +278,7 @@ public class ItemWand extends Item {
         } else if (item == ModItems.THUNDER_WAND.get()) {
             if(!level.isClientSide) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                lightningbolt.moveTo(entity.getX(), entity.getY(), entity.getZ());
+                lightningbolt.setDeltaMovement(entity.getX(), entity.getY(), entity.getZ());
                 level.addFreshEntity(lightningbolt);
             }
         }
@@ -298,7 +299,7 @@ public class ItemWand extends Item {
 
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
         /* STORM */  //TODO: rework
         if(stack.getItem() == ModItems.STORM_WAND.get() && !stack.isEnchanted()) {
             Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);

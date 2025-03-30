@@ -337,10 +337,10 @@ public class RuneHelper {
 	public static Holder<MobEffect> getEffect(String type) {
     	switch (type) {
 		case "a":
-			return MobEffects.MOVEMENT_SPEED;
+			return MobEffects.SPEED;
 			
 		case "b":
-			return MobEffects.JUMP;
+			return MobEffects.JUMP_BOOST;
 			
 		case "c":
 			return MobEffects.REGENERATION;
@@ -355,25 +355,25 @@ public class RuneHelper {
 			return MobEffects.LEVITATION;
 
 		case "g":
-			return MobEffects.DAMAGE_BOOST;
+			return MobEffects.STRENGTH;
 			
 		case "h":
-			return MobEffects.MOVEMENT_SLOWDOWN;
+			return MobEffects.SLOWNESS;
 			
 		case "i":
-			return MobEffects.DIG_SPEED;
+			return MobEffects.HASTE;
 			
 		case "j":
-			return MobEffects.DIG_SLOWDOWN;
+			return MobEffects.MINING_FATIGUE;
 			
 		case "k":
-			return MobEffects.HEAL;
+			return MobEffects.INSTANT_HEALTH;
 			
 		case "l":
-			return MobEffects.CONFUSION;
+			return MobEffects.NAUSEA;
 			
 		case "m":
-			return MobEffects.DAMAGE_RESISTANCE;
+			return MobEffects.RESISTANCE;
 			
 		case "n":
 			return MobEffects.FIRE_RESISTANCE;

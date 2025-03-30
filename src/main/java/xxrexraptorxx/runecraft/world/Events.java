@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.TriState;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -42,8 +43,8 @@ import net.neoforged.fml.VersionChecker;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.common.BasicItemListing;
-import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.village.WandererTradesEvent;
@@ -59,16 +60,13 @@ import xxrexraptorxx.runecraft.utils.SpellHelper;
 import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -92,8 +90,8 @@ public class Events {
                     var versionCheckResult = VersionChecker.getResult(modContainer.getModInfo());
 
                     if (versionCheckResult.status() == VersionChecker.Status.OUTDATED || versionCheckResult.status() == VersionChecker.Status.BETA_OUTDATED) {
-                        MutableComponent url = Component.translatable(ChatFormatting.GREEN + "Click here to update!")
-                                .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, References.URL)));
+                        MutableComponent url = Component.literal(ChatFormatting.GREEN + "Click here to update!")
+                                .withStyle(style -> style.withClickEvent(new ClickEvent.OpenUrl(URI.create(References.URL))));
 
                         player.displayClientMessage(Component.literal(ChatFormatting.BLUE + "A newer version of " + ChatFormatting.YELLOW + References.NAME + ChatFormatting.BLUE + " is available!"), false);
                         player.displayClientMessage(url, false);
@@ -183,6 +181,7 @@ public class Events {
         player.getInventory().add(certificate);
     }
 
+
     private static void givePremiumSupporterReward(Player player, Level level) {
         ItemStack reward = new ItemStack(Items.DIAMOND_SWORD, 1);
         Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
@@ -193,43 +192,12 @@ public class Events {
         player.getInventory().add(reward);
     }
 
+
     private static void giveEliteReward(Player player) {
         ItemStack star = new ItemStack(Items.NETHER_STAR);
 
         star.set(DataComponents.CUSTOM_NAME, Component.literal("Elite Star"));
         player.getInventory().add(star);
-    }
-
-
-    /**
-     * Tests if a player is a supporter
-     *
-     * @param url url to a file that contains the supporter names
-     * @param player ingame player
-     * @return true/false
-     */
-    private static boolean SupporterCheck(URL url, Player player) {
-        try {
-            Scanner scanner = new Scanner(url.openStream());
-            List<String> supporterList = scanner.tokens().toList();
-
-            for (String name: supporterList) {
-                //test if player is in supporter list
-                if (player.getName().getString().equals(name)) {
-                    return true;
-                }
-            }
-
-            scanner.close();
-
-        } catch (MalformedURLException e) {
-            RuneCraft.LOGGER.error("Supporter list URL not found! >>{}", url);
-
-        } catch (Exception e) {
-            RuneCraft.LOGGER.error("An unexpected error occurred while checking supporter list", e);
-        }
-
-        return false;
     }
 
 
@@ -307,7 +275,7 @@ public class Events {
                         //Spawn a lightning bolt
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 
@@ -368,7 +336,7 @@ public class Events {
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 
@@ -526,7 +494,7 @@ public class Events {
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.moveTo(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 
@@ -536,7 +504,7 @@ public class Events {
 
                             //rewards
                             try {
-                                ItemStack egg = new ItemStack(Objects.requireNonNull(SpawnEggItem.byId(EntityType.byString(Objects.requireNonNull(stack.get(DataComponents.CUSTOM_DATA)).copyTag().getString("owner")).get())));
+                                ItemStack egg = new ItemStack(Objects.requireNonNull(SpawnEggItem.byId(EntityType.byString(String.valueOf(Objects.requireNonNull(stack.get(DataComponents.CUSTOM_DATA)).copyTag().getString("owner"))).get())));
                                 ItemEntity reward = new ItemEntity(level, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, egg);
                                 level.addFreshEntity(reward);
 
@@ -624,6 +592,22 @@ public class Events {
     @SubscribeEvent
     public static void addTrades(WandererTradesEvent event) {
         event.getGenericTrades().add(new BasicItemListing(5, new ItemStack(ModItems.SPIRIT_CRYSTAL.get(), 1), 3, 10));
+    }
+
+
+
+    @SubscribeEvent
+    public static void addingToolTips(ItemTooltipEvent event) {
+        ItemStack stack = event.getItemStack();
+        Item item = stack.getItem();
+        List<Component> list = event.getToolTip();
+
+        if (BuiltInRegistries.ITEM.getKey(item).getPath().contains(References.MODID + ":rune_stone_")) {
+            list.add(Component.translatable("message." + References.MODID + ".rune_stone_desc").withStyle(ChatFormatting.GRAY));
+
+        } else if (BuiltInRegistries.BLOCK.getKey(ModBlocks.RUNE_SCRIBER_BLOCK.get()).getPath().equals(BuiltInRegistries.ITEM.getKey(item).getPath())) {
+            list.add(Component.literal(ChatFormatting.RED + "Work in progress..."));
+        }
     }
 
 }
