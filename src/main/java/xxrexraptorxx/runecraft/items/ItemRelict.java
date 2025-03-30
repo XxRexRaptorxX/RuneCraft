@@ -10,11 +10,11 @@ public class ItemRelict extends Item {
         super(properties
             .rarity(Rarity.RARE)
         );
-
     }
 
     @Override
     public boolean isFoil(ItemStack stack) {
         return true;
     }
+
 }

@@ -275,7 +275,7 @@ public class Events {
                         //Spawn a lightning bolt
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 
@@ -324,10 +324,8 @@ public class Events {
                 item == ModItems.BANNED_PAGE.get() || item == ModItems.ENCHANTING_PAGE.get()) {
 
             if (level.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
-
                 if (player.experienceLevel >= ItemPage.getPageXpRequirement(item)) {
-
-                    if (!player.level().isDay()) {
+                    if (level.getSkyDarken() >= 5 || !level.dimensionType().hasSkyLight()) {
 
                         //Ambient
                         level.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
@@ -336,7 +334,7 @@ public class Events {
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 
@@ -480,12 +478,9 @@ public class Events {
         Player player = event.getEntity();
 
         if (stack.getItem() == ModItems.SOUL.get() && stack.has(DataComponents.CUSTOM_DATA)) {
-
             if (level.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
-
                 if (player.experienceLevel >= Config.SOUL_COST.get()) {
-
-                    if (!player.level().isDay()) {
+                    if (level.getSkyDarken() >= 5 || !level.dimensionType().hasSkyLight()) {
 
                         //Ambient
                         level.playSound((Player) null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
@@ -494,7 +489,7 @@ public class Events {
 
                         if (!level.isClientSide) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-                            lightningbolt.setDeltaMovement(pos.getX(), pos.getY(), pos.getZ());
+                            lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
                             level.addFreshEntity(lightningbolt);
 

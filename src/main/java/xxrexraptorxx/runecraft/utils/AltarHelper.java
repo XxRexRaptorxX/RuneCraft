@@ -40,23 +40,23 @@ public class AltarHelper {
 
 	public static List<ItemStack> POTION_REWARDS = Arrays.asList(
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.REGENERATION, 1000, 1), new MobEffectInstance(MobEffects.ABSORPTION, 1000, 1)),
-		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1000, 2), new MobEffectInstance(MobEffects.DIG_SPEED, 1000, 2)),
-		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000, 2), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 2)),
+		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.SPEED, 1000, 2), new MobEffectInstance(MobEffects.HASTE, 1000, 2)),
+		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.RESISTANCE, 1000, 2), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 2)),
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.LEVITATION, 300)),
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.CONDUIT_POWER, 1000)),
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 1000)),
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, 1000)),
-		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1000), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1000), new MobEffectInstance(MobEffects.HEALTH_BOOST, 1000, 1)),
-		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.HARM, 1000, 2)),
+		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.RESISTANCE, 1000), new MobEffectInstance(MobEffects.STRENGTH, 1000), new MobEffectInstance(MobEffects.HEALTH_BOOST, 1000, 1)),
+		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1000, 2)),
 		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.LEVITATION, 600)),
 		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.WITHER, 1000, 2)),
-		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.CONFUSION, 1000), new MobEffectInstance(MobEffects.BLINDNESS, 1000), new MobEffectInstance(MobEffects.POISON, 1000)),
+		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.NAUSEA, 1000), new MobEffectInstance(MobEffects.BLINDNESS, 1000), new MobEffectInstance(MobEffects.POISON, 1000)),
 		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.REGENERATION, 1000, 1), new MobEffectInstance(MobEffects.LUCK, 1000, 3)),
 		createPotion(Items.SPLASH_POTION, SPLASH_POTION_KEY, new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000)),
-		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.HARM, 1000, 2)),
+		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1000, 2)),
 		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.LEVITATION, 600)),
 		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.WITHER, 1000, 2)),
-		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.CONFUSION, 1000), new MobEffectInstance(MobEffects.BLINDNESS, 1000), new MobEffectInstance(MobEffects.POISON, 1000)),
+		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.NAUSEA, 1000), new MobEffectInstance(MobEffects.BLINDNESS, 1000), new MobEffectInstance(MobEffects.POISON, 1000)),
 		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.REGENERATION, 1000, 1), new MobEffectInstance(MobEffects.LUCK, 1000, 3)),
 		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000)),
 		createPotion(Items.LINGERING_POTION, LINGERING_POTION_KEY, new MobEffectInstance(MobEffects.BLINDNESS, 1000))
@@ -84,8 +84,8 @@ public class AltarHelper {
 	public static final List<MobEffectInstance> EFFECT_REWARDS = List.of(
 			new MobEffectInstance(MobEffects.REGENERATION, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
 			new MobEffectInstance(MobEffects.HEALTH_BOOST, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.DAMAGE_BOOST, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
+			new MobEffectInstance(MobEffects.STRENGTH, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
+			new MobEffectInstance(MobEffects.RESISTANCE, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
 			new MobEffectInstance(MobEffects.LUCK, 10000, Config.AREA_SPELL_AMPLIFIER.get())
 	);
 

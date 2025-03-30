@@ -1,6 +1,7 @@
 package xxrexraptorxx.runecraft.items;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -8,7 +9,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
 public class ItemArmorMagical extends Item {
@@ -25,7 +26,7 @@ public class ItemArmorMagical extends Item {
 
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+    public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
         if(entity instanceof Player player) {
 
             Item helmet = player.getItemBySlot(EquipmentSlot.HEAD).getItem();
@@ -48,8 +49,6 @@ public class ItemArmorMagical extends Item {
                 }
             }
         }
-
-
     }
 
 }
