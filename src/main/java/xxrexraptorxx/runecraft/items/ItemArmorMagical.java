@@ -8,13 +8,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import xxrexraptorxx.runecraft.registry.ModItems;
 
 public class ItemArmorMagical extends ArmorItem {
 
-    public ItemArmorMagical(net.minecraft.world.item.equipment.ArmorMaterial material, ArmorType armorType, Item.Properties properties) {
+    public ItemArmorMagical(ArmorMaterial material, ArmorType armorType, Item.Properties properties) {
         super(material, armorType, properties);
     }
 
