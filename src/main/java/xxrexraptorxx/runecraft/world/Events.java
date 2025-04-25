@@ -59,16 +59,13 @@ import xxrexraptorxx.runecraft.utils.SpellHelper;
 import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -198,38 +195,6 @@ public class Events {
 
         star.set(DataComponents.CUSTOM_NAME, Component.literal("Elite Star"));
         player.getInventory().add(star);
-    }
-
-
-    /**
-     * Tests if a player is a supporter
-     *
-     * @param url url to a file that contains the supporter names
-     * @param player ingame player
-     * @return true/false
-     */
-    private static boolean SupporterCheck(URL url, Player player) {
-        try {
-            Scanner scanner = new Scanner(url.openStream());
-            List<String> supporterList = scanner.tokens().toList();
-
-            for (String name: supporterList) {
-                //test if player is in supporter list
-                if (player.getName().getString().equals(name)) {
-                    return true;
-                }
-            }
-
-            scanner.close();
-
-        } catch (MalformedURLException e) {
-            RuneCraft.LOGGER.error("Supporter list URL not found! >>{}", url);
-
-        } catch (Exception e) {
-            RuneCraft.LOGGER.error("An unexpected error occurred while checking supporter list", e);
-        }
-
-        return false;
     }
 
 
