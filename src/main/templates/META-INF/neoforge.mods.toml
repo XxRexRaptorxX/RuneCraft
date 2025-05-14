@@ -15,6 +15,9 @@ logoFile="logo.png"
 authors="${mod_authors}"
 description='''This magic mod adds everything related to runes to the game! \nBlocks emmiting effects, wands, items with custom effects, spells, curses, catch mob souls to spawn them, useful functions and muuuch more!'''
 
+[modproperties.${mod_id}]
+configuredBackground="runecraft:textures/block/rune_stone.png"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 mandatory=true
