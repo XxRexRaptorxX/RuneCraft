@@ -5,6 +5,11 @@ plugins {
     id 'idea'
 }
 
+//fix for more than 65535 entries
+tasks.withType(Zip).configureEach {
+    zip64 = true
+}
+
 tasks.named('wrapper', Wrapper).configure {
     // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
     // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
@@ -138,7 +143,7 @@ dependencies {
     compileOnly("mezz.jei:jei-1.21.1-common-api:${jei_version}")
     compileOnly("mezz.jei:jei-1.21.1-neoforge-api:${jei_version}")
     //REI
-    //runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
+    runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
     compileOnly "me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}"
     compileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-neoforge:${rei_version}"
     //EMI
@@ -146,15 +151,11 @@ dependencies {
     //runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
     //JADE
     runtimeOnly "curse.maven:jade-324717:${jade_version}"
-    //BlockDetective
-    runtimeOnly "curse.maven:blockdetective-662628:${blockdetective_version}"
+    //JEED
+    //runtimeOnly "curse.maven:jeed-532286:${jeed_version}"
     //others:
-    //Moonlight Lib
-    //runtimeOnly ("curse.maven:moonlight-499980:${moonlight_version}")
-    //Supplementaries
-    //runtimeOnly ("curse.maven:supplementaries-412082:${supplementaries_version}")
-    //Patchouli
-    //runtimeOnly ("vazkii.patchouli:Patchouli:${patchouli_version}")
+    //runtimeOnly "curse.maven:energized-power-782147:${energized_power_version}"
+    //runtimeOnly "curse.maven:mekanism-268560:${mekanism_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -201,7 +202,7 @@ publishing {
 
 //Naming of the built mod jar file
 tasks.named('jar').configure {
-    archiveBaseName.set(mod_name.replace(" " , "").replace("(TowerDefenseBattleMode)", ""))
+    archiveBaseName.set(mod_name.replace(" " , ""))
     archiveVersion.set("${minecraft_version}-(v.${mod_version}-NEO)")
 }
 
