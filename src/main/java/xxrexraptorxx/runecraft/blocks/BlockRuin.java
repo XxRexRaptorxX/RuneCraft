@@ -60,6 +60,7 @@ public class BlockRuin extends Block {
 		}
 	}
 
+
 	@Override
 	public List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
 		ArrayList<ItemStack> drops = new ArrayList<ItemStack>();

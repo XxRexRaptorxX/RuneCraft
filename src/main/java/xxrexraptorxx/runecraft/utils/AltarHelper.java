@@ -34,9 +34,9 @@ public class AltarHelper {
 
 	private static Random random = new Random();
 
-	public static final String POTION_KEY = "item." + References.MODID + ".potion";
-	public static final String SPLASH_POTION_KEY = "item." + References.MODID + ".splash_potion";
-	public static final String LINGERING_POTION_KEY = "item." + References.MODID + ".lingering_potion";
+	public static final String POTION_KEY = "item." + References.MODID + "potion";
+	public static final String SPLASH_POTION_KEY = "item." + References.MODID + "splash_potion";
+	public static final String LINGERING_POTION_KEY = "item." + References.MODID + "lingering_potion";
 
 	public static List<ItemStack> POTION_REWARDS = Arrays.asList(
 		createPotion(Items.POTION, POTION_KEY, new MobEffectInstance(MobEffects.REGENERATION, 1000, 1), new MobEffectInstance(MobEffects.ABSORPTION, 1000, 1)),

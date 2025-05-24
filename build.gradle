@@ -139,9 +139,9 @@ repositories {
 
 dependencies {
     //JEI
-    //compileOnly ("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
-    compileOnly("mezz.jei:jei-1.21.1-common-api:${jei_version}")
-    compileOnly("mezz.jei:jei-1.21.1-neoforge-api:${jei_version}")
+    compileOnly ("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     //REI
     runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
     compileOnly "me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}"
@@ -151,6 +151,8 @@ dependencies {
     //runtimeOnly "dev.emi:emi-neoforge:${emi_version}"
     //JADE
     runtimeOnly "curse.maven:jade-324717:${jade_version}"
+    //MagmaCore
+    implementation "curse.maven:MagmaCore-1267885:${magma_core_version}"
     //JEED
     //runtimeOnly "curse.maven:jeed-532286:${jeed_version}"
     //others:
@@ -166,6 +168,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
             neo_version_range      : neo_version_range,
+            magmacore_version_range: magmacore_version_range,
             loader_version_range   : loader_version_range,
             pack_format_number     : pack_format_number,
             mod_id                 : mod_id,

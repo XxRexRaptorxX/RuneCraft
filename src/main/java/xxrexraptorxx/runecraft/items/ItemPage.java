@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import xxrexraptorxx.magmacore.utils.FormattingHelper;
 import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.Config;
@@ -32,7 +33,7 @@ public class ItemPage extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
         if (this != ModItems.MAGICAL_PAGE.get())
-            list.accept(Component.translatable("message." + References.MODID + ".required_xp").withStyle(ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
+            list.accept(FormattingHelper.setModLangComponent("message",References.MODID,"required_xp").withStyle(ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
     }
 
 
