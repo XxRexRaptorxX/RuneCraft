@@ -38,14 +38,14 @@ public class ItemPage extends Item {
 
 
     public static int getPageXpRequirement(Item item) {
-        if (item == ModItems.WAND_PAGE.get()) return Config.WAND_PAGE_COST.get();
-        if (item == ModItems.SPELL_PAGE.get()) return Config.SPELL_PAGE_COST.get();
-        if (item == ModItems.CURSE_PAGE.get()) return Config.CURSE_PAGE_COST.get();
-        if (item == ModItems.LOST_PAGE.get()) return Config.LOST_PAGE_COST.get();
-        if (item == ModItems.BANNED_PAGE.get()) return Config.BANNED_PAGE_COST.get();
-        if (item == ModItems.ORB_PAGE.get()) return Config.ORB_PAGE_COST.get();
-        if (item == ModItems.ENCHANTING_PAGE.get()) return Config.ENCHANTING_PAGE_COST.get();
-        if (item == ModItems.ALCHEMY_PAGE.get()) return Config.ALCHEMY_PAGE_COST.get();
+        if (item == ModItems.WAND_PAGE.get()) return Config.getWandPageCost();
+        if (item == ModItems.SPELL_PAGE.get()) return Config.getSpellPageCost();
+        if (item == ModItems.CURSE_PAGE.get()) return Config.getCursePageCost();
+        if (item == ModItems.LOST_PAGE.get()) return Config.getLostPageCost();
+        if (item == ModItems.BANNED_PAGE.get()) return Config.getBannedPageCost();
+        if (item == ModItems.ORB_PAGE.get()) return Config.getOrbPageCost();
+        if (item == ModItems.ENCHANTING_PAGE.get()) return Config.getEnchantingPageCost();
+        if (item == ModItems.ALCHEMY_PAGE.get()) return Config.getAlchemyPageCost();
         else return 0;
     }
 }

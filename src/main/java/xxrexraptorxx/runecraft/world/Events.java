@@ -70,11 +70,11 @@ public class Events {
 
                 if(block != ModBlocks.RUNE_STONE.get()) {   //test if a runestone is not empty
                     //Area effect
-                    if (Config.ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get() && !BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID + ":rune_") && block != ModBlocks.RUNE_STONE.get() &&
+                    if (Config.isActivateAreaEffectWhenRightClicked() && !BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID + ":rune_") && block != ModBlocks.RUNE_STONE.get() &&
                             block != ModBlocks.RUNE_STONE_DMG.get() && block != ModBlocks.RUNE_STONE_FRE.get() &&  block != ModBlocks.RUNE_STONE_HRD.get() && block != ModBlocks.RUNE_STONE_PTL.get()) {
 
-                        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, Config.AREA_SPELL_DURATION.get(), Config.AREA_SPELL_RADIUS.get().floatValue(),
-                                new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(block).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), level, pos.getCenter());
+                        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, Config.getAreaSpellDuration(), Config.getAreaSpellRadius(),
+                                new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(block).toString().substring(21)), Config.getSpellDuration(), Config.getSpellAmplifier()), level, pos.getCenter());
                     }
                 }
 
@@ -135,7 +135,7 @@ public class Events {
 
                             //Item stuff
                             event.getItemStack().shrink(1);
-                            player.onEnchantmentPerformed(null, Config.CHARGING_COST.get());
+                            player.onEnchantmentPerformed(null, Config.getChargingCost());
 
                             ItemEntity reward = new ItemEntity(level, pos.getX() + 0.5F, pos.getY() + 1.1F, pos.getZ() + 0.5F, new ItemStack(ModItems.MAGICAL_BOOK.get()));
                             level.addFreshEntity(reward);
@@ -262,7 +262,7 @@ public class Events {
         BlockPos pos = event.getPos();
 
         if (level.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID) && BuiltInRegistries.ITEM.getKey(item).toString().contains("_wand")) {
-            if (Config.WAND_XP_REPAIR.get() && stack.getDamageValue() > 0) {
+            if (Config.getWandXPRepair() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
                     //Ambient
@@ -297,7 +297,7 @@ public class Events {
         BlockPos pos = event.getPos();
 
         if (level.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get() && BuiltInRegistries.ITEM.getKey(item).toString().contains(References.MODID) && BuiltInRegistries.ITEM.getKey(item).toString().contains("portable_rune_stone")) {
-            if (Config.PORTABLE_RUNE_STONE_XP_REPAIR.get() && stack.getDamageValue() > 0) {
+            if (Config.isPortableRuneStoneXpRepair() && stack.getDamageValue() > 0) {
                 if (player.experienceLevel >= 1) {
 
                     //Ambient
@@ -332,7 +332,7 @@ public class Events {
 
         if (stack.getItem() == ModItems.SOUL.get() && stack.has(DataComponents.CUSTOM_DATA)) {
             if (level.getBlockState(pos).getBlock() == ModBlocks.ALTAR_BLOCK.get()) {
-                if (player.experienceLevel >= Config.SOUL_COST.get()) {
+                if (player.experienceLevel >= Config.getSoulCost()) {
                     if (level.getSkyDarken() >= 5 || !level.dimensionType().hasSkyLight()) {
 
                         //Ambient
@@ -348,7 +348,7 @@ public class Events {
 
                             //item stuff
                             event.getItemStack().shrink(1);
-                            player.onEnchantmentPerformed(null, Config.SOUL_COST.get());
+                            player.onEnchantmentPerformed(null, Config.getSoulCost());
 
                             //rewards
                             try {

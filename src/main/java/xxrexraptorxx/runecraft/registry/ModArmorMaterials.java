@@ -4,19 +4,19 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.EquipmentAssets;
+import xxrexraptorxx.magmacore.content.TagHelper;
 import xxrexraptorxx.runecraft.main.References;
 
 import java.util.EnumMap;
 
 public class ModArmorMaterials {
 
-    public static final TagKey<Item> REPAIR_MATERIALS_MAGICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath(References.MODID, "repair_materials_magical"));
+    public static final TagKey<Item> REPAIR_MATERIALS_MAGICAL = TagHelper.createItemTag(References.MODID, "repair_materials_magical");
 
     public static final ArmorMaterial MAGICAL_ARMOR_MATERIAL = new ArmorMaterial(
             // The durability multiplier of the armor material.

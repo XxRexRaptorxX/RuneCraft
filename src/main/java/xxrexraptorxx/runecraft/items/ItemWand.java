@@ -77,7 +77,7 @@ public class ItemWand extends Item {
             level.playSound((Player) null, pos.x(), pos.y(), pos.z(), SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
             if (item != ModItems.CHANGING_WAND.get() || item != ModItems.DESTRUCTION_WAND.get()) {
-                player.getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
+                player.getCooldowns().addCooldown(stack, Config.getWandCooldown());
             }
 
             /* BASIC */
@@ -132,7 +132,7 @@ public class ItemWand extends Item {
             /* DESTRUCTION */
             } else if (item == ModItems.DESTRUCTION_WAND.get()) {
                 if (player.isShiftKeyDown())
-                    player.getCooldowns().addCooldown(stack, Config.WAND_COOLDOWN.get());
+                    player.getCooldowns().addCooldown(stack, Config.getWandCooldown());
 
                 if (!level.isClientSide) {
                     if (event.getPlayer().isShiftKeyDown()) {

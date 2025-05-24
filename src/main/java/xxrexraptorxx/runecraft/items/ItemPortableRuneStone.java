@@ -51,7 +51,7 @@ public class ItemPortableRuneStone extends Item {
         if(this != ModItems.PORTABLE_RUNE_STONE.get()) {
             list.accept(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(30))));
         }
-        if(Config.ACTIVATE_RUNESTONE_DESCRIPTION.get() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
+        if(Config.getActivateRunestoneDescription() && this != ModItems.PORTABLE_RUNE_STONE.get()) {
             list.accept(FormattingHelper.setModLangComponent("message",References.MODID, "contains").append(Component.literal(" " + BuiltInRegistries.MOB_EFFECT.getKey(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)).value()).toString().substring(10).replace("_", " "))).withStyle(ChatFormatting.GRAY));
         }
         if(this == ModItems.PORTABLE_RUNE_STONE.get()) {
@@ -76,18 +76,18 @@ public class ItemPortableRuneStone extends Item {
 
                 //effect
                 if (!level.isClientSide) {
-                    if (Config.ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get()) {
+                    if (Config.isActivatePortableRuneStonePublicEffect()) {
 
-                        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 10, Config.PORTABLE_SPELL_RADIUS.get(),
-                            new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()), level, player.position());
+                        SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 10, Config.getPortableSpellRadius(),
+                            new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.getPortableSpellDuration(), Config.getPortableSpellAmplifier()), level, player.position());
 
                     } else {
-                        player.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.PORTABLE_SPELL_DURATION.get(), Config.PORTABLE_SPELL_AMPLIFIER.get()));
+                        player.addEffect(new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.ITEM.getKey(this).toString().substring(30)), Config.getPortableSpellDuration(), Config.getPortableSpellAmplifier()));
                     }
                 }
 
                 //item stuff
-                player.getCooldowns().addCooldown(stack, Config.PORTABLE_SPELL_COOLDOWN.get());
+                player.getCooldowns().addCooldown(stack, Config.getPortableSpellCooldown());
                 stack.setDamageValue(stack.getDamageValue() + 1);
 
                 if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));

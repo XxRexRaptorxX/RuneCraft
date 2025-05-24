@@ -32,7 +32,7 @@ public class ItemRune extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
-        if(Config.ACTIVATE_VISIBLE_RUNE_TYPE.get()) {
+        if(Config.getActivateVisibleRuneType()) {
             list.accept(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(15))));
         }
     }

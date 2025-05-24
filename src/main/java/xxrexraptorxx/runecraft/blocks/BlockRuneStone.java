@@ -69,7 +69,7 @@ public class BlockRuneStone extends Block {
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
 		//base blocks
 		if(!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
-			SpellHelper.addPlayerEffects(entity, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), 0);
+			SpellHelper.addPlayerEffects(entity, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))), Config.getSpellDuration(), Config.getSpellAmplifier()), 0);
 		}
 
 		//special blocks
@@ -143,7 +143,7 @@ public class BlockRuneStone extends Block {
 
 	@Override
 	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
-		if (!level.isClientSide && Config.ACTIVATE_REDSTONE_EFFECT.get()) {
+		if (!level.isClientSide && Config.isActivateRedstoneEffect()) {
 			boolean flag = state.getValue(POWERED);
 
 			if (flag != level.hasNeighborSignal(pos)) {
@@ -157,8 +157,8 @@ public class BlockRuneStone extends Block {
 							this != ModBlocks.RUNE_STONE_HRD.get() && this != ModBlocks.RUNE_STONE_PTL.get() && BuiltInRegistries.BLOCK.getKey(this).toString().contains("rune_stone_")) {
 
 						level.setBlock(pos, state.cycle(POWERED), 2);
-						SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, Config.AREA_SPELL_DURATION.get(), Config.AREA_SPELL_RADIUS.get(),
-								new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.SPELL_DURATION.get(), Config.SPELL_AMPLIFIER.get()), level, pos.getCenter());
+						SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, Config.getAreaSpellDuration(), Config.getAreaSpellAmplifier(),
+								new MobEffectInstance(RuneHelper.getEffect(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21)), Config.getSpellDuration(), Config.getSpellAmplifier()), level, pos.getCenter());
 					}
 				}
 			}

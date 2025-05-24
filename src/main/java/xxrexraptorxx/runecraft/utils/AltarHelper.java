@@ -82,11 +82,11 @@ public class AltarHelper {
 	);
 
 	public static final List<MobEffectInstance> EFFECT_REWARDS = List.of(
-			new MobEffectInstance(MobEffects.REGENERATION, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.HEALTH_BOOST, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.STRENGTH, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.RESISTANCE, 10000, Config.AREA_SPELL_AMPLIFIER.get()),
-			new MobEffectInstance(MobEffects.LUCK, 10000, Config.AREA_SPELL_AMPLIFIER.get())
+			new MobEffectInstance(MobEffects.REGENERATION, 10000, Config.getAreaSpellAmplifier()),
+			new MobEffectInstance(MobEffects.HEALTH_BOOST, 10000, Config.getAreaSpellAmplifier()),
+			new MobEffectInstance(MobEffects.STRENGTH, 10000, Config.getAreaSpellAmplifier()),
+			new MobEffectInstance(MobEffects.RESISTANCE, 10000, Config.getAreaSpellAmplifier()),
+			new MobEffectInstance(MobEffects.LUCK, 10000, Config.getAreaSpellAmplifier())
 	);
 
 	public static final List<EntityType<?>> MONSTER_SPAWNS = List.of(
@@ -102,7 +102,7 @@ public class AltarHelper {
 	public static List<ItemStack> getAltarTreasureItems() {
 		List<ItemStack> itemsList = new ArrayList<>();
 
-		for (String itemKey : Config.ALTAR_TREASURES.get()) {
+		for (String itemKey : Config.getAltarTreasures()) {
 			Item item = BuiltInRegistries.ITEM.getValue(ResourceLocation.bySeparator(itemKey, ResourceLocation.NAMESPACE_SEPARATOR));
 
 			itemsList.add(new ItemStack(item));
@@ -181,7 +181,7 @@ public class AltarHelper {
 				break;
 
 			case 4:
-				if (Config.CAN_SPAWN_ENDERDRAGON.get()) {
+				if (Config.canSpawnEnderdragon()) {
 					EnderDragon dragon = new EnderDragon(EntityType.ENDER_DRAGON, level);
 					dragon.setPos(pos.getX() + 0.5F, pos.getY() + 1, pos.getZ() + 0.5F);
 					level.addFreshEntity(dragon);
