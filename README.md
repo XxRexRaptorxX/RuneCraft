@@ -8,7 +8,8 @@
 
 ## 🗃️ Dependencies
 
-
+   - **Magma Core**
+      - [CurseForge][cf_magmacore] | [Modrinth][mr_magmacore]
    - **Patchouli**
       - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
    - **Just Enough Items (JEI)** *[optional]*
@@ -60,3 +61,6 @@ All rights reserved.
 
 [cf_jeed]: https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed
 [mr_jeed]: https://modrinth.com/mod/just-enough-effect-descriptions-jeed
+
+[cf_magmacore]: https://www.curseforge.com/minecraft/mc-mods/magma-core
+[mr_magmacore]: https://modrinth.com/mod/magma-core
