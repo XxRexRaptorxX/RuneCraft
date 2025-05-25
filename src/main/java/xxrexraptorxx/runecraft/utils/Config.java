@@ -53,33 +53,25 @@ public class Config {
     private static ModConfigSpec.IntValue WAND_COOLDOWN;
     private static ModConfigSpec.BooleanValue WAND_XP_REPAIR;
 
+
     static {
         // CLIENT
-        ConfigHelper.setCoreCategory(CLIENT_BUILDER, "general");
-        ACTIVATE_VISIBLE_RUNE_TYPE = CLIENT_BUILDER.comment("Show rune type name on the item")
-                .define("activate_visible_rune_type", true);
-        ACTIVATE_RUNESTONE_DESCRIPTION = CLIENT_BUILDER.comment("Show rune stone descriptions")
-                .define("activate_runestone_description", true);
-        ACTIVATE_RUNESTONE_JEI_DESCRIPTION = CLIENT_BUILDER.comment("Show rune descriptions in JEI")
-                .define("activate_runestone_jei_description", true);
+        ConfigHelper.setCategory(CLIENT_BUILDER, "runes");
+        ACTIVATE_VISIBLE_RUNE_TYPE = CLIENT_BUILDER.comment("Show the rune type name as tooltips on the items").define("activate_visible_rune_type", true);
+        CLIENT_BUILDER.pop();
+
+        ConfigHelper.setCategory(CLIENT_BUILDER, "runestones");
+        ACTIVATE_RUNESTONE_DESCRIPTION = CLIENT_BUILDER.comment("Show runestone descriptions as tooltips on the items").define("activate_runestone_description", true);
+        ACTIVATE_RUNESTONE_JEI_DESCRIPTION = CLIENT_BUILDER.comment("Show runestone descriptions in recipe viewers").define("activate_runestone_jei_description", true);
         CLIENT_BUILDER.pop();
 
         CLIENT_CONFIG = CLIENT_BUILDER.build();
 
 
         // SERVER
-        ConfigHelper.setCoreCategory(SERVER_BUILDER, "general");
-        CHARGING_COST = SERVER_BUILDER.comment("XP cost to create magical book")
-                .defineInRange("charging_cost", 15, 1, 30);
-        CAN_SPAWN_ENDERDRAGON = SERVER_BUILDER.comment("Allow banned ritual to spawn ender dragon")
-                .define("can_spawn_enderdragon", false);
-        SERVER_BUILDER.pop();
-
         ConfigHelper.setCategory(SERVER_BUILDER, "altar");
-        SOUL_COST = SERVER_BUILDER.comment("XP cost to use a soul on the altar")
-                .defineInRange("soul_cost", 1, 0, 50);
-        ALTAR_TREASURES = SERVER_BUILDER.comment("Items that can spawn on altar during treasure ritual")
-                .define("altar_treasures", new ArrayList<>(Arrays.asList(
+        SOUL_COST = SERVER_BUILDER.comment("XP cost to use a soul on the altar").defineInRange("soul_cost", 1, 0, 50);
+        ALTAR_TREASURES = SERVER_BUILDER.comment("Items that can spawn on the altar during a treasure ritual").define("altar_treasures", new ArrayList<>(Arrays.asList(
                         BuiltInRegistries.ITEM.getKey(Items.DIAMOND).toString(),
                         BuiltInRegistries.ITEM.getKey(Items.ELYTRA).toString(),
                         BuiltInRegistries.ITEM.getKey(Items.NETHER_STAR).toString(),
@@ -103,61 +95,47 @@ public class Config {
                         BuiltInRegistries.ITEM.getKey(Items.ECHO_SHARD).toString(),
                         BuiltInRegistries.ITEM.getKey(Items.OMINOUS_TRIAL_KEY).toString(),
                         BuiltInRegistries.ITEM.getKey(Items.HEAVY_CORE).toString(),
-                        BuiltInRegistries.ITEM.getKey(ModItems.SPIRIT_STAR.get()).toString(),
-                        BuiltInRegistries.ITEM.getKey(ModItems.SPIRIT_CRYSTAL.get()).toString()
+                        ModItems.SPIRIT_STAR.getKey().location().toString(),
+                        ModItems.SPIRIT_CRYSTAL.getKey().location().toString()
                 )));
+        CHARGING_COST = SERVER_BUILDER.comment("XP cost to create a magical book").defineInRange("charging_cost", 15, 1, 30);
+        CAN_SPAWN_ENDERDRAGON = SERVER_BUILDER.comment("Allow the banned ritual to spawn ender dragons").define("can_spawn_enderdragon", false);
         SERVER_BUILDER.pop();
 
         ConfigHelper.setCategory(SERVER_BUILDER, "runestones");
-        ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED = SERVER_BUILDER.comment("Trigger area effect on right-click")
-                .define("activate_area_effect", true);
-        ACTIVATE_REDSTONE_EFFECT = SERVER_BUILDER.comment("Trigger effect when powered by redstone")
-                .define("activate_redstone_effect", true);
-        SPELL_DURATION = SERVER_BUILDER.comment("Spell duration")
-                .defineInRange("spell_duration", 200, 50, 10000);
-        SPELL_AMPLIFIER = SERVER_BUILDER.comment("Spell amplifier")
-                .defineInRange("spell_amplifier", 1, 0, 5);
-        AREA_SPELL_DURATION = SERVER_BUILDER.comment("Duration of area effect cloud")
-                .defineInRange("area_spell_duration", 200, 10, 10000);
-        AREA_SPELL_AMPLIFIER = SERVER_BUILDER.comment("Amplifier of area effect")
-                .defineInRange("area_spell_amplifier", 0, 0, 5);
-        AREA_SPELL_RADIUS = SERVER_BUILDER.comment("Radius of area effect")
-                .defineInRange("area_spell_radius", 8, 1, 50);
+        ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED = SERVER_BUILDER.comment("Trigger a area effect on right-click").define("activate_area_effect", true);
+        ACTIVATE_REDSTONE_EFFECT = SERVER_BUILDER.comment("Trigger effect when powered by redstone").define("activate_redstone_effect", true);
+        SPELL_DURATION = SERVER_BUILDER.comment("Set the spell duration").defineInRange("spell_duration", 200, 50, 10000);
+        SPELL_AMPLIFIER = SERVER_BUILDER.comment("Set the spell amplifier").defineInRange("spell_amplifier", 1, 0, 5);
+        AREA_SPELL_DURATION = SERVER_BUILDER.comment("Duration of the area effect").defineInRange("area_spell_duration", 200, 10, 10000);
+        AREA_SPELL_AMPLIFIER = SERVER_BUILDER.comment("Amplifier of the area effect").defineInRange("area_spell_amplifier", 0, 0, 5);
+        AREA_SPELL_RADIUS = SERVER_BUILDER.comment("Radius of the area effect").defineInRange("area_spell_radius", 8, 1, 50);
         SERVER_BUILDER.pop();
 
         ConfigHelper.setCategory(SERVER_BUILDER, "portable_runestones");
-        ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT = SERVER_BUILDER.comment("Portable rune effects are public")
-                .define("activate_runestone_public_effect", true);
-        PORTABLE_SPELL_DURATION = SERVER_BUILDER.comment("Duration of portable rune effects")
-                .defineInRange("portable_spell_duration", 200, 10, 1000);
-        PORTABLE_SPELL_AMPLIFIER = SERVER_BUILDER.comment("Amplifier of portable rune effects")
-                .defineInRange("portable_spell_amplifier", 0, 0, 5);
-        PORTABLE_SPELL_RADIUS = SERVER_BUILDER.comment("Radius of portable rune effects")
-                .defineInRange("portable_spell_radius", 2, 1, 10);
-        PORTABLE_SPELL_COOLDOWN = SERVER_BUILDER.comment("Cooldown of portable rune effects")
-                .defineInRange("portable_spell_cooldown", 300, 10, 10000);
-        PORTABLE_RUNE_STONE_XP_REPAIR = SERVER_BUILDER.comment("Portable runes repairable via XP")
-                .define("portable_rune_stone_xp_repair", true);
-        WAND_XP_REPAIR = SERVER_BUILDER.comment("Wands repairable via XP")
-                .define("wand_xp_repair", true);
-        WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown time for using a wand")
-                .defineInRange("wand_cooldown", 20, 1, 1000);
+        ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT = SERVER_BUILDER.comment("Makes the portable rune effects public").define("activate_runestone_public_effect", true);
+        PORTABLE_SPELL_DURATION = SERVER_BUILDER.comment("Duration of portable rune effects").defineInRange("portable_spell_duration", 200, 10, 1000);
+        PORTABLE_SPELL_AMPLIFIER = SERVER_BUILDER.comment("Amplifier of portable rune effects").defineInRange("portable_spell_amplifier", 0, 0, 5);
+        PORTABLE_SPELL_RADIUS = SERVER_BUILDER.comment("Radius of portable rune effects").defineInRange("portable_spell_radius", 2, 1, 10);
+        PORTABLE_SPELL_COOLDOWN = SERVER_BUILDER.comment("Cooldown of portable rune effects").defineInRange("portable_spell_cooldown", 300, 10, 10000);
+        PORTABLE_RUNE_STONE_XP_REPAIR = SERVER_BUILDER.comment("Makes portable runes repairable with XP").define("portable_rune_stone_xp_repair", true);
         SERVER_BUILDER.pop();
 
         ConfigHelper.setCategory(SERVER_BUILDER,"pages");
-        ORB_PAGE_COST = SERVER_BUILDER.comment("XP to use orb page on altar").defineInRange("orb_page_cost", 10, 0, 50);
-        ENCHANTING_PAGE_COST = SERVER_BUILDER.comment("XP to use enchanting page").defineInRange("enchanting_page_cost", 10, 0, 50);
-        SPELL_PAGE_COST = SERVER_BUILDER.comment("XP to use spell page").defineInRange("spell_page_cost", 5, 0, 50);
-        WAND_PAGE_COST = SERVER_BUILDER.comment("XP to use wand page").defineInRange("wand_page_cost", 10, 0, 50);
-        CURSE_PAGE_COST = SERVER_BUILDER.comment("XP to use curse page").defineInRange("curse_page_cost", 5, 0, 50);
-        ALCHEMY_PAGE_COST = SERVER_BUILDER.comment("XP to use alchemy page").defineInRange("alchemy_page_cost", 10, 0, 50);
-        LOST_PAGE_COST = SERVER_BUILDER.comment("XP to use lost page").defineInRange("lost_page_cost", 10, 0, 50);
-        BANNED_PAGE_COST = SERVER_BUILDER.comment("XP to use banned page").defineInRange("banned_page_cost", 20, 0, 50);
+        ORB_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a orb page on altar").defineInRange("orb_page_cost", 10, 0, 50);
+        ENCHANTING_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a enchanting page").defineInRange("enchanting_page_cost", 10, 0, 50);
+        SPELL_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a spell page").defineInRange("spell_page_cost", 5, 0, 50);
+        WAND_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a wand page").defineInRange("wand_page_cost", 10, 0, 50);
+        CURSE_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a curse page").defineInRange("curse_page_cost", 5, 0, 50);
+        ALCHEMY_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a alchemy page").defineInRange("alchemy_page_cost", 10, 0, 50);
+        LOST_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a lost page").defineInRange("lost_page_cost", 10, 0, 50);
+        BANNED_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a banned page").defineInRange("banned_page_cost", 20, 0, 50);
         SERVER_BUILDER.pop();
 
         ConfigHelper.setCategory(SERVER_BUILDER,"wands");
-        WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
-        WAND_XP_REPAIR = SERVER_BUILDER.comment("Allow XP repair for wands on altar").define("wand_xp_repair", true);
+        WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown time of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
+        WAND_XP_REPAIR = SERVER_BUILDER.comment("Allow XP repair of wands on the altar").define("wand_xp_repair", true);
+        WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown time for using a wand").defineInRange("wand_cooldown", 20, 1, 1000);
         SERVER_BUILDER.pop();
 
         SERVER_CONFIG = SERVER_BUILDER.build();
