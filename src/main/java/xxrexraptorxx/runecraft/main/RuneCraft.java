@@ -23,11 +23,11 @@ public class RuneCraft {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public RuneCraft(IEventBus eventBus, ModContainer container) {
-        ModBlocks.init(eventBus);
-        ModItems.init(eventBus);
-        CreativeModeTabs.init(eventBus);
-        ModLootModifiers.init(eventBus);
+    public RuneCraft(IEventBus bus, ModContainer container) {
+        ModBlocks.init(bus);
+        ModItems.init(bus);
+        CreativeModeTabs.init(bus);
+        ModLootModifiers.init(bus);
 
         ConfigHelper.registerConfigs(container, References.MODID, true, Config.SERVER_CONFIG, Config.CLIENT_CONFIG);
         ModRegistry.register(References.MODID, References.NAME, References.URL);

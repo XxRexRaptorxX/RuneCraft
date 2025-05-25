@@ -4,7 +4,6 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.runtime.IIngredientManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -12,6 +11,7 @@ import xxrexraptorxx.runecraft.main.References;
 import xxrexraptorxx.runecraft.registry.ModBlocks;
 import xxrexraptorxx.runecraft.registry.ModItems;
 import xxrexraptorxx.runecraft.utils.AltarHelper;
+import xxrexraptorxx.runecraft.utils.Config;
 
 @JeiPlugin
 public class JEIIntegration implements IModPlugin {
@@ -25,14 +25,12 @@ public class JEIIntegration implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registry) {
-        IIngredientManager ingredientManager = registry.getIngredientManager();
+        if (Config.getActivateRunestoneJeiDescription()) registry.addIngredientInfo(new ItemStack(ModBlocks.RUNE_STONE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".rune_stone_jei_desc"));
 
         registry.addIngredientInfo(AltarHelper.getAltarTreasureItems(), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".treasure_ritual_drops_jei_desc"));
 
         registry.addIngredientInfo(new ItemStack(ModItems.MAGICAL_BOOK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".magical_book_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModBlocks.RUIN_BLOCK.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".ruin_block_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModBlocks.RUNE_STONE.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".rune_stone_jei_desc"));
-        registry.addIngredientInfo(new ItemStack(ModItems.BASIC_WAND.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".basic_wand_crafting_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.ORB.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".orb_jei_desc"));
         registry.addIngredientInfo(new ItemStack(ModItems.SOUL.get()), VanillaTypes.ITEM_STACK, Component.translatable("message." + References.MODID + ".soul_jei_desc"));
 
