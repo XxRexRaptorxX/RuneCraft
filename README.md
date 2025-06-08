@@ -46,7 +46,7 @@ With this magical pages you can perform various rituals on the altar and summon 
 ![ingame manual](https://i.imgur.com/YwJtbPp.png)
 ![items and blocks](https://i.imgur.com/Dvt0YQs.png)
 ![items and blocks](https://i.imgur.com/PKclU2z.png)
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1J4Ojojukkg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zhO3-RbKYkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <p align="center">
   <img src="https://github.com/XxRexRaptorxX/General/blob/main/page_decorations/line.png?raw=true" alt="line" width="2000"/>
@@ -83,8 +83,6 @@ With this magical pages you can perform various rituals on the altar and summon 
 # 🎮 My other mods!
 
 <p align="center">
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zhO3-RbKYkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
   <a href="https://www.curseforge.com/minecraft/mc-mods/additional-structures"><img src="https://github.com/XxRexRaptorxX/Additional-Structures/blob/master/src/main/resources/logo.png?raw=true" alt="Additional Structures" width="80"/></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/bedrock-miner"><img src="https://github.com/XxRexRaptorxX/Bedrock-Miner/blob/main/src/main/resources/logo.png?raw=true" alt="Bedrock Miner" width="80"/></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/tool-upgrades"><img src="https://github.com/XxRexRaptorxX/ToolUpgrades/blob/main/src/main/resources/logo.png?raw=true" alt="Tool Upgrades" width="80"/></a>
