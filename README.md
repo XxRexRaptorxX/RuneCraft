@@ -41,11 +41,17 @@ With this magical pages you can perform various rituals on the altar and summon 
 ## 📷 Presentation
 
 ![altar](https://github.com/XxRexRaptorxX/General/blob/main/2023-09-12_19.43.57.png?raw=true)
+
 ![armor set](https://s10.gifyu.com/images/2021-11-25_22.20.59.png)
+
 ![ritual on the altar](https://github.com/XxRexRaptorxX/General/blob/main/2025-02-24_18.38.25.png?raw=true)
+
 ![ingame manual](https://i.imgur.com/YwJtbPp.png)
+
 ![items and blocks](https://i.imgur.com/Dvt0YQs.png)
+
 ![items and blocks](https://i.imgur.com/PKclU2z.png)
+
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zhO3-RbKYkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <p align="center">
