@@ -1,4 +1,4 @@
-# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev4)
+# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev5)
 
 ## 🔧 Bug Fixes
 
@@ -6,5 +6,6 @@
 
 ## 🔨 Refactoring
 
+- code improvements ([4e29905](https://github.com/XxRexRaptorxX/RuneCraft/commit/4e2990523b8c33bb7d17d710c663d6d42ae349ff))
 - update to MC 1.21.10 ([aab31ca](https://github.com/XxRexRaptorxX/RuneCraft/commit/aab31cafd0ede08e4006fcc12d4b58556d883ec7))
 
