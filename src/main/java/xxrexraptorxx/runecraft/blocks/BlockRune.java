@@ -46,8 +46,8 @@ public class BlockRune extends FallingBlock {
 
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
-        if (!level.isClientSide) {
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean p_451772_) {
+        if (!level.isClientSide()) {
             if (entity instanceof LivingEntity) {
                 LivingEntity entityIn = (LivingEntity) entity;
                 entityIn.addEffect(new MobEffectInstance(MobEffects.GLOWING, 10));
@@ -60,7 +60,7 @@ public class BlockRune extends FallingBlock {
     public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY() + 0.8F, pos.getZ(),
                     new ItemStack(RuneHelper.getRuneFromType(BuiltInRegistries.BLOCK.getKey(this).toString().substring(21))));
             level.addFreshEntity(drop);

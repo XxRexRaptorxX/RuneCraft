@@ -33,7 +33,7 @@ public class BlockRuin extends Block {
     public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
         SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
             ItemEntity drop1 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
@@ -50,7 +50,7 @@ public class BlockRuin extends Block {
     public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             ItemEntity drop1 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
             ItemEntity drop2 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));
             ItemEntity drop3 = new ItemEntity(level, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, new ItemStack(RuneHelper.getRandomRune()));

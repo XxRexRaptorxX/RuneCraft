@@ -44,7 +44,7 @@ public class ItemRune extends Item {
         Item item = stack.getItem();
         BlockPos pos = event.getClickedPos().above();
 
-        if (!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
+        if (!level.isClientSide() && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
             level.playSound((Player) null, pos, SoundEvents.SOUL_SAND_PLACE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
             level.setBlock(pos, RuneHelper.getRuneBlockFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState()
                     .setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);

@@ -22,7 +22,7 @@ public class SpellHelper {
     public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, @Nullable ArrayList<MobEffectInstance> effects, Level level,
             Position pos) {
         List<AreaEffectCloud> areaEffectClouds = new ArrayList<>();
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (shape == SpellShapes.RING) {
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x() + 7.0F, pos.y() + 0.5F, pos.z()));
                 areaEffectClouds.add(new AreaEffectCloud(level, pos.x() - 7.0F, pos.y() + 0.5F, pos.z()));
@@ -46,7 +46,7 @@ public class SpellHelper {
             for (AreaEffectCloud cloud : areaEffectClouds) {
                 cloud.setDuration(duration);
                 cloud.setRadius(radius);
-                cloud.setParticle(particleType);
+                cloud.setCustomParticle(particleType);
 
                 if (effects != null) {
                     for (MobEffectInstance effectInstance : effects) {
@@ -71,7 +71,7 @@ public class SpellHelper {
     public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
         Level level = entity.level();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (entity instanceof Player entityIn) {
                 if (effectInstance != null) entityIn.addEffect(effectInstance);
                 if (damageAmount < 0) entityIn.hurt(level.damageSources().magic(), damageAmount);

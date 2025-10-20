@@ -77,7 +77,7 @@ public class ItemPortableRuneStone extends Item {
                         0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
                 // effect
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     if (Config.isActivatePortableRuneStonePublicEffect()) {
 
                         SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.ENCHANT, 10, Config.getPortableSpellRadius(),
@@ -95,7 +95,7 @@ public class ItemPortableRuneStone extends Item {
                 player.getCooldowns().addCooldown(stack, Config.getPortableSpellCooldown());
                 stack.setDamageValue(stack.getDamageValue() + 1);
 
-                if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+                if (level.isClientSide()) player.awardStat(Stats.ITEM_USED.get(this));
 
                 if (stack.getDamageValue() == stack.getMaxDamage()) {
                     level.playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F,

@@ -11,7 +11,7 @@ import xxrexraptorxx.runecraft.main.References;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = References.MODID)
 public class DataGenerators {
 
     @SubscribeEvent

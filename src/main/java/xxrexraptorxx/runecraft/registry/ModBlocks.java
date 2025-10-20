@@ -139,94 +139,94 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_A = registerBlock("rune_block_a", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_B = registerBlock("rune_block_b", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_C = registerBlock("rune_block_c", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_D = registerBlock("rune_block_d", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_E = registerBlock("rune_block_e", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_F = registerBlock("rune_block_f", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_G = registerBlock("rune_block_g", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_H = registerBlock("rune_block_h", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_I = registerBlock("rune_block_i", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_J = registerBlock("rune_block_j", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_K = registerBlock("rune_block_k", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_L = registerBlock("rune_block_l", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_M = registerBlock("rune_block_m", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_N = registerBlock("rune_block_n", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_O = registerBlock("rune_block_o", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_P = registerBlock("rune_block_p", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_Q = registerBlock("rune_block_q", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_R = registerBlock("rune_block_r", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_S = registerBlock("rune_block_s", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_T = registerBlock("rune_block_t", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_U = registerBlock("rune_block_u", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_V = registerBlock("rune_block_v", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_W = registerBlock("rune_block_w", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_X = registerBlock("rune_block_x", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_Y = registerBlock("rune_block_y", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_Z = registerBlock("rune_block_z", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_DMG = registerBlock("rune_block_dmg", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_FRE = registerBlock("rune_block_fre", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_HRD = registerBlock("rune_block_hrd", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
     public static final DeferredBlock<BlockRune> RUNE_BLOCK_PTL = registerBlock("rune_block_ptl", properties -> new BlockRune(
-            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
+            properties.strength(0.2F, 0.0F).sound(SoundType.SAND).mapColor(MapColor.COLOR_RED).noCollision().noOcclusion().instrument(NoteBlockInstrument.FLUTE)));
 
 
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> blockCreator) {

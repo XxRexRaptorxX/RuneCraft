@@ -124,7 +124,7 @@ public class ItemWand extends Item {
             } else if (item == ModItems.DESTRUCTION_WAND.get()) {
                 if (player.isShiftKeyDown()) player.getCooldowns().addCooldown(stack, Config.getWandCooldown());
 
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     if (event.getPlayer().isShiftKeyDown()) {
                         level.addFreshEntity(new PrimedTnt(level, clickedPos.getX(), clickedPos.getY(), clickedPos.getZ(), event.getPlayer()));
                     } else {
@@ -135,7 +135,7 @@ public class ItemWand extends Item {
                 /* THUNDER */
             } else if (item == ModItems.THUNDER_WAND.get()) {
 
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     if (player.isShiftKeyDown()) {
                         level.getLevelData().setRaining(true);
                         level.setThunderLevel(1);
@@ -200,7 +200,7 @@ public class ItemWand extends Item {
 
                 /* CHANGING */
             } else if (item == ModItems.CHANGING_WAND.get()) {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     if (!this.handleInteraction(player, level.getBlockState(clickedPos), level, clickedPos, true, event.getItemInHand())) {
                         return InteractionResult.FAIL;
                     }
@@ -224,7 +224,7 @@ public class ItemWand extends Item {
             }
         }
 
-        if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+        if (level.isClientSide()) player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 
@@ -268,7 +268,7 @@ public class ItemWand extends Item {
 
             /* THUNDER */
         } else if (item == ModItems.THUNDER_WAND.get()) {
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                 lightningbolt.setDeltaMovement(entity.getX(), entity.getY(), entity.getZ());
                 level.addFreshEntity(lightningbolt);
@@ -278,7 +278,7 @@ public class ItemWand extends Item {
 
         // general stuff
         if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(stack, 150);
-        if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+        if (level.isClientSide()) player.awardStat(Stats.ITEM_USED.get(this));
 
         stack.setDamageValue(stack.getDamageValue() + 1);
         if (stack.getDamageValue() == stack.getMaxDamage()) {
@@ -336,7 +336,7 @@ public class ItemWand extends Item {
 
             level.addParticle(ParticleTypes.SWEEP_ATTACK, entity.position().x, entity.position().y + 1, entity.position().z, 0.0D, 0.0D, 0.0D);
 
-            if (level.isClientSide) {
+            if (level.isClientSide()) {
                 player.awardStat(Stats.ITEM_USED.get(this));
                 stack.setDamageValue(stack.getDamageValue() + 1);
             }
@@ -379,7 +379,7 @@ public class ItemWand extends Item {
 
                         BlockState blockstate = cycleState(state, property, player.isSecondaryUseActive());
                         level.setBlock(pos, blockstate, 18);
-                        if (player.level().isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+                        if (player.level().isClientSide()) player.awardStat(Stats.ITEM_USED.get(this));
 
                         message(player, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
 

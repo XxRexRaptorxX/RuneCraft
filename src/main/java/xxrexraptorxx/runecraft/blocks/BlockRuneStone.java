@@ -68,15 +68,15 @@ public class BlockRuneStone extends Block {
 
 
     @Override
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean p_451772_) {
         // base blocks
-        if (!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
+        if (!level.isClientSide() && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 22) {
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(RuneHelper.getEffect(String.valueOf(BuiltInRegistries.BLOCK.getKey(this).toString().charAt(21))),
                     Config.getSpellDuration(), Config.getSpellAmplifier()), 0);
         }
 
         // special blocks
-        if (!level.isClientSide && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 24) {
+        if (!level.isClientSide() && this != ModBlocks.RUNE_STONE.get() && BuiltInRegistries.BLOCK.getKey(this).toString().length() == 24) {
             if (this == ModBlocks.RUNE_STONE_DMG.get()) {
                 entity.hurt(level.damageSources().magic(), 4.0F);
 
@@ -106,7 +106,7 @@ public class BlockRuneStone extends Block {
     public void onBlockExploded(BlockState state, ServerLevel level, BlockPos pos, Explosion explosion) {
         SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 
             ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
@@ -125,7 +125,7 @@ public class BlockRuneStone extends Block {
     public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_EVENT, ParticleTypes.ENCHANT, level, pos);
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             ItemEntity drop = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModBlocks.RUNE_STONE.get()));
             level.addFreshEntity(drop);
 
@@ -149,7 +149,7 @@ public class BlockRuneStone extends Block {
 
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, @Nullable Orientation orientation, boolean movedByPiston) {
-        if (!level.isClientSide && Config.isActivateRedstoneEffect()) {
+        if (!level.isClientSide() && Config.isActivateRedstoneEffect()) {
             boolean flag = state.getValue(POWERED);
 
             if (flag != level.hasNeighborSignal(pos)) {

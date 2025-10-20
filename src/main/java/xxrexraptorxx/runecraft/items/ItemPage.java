@@ -30,8 +30,7 @@ public class ItemPage extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
         if (this != ModItems.MAGICAL_PAGE.get())
-            list.accept(FormattingHelper.setModLangComponent("message", References.MODID, "required_xp").withStyle(ChatFormatting.GRAY)
-                    .append(Component.literal(" " + getPageXpRequirement(this))));
+            list.accept(FormattingHelper.setMessageComponent(References.MODID, "required_xp", ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
     }
 
 

@@ -52,7 +52,7 @@ import java.util.Objects;
 import java.util.Random;
 
 
-@EventBusSubscriber(modid = References.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = References.MODID)
 public class Events {
 
     /** Rune Stone Functions **/
@@ -64,7 +64,7 @@ public class Events {
         Level level = event.getLevel();
         Block block = level.getBlockState(pos).getBlock();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (BuiltInRegistries.BLOCK.getKey(block).toString().contains(References.MODID + ":rune_stone")) {
                 level.playSound((Player) null, pos, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
 
@@ -133,7 +133,7 @@ public class Events {
                         SpellHelper.spawnParticleEffects(ParticleShapeTypes.PENTERGRAM, ParticleTypes.ENCHANT, level, pos);
 
                         // Spawn a lightning bolt
-                        if (!level.isClientSide) {
+                        if (!level.isClientSide()) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                             lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
@@ -155,13 +155,13 @@ public class Events {
 
 
                     } else {
-                        if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_full_moon"), true);
+                        if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_full_moon"), true);
                     }
                 } else {
-                    if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
+                    if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
                 }
             } else {
-                if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
+                if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
             }
         }
     }
@@ -187,7 +187,7 @@ public class Events {
                         SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
                         SpellHelper.spawnParticleEffects(ParticleShapeTypes.PENTERGRAM, ParticleTypes.ENCHANT, level, pos);
 
-                        if (!level.isClientSide) {
+                        if (!level.isClientSide()) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                             lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
@@ -240,13 +240,13 @@ public class Events {
 
 
                     } else {
-                        if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_night"), true);
+                        if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_night"), true);
                     }
                 } else {
-                    if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
+                    if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
                 }
             } else {
-                if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
+                if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
             }
         }
     }
@@ -281,7 +281,7 @@ public class Events {
 
 
                 } else {
-                    if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
+                    if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
                 }
             }
         }
@@ -317,7 +317,7 @@ public class Events {
 
 
                 } else {
-                    if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
+                    if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
                 }
             }
         }
@@ -341,7 +341,7 @@ public class Events {
                         SpellHelper.spawnParticleEffects(ParticleShapeTypes.ITEM_USED, ParticleTypes.HAPPY_VILLAGER, level, pos);
                         SpellHelper.spawnParticleEffects(ParticleShapeTypes.PENTERGRAM, ParticleTypes.ENCHANT, level, pos);
 
-                        if (!level.isClientSide) {
+                        if (!level.isClientSide()) {
                             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                             lightningbolt.setPos(pos.getX(), pos.getY(), pos.getZ());
                             lightningbolt.setVisualOnly(true);
@@ -375,13 +375,13 @@ public class Events {
 
 
                     } else {
-                        if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_night"), true);
+                        if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_night"), true);
                     }
                 } else {
-                    if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
+                    if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "not_enough_levels"), true);
                 }
             } else {
-                if (level.isClientSide) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
+                if (level.isClientSide()) player.displayClientMessage(FormattingHelper.setModLangComponent("message", References.MODID, "wrong_block"), true);
             }
         }
     }
