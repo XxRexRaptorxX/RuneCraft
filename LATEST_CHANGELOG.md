@@ -1,7 +1,8 @@
-# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev7)
+# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev8)
 
 ## ✨ Features
 
+- Supplementaries hourglass support for ash & rune dust added ([00a626f](https://github.com/XxRexRaptorxX/RuneCraft/commit/00a626f193e85520596bce97c689116cb8145d84))
 - mod items now also appear in vanilla creative tabs ([f6a1526](https://github.com/XxRexRaptorxX/RuneCraft/commit/f6a15262a7dec62f34f896ac4c8caecefdf9272d))
 
 ## 🔧 Bug Fixes
