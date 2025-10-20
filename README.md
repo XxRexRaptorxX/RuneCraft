@@ -14,7 +14,7 @@
 
 This mod focuses on rune magic! You can use runes to put them on rune stones to make them spread effects. Or write them on different items to turn orbs into valuable resources, soul orbs into spawn eggs, write rituals & spells on magical pages, or make wands and other powerful things with them.
 
-With this magical pages you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
+With these magical pages, you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
 
  -----
 #### Features: 
