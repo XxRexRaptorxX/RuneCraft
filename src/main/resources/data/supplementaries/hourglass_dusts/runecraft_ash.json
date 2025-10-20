@@ -1,5 +1,7 @@
 {
-  "items": ["runecraft:ash"],
+  "items": [
+    "runecraft:ash"
+  ],
   "duration": 95,
-  "texture":  "runecraft:block/ash"
+  "texture": "runecraft:block/ash"
 }

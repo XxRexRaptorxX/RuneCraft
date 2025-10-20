@@ -239,7 +239,7 @@ afterEvaluate {
             optional.project "patchouli"
             optional.project "jei"
             optional.project "just-enough-effect-descriptions-jeed"
-            optional.project "moremcmeta-emissive-forge"
+            optional.project "moremcmeta-emissive"
             optional.project "continuity"
         }
     }

@@ -1,5 +1,7 @@
 {
-  "items": ["runecraft:rune_dust"],
+  "items": [
+    "runecraft:rune_dust"
+  ],
   "duration": 666,
-  "texture":  "runecraft:block/rune_dust"
+  "texture": "runecraft:block/rune_dust"
 }
