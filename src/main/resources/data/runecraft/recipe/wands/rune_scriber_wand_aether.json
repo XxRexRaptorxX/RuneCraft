@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:basic_wand",
-    "1":  "runecraft:rune_a",
-    "2":  "runecraft:rune_i",
-    "3":  "runecraft:rune_r",
-    "4":  "runecraft:rune_w"
+    "X": "runecraft:basic_wand",
+    "1": "runecraft:rune_a",
+    "2": "runecraft:rune_i",
+    "3": "runecraft:rune_r",
+    "4": "runecraft:rune_w"
   },
-  
   "result": {
     "id": "runecraft:aether_wand"
   }

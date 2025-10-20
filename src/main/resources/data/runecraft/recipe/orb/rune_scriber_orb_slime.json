@@ -2,21 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 3 ",
     "2X4",
     "1 5"
   ],
-    
   "key": {
-    "X":  "runecraft:orb",
-    "1":  "runecraft:rune_s",
-    "2":  "runecraft:rune_l",
-    "3":  "runecraft:rune_i",
-    "4":  "runecraft:rune_m",
-    "5":  "runecraft:rune_e"
+    "X": "runecraft:orb",
+    "1": "runecraft:rune_s",
+    "2": "runecraft:rune_l",
+    "3": "runecraft:rune_i",
+    "4": "runecraft:rune_m",
+    "5": "runecraft:rune_e"
   },
-  
   "result": {
     "id": "minecraft:slime_ball"
   }

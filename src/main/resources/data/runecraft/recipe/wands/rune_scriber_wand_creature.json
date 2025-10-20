@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:basic_wand",
-    "1":  "runecraft:rune_m",
-    "2":  "runecraft:rune_o",
-    "3":  "runecraft:rune_b",
-    "4":  "runecraft:rune_s"
+    "X": "runecraft:basic_wand",
+    "1": "runecraft:rune_m",
+    "2": "runecraft:rune_o",
+    "3": "runecraft:rune_b",
+    "4": "runecraft:rune_s"
   },
-  
   "result": {
     "id": "runecraft:creature_wand"
   }

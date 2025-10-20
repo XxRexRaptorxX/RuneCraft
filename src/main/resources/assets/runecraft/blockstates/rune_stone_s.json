@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "runecraft:block/rune_stone_s" }
+  "variants": {
+    "": {
+      "model": "runecraft:block/rune_stone_s"
     }
+  }
 }

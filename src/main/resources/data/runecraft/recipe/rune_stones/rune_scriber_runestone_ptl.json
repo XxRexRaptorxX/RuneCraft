@@ -2,19 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "pattern": [
-  
     "123",
     " X ",
     "   "
   ],
-    
   "key": {
-    "X":  "runecraft:rune_stone",
-    "1":  "runecraft:rune_p",
-    "2":  "runecraft:rune_t",
-    "3":  "runecraft:rune_l"
+    "X": "runecraft:rune_stone",
+    "1": "runecraft:rune_p",
+    "2": "runecraft:rune_t",
+    "3": "runecraft:rune_l"
   },
-  
   "result": {
     "id": "runecraft:rune_stone_p"
   }

@@ -3,16 +3,13 @@
   "category": "misc",
   "group": "runes",
   "pattern": [
-  
     "## ",
     "  #",
-    "#  " 
+    "#  "
   ],
-    
   "key": {
-    "#":  "runecraft:rune_dust"
+    "#": "runecraft:rune_dust"
   },
-  
   "result": {
     "id": "runecraft:rune_o"
   }

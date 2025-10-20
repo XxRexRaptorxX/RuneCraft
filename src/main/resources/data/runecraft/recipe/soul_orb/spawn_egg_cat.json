@@ -1,22 +1,18 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "group": "spawn_eggs",
   "pattern": [
-
     " 2 ",
     "1#3",
     "   "
   ],
-
   "key": {
-    "#":  "runecraft:soul_orb",
-    "1":  "runecraft:rune_c",
-    "2":  "runecraft:rune_a",
-    "3":  "runecraft:rune_t"
+    "#": "runecraft:soul_orb",
+    "1": "runecraft:rune_c",
+    "2": "runecraft:rune_a",
+    "3": "runecraft:rune_t"
   },
-  
   "result": {
     "id": "minecraft:cat_spawn_egg"
   }

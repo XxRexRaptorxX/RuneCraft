@@ -2,13 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-
-     "#c:dusts/ash",
-     "minecraft:nether_wart",
-     "#c:dusts/ash",
-     "minecraft:nether_wart",
-     "#c:dusts/glowstone",
-     "minecraft:nether_wart"
+    "#c:dusts/ash",
+    "minecraft:nether_wart",
+    "#c:dusts/ash",
+    "minecraft:nether_wart",
+    "#c:dusts/glowstone",
+    "minecraft:nether_wart"
   ],
   "result": {
     "id": "runecraft:rune_dust",

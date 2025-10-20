@@ -2,7 +2,7 @@
   "name": "Bundle",
   "icon": "minecraft:bundle",
   "category": "runecraft:misc",
-  "sortnum":1,
+  "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:text",

@@ -1,18 +1,15 @@
 {
   "type": "runecraft:add_item",
-  
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:entities/evoker"
-      },
+    },
     {
       "condition": "minecraft:random_chance",
       "chance": 0.7
     }
   ],
-
-
   "item": "runecraft:spirit_crystal",
   "count": 1
 }

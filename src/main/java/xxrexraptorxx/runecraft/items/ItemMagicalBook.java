@@ -15,13 +15,9 @@ import xxrexraptorxx.runecraft.utils.enums.SpellShapes;
 public class ItemMagicalBook extends Item {
 
     public ItemMagicalBook(Properties properties) {
-        super(properties
-                .rarity(Rarity.RARE)
-                .stacksTo(1)
-                .durability(15)
-                .fireResistant()
-        );
+        super(properties.rarity(Rarity.RARE).stacksTo(1).durability(15).fireResistant());
     }
+
 
     @Override
     public boolean isFoil(ItemStack stack) {

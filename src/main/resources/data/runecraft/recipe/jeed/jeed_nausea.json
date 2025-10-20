@@ -7,7 +7,6 @@
   ],
   "type": "jeed:effect_provider",
   "effect": "minecraft:nausea",
-
   "providers": [
     {
       "item": "runecraft:rune_stone_l"

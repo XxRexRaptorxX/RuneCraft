@@ -7,7 +7,6 @@
   ],
   "type": "jeed:effect_provider",
   "effect": "minecraft:instant_health",
-
   "providers": [
     {
       "item": "runecraft:rune_stone_k"

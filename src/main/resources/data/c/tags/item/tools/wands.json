@@ -1,7 +1,6 @@
 {
   "replace": false,
-  "values":
-  [
+  "values": [
     "runecraft:basic_wand",
     "runecraft:aether_wand",
     "runecraft:nether_wand",

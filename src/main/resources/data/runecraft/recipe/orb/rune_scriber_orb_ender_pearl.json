@@ -2,21 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 3 ",
     "2X4",
     "1 5"
   ],
-    
   "key": {
-    "X":  "runecraft:orb",
-    "1":  "runecraft:rune_e",
-    "2":  "runecraft:rune_n",
-    "3":  "runecraft:rune_d",
-    "4":  "runecraft:rune_e",
-    "5":  "runecraft:rune_r"
+    "X": "runecraft:orb",
+    "1": "runecraft:rune_e",
+    "2": "runecraft:rune_n",
+    "3": "runecraft:rune_d",
+    "4": "runecraft:rune_e",
+    "5": "runecraft:rune_r"
   },
-  
   "result": {
     "id": "minecraft:ender_pearl"
   }

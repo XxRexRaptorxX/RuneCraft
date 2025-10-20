@@ -71,33 +71,20 @@ public class Config {
         // SERVER
         ConfigHelper.setCategory(SERVER_BUILDER, "altar");
         SOUL_COST = SERVER_BUILDER.comment("XP cost to use a soul on the altar").defineInRange("soul_cost", 1, 0, 50);
-        ALTAR_TREASURES = SERVER_BUILDER.comment("Items that can spawn on the altar during a treasure ritual").define("altar_treasures", new ArrayList<>(Arrays.asList(
-                        BuiltInRegistries.ITEM.getKey(Items.DIAMOND).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ELYTRA).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.NETHER_STAR).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.TOTEM_OF_UNDYING).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.EXPERIENCE_BOTTLE).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.END_CRYSTAL).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.GHAST_TEAR).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.BLAZE_ROD).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.DIAMOND_SWORD).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.DRAGON_BREATH).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.NETHERITE_SCRAP).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_BOOK).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.GOLDEN_APPLE).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_GOLDEN_APPLE).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ENDER_EYE).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.EMERALD).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.AMETHYST_CLUSTER).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.HEART_OF_THE_SEA).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.PRISMARINE_CRYSTALS).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.ECHO_SHARD).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.OMINOUS_TRIAL_KEY).toString(),
-                        BuiltInRegistries.ITEM.getKey(Items.HEAVY_CORE).toString(),
-                        ModItems.SPIRIT_STAR.getKey().location().toString(),
-                        ModItems.SPIRIT_CRYSTAL.getKey().location().toString()
-                )));
+        ALTAR_TREASURES = SERVER_BUILDER.comment("Items that can spawn on the altar during a treasure ritual").define("altar_treasures",
+                new ArrayList<>(Arrays.asList(BuiltInRegistries.ITEM.getKey(Items.DIAMOND).toString(), BuiltInRegistries.ITEM.getKey(Items.ELYTRA).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.NETHER_STAR).toString(), BuiltInRegistries.ITEM.getKey(Items.TOTEM_OF_UNDYING).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.EXPERIENCE_BOTTLE).toString(), BuiltInRegistries.ITEM.getKey(Items.END_CRYSTAL).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.GHAST_TEAR).toString(), BuiltInRegistries.ITEM.getKey(Items.BLAZE_ROD).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.DIAMOND_SWORD).toString(), BuiltInRegistries.ITEM.getKey(Items.DRAGON_BREATH).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.NETHERITE_SCRAP).toString(), BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_BOOK).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.GOLDEN_APPLE).toString(), BuiltInRegistries.ITEM.getKey(Items.ENCHANTED_GOLDEN_APPLE).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.ENDER_EYE).toString(), BuiltInRegistries.ITEM.getKey(Items.EMERALD).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.AMETHYST_CLUSTER).toString(), BuiltInRegistries.ITEM.getKey(Items.HEART_OF_THE_SEA).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL).toString(), BuiltInRegistries.ITEM.getKey(Items.PRISMARINE_CRYSTALS).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.ECHO_SHARD).toString(), BuiltInRegistries.ITEM.getKey(Items.OMINOUS_TRIAL_KEY).toString(),
+                        BuiltInRegistries.ITEM.getKey(Items.HEAVY_CORE).toString(), ModItems.SPIRIT_STAR.getKey().location().toString(),
+                        ModItems.SPIRIT_CRYSTAL.getKey().location().toString())));
         CHARGING_COST = SERVER_BUILDER.comment("XP cost to create a magical book").defineInRange("charging_cost", 15, 1, 30);
         CAN_SPAWN_ENDERDRAGON = SERVER_BUILDER.comment("Allow the banned ritual to spawn ender dragons").define("can_spawn_enderdragon", false);
         SERVER_BUILDER.pop();
@@ -121,7 +108,7 @@ public class Config {
         PORTABLE_RUNE_STONE_XP_REPAIR = SERVER_BUILDER.comment("Makes portable runes repairable with XP").define("portable_rune_stone_xp_repair", true);
         SERVER_BUILDER.pop();
 
-        ConfigHelper.setCategory(SERVER_BUILDER,"pages");
+        ConfigHelper.setCategory(SERVER_BUILDER, "pages");
         ORB_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a orb page on altar").defineInRange("orb_page_cost", 10, 0, 50);
         ENCHANTING_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a enchanting page").defineInRange("enchanting_page_cost", 10, 0, 50);
         SPELL_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a spell page").defineInRange("spell_page_cost", 5, 0, 50);
@@ -132,7 +119,7 @@ public class Config {
         BANNED_PAGE_COST = SERVER_BUILDER.comment("Set the required XP to use a banned page").defineInRange("banned_page_cost", 20, 0, 50);
         SERVER_BUILDER.pop();
 
-        ConfigHelper.setCategory(SERVER_BUILDER,"wands");
+        ConfigHelper.setCategory(SERVER_BUILDER, "wands");
         WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown time of wand effects").defineInRange("wand_cooldown", 150, 5, 10000);
         WAND_XP_REPAIR = SERVER_BUILDER.comment("Allow XP repair of wands on the altar").define("wand_xp_repair", true);
         WAND_COOLDOWN = SERVER_BUILDER.comment("Cooldown time for using a wand").defineInRange("wand_cooldown", 20, 1, 1000);
@@ -143,38 +130,153 @@ public class Config {
 
 
     // CLIENT
-    public static boolean getActivateVisibleRuneType() { return ACTIVATE_VISIBLE_RUNE_TYPE.get(); }
-    public static boolean getActivateRunestoneDescription() { return ACTIVATE_RUNESTONE_DESCRIPTION.get(); }
-    public static boolean getActivateRunestoneJeiDescription() { return ACTIVATE_RUNESTONE_JEI_DESCRIPTION.get(); }
+    public static boolean getActivateVisibleRuneType() {
+        return ACTIVATE_VISIBLE_RUNE_TYPE.get();
+    }
+
+
+    public static boolean getActivateRunestoneDescription() {
+        return ACTIVATE_RUNESTONE_DESCRIPTION.get();
+    }
+
+
+    public static boolean getActivateRunestoneJeiDescription() {
+        return ACTIVATE_RUNESTONE_JEI_DESCRIPTION.get();
+    }
+
 
     // SERVER
-    public static int getChargingCost() { return CHARGING_COST.get(); }
-    public static boolean canSpawnEnderdragon() { return CAN_SPAWN_ENDERDRAGON.get(); }
+    public static int getChargingCost() {
+        return CHARGING_COST.get();
+    }
 
-    public static int getSoulCost() { return SOUL_COST.get(); }
-    public static List<String> getAltarTreasures() { return ALTAR_TREASURES.get(); }
 
-    public static boolean isActivateAreaEffectWhenRightClicked() { return ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get(); }
-    public static boolean isActivateRedstoneEffect() { return ACTIVATE_REDSTONE_EFFECT.get(); }
-    public static int getSpellDuration() { return SPELL_DURATION.get(); }
-    public static int getSpellAmplifier() { return SPELL_AMPLIFIER.get(); }
-    public static int getAreaSpellDuration() { return AREA_SPELL_DURATION.get(); }
-    public static float getAreaSpellRadius() { return AREA_SPELL_RADIUS.get().floatValue(); }
-    public static int getAreaSpellAmplifier() { return AREA_SPELL_AMPLIFIER.get(); }
-    public static boolean isActivatePortableRuneStonePublicEffect() { return ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get(); }
-    public static int getPortableSpellDuration() { return PORTABLE_SPELL_DURATION.get(); }
-    public static int getPortableSpellAmplifier() { return PORTABLE_SPELL_AMPLIFIER.get(); }
-    public static float getPortableSpellRadius() { return PORTABLE_SPELL_RADIUS.get().floatValue(); }
-    public static int getPortableSpellCooldown() { return PORTABLE_SPELL_COOLDOWN.get(); }
-    public static boolean isPortableRuneStoneXpRepair() { return PORTABLE_RUNE_STONE_XP_REPAIR.get(); }
-    public static int getOrbPageCost() { return ORB_PAGE_COST.get(); }
-    public static int getEnchantingPageCost() { return ENCHANTING_PAGE_COST.get(); }
-    public static int getSpellPageCost() { return SPELL_PAGE_COST.get(); }
-    public static int getWandPageCost() { return WAND_PAGE_COST.get(); }
-    public static int getCursePageCost() { return CURSE_PAGE_COST.get(); }
-    public static int getAlchemyPageCost() { return ALCHEMY_PAGE_COST.get(); }
-    public static int getLostPageCost() { return LOST_PAGE_COST.get(); }
-    public static int getBannedPageCost() { return BANNED_PAGE_COST.get(); }
-    public static int getWandCooldown() { return WAND_COOLDOWN.get(); }
-    public static boolean getWandXPRepair() { return WAND_XP_REPAIR.get(); }
+    public static boolean canSpawnEnderdragon() {
+        return CAN_SPAWN_ENDERDRAGON.get();
+    }
+
+
+    public static int getSoulCost() {
+        return SOUL_COST.get();
+    }
+
+
+    public static List<String> getAltarTreasures() {
+        return ALTAR_TREASURES.get();
+    }
+
+
+    public static boolean isActivateAreaEffectWhenRightClicked() {
+        return ACTIVATE_AREA_EFFECT_WHEN_RIGHT_CLICKED.get();
+    }
+
+
+    public static boolean isActivateRedstoneEffect() {
+        return ACTIVATE_REDSTONE_EFFECT.get();
+    }
+
+
+    public static int getSpellDuration() {
+        return SPELL_DURATION.get();
+    }
+
+
+    public static int getSpellAmplifier() {
+        return SPELL_AMPLIFIER.get();
+    }
+
+
+    public static int getAreaSpellDuration() {
+        return AREA_SPELL_DURATION.get();
+    }
+
+
+    public static float getAreaSpellRadius() {
+        return AREA_SPELL_RADIUS.get().floatValue();
+    }
+
+
+    public static int getAreaSpellAmplifier() {
+        return AREA_SPELL_AMPLIFIER.get();
+    }
+
+
+    public static boolean isActivatePortableRuneStonePublicEffect() {
+        return ACTIVATE_PORTABLE_RUNESTONE_PUBLIC_EFFECT.get();
+    }
+
+
+    public static int getPortableSpellDuration() {
+        return PORTABLE_SPELL_DURATION.get();
+    }
+
+
+    public static int getPortableSpellAmplifier() {
+        return PORTABLE_SPELL_AMPLIFIER.get();
+    }
+
+
+    public static float getPortableSpellRadius() {
+        return PORTABLE_SPELL_RADIUS.get().floatValue();
+    }
+
+
+    public static int getPortableSpellCooldown() {
+        return PORTABLE_SPELL_COOLDOWN.get();
+    }
+
+
+    public static boolean isPortableRuneStoneXpRepair() {
+        return PORTABLE_RUNE_STONE_XP_REPAIR.get();
+    }
+
+
+    public static int getOrbPageCost() {
+        return ORB_PAGE_COST.get();
+    }
+
+
+    public static int getEnchantingPageCost() {
+        return ENCHANTING_PAGE_COST.get();
+    }
+
+
+    public static int getSpellPageCost() {
+        return SPELL_PAGE_COST.get();
+    }
+
+
+    public static int getWandPageCost() {
+        return WAND_PAGE_COST.get();
+    }
+
+
+    public static int getCursePageCost() {
+        return CURSE_PAGE_COST.get();
+    }
+
+
+    public static int getAlchemyPageCost() {
+        return ALCHEMY_PAGE_COST.get();
+    }
+
+
+    public static int getLostPageCost() {
+        return LOST_PAGE_COST.get();
+    }
+
+
+    public static int getBannedPageCost() {
+        return BANNED_PAGE_COST.get();
+    }
+
+
+    public static int getWandCooldown() {
+        return WAND_COOLDOWN.get();
+    }
+
+
+    public static boolean getWandXPRepair() {
+        return WAND_XP_REPAIR.get();
+    }
 }

@@ -1,21 +1,17 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "group": "spawn_eggs",
   "pattern": [
-
     " 2 ",
     "1#2",
     "   "
   ],
-
   "key": {
-    "#":  "runecraft:soul_orb",
-    "1":  "runecraft:rune_b",
-    "2":  "runecraft:rune_e"
+    "#": "runecraft:soul_orb",
+    "1": "runecraft:rune_b",
+    "2": "runecraft:rune_e"
   },
-  
   "result": {
     "id": "minecraft:bee_spawn_egg"
   }

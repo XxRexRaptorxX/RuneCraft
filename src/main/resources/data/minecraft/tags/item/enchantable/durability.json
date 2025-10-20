@@ -1,7 +1,6 @@
 {
   "replace": false,
-  "values":
-  [
+  "values": [
     "runecraft:ritual_dagger",
     "runecraft:basic_wand",
     "runecraft:aether_wand",

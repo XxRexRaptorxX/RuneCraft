@@ -2,21 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 3 ",
     "2X4",
     "1 5"
   ],
-    
   "key": {
-    "X":  "runecraft:orb",
-    "1":  "runecraft:rune_p",
-    "2":  "runecraft:rune_o",
-    "3":  "runecraft:rune_d",
-    "4":  "runecraft:rune_z",
-    "5":  "runecraft:rune_l"
+    "X": "runecraft:orb",
+    "1": "runecraft:rune_p",
+    "2": "runecraft:rune_o",
+    "3": "runecraft:rune_d",
+    "4": "runecraft:rune_z",
+    "5": "runecraft:rune_l"
   },
-  
   "result": {
     "id": "minecraft:podzol"
   }

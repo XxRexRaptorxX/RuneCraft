@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:orb",
-    "1":  "runecraft:rune_d",
-    "2":  "runecraft:rune_i",
-    "3":  "runecraft:rune_r",
-    "4":  "runecraft:rune_t"
+    "X": "runecraft:orb",
+    "1": "runecraft:rune_d",
+    "2": "runecraft:rune_i",
+    "3": "runecraft:rune_r",
+    "4": "runecraft:rune_t"
   },
-  
   "result": {
     "id": "minecraft:coarse_dirt"
   }

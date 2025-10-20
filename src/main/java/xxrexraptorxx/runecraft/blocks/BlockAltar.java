@@ -12,15 +12,15 @@ import xxrexraptorxx.runecraft.utils.enums.ParticleShapeTypes;
 
 public class BlockAltar extends Block {
 
-	public BlockAltar(Properties properties) {
-		super(properties);
-	}
+    public BlockAltar(Properties properties) {
+        super(properties);
+    }
 
 
-	@Override
-	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_LARGE, ParticleTypes.ENCHANT, level, pos.above());
-		if (level.getGameTime() % 2 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.SMOKE, level, pos);
-		if (level.getGameTime() % 100 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.LAVA, level, pos.below());
-	}
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT_LARGE, ParticleTypes.ENCHANT, level, pos.above());
+        if (level.getGameTime() % 2 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.SMOKE, level, pos);
+        if (level.getGameTime() % 100 == 0) SpellHelper.spawnParticleEffects(ParticleShapeTypes.BLOCK_AMBIENT, ParticleTypes.LAVA, level, pos.below());
+    }
 }

@@ -2,13 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-
-     "runecraft:magical_book",
-     "runecraft:soul",
-     "runecraft:orb"
- 
+    "runecraft:magical_book",
+    "runecraft:soul",
+    "runecraft:orb"
   ],
-
   "result": {
     "id": "runecraft:soul_orb"
   }

@@ -2,21 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 3 ",
     "2X4",
     "1 5"
   ],
-    
   "key": {
-    "X":  "runecraft:magical_page",
-    "1":  "runecraft:rune_s",
-    "2":  "runecraft:rune_p",
-    "3":  "runecraft:rune_e",
-    "4":  "runecraft:rune_l",
-    "5":  "runecraft:rune_l"
+    "X": "runecraft:magical_page",
+    "1": "runecraft:rune_s",
+    "2": "runecraft:rune_p",
+    "3": "runecraft:rune_e",
+    "4": "runecraft:rune_l",
+    "5": "runecraft:rune_l"
   },
-  
   "result": {
     "id": "runecraft:spell_page"
   }

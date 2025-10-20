@@ -13,29 +13,29 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockAsh extends FallingBlock {
 
-	public static final MapCodec<BlockAsh> CODEC = simpleCodec(BlockAsh::new);
-	protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
+    public static final MapCodec<BlockAsh> CODEC = simpleCodec(BlockAsh::new);
+    protected static final VoxelShape CUSTOM_COLLISION_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
 
-	public BlockAsh(Properties properties) {
-		super(properties);
-	}
+    public BlockAsh(Properties properties) {
+        super(properties);
+    }
 
 
-	@Override
-	public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-		return CUSTOM_COLLISION_AABB;
-	}
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return CUSTOM_COLLISION_AABB;
+    }
 
 
-	@Override
-	protected MapCodec<? extends FallingBlock> codec() {
-		return CODEC;
-	}
+    @Override
+    protected MapCodec<? extends FallingBlock> codec() {
+        return CODEC;
+    }
 
 
-	@Override
-	public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
-		return defaultMapColor().calculateARGBColor(MapColor.Brightness.NORMAL);
-	}
+    @Override
+    public int getDustColor(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return defaultMapColor().calculateARGBColor(MapColor.Brightness.NORMAL);
+    }
 }

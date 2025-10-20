@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:orb",
-    "1":  "runecraft:rune_m",
-    "2":  "runecraft:rune_o",
-    "3":  "runecraft:rune_s",
-    "4":  "runecraft:rune_s"
+    "X": "runecraft:orb",
+    "1": "runecraft:rune_m",
+    "2": "runecraft:rune_o",
+    "3": "runecraft:rune_s",
+    "4": "runecraft:rune_s"
   },
-  
   "result": {
     "id": "minecraft:moss_block"
   }

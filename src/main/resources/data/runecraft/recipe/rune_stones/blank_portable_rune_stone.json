@@ -3,18 +3,15 @@
   "category": "building",
   "group": "rune_stone",
   "pattern": [
-
     "XOX",
     "O#O",
     "XOX"
   ],
-
   "key": {
-    "X":  "minecraft:polished_deepslate",
+    "X": "minecraft:polished_deepslate",
     "O": "#c:dusts/ash",
-    "#":  "runecraft:spirit_star"
+    "#": "runecraft:spirit_star"
   },
-
   "result": {
     "id": "runecraft:portable_rune_stone"
   }

@@ -6,11 +6,9 @@
     "###",
     "###"
   ],
-
   "key": {
     "#": "runecraft:rune_dust"
   },
-
   "result": {
     "id": "runecraft:rune_dust_block"
   }
