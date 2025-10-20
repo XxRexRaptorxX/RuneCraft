@@ -1,4 +1,4 @@
-# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev2)
+# [v.6.1.0 for MC 1.21.10, 1.21.9](https://github.com/XxRexRaptorxX/RuneCraft/compare/v.6.1.0-dev1...v.6.1.0-dev3)
 
 ## 🔧 Bug Fixes
 
