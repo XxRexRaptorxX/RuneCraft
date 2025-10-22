@@ -22,7 +22,7 @@ Destroys the capsule.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](defensive_wand.png)
 
 

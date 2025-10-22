@@ -19,7 +19,7 @@ Pushes creatures far back.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](storm_wand.png)
 
 

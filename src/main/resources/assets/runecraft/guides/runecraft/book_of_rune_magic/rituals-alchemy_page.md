@@ -24,6 +24,6 @@ Lets you summon a random strong *Potion*.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](alchemy_ritual.png)
 

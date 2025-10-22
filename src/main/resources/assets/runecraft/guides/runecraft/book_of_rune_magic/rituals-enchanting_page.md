@@ -24,6 +24,6 @@ Lets you summon a rare *Enchanted Book*.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](enchanting_ritual.png)
 

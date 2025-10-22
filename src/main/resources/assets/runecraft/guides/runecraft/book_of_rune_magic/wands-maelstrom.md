@@ -22,7 +22,7 @@ Gives creatures a wither effect.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](maelstrom_wand.png)
 
 

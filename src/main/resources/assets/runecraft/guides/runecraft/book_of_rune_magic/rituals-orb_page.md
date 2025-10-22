@@ -24,6 +24,6 @@ Lets you summon a *Orb*, that can be transformed into many different items.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](orb_ritual.png)
 

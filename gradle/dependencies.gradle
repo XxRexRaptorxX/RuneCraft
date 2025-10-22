@@ -62,7 +62,8 @@ dependencies {
     //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
 
     //GuideME
-    runtimeOnly "curse.maven:guideME-1173950:${guideME_version}"
+    compileOnly "org.appliedenergistics:guideme:${guideme_version}:api"
+    runtimeOnly "org.appliedenergistics:guideme:${guideme_version}"
 
     // Continuity
     //runtimeOnly "curse.maven:continuity-531351:${continuity_version}"

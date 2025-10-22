@@ -20,7 +20,7 @@ The tricky part of the recipe is the *Spirit Crystal*, it can only be traded fro
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](rune_stones.png)
 
 ## How to use Rune Stones

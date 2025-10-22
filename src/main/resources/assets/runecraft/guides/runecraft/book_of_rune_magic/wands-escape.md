@@ -19,7 +19,7 @@ Releases a big smoke cloud and gives the user invisibility and movement speed.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](escape_wand.png)
 
 

@@ -19,7 +19,7 @@ Switches between the block states of the selected block.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](changing_wand.png)
 
 

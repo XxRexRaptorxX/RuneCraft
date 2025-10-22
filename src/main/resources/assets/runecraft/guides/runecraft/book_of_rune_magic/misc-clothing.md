@@ -20,11 +20,11 @@ The Rune Mage's clothing is made from *Cloth*, wearing a full set grants the wea
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](rune_mage_clothing.png)
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](rune_mage.png)
 

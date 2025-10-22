@@ -22,7 +22,7 @@ Heal creatures and damages undead.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](holy_wand.png)
 
 

@@ -19,7 +19,7 @@ Spawns random monsters.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](creature_wand.png)
 
 

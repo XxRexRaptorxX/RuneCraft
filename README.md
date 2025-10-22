@@ -61,10 +61,13 @@ With this magical pages you can perform various rituals on the altar and summon 
 ## 🗃️ Dependencies
 
 ### Required:
-- **Magma Core**
+- **Magma Core** *[≥ MC 1.21.5]*
   - Provides basic code and features such as update-checker 
   - [CurseForge][cf_magmacore] | [Modrinth][mr_magmacore]
-- **Patchouli**
+- **GuideMe** *[≥ MC 1.21.5]*
+  - Provides an ingame manual
+  - [CurseForge][cf_guideMe] | [Modrinth][mr_guideMe]
+- **Patchouli** *[< MC 1.21.5]*
   - Provides an ingame manual 
   - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
 
@@ -148,3 +151,5 @@ With this magical pages you can perform various rituals on the altar and summon 
 [mr_continuity]: https://modrinth.com/mod/continuity
 [cf_supplementaries]: https://www.curseforge.com/minecraft/mc-mods/supplementaries
 [mr_supplementaries]: https://modrinth.com/mod/supplementaries
+[cf_guideME]: https://www.curseforge.com/minecraft/mc-mods/guideme
+[mr_guideME]: https://modrinth.com/mod/guideme

@@ -22,11 +22,9 @@ It can either be crafted or found in rare places in your world.
 
 For rituals, spells and curses at the *Altar* it is mostly required that it's currently night, there is enough *XP* and sometimes the right moon phase prevails.
 
-## minecraft:vex (TODO)
+
+But be careful! Using the *Altar* can create lightning bolts and dangerous *Vex*!
 
 <GameScene zoom={3.2}>
   <Entity id="minecraft:vex" />
 </GameScene>
-
-But be careful! Using the *Altar* can create lightning bolts and dangerous *Vex*!
-

@@ -22,7 +22,7 @@ Spawns primed TNT.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](destruction_wand.png)
 
 

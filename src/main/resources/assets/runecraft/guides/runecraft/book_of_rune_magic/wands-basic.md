@@ -18,6 +18,6 @@ Releases a spell ring of weakness.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](basic_wand.png)
 

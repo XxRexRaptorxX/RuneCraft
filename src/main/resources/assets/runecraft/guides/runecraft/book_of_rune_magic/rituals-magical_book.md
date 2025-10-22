@@ -21,7 +21,7 @@ The first important *Ritual* required is that of creating the *Magical Book*.
 
 For this *Ritual*, just click on the *Altar* with a *Book* during *Full Moon* and enough *XP* and a *Magic Book* will appear!
 
-TODO: Unsupported flag 'border'
+
 ![](altar.png)
 
 With the *Magical Book* you can craft *Pages* that are needed for most other *Rituals*.

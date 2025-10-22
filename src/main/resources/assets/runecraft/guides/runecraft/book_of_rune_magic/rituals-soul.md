@@ -24,6 +24,6 @@ Lets you bind *Souls* in *Spawn Eggs*.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](soulbind_ritual.png)
 

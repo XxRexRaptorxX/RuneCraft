@@ -22,7 +22,7 @@ Let creatures fly away.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](aether_wand.png)
 
 

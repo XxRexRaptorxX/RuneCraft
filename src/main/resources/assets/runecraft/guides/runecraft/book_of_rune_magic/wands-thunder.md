@@ -25,7 +25,7 @@ Sends a lightning bolt to the creature.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](thunder_wand.png)
 
 

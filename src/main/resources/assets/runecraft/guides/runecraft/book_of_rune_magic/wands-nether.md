@@ -22,7 +22,7 @@ Sets creatures on fire.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](nether_wand.png)
 
 

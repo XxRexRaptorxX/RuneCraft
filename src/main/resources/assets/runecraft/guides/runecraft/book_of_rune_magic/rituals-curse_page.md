@@ -24,6 +24,6 @@ Lets you summon a random evil *Creature*.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](curse_ritual.png)
 

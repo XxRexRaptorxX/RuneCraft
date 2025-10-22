@@ -1,1 +1,9 @@
-{}
+{
+  "item_settings": {
+    "display_name": {
+      "type": "translatable",
+      "translate": "Book of Rune Magic"
+    },
+    "model": "runecraft:item/book_of_rune_magic"
+  }
+}

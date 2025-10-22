@@ -22,7 +22,7 @@ Curse a creature, but damages the user.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](curse_wand.png)
 
 

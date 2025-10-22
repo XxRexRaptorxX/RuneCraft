@@ -28,6 +28,6 @@ All the *Runes* of the alphabet can now be crafted from the dust.
 
 You can also place runes on the ground, they have the property of marking all living beings that touch them, even through obstacles!
 
-TODO: Unsupported flag 'border'
+
 ![](rune_effects.png)
 

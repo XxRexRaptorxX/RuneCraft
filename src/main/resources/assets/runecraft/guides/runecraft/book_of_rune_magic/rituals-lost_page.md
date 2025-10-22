@@ -24,6 +24,6 @@ Lets you summon a rare treasure item!
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](treasure_ritual.png)
 

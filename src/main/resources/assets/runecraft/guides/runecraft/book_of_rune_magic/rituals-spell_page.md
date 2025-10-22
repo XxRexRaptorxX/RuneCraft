@@ -24,6 +24,6 @@ Lets you summon a *Effect Cloud* with random abilities.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](spell_ritual.png)
 

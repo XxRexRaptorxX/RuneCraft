@@ -25,6 +25,6 @@ __<Color id="dark_red">Very dangerous!</Color>__
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](dark_ritual.png)
 

@@ -24,6 +24,6 @@ Lets you summon a *Basic Wand*.
 
 
 
-TODO: Unsupported flag 'border'
+
 ![](wand_ritual.png)
 
