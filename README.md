@@ -14,7 +14,7 @@
 
 This mod focuses on rune magic! You can use runes to put them on rune stones to make them spread effects. Or write them on different items to turn orbs into valuable resources, soul orbs into spawn eggs, write rituals & spells on magical pages, or make wands and other powerful things with them.
 
-With these magical pages, you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
+With this magical pages you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
 
  -----
 #### Features: 
@@ -61,10 +61,13 @@ With these magical pages, you can perform various rituals on the altar and summo
 ## 🗃️ Dependencies
 
 ### Required:
-- **Magma Core**
+- **Magma Core** *[≥ MC 1.21.5]*
   - Provides basic code and features such as update-checker 
   - [CurseForge][cf_magmacore] | [Modrinth][mr_magmacore]
-- **Patchouli**
+- **GuideMe** *[≥ MC 1.21.5]*
+  - Provides an ingame manual
+  - [CurseForge][cf_guideMe] | [Modrinth][mr_guideMe]
+- **Patchouli** *[< MC 1.21.5]*
   - Provides an ingame manual 
   - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
 
@@ -148,3 +151,5 @@ With these magical pages, you can perform various rituals on the altar and summo
 [mr_continuity]: https://modrinth.com/mod/continuity
 [cf_supplementaries]: https://www.curseforge.com/minecraft/mc-mods/supplementaries
 [mr_supplementaries]: https://modrinth.com/mod/supplementaries
+[cf_guideME]: https://www.curseforge.com/minecraft/mc-mods/guideme
+[mr_guideME]: https://modrinth.com/mod/guideme
