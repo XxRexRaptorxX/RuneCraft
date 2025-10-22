@@ -85,7 +85,7 @@ With this magical pages you can perform various rituals on the altar and summon 
   - Enables the emissive textures of the mod
   - [CurseForge][cf_continuity] | [Modrinth][mr_continuity]
 - **Supplementaries**
-  - Map marker implementation of some blocks
+  - Map marker implementation of some blocks & hourglass support
   - [CurseForge][cf_supplementaries] | [Modrinth][mr_supplementaries]
 
 
