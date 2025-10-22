@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "runecraft:block/altar" }
+  "variants": {
+    "": {
+      "model": "runecraft:block/altar"
     }
+  }
 }

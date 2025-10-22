@@ -1,23 +1,19 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "group": "spawn_eggs",
   "pattern": [
-
     " 2 ",
     "1#3",
     " 4 "
   ],
-
   "key": {
-    "#":  "runecraft:soul_orb",
-    "1":  "runecraft:rune_b",
-    "2":  "runecraft:rune_r",
-    "3":  "runecraft:rune_u",
-    "4":  "runecraft:rune_t"
+    "#": "runecraft:soul_orb",
+    "1": "runecraft:rune_b",
+    "2": "runecraft:rune_r",
+    "3": "runecraft:rune_u",
+    "4": "runecraft:rune_t"
   },
-  
   "result": {
     "id": "minecraft:piglin_brute_spawn_egg"
   }

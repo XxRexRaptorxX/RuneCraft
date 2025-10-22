@@ -2,18 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     "---",
     " X ",
     "III"
   ],
-    
   "key": {
-    "X":  "runecraft:rune_stone",
-    "I":  "minecraft:chiseled_deepslate",
-    "-":  "minecraft:polished_deepslate_slab"
+    "X": "runecraft:rune_stone",
+    "I": "minecraft:chiseled_deepslate",
+    "-": "minecraft:polished_deepslate_slab"
   },
-  
   "result": {
     "id": "runecraft:altar"
   }

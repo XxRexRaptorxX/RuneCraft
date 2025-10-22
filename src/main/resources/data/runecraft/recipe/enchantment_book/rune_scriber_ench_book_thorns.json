@@ -2,26 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:magical_book",
-    "1":  "runecraft:rune_t",
-    "2":  "runecraft:rune_h",
-    "3":  "runecraft:rune_r",
-    "4":  "runecraft:rune_n"
+    "X": "runecraft:magical_book",
+    "1": "runecraft:rune_t",
+    "2": "runecraft:rune_h",
+    "3": "runecraft:rune_r",
+    "4": "runecraft:rune_n"
   },
-
-    "result": {
-      "id": "minecraft:enchanted_book",
-      "components": {
-          "minecraft:stored_enchantments": {
-              "minecraft:thorns": 1
-         }
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "components": {
+      "minecraft:stored_enchantments": {
+        "minecraft:thorns": 1
       }
     }
+  }
 }

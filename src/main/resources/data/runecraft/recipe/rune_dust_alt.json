@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-  
-     "runecraft:rune_dust_block"
- 
+    "runecraft:rune_dust_block"
   ],
   "result": {
     "id": "runecraft:rune_dust",

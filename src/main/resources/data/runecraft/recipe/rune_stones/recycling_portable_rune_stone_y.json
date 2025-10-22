@@ -3,11 +3,9 @@
   "category": "misc",
   "group": "spirit_star",
   "ingredients": [
-  
-     "runecraft:magical_book",
-     "runecraft:portable_rune_stone_y"
-   ],
-
+    "runecraft:magical_book",
+    "runecraft:portable_rune_stone_y"
+  ],
   "result": {
     "id": "runecraft:spirit_star"
   }

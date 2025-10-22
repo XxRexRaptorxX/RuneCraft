@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "runecraft:item/book_of_rune_magic"
-    }
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "runecraft:item/book_of_rune_magic"
+  }
 }

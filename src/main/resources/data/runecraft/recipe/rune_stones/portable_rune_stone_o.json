@@ -3,19 +3,16 @@
   "category": "building",
   "group": "portable_runes",
   "pattern": [
-  
     "XIX",
     "XOX",
-    "X#X" 
+    "X#X"
   ],
-    
   "key": {
-    "X":  "runecraft:rune_dust",
-    "O":  "runecraft:portable_rune_stone",
-    "I":  "runecraft:rune_o",
-    "#":  "runecraft:spirit_crystal"
+    "X": "runecraft:rune_dust",
+    "O": "runecraft:portable_rune_stone",
+    "I": "runecraft:rune_o",
+    "#": "runecraft:spirit_crystal"
   },
-  
   "result": {
     "id": "runecraft:portable_rune_stone_o"
   }

@@ -7,7 +7,6 @@
   ],
   "type": "jeed:effect_provider",
   "effect": "minecraft:invisibility",
-
   "providers": [
     {
       "item": "runecraft:curse_wand"

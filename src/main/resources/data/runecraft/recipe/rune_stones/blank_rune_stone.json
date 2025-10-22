@@ -3,18 +3,15 @@
   "category": "misc",
   "group": "rune_stone",
   "pattern": [
-  
     "XOX",
     "O#O",
     "XOX"
   ],
-  
   "key": {
-    "X":  "minecraft:polished_deepslate",
+    "X": "minecraft:polished_deepslate",
     "O": "#c:dusts/ash",
-    "#":  "runecraft:spirit_crystal"
+    "#": "runecraft:spirit_crystal"
   },
-  
   "result": {
     "id": "runecraft:rune_stone"
   }

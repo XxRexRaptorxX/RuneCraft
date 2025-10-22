@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:basic_wand",
-    "1":  "runecraft:rune_h",
-    "2":  "runecraft:rune_e",
-    "3":  "runecraft:rune_l",
-    "4":  "runecraft:rune_l"
+    "X": "runecraft:basic_wand",
+    "1": "runecraft:rune_h",
+    "2": "runecraft:rune_e",
+    "3": "runecraft:rune_l",
+    "4": "runecraft:rune_l"
   },
-  
   "result": {
     "id": "runecraft:nether_wand"
   }

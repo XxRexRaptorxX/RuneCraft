@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     "#"
   ],
-  
   "key": {
-    "#":  "runecraft:ash_block"
+    "#": "runecraft:ash_block"
   },
-  
   "result": {
     "id": "runecraft:ash",
     "count": 4

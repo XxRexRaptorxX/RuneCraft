@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:basic_wand",
-    "1":  "runecraft:rune_d",
-    "2":  "runecraft:rune_e",
-    "3":  "runecraft:rune_f",
-    "4":  "runecraft:rune_e"
+    "X": "runecraft:basic_wand",
+    "1": "runecraft:rune_d",
+    "2": "runecraft:rune_e",
+    "3": "runecraft:rune_f",
+    "4": "runecraft:rune_e"
   },
-  
   "result": {
     "id": "runecraft:defensive_wand"
   }

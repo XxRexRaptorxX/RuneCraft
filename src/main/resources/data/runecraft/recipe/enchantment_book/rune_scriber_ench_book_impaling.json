@@ -2,26 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:magical_book",
-    "1":  "runecraft:rune_i",
-    "2":  "runecraft:rune_m",
-    "3":  "runecraft:rune_p",
-    "4":  "runecraft:rune_a"
+    "X": "runecraft:magical_book",
+    "1": "runecraft:rune_i",
+    "2": "runecraft:rune_m",
+    "3": "runecraft:rune_p",
+    "4": "runecraft:rune_a"
   },
-
-    "result": {
-      "id": "minecraft:enchanted_book",
-      "components": {
-          "minecraft:stored_enchantments": {
-              "minecraft:impaling": 1
-         }
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "components": {
+      "minecraft:stored_enchantments": {
+        "minecraft:impaling": 1
       }
     }
+  }
 }

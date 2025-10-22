@@ -2,17 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "pattern": [
-  
     " 1 ",
     " X ",
     "   "
   ],
-    
   "key": {
-    "X":  "runecraft:rune_stone",
-    "1":  "runecraft:rune_z"
+    "X": "runecraft:rune_stone",
+    "1": "runecraft:rune_z"
   },
-  
   "result": {
     "id": "runecraft:rune_stone_z"
   }

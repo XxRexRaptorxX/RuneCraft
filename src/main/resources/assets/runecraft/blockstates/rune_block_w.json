@@ -1,8 +1,20 @@
 {
   "variants": {
-    "facing=north": { "model": "runecraft:block/rune_block_w", "y": 0},
-    "facing=south": { "model": "runecraft:block/rune_block_w", "y": 180},
-    "facing=east": {  "model": "runecraft:block/rune_block_w", "y": 90},
-    "facing=west": {  "model": "runecraft:block/rune_block_w", "y": 270}
+    "facing=north": {
+      "model": "runecraft:block/rune_block_w",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "runecraft:block/rune_block_w",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "runecraft:block/rune_block_w",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "runecraft:block/rune_block_w",
+      "y": 270
+    }
   }
 }

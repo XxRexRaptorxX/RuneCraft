@@ -1,8 +1,20 @@
 {
-    "variants": {
-        "facing=north": { "model": "runecraft:block/translation_stone", "y": 180},
-        "facing=south": { "model": "runecraft:block/translation_stone", "y": 0},
-        "facing=east": {  "model": "runecraft:block/translation_stone", "y": 270},
-        "facing=west": {  "model": "runecraft:block/translation_stone", "y": 90}
+  "variants": {
+    "facing=north": {
+      "model": "runecraft:block/translation_stone",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "runecraft:block/translation_stone",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "runecraft:block/translation_stone",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "runecraft:block/translation_stone",
+      "y": 90
     }
+  }
 }

@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "runecraft:block/rune_scriber" }
+  "variants": {
+    "": {
+      "model": "runecraft:block/rune_scriber"
     }
+  }
 }

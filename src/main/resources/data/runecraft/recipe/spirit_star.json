@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-  
-     "runecraft:magical_book",
-     "minecraft:nether_star",
-     "runecraft:rune_dust",
-     "runecraft:rune_dust"
- 
+    "runecraft:magical_book",
+    "minecraft:nether_star",
+    "runecraft:rune_dust",
+    "runecraft:rune_dust"
   ],
-
   "result": {
     "id": "runecraft:spirit_star"
   }

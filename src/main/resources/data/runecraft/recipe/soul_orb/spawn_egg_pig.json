@@ -1,22 +1,18 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "group": "spawn_eggs",
   "pattern": [
-
     " 2 ",
     "1#3",
     "   "
   ],
-
   "key": {
-    "#":  "runecraft:soul_orb",
-    "1":  "runecraft:rune_p",
-    "2":  "runecraft:rune_i",
-    "3":  "runecraft:rune_g"
+    "#": "runecraft:soul_orb",
+    "1": "runecraft:rune_p",
+    "2": "runecraft:rune_i",
+    "3": "runecraft:rune_g"
   },
-  
   "result": {
     "id": "minecraft:pig_spawn_egg"
   }

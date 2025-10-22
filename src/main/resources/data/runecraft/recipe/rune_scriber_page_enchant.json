@@ -2,20 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-  
     " 2 ",
     "1X3",
     " 4 "
   ],
-    
   "key": {
-    "X":  "runecraft:magical_page",
-    "1":  "runecraft:rune_e",
-    "2":  "runecraft:rune_n",
-    "3":  "runecraft:rune_c",
-    "4":  "runecraft:rune_h"
+    "X": "runecraft:magical_page",
+    "1": "runecraft:rune_e",
+    "2": "runecraft:rune_n",
+    "3": "runecraft:rune_c",
+    "4": "runecraft:rune_h"
   },
-  
   "result": {
     "id": "runecraft:enchanting_page"
   }

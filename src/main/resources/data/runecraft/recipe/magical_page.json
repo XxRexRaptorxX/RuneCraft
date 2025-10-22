@@ -2,11 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
-  
-     "runecraft:magical_book"
- 
+    "runecraft:magical_book"
   ],
-
   "result": {
     "id": "runecraft:magical_page"
   }

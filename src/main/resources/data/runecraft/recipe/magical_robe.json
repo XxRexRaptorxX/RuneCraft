@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "pattern": [
-  
     "# #",
     "###",
     "###"
   ],
-  
   "key": {
-    "#":  "runecraft:cloth"
+    "#": "runecraft:cloth"
   },
-  
   "result": {
     "id": "runecraft:magical_robe"
   }

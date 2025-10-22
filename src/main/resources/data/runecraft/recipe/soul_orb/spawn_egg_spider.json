@@ -1,23 +1,19 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "group": "spawn_eggs",
   "pattern": [
-
     " 2 ",
     "1#3",
     " 4 "
   ],
-
   "key": {
-    "#":  "runecraft:soul_orb",
-    "1":  "runecraft:rune_s",
-    "2":  "runecraft:rune_p",
-    "3":  "runecraft:rune_d",
-    "4":  "runecraft:rune_r"
+    "#": "runecraft:soul_orb",
+    "1": "runecraft:rune_s",
+    "2": "runecraft:rune_p",
+    "3": "runecraft:rune_d",
+    "4": "runecraft:rune_r"
   },
-  
   "result": {
     "id": "minecraft:spider_spawn_egg"
   }
