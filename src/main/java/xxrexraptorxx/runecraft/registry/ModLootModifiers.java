@@ -11,14 +11,16 @@ import xxrexraptorxx.runecraft.world.ChestLootEnhancerModifier;
 
 public class ModLootModifiers {
 
-    public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS = DeferredRegister.create(NeoForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS, References.MODID);
+    public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS = DeferredRegister
+            .create(NeoForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS, References.MODID);
 
     public static void init(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
 
 
-    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<ChestLootEnhancerModifier>> ADD_ITEM = LOOT_MODIFIER_SERIALIZERS.register("add_item", ChestLootEnhancerModifier.CODEC);
+    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<ChestLootEnhancerModifier>> ADD_ITEM = LOOT_MODIFIER_SERIALIZERS.register("add_item",
+            ChestLootEnhancerModifier.CODEC);
 
 
     public static void register(IEventBus eventBus) {

@@ -24,15 +24,13 @@ import java.util.function.Consumer;
 public class ItemRune extends Item {
 
     public ItemRune(Properties properties) {
-        super(properties
-                .stacksTo(16)
-        );
+        super(properties.stacksTo(16));
     }
 
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
-        if(Config.getActivateVisibleRuneType()) {
+        if (Config.getActivateVisibleRuneType()) {
             list.accept(Component.literal(ChatFormatting.YELLOW + RuneHelper.getRuneName(BuiltInRegistries.ITEM.getKey(this).toString().substring(15))));
         }
     }
@@ -46,9 +44,10 @@ public class ItemRune extends Item {
         Item item = stack.getItem();
         BlockPos pos = event.getClickedPos().above();
 
-        if(!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
+        if (!level.isClientSide && event.getClickedFace() == Direction.UP && level.getBlockState(event.getClickedPos()).isCollisionShapeFullBlock(level, pos)) {
             level.playSound((Player) null, pos, SoundEvents.SOUL_SAND_PLACE, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * 0.15F + 0.8F);
-            level.setBlock(pos, RuneHelper.getRuneBlockFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
+            level.setBlock(pos, RuneHelper.getRuneBlockFromType(BuiltInRegistries.ITEM.getKey(item).toString().substring(15)).defaultBlockState()
+                    .setValue(BlockStateProperties.HORIZONTAL_FACING, player.getDirection()), 11);
         }
         stack.shrink(1);
 

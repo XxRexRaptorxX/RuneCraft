@@ -26,20 +26,13 @@ public class ModArmorMaterials {
             // - LEGGINGS: 15
             // - BOOTS: 13
             // - BODY: 16
-            20,
-            Util.make(new EnumMap<>(ArmorType.class), map -> {
+            20, Util.make(new EnumMap<>(ArmorType.class), map -> {
                 map.put(ArmorType.BOOTS, 1);
                 map.put(ArmorType.LEGGINGS, 2);
                 map.put(ArmorType.CHESTPLATE, 2);
                 map.put(ArmorType.HELMET, 2);
                 map.put(ArmorType.BODY, 2);
-            }),
-            30,
-            SoundEvents.ARMOR_EQUIP_LEATHER,
-            0.0F,
-            0.0F,
-            REPAIR_MATERIALS_MAGICAL,
-            ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(References.MODID, "magical"))
-    );
+            }), 30, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, REPAIR_MATERIALS_MAGICAL,
+            ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(References.MODID, "magical")));
 
 }

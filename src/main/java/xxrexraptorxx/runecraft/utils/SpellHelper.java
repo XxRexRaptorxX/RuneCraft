@@ -19,7 +19,8 @@ import java.util.List;
 
 public class SpellHelper {
 
-    public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, @Nullable ArrayList<MobEffectInstance> effects, Level level, Position pos) {
+    public static void spawnSpellEffect(SpellShapes shape, ParticleOptions particleType, int duration, float radius, @Nullable ArrayList<MobEffectInstance> effects, Level level,
+            Position pos) {
         List<AreaEffectCloud> areaEffectClouds = new ArrayList<>();
         if (!level.isClientSide) {
             if (shape == SpellShapes.RING) {
@@ -68,7 +69,7 @@ public class SpellHelper {
 
 
     public static void addPlayerEffects(Entity entity, @Nullable MobEffectInstance effectInstance, float damageAmount) {
-    Level level = entity.level();
+        Level level = entity.level();
 
         if (!level.isClientSide) {
             if (entity instanceof Player entityIn) {

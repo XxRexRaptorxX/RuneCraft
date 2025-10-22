@@ -54,7 +54,7 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.RUNE_B.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUNE_C.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUNE_D.get(), ModelTemplates.FLAT_ITEM);
-        //this.generateFlatItem(ModItems.RUNE_E.get(), ModelTemplates.FLAT_ITEM);
+        // this.generateFlatItem(ModItems.RUNE_E.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUNE_F.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUNE_G.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUNE_H.get(), ModelTemplates.FLAT_ITEM);
@@ -86,7 +86,7 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_B.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_C.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_D.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-        //this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_E.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        // this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_E.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_F.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_G.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.PORTABLE_RUNE_STONE_H.get(), ModelTemplates.FLAT_HANDHELD_ITEM);

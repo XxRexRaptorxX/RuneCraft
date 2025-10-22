@@ -17,11 +17,9 @@ import java.util.function.Consumer;
 public class ItemPage extends Item {
 
     public ItemPage(Properties properties) {
-        super(properties
-                .rarity(Rarity.RARE)
-                .stacksTo(16)
-        );
+        super(properties.rarity(Rarity.RARE).stacksTo(16));
     }
+
 
     @Override
     public boolean isFoil(ItemStack stack) {
@@ -32,7 +30,8 @@ public class ItemPage extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> list, TooltipFlag flag) {
         if (this != ModItems.MAGICAL_PAGE.get())
-            list.accept(FormattingHelper.setModLangComponent("message", References.MODID, "required_xp").withStyle(ChatFormatting.GRAY).append(Component.literal(" " + getPageXpRequirement(this))));
+            list.accept(FormattingHelper.setModLangComponent("message", References.MODID, "required_xp").withStyle(ChatFormatting.GRAY)
+                    .append(Component.literal(" " + getPageXpRequirement(this))));
     }
 
 

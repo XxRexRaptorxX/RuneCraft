@@ -31,7 +31,7 @@ public class ModItems {
     public static final DeferredItem<ItemWand> ESCAPE_WAND = ITEMS.register("escape_wand", () -> new ItemWand(new Item.Properties().setId(itemId("escape_wand"))));
     public static final DeferredItem<ItemWand> DEFENSIVE_WAND = ITEMS.register("defensive_wand", () -> new ItemWand(new Item.Properties().setId(itemId("defensive_wand"))));
     public static final DeferredItem<ItemWand> THUNDER_WAND = ITEMS.register("thunder_wand", () -> new ItemWand(new Item.Properties().setId(itemId("thunder_wand"))));
-    //public static final DeferredItem<ItemWand> TIME_WAND = ITEMSregister()registerItem()("time_wand", ItemWandprops new () ::(new Ite.Properties.setId(itemId())""
+    // public static final DeferredItem<ItemWand> TIME_WAND = ITEMSregister()registerItem()("time_wand", ItemWandprops new () ::(new Ite.Properties.setId(itemId())""
     public static final DeferredItem<ItemWand> CREATURE_WAND = ITEMS.register("creature_wand", () -> new ItemWand(new Item.Properties().setId(itemId("creature_wand"))));
     public static final DeferredItem<ItemWand> CHANGING_WAND = ITEMS.register("changing_wand", () -> new ItemWand(new Item.Properties().setId(itemId("changing_wand"))));
     public static final DeferredItem<ItemWand> DESTRUCTION_WAND = ITEMS.register("destruction_wand", () -> new ItemWand(new Item.Properties().setId(itemId("destruction_wand"))));
@@ -81,41 +81,72 @@ public class ModItems {
     public static final DeferredItem<ItemRune> RUNE_Z = ITEMS.register("rune_z", () -> new ItemRune(new Item.Properties().setId(itemId("rune_z"))));
     public static final DeferredItem<ItemRune> RUNE_DMG = ITEMS.register("rune_dmg", () -> new ItemRune(new Item.Properties().setId(itemId("rune_dmg"))));
     public static final DeferredItem<ItemRune> RUNE_FRE = ITEMS.register("rune_fre", () -> new ItemRune(new Item.Properties().setId(itemId("rune_fre"))));
-    //public static finaDeferredItemct<ItemRune> RUNE_GHS = ITEMS.register("rune_ghs", ItemRune::new);
+    // public static finaDeferredItemct<ItemRune> RUNE_GHS = ITEMS.register("rune_ghs", ItemRune::new);
     public static final DeferredItem<ItemRune> RUNE_HRD = ITEMS.register("rune_hrd", () -> new ItemRune(new Item.Properties().setId(itemId("rune_hrd"))));
     public static final DeferredItem<ItemRune> RUNE_PTL = ITEMS.register("rune_ptl", () -> new ItemRune(new Item.Properties().setId(itemId("rune_ptl"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE = ITEMS.register("portable_rune_stone", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_A = ITEMS.register("portable_rune_stone_a", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_a"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_B = ITEMS.register("portable_rune_stone_b", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_b"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_C = ITEMS.register("portable_rune_stone_c", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_c"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_D = ITEMS.register("portable_rune_stone_d", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_d"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_E = ITEMS.register("portable_rune_stone_e", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_e"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_F = ITEMS.register("portable_rune_stone_f", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_f"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_G = ITEMS.register("portable_rune_stone_g", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_g"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_H = ITEMS.register("portable_rune_stone_h", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_h"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_I = ITEMS.register("portable_rune_stone_i", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_i"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_J = ITEMS.register("portable_rune_stone_j", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_j"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_K = ITEMS.register("portable_rune_stone_k", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_k"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_L = ITEMS.register("portable_rune_stone_l", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_l"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_M = ITEMS.register("portable_rune_stone_m", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_m"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_N = ITEMS.register("portable_rune_stone_n", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_n"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_O = ITEMS.register("portable_rune_stone_o", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_o"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_P = ITEMS.register("portable_rune_stone_p", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_p"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Q = ITEMS.register("portable_rune_stone_q", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_q"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_R = ITEMS.register("portable_rune_stone_r", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_r"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_S = ITEMS.register("portable_rune_stone_s", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_s"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_T = ITEMS.register("portable_rune_stone_t", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_t"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_U = ITEMS.register("portable_rune_stone_u", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_u"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_V = ITEMS.register("portable_rune_stone_v", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_v"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_W = ITEMS.register("portable_rune_stone_w", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_w"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_X = ITEMS.register("portable_rune_stone_x", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_x"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Y = ITEMS.register("portable_rune_stone_y", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_y"))));
-    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Z = ITEMS.register("portable_rune_stone_z", () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_z"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE = ITEMS.register("portable_rune_stone",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_A = ITEMS.register("portable_rune_stone_a",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_a"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_B = ITEMS.register("portable_rune_stone_b",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_b"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_C = ITEMS.register("portable_rune_stone_c",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_c"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_D = ITEMS.register("portable_rune_stone_d",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_d"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_E = ITEMS.register("portable_rune_stone_e",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_e"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_F = ITEMS.register("portable_rune_stone_f",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_f"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_G = ITEMS.register("portable_rune_stone_g",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_g"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_H = ITEMS.register("portable_rune_stone_h",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_h"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_I = ITEMS.register("portable_rune_stone_i",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_i"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_J = ITEMS.register("portable_rune_stone_j",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_j"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_K = ITEMS.register("portable_rune_stone_k",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_k"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_L = ITEMS.register("portable_rune_stone_l",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_l"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_M = ITEMS.register("portable_rune_stone_m",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_m"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_N = ITEMS.register("portable_rune_stone_n",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_n"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_O = ITEMS.register("portable_rune_stone_o",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_o"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_P = ITEMS.register("portable_rune_stone_p",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_p"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Q = ITEMS.register("portable_rune_stone_q",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_q"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_R = ITEMS.register("portable_rune_stone_r",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_r"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_S = ITEMS.register("portable_rune_stone_s",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_s"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_T = ITEMS.register("portable_rune_stone_t",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_t"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_U = ITEMS.register("portable_rune_stone_u",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_u"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_V = ITEMS.register("portable_rune_stone_v",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_v"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_W = ITEMS.register("portable_rune_stone_w",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_w"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_X = ITEMS.register("portable_rune_stone_x",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_x"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Y = ITEMS.register("portable_rune_stone_y",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_y"))));
+    public static final DeferredItem<ItemPortableRuneStone> PORTABLE_RUNE_STONE_Z = ITEMS.register("portable_rune_stone_z",
+            () -> new ItemPortableRuneStone(new Item.Properties().setId(itemId("portable_rune_stone_z"))));
 
-    public static final DeferredItem<ItemArmorMagical> MAGICAL_CAP = ITEMS.registerItem("magical_cap", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.HELMET)));
-    public static final DeferredItem<ItemArmorMagical> MAGICAL_ROBE = ITEMS.registerItem("magical_robe", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
-    public static final DeferredItem<ItemArmorMagical> MAGICAL_PANTS = ITEMS.registerItem("magical_pants", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
-    public static final DeferredItem<ItemArmorMagical> MAGICAL_BOOTS = ITEMS.registerItem("magical_boots", props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.BOOTS)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_CAP = ITEMS.registerItem("magical_cap",
+            props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.HELMET)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_ROBE = ITEMS.registerItem("magical_robe",
+            props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.CHESTPLATE)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_PANTS = ITEMS.registerItem("magical_pants",
+            props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.LEGGINGS)));
+    public static final DeferredItem<ItemArmorMagical> MAGICAL_BOOTS = ITEMS.registerItem("magical_boots",
+            props -> new ItemArmorMagical(props.humanoidArmor(ModArmorMaterials.MAGICAL_ARMOR_MATERIAL, ArmorType.BOOTS)));
 
     public static final DeferredItem<Item> RITUAL_DAGGER = ITEMS.registerItem("ritual_dagger", props -> new Item(props.sword(ToolMaterial.GOLD, 3, -1.5f)));
 

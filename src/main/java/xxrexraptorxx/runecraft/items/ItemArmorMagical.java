@@ -20,21 +20,16 @@ public class ItemArmorMagical extends Item {
 
 
     @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return true;
-    }
-
-
-    @Override
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
-        if(entity instanceof Player player) {
+        if (entity instanceof Player player) {
 
             Item helmet = player.getItemBySlot(EquipmentSlot.HEAD).getItem();
             Item chestplate = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
             Item leggings = player.getItemBySlot(EquipmentSlot.LEGS).getItem();
             Item boots = player.getItemBySlot(EquipmentSlot.FEET).getItem();
 
-            if (helmet == ModItems.MAGICAL_CAP.get() && chestplate == ModItems.MAGICAL_ROBE.get() && leggings == ModItems.MAGICAL_PANTS.get() && boots == ModItems.MAGICAL_BOOTS.get()) {
+            if (helmet == ModItems.MAGICAL_CAP.get() && chestplate == ModItems.MAGICAL_ROBE.get() && leggings == ModItems.MAGICAL_PANTS.get()
+                    && boots == ModItems.MAGICAL_BOOTS.get()) {
                 if (!level.isClientSide) {
                     player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 40, 0, false, false, true));
                     player.addEffect(new MobEffectInstance(MobEffects.JUMP_BOOST, 40, 1, false, false, true));

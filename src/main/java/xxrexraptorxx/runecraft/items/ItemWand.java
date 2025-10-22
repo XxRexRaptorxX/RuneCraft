@@ -52,11 +52,7 @@ import java.util.Random;
 public class ItemWand extends Item {
 
     public ItemWand(Properties properties) {
-        super(properties
-                .rarity(Rarity.EPIC)
-                .stacksTo(1)
-                .durability(200)
-        );
+        super(properties.rarity(Rarity.EPIC).stacksTo(1).durability(200));
     }
 
 
@@ -70,7 +66,7 @@ public class ItemWand extends Item {
         BlockPos clickedPos = event.getClickedPos();
         Random random = new Random();
 
-        //test if used on a alter (to enable xp repair without using the wand effect)
+        // test if used on a alter (to enable xp repair without using the wand effect)
         if (!level.getBlockState(event.getClickedPos()).getBlock().equals(ModBlocks.ALTAR_BLOCK.get())) {
 
             ArrayList<MobEffectInstance> effectInstances = new ArrayList<>();
@@ -86,7 +82,7 @@ public class ItemWand extends Item {
                 SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.FIREWORK, 20, 3, effectInstances, level, pos);
 
 
-            /* CURSE */
+                /* CURSE */
             } else if (item == ModItems.CURSE_WAND.get()) {
                 effectInstances.add(new MobEffectInstance(MobEffects.UNLUCK, 1000, 0));
                 effectInstances.add(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 10, 0));
@@ -96,43 +92,37 @@ public class ItemWand extends Item {
                 event.getPlayer().hurt(level.damageSources().magic(), 2.0F);
                 SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LARGE_SMOKE, 20, 3, effectInstances, level, pos);
 
-            /* HOLY */
+                /* HOLY */
             } else if (item == ModItems.HOLY_WAND.get()) {
                 effectInstances.add(new MobEffectInstance(MobEffects.REGENERATION, 200, 1));
                 SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.HEART, 10, 2, effectInstances, level, pos);
 
-            /* NETHER */
+                /* NETHER */
             } else if (item == ModItems.NETHER_WAND.get()) {
-                if (level.getBlockState(clickedPos.above()).isAir())
-                    level.setBlock(clickedPos.above(), Blocks.FIRE.defaultBlockState(), 11);
-                if (level.getBlockState(clickedPos.offset(1, 1, 0)).isAir())
-                    level.setBlock(clickedPos.offset(1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
-                if (level.getBlockState(clickedPos.offset(0, 1, 1)).isAir())
-                    level.setBlock(clickedPos.offset(0, 1, 1), Blocks.FIRE.defaultBlockState(), 11);
-                if (level.getBlockState(clickedPos.offset(-1, 1, 0)).isAir())
-                    level.setBlock(clickedPos.offset(-1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
-                if (level.getBlockState(clickedPos.offset(0, 1, -1)).isAir())
-                    level.setBlock(clickedPos.offset(0, 1, -1), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.above()).isAir()) level.setBlock(clickedPos.above(), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(1, 1, 0)).isAir()) level.setBlock(clickedPos.offset(1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(0, 1, 1)).isAir()) level.setBlock(clickedPos.offset(0, 1, 1), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(-1, 1, 0)).isAir()) level.setBlock(clickedPos.offset(-1, 1, 0), Blocks.FIRE.defaultBlockState(), 11);
+                if (level.getBlockState(clickedPos.offset(0, 1, -1)).isAir()) level.setBlock(clickedPos.offset(0, 1, -1), Blocks.FIRE.defaultBlockState(), 11);
 
                 SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 100, 1, level, clickedPos.getCenter());
 
-            /* MAELSTROM */
+                /* MAELSTROM */
             } else if (item == ModItems.MAELSTROM_WAND.get()) {
                 effectInstances.add(new MobEffectInstance(MobEffects.WITHER, 200, 1));
                 SpellHelper.spawnSpellEffect(SpellShapes.RING, ParticleTypes.SMOKE, 10, 3, effectInstances, level, pos);
                 SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.LAVA, 10, 4, level, pos);
 
-            /* ESCAPE */
+                /* ESCAPE */
             } else if (item == ModItems.ESCAPE_WAND.get()) {
                 SpellHelper.spawnSpellEffect(SpellShapes.STACKED, ParticleTypes.LARGE_SMOKE, 500, 15, level, pos);
                 event.getPlayer().addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1000));
                 event.getPlayer().addEffect(new MobEffectInstance(MobEffects.SPEED, 1000, 1));
 
 
-            /* DESTRUCTION */
+                /* DESTRUCTION */
             } else if (item == ModItems.DESTRUCTION_WAND.get()) {
-                if (player.isShiftKeyDown())
-                    player.getCooldowns().addCooldown(stack, Config.getWandCooldown());
+                if (player.isShiftKeyDown()) player.getCooldowns().addCooldown(stack, Config.getWandCooldown());
 
                 if (!level.isClientSide) {
                     if (event.getPlayer().isShiftKeyDown()) {
@@ -142,7 +132,7 @@ public class ItemWand extends Item {
                     }
                 }
 
-            /* THUNDER */
+                /* THUNDER */
             } else if (item == ModItems.THUNDER_WAND.get()) {
 
                 if (!level.isClientSide) {
@@ -154,61 +144,61 @@ public class ItemWand extends Item {
                     }
                 }
 
-            /* DEFENSIVE */
+                /* DEFENSIVE */
             } else if (item == ModItems.DEFENSIVE_WAND.get()) {
                 BlockPos blockPos = event.getPlayer().blockPosition();
                 player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 0));
 
                 if (player.isShiftKeyDown()) {
-                    if (level.getBlockState(blockPos.offset(0, -1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, -1, 0), false);
-                    if (level.getBlockState(blockPos.offset(0, 2, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, 2, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, -1, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, -1, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 2, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, 2, 0), false);
 
-                    if (level.getBlockState(blockPos.offset(1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(1, 0, 0), false);
-                    if (level.getBlockState(blockPos.offset(-1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(-1, 0, 0), false);
-                    if (level.getBlockState(blockPos.offset(0, 0, 1)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, 0, 1), false);
-                    if (level.getBlockState(blockPos.offset(0, 0, -1)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, 0, -1), false);
+                    if (level.getBlockState(blockPos.offset(1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(1, 0, 0), false);
+                    if (level.getBlockState(blockPos.offset(-1, 0, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(-1, 0, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 0, 1)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, 0, 1), false);
+                    if (level.getBlockState(blockPos.offset(0, 0, -1)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, 0, -1), false);
 
-                    if (level.getBlockState(blockPos.offset(1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(1, 1, 0), false);
-                    if (level.getBlockState(blockPos.offset(-1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(-1, 1, 0), false);
-                    if (level.getBlockState(blockPos.offset(0, 1, 1)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, 1, 1), false);
-                    if (level.getBlockState(blockPos.offset(0, 1, -1)) == Blocks.COBBLESTONE.defaultBlockState())
-                        level.destroyBlock(blockPos.offset(0, 1, -1), false);
+                    if (level.getBlockState(blockPos.offset(1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(1, 1, 0), false);
+                    if (level.getBlockState(blockPos.offset(-1, 1, 0)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(-1, 1, 0), false);
+                    if (level.getBlockState(blockPos.offset(0, 1, 1)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, 1, 1), false);
+                    if (level.getBlockState(blockPos.offset(0, 1, -1)) == Blocks.COBBLESTONE.defaultBlockState()) level.destroyBlock(blockPos.offset(0, 1, -1), false);
 
                 } else {
-                    if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, -1, 0)).isAir() || level.getBlockState(blockPos.offset(0, -1, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, -1, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, -1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, 2, 0)).isAir() || level.getBlockState(blockPos.offset(0, 2, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, 2, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, 2, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
 
-                    if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(1, 0, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(1, 0, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(-1, 0, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 0, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(-1, 0, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(-1, 0, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, 0, 1)).isAir() || level.getBlockState(blockPos.offset(0, 0, 1)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, 0, 1)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, 0, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, 0, -1)).isAir() || level.getBlockState(blockPos.offset(0, 0, -1)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, 0, -1)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, 0, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
 
-                    if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(1, 1, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(1, 1, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(-1, 1, 0)).isAir() || level.getBlockState(blockPos.offset(-1, 1, 0)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(-1, 1, 0)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(-1, 1, 0), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, 1, 1)).isAir() || level.getBlockState(blockPos.offset(0, 1, 1)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, 1, 1)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, 1, 1), Blocks.COBBLESTONE.defaultBlockState(), 11);
-                    if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE) || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
+                    if (level.getBlockState(blockPos.offset(0, 1, -1)).isAir() || level.getBlockState(blockPos.offset(0, 1, -1)).is(BlockTags.REPLACEABLE)
+                            || level.getBlockState(blockPos.offset(0, 1, -1)).is(Blocks.SNOW))
                         level.setBlock(blockPos.offset(0, 1, -1), Blocks.COBBLESTONE.defaultBlockState(), 11);
                 }
 
-           /* CHANGING */
+                /* CHANGING */
             } else if (item == ModItems.CHANGING_WAND.get()) {
                 if (!level.isClientSide) {
                     if (!this.handleInteraction(player, level.getBlockState(clickedPos), level, clickedPos, true, event.getItemInHand())) {
@@ -216,7 +206,7 @@ public class ItemWand extends Item {
                     }
                 }
 
-            /* CREATURE */
+                /* CREATURE */
             } else if (item == ModItems.CREATURE_WAND.get()) {
                 AltarHelper.getRandomWeakMob(level, clickedPos);
                 AltarHelper.getRandomWeakMob(level, clickedPos);
@@ -224,16 +214,17 @@ public class ItemWand extends Item {
             }
 
 
-            //general stuff
+            // general stuff
             stack.setDamageValue(stack.getDamageValue() + 1);
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
-                level.playSound((Player) null, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                level.playSound((Player) null, event.getPlayer().getX(), event.getPlayer().getY(), event.getPlayer().getZ(), SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F,
+                        0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 stack.shrink(1);
             }
         }
 
-        if(level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
+        if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResult.SUCCESS;
     }
 
@@ -244,39 +235,40 @@ public class ItemWand extends Item {
         Level level = player.level();
         Random random = new Random();
 
-        level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ILLUSIONER_MIRROR_MOVE, SoundSource.PLAYERS, 0.5F,
+                0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
         /* AETHER */
         if (item == ModItems.AETHER_WAND.get()) {
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.LEVITATION, 100, 1), 1);
 
-        /* CURSE */
+            /* CURSE */
         } else if (item == ModItems.CURSE_WAND.get()) {
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.UNLUCK, 10000, 0), 2);
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.WITHER, 100, 0), 2);
             player.hurt(level.damageSources().magic(), 2.0F);
 
-        /* HOLY */
+            /* HOLY */
         } else if (item == ModItems.HOLY_WAND.get()) {
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 0);
 
-        /* STORM */
+            /* STORM */
         } else if (item == ModItems.STORM_WAND.get()) {
             SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, level, player.position());
             SpellHelper.spawnSpellEffect(SpellShapes.SINGLE, ParticleTypes.SMOKE, 20, 3, level, player.position());
-            //player.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(20);
+            // player.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(20);
 
-        /* NETHER */
+            /* NETHER */
         } else if (item == ModItems.NETHER_WAND.get()) {
             entity.setRemainingFireTicks(10);
 
-        /* MAELSTROM */
+            /* MAELSTROM */
         } else if (item == ModItems.MAELSTROM_WAND.get()) {
             SpellHelper.addPlayerEffects(entity, new MobEffectInstance(MobEffects.WITHER, 200, 0), 1.0F);
 
-        /* THUNDER */
+            /* THUNDER */
         } else if (item == ModItems.THUNDER_WAND.get()) {
-            if(!level.isClientSide) {
+            if (!level.isClientSide) {
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
                 lightningbolt.setDeltaMovement(entity.getX(), entity.getY(), entity.getZ());
                 level.addFreshEntity(lightningbolt);
@@ -284,13 +276,14 @@ public class ItemWand extends Item {
         }
 
 
-        //general stuff
+        // general stuff
         if (item != ModItems.STORM_WAND.get()) player.getCooldowns().addCooldown(stack, 150);
         if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
 
         stack.setDamageValue(stack.getDamageValue() + 1);
         if (stack.getDamageValue() == stack.getMaxDamage()) {
-            level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+            level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F,
+                    0.4F / (random.nextFloat() * 0.4F + 0.8F));
             stack.shrink(1);
         }
 
@@ -300,8 +293,8 @@ public class ItemWand extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, @Nullable EquipmentSlot slot) {
-        /* STORM */  //TODO: rework
-        if(stack.getItem() == ModItems.STORM_WAND.get() && !stack.isEnchanted()) {
+        /* STORM */ // TODO: rework
+        if (stack.getItem() == ModItems.STORM_WAND.get() && !stack.isEnchanted()) {
             Registry<Enchantment> enchantmentsRegistry = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
 
             stack.enchant(enchantmentsRegistry.getOrThrow(Enchantments.KNOCKBACK), 5);
@@ -310,30 +303,22 @@ public class ItemWand extends Item {
     }
 
 
-    /*      TODO: Buggy, using onEntitySwing meanwhile
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        Random random = new Random();
-        ItemStack stack = player.getUseItem();
-
-        // AETHER //
-        if(stack.getItem() == ModItems.AETHER_WAND.get()) {
-            level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-            player.setDeltaMovement(player.getDeltaMovement().x, 0.5D, player.getDeltaMovement().z);
-            player.fallDistance = 0.0F;
-
-            level.addParticle(ParticleTypes.SWEEP_ATTACK, player.position().x, player.position().y + 1, player.position().z, 0.0D, 0.0D, 0.0D);
-            if (level.isClientSide) player.awardStat(Stats.ITEM_USED.get(this));
-            stack.setDamageValue(stack.getDamageValue() + 1);
-
-            if (stack.getDamageValue() == stack.getMaxDamage()) {
-                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                stack.shrink(1);
-            }
-        }
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
-    }
-   **/
+    /*
+     * TODO: Buggy, using onEntitySwing meanwhile
+     *
+     * @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) { Random random = new Random(); ItemStack stack =
+     * player.getUseItem();
+     *
+     * // AETHER // if(stack.getItem() == ModItems.AETHER_WAND.get()) { level.playSound((Player) null, player.position().x, player.position().y, player.position().z,
+     * SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)); player.setDeltaMovement(player.getDeltaMovement().x, 0.5D,
+     * player.getDeltaMovement().z); player.fallDistance = 0.0F;
+     *
+     * level.addParticle(ParticleTypes.SWEEP_ATTACK, player.position().x, player.position().y + 1, player.position().z, 0.0D, 0.0D, 0.0D); if (level.isClientSide)
+     * player.awardStat(Stats.ITEM_USED.get(this)); stack.setDamageValue(stack.getDamageValue() + 1);
+     *
+     * if (stack.getDamageValue() == stack.getMaxDamage()) { level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK,
+     * SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)); stack.shrink(1); } } return InteractionResultHolder.sidedSuccess(stack, level.isClientSide()); }
+     **/
 
 
     @Override
@@ -343,8 +328,9 @@ public class ItemWand extends Item {
         Level level = entity.level();
 
         /* AETHER */
-        if(stack.getItem() == ModItems.AETHER_WAND.get()) {
-            level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        if (stack.getItem() == ModItems.AETHER_WAND.get()) {
+            level.playSound((Player) null, entity.position().x, entity.position().y, entity.position().z, SoundEvents.PHANTOM_FLAP, SoundSource.PLAYERS, 0.5F,
+                    0.4F / (random.nextFloat() * 0.4F + 0.8F));
             entity.setDeltaMovement(entity.getDeltaMovement().x, 0.5D, entity.getDeltaMovement().z);
             entity.fallDistance = 0.0F;
 
@@ -356,7 +342,8 @@ public class ItemWand extends Item {
             }
 
             if (stack.getDamageValue() == stack.getMaxDamage()) {
-                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                level.playSound((Player) null, player.position().x, player.position().y, player.position().z, SoundEvents.ITEM_BREAK, SoundSource.PLAYERS, 0.5F,
+                        0.4F / (random.nextFloat() * 0.4F + 0.8F));
                 stack.shrink(1);
             }
         }
@@ -372,22 +359,22 @@ public class ItemWand extends Item {
 
         } else {
             Holder<Block> holder = state.getBlockHolder();
-            StateDefinition<Block, BlockState> statedefinition = ((Block)holder.value()).getStateDefinition();
+            StateDefinition<Block, BlockState> statedefinition = ((Block) holder.value()).getStateDefinition();
             Collection<Property<?>> collection = statedefinition.getProperties();
             if (collection.isEmpty()) {
                 message(player, Component.translatable(this.getDescriptionId() + ".empty", new Object[]{holder.getRegisteredName()}));
                 return false;
 
             } else {
-                DebugStickState debugstickstate = (DebugStickState)stack.get(DataComponents.DEBUG_STICK_STATE);
+                DebugStickState debugstickstate = (DebugStickState) stack.get(DataComponents.DEBUG_STICK_STATE);
                 if (debugstickstate == null) {
                     return false;
 
                 } else {
-                    Property<?> property = (Property)debugstickstate.properties().get(holder);
+                    Property<?> property = (Property) debugstickstate.properties().get(holder);
                     if (p_150807_) {
                         if (property == null) {
-                            property = (Property)collection.iterator().next();
+                            property = (Property) collection.iterator().next();
                         }
 
                         BlockState blockstate = cycleState(state, property, player.isSecondaryUseActive());
@@ -397,7 +384,7 @@ public class ItemWand extends Item {
                         message(player, Component.translatable(this.getDescriptionId() + ".update", new Object[]{property.getName(), getNameHelper(blockstate, property)}));
 
                     } else {
-                        property = (Property)getRelative(collection, property, player.isSecondaryUseActive());
+                        property = (Property) getRelative(collection, property, player.isSecondaryUseActive());
                         stack.set(DataComponents.DEBUG_STICK_STATE, debugstickstate.withProperty(holder, property));
                         message(player, Component.translatable(this.getDescriptionId() + ".select", new Object[]{property.getName(), getNameHelper(state, property)}));
                     }
@@ -408,8 +395,9 @@ public class ItemWand extends Item {
         }
     }
 
+
     private static void message(Player player, Component component) {
-        ((ServerPlayer)player).sendSystemMessage(component, true);
+        ((ServerPlayer) player).sendSystemMessage(component, true);
     }
 
 
@@ -419,7 +407,7 @@ public class ItemWand extends Item {
 
 
     private static <T> T getRelative(Iterable<T> allowedValues, @Nullable T currentValue, boolean backwards) {
-        return (T)(backwards ? Util.findPreviousInIterable(allowedValues, currentValue) : Util.findNextInIterable(allowedValues, currentValue));
+        return (T) (backwards ? Util.findPreviousInIterable(allowedValues, currentValue) : Util.findNextInIterable(allowedValues, currentValue));
     }
 
 
@@ -428,4 +416,3 @@ public class ItemWand extends Item {
     }
 
 }
-
