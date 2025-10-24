@@ -8,7 +8,11 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.TriState;
@@ -29,6 +33,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.BasicItemListing;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -54,6 +59,14 @@ import java.util.Random;
 
 @EventBusSubscriber(modid = References.MODID)
 public class Events {
+
+    @SubscribeEvent
+    private static void addFeaturePacks(final AddPackFindersEvent event) {
+        event.addPackFinders(ResourceLocation.fromNamespaceAndPath(References.MODID, "packs/no_book_on_first_join"), PackType.SERVER_DATA,
+                Component.literal("Disable RuneCraft book upon entering the world!"), PackSource.FEATURE, false, Pack.Position.TOP);
+
+    }
+
 
     /** Rune Stone Functions **/
 

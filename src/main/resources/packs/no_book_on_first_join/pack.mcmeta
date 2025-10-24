@@ -1,0 +1,9 @@
+{
+    "pack": {
+        "description": "Disable the description book being given upon entering the world!",
+        "max_format": [
+            999999
+        ],
+        "min_format": 88
+    }
+}
