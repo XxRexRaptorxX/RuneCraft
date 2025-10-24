@@ -37,7 +37,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="patchouli"
 mandatory=false
-type="optional"
+type="required"
 reason="Is needed for the in-game description book, because the mod is quite complex."
 versionRange="[1.21,)"
 ordering="NONE"
