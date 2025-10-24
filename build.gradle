@@ -236,6 +236,7 @@ afterEvaluate {
             // The scope can be `required`, `optional`, `incompatible`, or `embedded`
             // The type can either be `project` or `version`
             required.project "magma-core"
+            required.project "guideme"
             optional.project "patchouli"
             optional.project "jei"
             optional.project "just-enough-effect-descriptions-jeed"
