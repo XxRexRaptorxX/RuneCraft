@@ -35,8 +35,17 @@ ordering="NONE"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="patchouli"
+modId="guideme"
 mandatory=true
+type="required"
+reason="Is needed for the in-game description book, because the mod is quite complex."
+versionRange="[21.5,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="patchouli"
+mandatory=false
 type="optional"
 reason="Is needed for the in-game description book, because the mod is quite complex."
 versionRange="[1.21,)"

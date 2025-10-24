@@ -14,22 +14,22 @@
 
 This mod focuses on rune magic! You can use runes to put them on rune stones to make them spread effects. Or write them on different items to turn orbs into valuable resources, soul orbs into spawn eggs, write rituals & spells on magical pages, or make wands and other powerful things with them.
 
-With this magical pages you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
+With these magical pages, you can perform various rituals on the altar and summon treasures, monsters, potions, spells, curses and other powerful items!
 
  -----
-#### Features: 
+#### Features:
 - currently 30 blocks with specialeffects!
 - items with custom effects!
 - wands, spells, curses and much more!
 - achievements / advancements
 - emissive textures support
 - structures
-- [JEI](https://www.curseforge.com/minecraft/mc-mods/jei) support
-- [JEED](https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed) support
+- [JEI][cf_jei] support
+- [JEED][cf_jeed] support
 - [Better Combat](https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus) support
 - [Epic Fight](https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod) support
-- [Supplementaries](https://www.curseforge.com/minecraft/mc-mods/supplementaries) support
-- [Patchouli](https://www.curseforge.com/minecraft/mc-mods/patchouli) ingame manual
+- [Supplementaries][cf_supplementaries] support
+- [Patchouli][cf_patchouli] & [GuideME][cf_guideMe] ingame manual
 - update-checker
 - lots of config options
 - mod compatible
@@ -62,13 +62,13 @@ With this magical pages you can perform various rituals on the altar and summon 
 
 ### Required:
 - **Magma Core** *[≥ MC 1.21.5]*
-  - Provides basic code and features such as update-checker 
+  - Provides basic code and features such as update-checker
   - [CurseForge][cf_magmacore] | [Modrinth][mr_magmacore]
 - **GuideMe** *[≥ MC 1.21.5]*
   - Provides an ingame manual
   - [CurseForge][cf_guideMe] | [Modrinth][mr_guideMe]
 - **Patchouli** *[< MC 1.21.5]*
-  - Provides an ingame manual 
+  - Provides an ingame manual
   - [CurseForge][cf_patchouli] | [Modrinth][mr_patchouli]
 
 ### Supported:
@@ -76,8 +76,8 @@ With this magical pages you can perform various rituals on the altar and summon 
   - Provides some additional info pages and shows all recipes
   - [CurseForge][cf_jei] | [Modrinth][mr_jei]
 - **Just Enough Effect Descriptions (JEED)**
-  - Shows which items and blocks contain effects 
-  - [CurseForge][cf_jeed] | [Modrinth][mr_jeed] 
+  - Shows which items and blocks contain effects
+  - [CurseForge][cf_jeed] | [Modrinth][mr_jeed]
 - **MoreMcmeta Emissive Textures**
   - Enables the emissive textures of the mod
   - [CurseForge][cf_mcmeta] | [Modrinth][mr_mcmeta]
@@ -85,7 +85,7 @@ With this magical pages you can perform various rituals on the altar and summon 
   - Enables the emissive textures of the mod
   - [CurseForge][cf_continuity] | [Modrinth][mr_continuity]
 - **Supplementaries**
-  - Map marker implementation of some blocks & hourglass support
+  - Map marker implementation of some blocks
   - [CurseForge][cf_supplementaries] | [Modrinth][mr_supplementaries]
 
 
