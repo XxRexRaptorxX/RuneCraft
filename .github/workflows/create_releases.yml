@@ -1,4 +1,4 @@
-name: Create previous-version Dev release
+name: Create releases
 
 on:
   push:
