@@ -1,9 +1,12 @@
 package xxrexraptorxx.runecraft.registry;
 
+import guideme.Guides;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import xxrexraptorxx.runecraft.main.References;
@@ -150,5 +153,9 @@ public class CreativeTabs {
                         output.accept(ModBlocks.RUNE_STONE_FRE.get());
                         output.accept(ModBlocks.RUNE_STONE_HRD.get());
                         output.accept(ModBlocks.RUNE_STONE_PTL.get());
+
+                        if (ModList.get().isLoaded("guideme")) {
+                            output.accept(Guides.createGuideItem(ResourceLocation.fromNamespaceAndPath(References.MODID, "book_of_rune_magic")));
+                        }
                     }).build());
 }
